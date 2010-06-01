@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://code.google.com/p/soot-typestate/" 
+       class = "soot.typestate.automata.automata.AutomataPackage"
+       genModel = "soot/typestate/automata/Automata.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>
