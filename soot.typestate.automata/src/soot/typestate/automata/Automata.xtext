@@ -1,0 +1,31 @@
+grammar soot.typestate.automata.Automata with org.eclipse.xtext.common.Terminals
+
+generate automata "http://code.google.com/p/soot-typestate/"
+
+Automata :
+	(package=Package)?
+	(automata+=Automaton)+ ;
+
+Package : 'package' JAVAID ';' ;
+
+Automaton :
+	'automaton' Class '{'
+		(states+=State)+
+	'}';
+
+Class : name=JAVAID ;
+
+State :
+	(initial?='initial')? 'state' name=ID '{'
+		(transitions+=Transition)*
+	'}';
+
+Transition :
+	(method=Method) '->' (state=[State]) ';';
+
+Method :
+	(returntype=Type) (name=ID) '(' (args+=Type)* ')';
+
+Type : name=JAVAID ;
+
+JAVAID : ID('.' ID)*;
