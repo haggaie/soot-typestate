@@ -35,6 +35,15 @@ public interface AutomataFactory extends EFactory
   Automata createAutomata();
 
   /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
    * Returns a new object of class '<em>Automaton</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,6 +87,15 @@ public interface AutomataFactory extends EFactory
    * @generated
    */
   Method createMethod();
+
+  /**
+   * Returns a new object of class '<em>Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constructor</em>'.
+   * @generated
+   */
+  Constructor createConstructor();
 
   /**
    * Returns a new object of class '<em>Type</em>'.

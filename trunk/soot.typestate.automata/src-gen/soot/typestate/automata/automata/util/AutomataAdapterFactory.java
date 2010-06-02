@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -89,6 +90,11 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
         return createAutomataAdapter();
       }
       @Override
+      public Adapter casePackage(soot.typestate.automata.automata.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
       public Adapter caseAutomaton(Automaton object)
       {
         return createAutomatonAdapter();
@@ -112,6 +118,11 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethod(Method object)
       {
         return createMethodAdapter();
+      }
+      @Override
+      public Adapter caseConstructor(Constructor object)
+      {
+        return createConstructorAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -151,6 +162,21 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAutomataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link soot.typestate.automata.automata.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see soot.typestate.automata.automata.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
   {
     return null;
   }
@@ -226,6 +252,21 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link soot.typestate.automata.automata.Constructor <em>Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see soot.typestate.automata.automata.Constructor
+   * @generated
+   */
+  public Adapter createConstructorAdapter()
   {
     return null;
   }

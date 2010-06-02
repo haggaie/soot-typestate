@@ -17,6 +17,7 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -75,11 +76,13 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
     switch (eClass.getClassifierID())
     {
       case AutomataPackage.AUTOMATA: return createAutomata();
+      case AutomataPackage.PACKAGE: return createPackage();
       case AutomataPackage.AUTOMATON: return createAutomaton();
       case AutomataPackage.CLASS: return createClass();
       case AutomataPackage.STATE: return createState();
       case AutomataPackage.TRANSITION: return createTransition();
       case AutomataPackage.METHOD: return createMethod();
+      case AutomataPackage.CONSTRUCTOR: return createConstructor();
       case AutomataPackage.TYPE: return createType();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -95,6 +98,17 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
   {
     AutomataImpl automata = new AutomataImpl();
     return automata;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public soot.typestate.automata.automata.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
   }
 
   /**
@@ -150,6 +164,17 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
   {
     MethodImpl method = new MethodImpl();
     return method;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constructor createConstructor()
+  {
+    ConstructorImpl constructor = new ConstructorImpl();
+    return constructor;
   }
 
   /**

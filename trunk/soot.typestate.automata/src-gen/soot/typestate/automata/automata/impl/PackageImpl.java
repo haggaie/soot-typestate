@@ -5,39 +5,29 @@
  */
 package soot.typestate.automata.automata.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import soot.typestate.automata.automata.AutomataPackage;
-import soot.typestate.automata.automata.Type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Class</b></em>'.
+ * An implementation of the model object '<em><b>Package</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link soot.typestate.automata.automata.impl.ClassImpl#getName <em>Name</em>}</li>
- *   <li>{@link soot.typestate.automata.automata.impl.ClassImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link soot.typestate.automata.automata.impl.PackageImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ClassImpl extends ConstructorImpl implements soot.typestate.automata.automata.Class
+public class PackageImpl extends MinimalEObjectImpl.Container implements soot.typestate.automata.automata.Package
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -60,21 +50,11 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArgs()
-   * @generated
-   * @ordered
-   */
-  protected EList<Type> args;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ClassImpl()
+  protected PackageImpl()
   {
     super();
   }
@@ -87,7 +67,7 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
   @Override
   protected EClass eStaticClass()
   {
-    return AutomataPackage.Literals.CLASS;
+    return AutomataPackage.Literals.PACKAGE;
   }
 
   /**
@@ -110,37 +90,7 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.CLASS__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Type> getArgs()
-  {
-    if (args == null)
-    {
-      args = new EObjectContainmentEList<Type>(Type.class, this, AutomataPackage.CLASS__ARGS);
-    }
-    return args;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AutomataPackage.CLASS__ARGS:
-        return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.PACKAGE__NAME, oldName, name));
   }
 
   /**
@@ -153,10 +103,8 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
   {
     switch (featureID)
     {
-      case AutomataPackage.CLASS__NAME:
+      case AutomataPackage.PACKAGE__NAME:
         return getName();
-      case AutomataPackage.CLASS__ARGS:
-        return getArgs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,18 +114,13 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case AutomataPackage.CLASS__NAME:
+      case AutomataPackage.PACKAGE__NAME:
         setName((String)newValue);
-        return;
-      case AutomataPackage.CLASS__ARGS:
-        getArgs().clear();
-        getArgs().addAll((Collection<? extends Type>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +136,8 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
   {
     switch (featureID)
     {
-      case AutomataPackage.CLASS__NAME:
+      case AutomataPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case AutomataPackage.CLASS__ARGS:
-        getArgs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +153,8 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
   {
     switch (featureID)
     {
-      case AutomataPackage.CLASS__NAME:
+      case AutomataPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AutomataPackage.CLASS__ARGS:
-        return args != null && !args.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -238,4 +176,4 @@ public class ClassImpl extends ConstructorImpl implements soot.typestate.automat
     return result.toString();
   }
 
-} //ClassImpl
+} //PackageImpl

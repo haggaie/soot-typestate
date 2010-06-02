@@ -16,6 +16,7 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -35,6 +36,13 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * @generated
    */
   private EClass automataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,6 +78,13 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * @generated
    */
   private EClass methodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constructorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -156,9 +171,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAutomata_Package()
+  public EReference getAutomata_Package()
   {
-    return (EAttribute)automataEClass.getEStructuralFeatures().get(0);
+    return (EReference)automataEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -176,9 +191,69 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPackage()
+  {
+    return packageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackage_Name()
+  {
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAutomaton()
   {
     return automatonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAutomaton_Klass()
+  {
+    return (EReference)automatonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAutomaton_InitialState()
+  {
+    return (EReference)automatonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAutomaton_ErrorState()
+  {
+    return (EReference)automatonEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAutomaton_States()
+  {
+    return (EReference)automatonEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -196,9 +271,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_States()
+  public EAttribute getClass_Name()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -206,9 +281,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClass_Name()
+  public EReference getClass_Args()
   {
-    return (EAttribute)classEClass.getEStructuralFeatures().get(1);
+    return (EReference)classEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -326,6 +401,16 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConstructor()
+  {
+    return constructorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getType()
   {
     return typeEClass;
@@ -372,14 +457,21 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
 
     // Create classes and their features
     automataEClass = createEClass(AUTOMATA);
-    createEAttribute(automataEClass, AUTOMATA__PACKAGE);
+    createEReference(automataEClass, AUTOMATA__PACKAGE);
     createEReference(automataEClass, AUTOMATA__AUTOMATA);
 
+    packageEClass = createEClass(PACKAGE);
+    createEAttribute(packageEClass, PACKAGE__NAME);
+
     automatonEClass = createEClass(AUTOMATON);
+    createEReference(automatonEClass, AUTOMATON__KLASS);
+    createEReference(automatonEClass, AUTOMATON__INITIAL_STATE);
+    createEReference(automatonEClass, AUTOMATON__ERROR_STATE);
+    createEReference(automatonEClass, AUTOMATON__STATES);
 
     classEClass = createEClass(CLASS);
-    createEReference(classEClass, CLASS__STATES);
     createEAttribute(classEClass, CLASS__NAME);
+    createEReference(classEClass, CLASS__ARGS);
 
     stateEClass = createEClass(STATE);
     createEAttribute(stateEClass, STATE__INITIAL);
@@ -394,6 +486,8 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     createEReference(methodEClass, METHOD__RETURNTYPE);
     createEAttribute(methodEClass, METHOD__NAME);
     createEReference(methodEClass, METHOD__ARGS);
+
+    constructorEClass = createEClass(CONSTRUCTOR);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
@@ -428,18 +522,26 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    classEClass.getESuperTypes().add(this.getAutomaton());
+    classEClass.getESuperTypes().add(this.getConstructor());
+    constructorEClass.getESuperTypes().add(this.getTransition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(automataEClass, Automata.class, "Automata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAutomata_Package(), ecorePackage.getEString(), "package", null, 0, 1, Automata.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAutomata_Package(), this.getPackage(), null, "package", null, 0, 1, Automata.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAutomata_Automata(), this.getAutomaton(), null, "automata", null, 0, -1, Automata.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(packageEClass, soot.typestate.automata.automata.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, soot.typestate.automata.automata.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(automatonEClass, Automaton.class, "Automaton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAutomaton_Klass(), this.getClass_(), null, "klass", null, 0, 1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAutomaton_InitialState(), this.getState(), null, "initialState", null, 0, 1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAutomaton_ErrorState(), this.getState(), null, "errorState", null, 0, 1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAutomaton_States(), this.getState(), null, "states", null, 0, -1, Automaton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, soot.typestate.automata.automata.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClass_States(), this.getState(), null, "states", null, 0, -1, soot.typestate.automata.automata.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, soot.typestate.automata.automata.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Args(), this.getType(), null, "args", null, 0, -1, soot.typestate.automata.automata.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getState_Initial(), ecorePackage.getEBoolean(), "initial", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -454,6 +556,8 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     initEReference(getMethod_Returntype(), this.getType(), null, "returntype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Args(), this.getType(), null, "args", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

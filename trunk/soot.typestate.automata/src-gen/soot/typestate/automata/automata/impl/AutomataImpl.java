@@ -42,24 +42,14 @@ import soot.typestate.automata.automata.Automaton;
 public class AutomataImpl extends MinimalEObjectImpl.Container implements Automata
 {
   /**
-   * The default value of the '{@link #getPackage() <em>Package</em>}' attribute.
+   * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPackage()
    * @generated
    * @ordered
    */
-  protected static final String PACKAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPackage() <em>Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPackage()
-   * @generated
-   * @ordered
-   */
-  protected String package_ = PACKAGE_EDEFAULT;
+  protected soot.typestate.automata.automata.Package package_;
 
   /**
    * The cached value of the '{@link #getAutomata() <em>Automata</em>}' containment reference list.
@@ -97,7 +87,7 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPackage()
+  public soot.typestate.automata.automata.Package getPackage()
   {
     return package_;
   }
@@ -107,12 +97,37 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPackage(String newPackage)
+  public NotificationChain basicSetPackage(soot.typestate.automata.automata.Package newPackage, NotificationChain msgs)
   {
-    String oldPackage = package_;
+    soot.typestate.automata.automata.Package oldPackage = package_;
     package_ = newPackage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.AUTOMATA__PACKAGE, oldPackage, package_));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AutomataPackage.AUTOMATA__PACKAGE, oldPackage, newPackage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackage(soot.typestate.automata.automata.Package newPackage)
+  {
+    if (newPackage != package_)
+    {
+      NotificationChain msgs = null;
+      if (package_ != null)
+        msgs = ((InternalEObject)package_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.AUTOMATA__PACKAGE, null, msgs);
+      if (newPackage != null)
+        msgs = ((InternalEObject)newPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.AUTOMATA__PACKAGE, null, msgs);
+      msgs = basicSetPackage(newPackage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.AUTOMATA__PACKAGE, newPackage, newPackage));
   }
 
   /**
@@ -139,6 +154,8 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
   {
     switch (featureID)
     {
+      case AutomataPackage.AUTOMATA__PACKAGE:
+        return basicSetPackage(null, msgs);
       case AutomataPackage.AUTOMATA__AUTOMATA:
         return ((InternalEList<?>)getAutomata()).basicRemove(otherEnd, msgs);
     }
@@ -175,7 +192,7 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
     switch (featureID)
     {
       case AutomataPackage.AUTOMATA__PACKAGE:
-        setPackage((String)newValue);
+        setPackage((soot.typestate.automata.automata.Package)newValue);
         return;
       case AutomataPackage.AUTOMATA__AUTOMATA:
         getAutomata().clear();
@@ -196,7 +213,7 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
     switch (featureID)
     {
       case AutomataPackage.AUTOMATA__PACKAGE:
-        setPackage(PACKAGE_EDEFAULT);
+        setPackage((soot.typestate.automata.automata.Package)null);
         return;
       case AutomataPackage.AUTOMATA__AUTOMATA:
         getAutomata().clear();
@@ -216,28 +233,11 @@ public class AutomataImpl extends MinimalEObjectImpl.Container implements Automa
     switch (featureID)
     {
       case AutomataPackage.AUTOMATA__PACKAGE:
-        return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
+        return package_ != null;
       case AutomataPackage.AUTOMATA__AUTOMATA:
         return automata != null && !automata.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (package: ");
-    result.append(package_);
-    result.append(')');
-    return result.toString();
   }
 
 } //AutomataImpl

@@ -29,30 +29,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Automata extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Package</b></em>' attribute.
+   * Returns the value of the '<em><b>Package</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Package</em>' attribute isn't clear,
+   * If the meaning of the '<em>Package</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Package</em>' attribute.
-   * @see #setPackage(String)
+   * @return the value of the '<em>Package</em>' containment reference.
+   * @see #setPackage(soot.typestate.automata.automata.Package)
    * @see soot.typestate.automata.automata.AutomataPackage#getAutomata_Package()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPackage();
+  soot.typestate.automata.automata.Package getPackage();
 
   /**
-   * Sets the value of the '{@link soot.typestate.automata.automata.Automata#getPackage <em>Package</em>}' attribute.
+   * Sets the value of the '{@link soot.typestate.automata.automata.Automata#getPackage <em>Package</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Package</em>' attribute.
+   * @param value the new value of the '<em>Package</em>' containment reference.
    * @see #getPackage()
    * @generated
    */
-  void setPackage(String value);
+  void setPackage(soot.typestate.automata.automata.Package value);
 
   /**
    * Returns the value of the '<em><b>Automata</b></em>' containment reference list.

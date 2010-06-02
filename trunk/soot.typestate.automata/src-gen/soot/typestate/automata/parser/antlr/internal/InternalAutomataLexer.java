@@ -13,9 +13,11 @@ import java.util.ArrayList;
 public class InternalAutomataLexer extends Lexer {
     public static final int RULE_ID=4;
     public static final int RULE_ANY_OTHER=10;
-    public static final int Tokens=22;
+    public static final int Tokens=24;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T23=23;
+    public static final int T22=22;
     public static final int T21=21;
     public static final int T20=20;
     public static final int RULE_ML_COMMENT=7;
@@ -115,10 +117,11 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT15() throws RecognitionException {
         try {
             int _type = T15;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:14:5: ( '}' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:14:7: '}'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:14:5: ( 'initial' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:14:7: 'initial'
             {
-            match('}'); 
+            match("initial"); 
+
 
             }
 
@@ -133,11 +136,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT16() throws RecognitionException {
         try {
             int _type = T16;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:15:5: ( 'initial' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:15:7: 'initial'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:15:5: ( '=' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:15:7: '='
             {
-            match("initial"); 
-
+            match('='); 
 
             }
 
@@ -152,10 +154,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT17() throws RecognitionException {
         try {
             int _type = T17;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:16:5: ( 'state' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:16:7: 'state'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:16:5: ( 'error' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:16:7: 'error'
             {
-            match("state"); 
+            match("error"); 
 
 
             }
@@ -171,11 +173,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT18() throws RecognitionException {
         try {
             int _type = T18;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:17:5: ( '->' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:17:7: '->'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:17:5: ( '}' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:17:7: '}'
             {
-            match("->"); 
-
+            match('}'); 
 
             }
 
@@ -190,10 +191,11 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT19() throws RecognitionException {
         try {
             int _type = T19;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:18:5: ( '(' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:18:7: '('
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:18:5: ( 'state' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:18:7: 'state'
             {
-            match('('); 
+            match("state"); 
+
 
             }
 
@@ -208,10 +210,11 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT20() throws RecognitionException {
         try {
             int _type = T20;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:19:5: ( ')' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:19:7: ')'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:19:5: ( '->' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:19:7: '->'
             {
-            match(')'); 
+            match("->"); 
+
 
             }
 
@@ -226,10 +229,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:20:5: ( '.' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:20:7: '.'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:20:5: ( '(' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:20:7: '('
             {
-            match('.'); 
+            match('('); 
 
             }
 
@@ -240,14 +243,50 @@ public class InternalAutomataLexer extends Lexer {
     }
     // $ANTLR end T21
 
+    // $ANTLR start T22
+    public final void mT22() throws RecognitionException {
+        try {
+            int _type = T22;
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:21:5: ( ')' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:21:7: ')'
+            {
+            match(')'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T22
+
+    // $ANTLR start T23
+    public final void mT23() throws RecognitionException {
+        try {
+            int _type = T23;
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:22:5: ( '.' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:22:7: '.'
+            {
+            match('.'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T23
+
     // $ANTLR start RULE_ID
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:763:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:763:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:11: ( '^' )?
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:763:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -256,7 +295,7 @@ public class InternalAutomataLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:11: '^'
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:763:11: '^'
                     {
                     match('^'); 
 
@@ -275,7 +314,7 @@ public class InternalAutomataLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:763:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -323,10 +362,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:624:10: ( ( '0' .. '9' )+ )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:624:12: ( '0' .. '9' )+
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:765:10: ( ( '0' .. '9' )+ )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:765:12: ( '0' .. '9' )+
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:624:12: ( '0' .. '9' )+
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:765:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -340,7 +379,7 @@ public class InternalAutomataLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:624:13: '0' .. '9'
+            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:765:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -370,10 +409,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -385,16 +424,16 @@ public class InternalAutomataLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("626:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("767:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -410,7 +449,7 @@ public class InternalAutomataLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -427,7 +466,7 @@ public class InternalAutomataLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -453,10 +492,10 @@ public class InternalAutomataLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -472,7 +511,7 @@ public class InternalAutomataLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -489,7 +528,7 @@ public class InternalAutomataLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:626:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:767:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -531,12 +570,12 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:628:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:628:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:769:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:769:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:628:24: ( options {greedy=false; } : . )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:769:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -561,7 +600,7 @@ public class InternalAutomataLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:628:52: .
+            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:769:52: .
             	    {
             	    matchAny(); 
 
@@ -589,12 +628,12 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -607,7 +646,7 @@ public class InternalAutomataLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -628,7 +667,7 @@ public class InternalAutomataLexer extends Lexer {
                 }
             } while (true);
 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:40: ( ( '\\r' )? '\\n' )?
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -637,9 +676,9 @@ public class InternalAutomataLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:41: ( '\\r' )? '\\n'
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:41: ( '\\r' )? '\\n'
                     {
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:41: ( '\\r' )?
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -648,7 +687,7 @@ public class InternalAutomataLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:630:41: '\\r'
+                            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:771:41: '\\r'
                             {
                             match('\r'); 
 
@@ -678,10 +717,10 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:632:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:632:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:773:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:773:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:632:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:773:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -734,8 +773,8 @@ public class InternalAutomataLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:634:16: ( . )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:634:18: .
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:775:16: ( . )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:775:18: .
             {
             matchAny(); 
 
@@ -749,54 +788,54 @@ public class InternalAutomataLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=18;
+        // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=20;
         int LA12_0 = input.LA(1);
 
         if ( (LA12_0=='p') ) {
             int LA12_1 = input.LA(2);
 
             if ( (LA12_1=='a') ) {
-                int LA12_20 = input.LA(3);
+                int LA12_22 = input.LA(3);
 
-                if ( (LA12_20=='c') ) {
-                    int LA12_37 = input.LA(4);
+                if ( (LA12_22=='c') ) {
+                    int LA12_41 = input.LA(4);
 
-                    if ( (LA12_37=='k') ) {
-                        int LA12_41 = input.LA(5);
+                    if ( (LA12_41=='k') ) {
+                        int LA12_46 = input.LA(5);
 
-                        if ( (LA12_41=='a') ) {
-                            int LA12_45 = input.LA(6);
+                        if ( (LA12_46=='a') ) {
+                            int LA12_51 = input.LA(6);
 
-                            if ( (LA12_45=='g') ) {
-                                int LA12_49 = input.LA(7);
+                            if ( (LA12_51=='g') ) {
+                                int LA12_56 = input.LA(7);
 
-                                if ( (LA12_49=='e') ) {
-                                    int LA12_53 = input.LA(8);
+                                if ( (LA12_56=='e') ) {
+                                    int LA12_61 = input.LA(8);
 
-                                    if ( ((LA12_53>='0' && LA12_53<='9')||(LA12_53>='A' && LA12_53<='Z')||LA12_53=='_'||(LA12_53>='a' && LA12_53<='z')) ) {
-                                        alt12=12;
+                                    if ( ((LA12_61>='0' && LA12_61<='9')||(LA12_61>='A' && LA12_61<='Z')||LA12_61=='_'||(LA12_61>='a' && LA12_61<='z')) ) {
+                                        alt12=14;
                                     }
                                     else {
                                         alt12=1;}
                                 }
                                 else {
-                                    alt12=12;}
+                                    alt12=14;}
                             }
                             else {
-                                alt12=12;}
+                                alt12=14;}
                         }
                         else {
-                            alt12=12;}
+                            alt12=14;}
                     }
                     else {
-                        alt12=12;}
+                        alt12=14;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=14;}
             }
             else {
-                alt12=12;}
+                alt12=14;}
         }
         else if ( (LA12_0==';') ) {
             alt12=2;
@@ -805,219 +844,255 @@ public class InternalAutomataLexer extends Lexer {
             int LA12_3 = input.LA(2);
 
             if ( (LA12_3=='u') ) {
-                int LA12_23 = input.LA(3);
+                int LA12_25 = input.LA(3);
 
-                if ( (LA12_23=='t') ) {
-                    int LA12_38 = input.LA(4);
+                if ( (LA12_25=='t') ) {
+                    int LA12_42 = input.LA(4);
 
-                    if ( (LA12_38=='o') ) {
-                        int LA12_42 = input.LA(5);
+                    if ( (LA12_42=='o') ) {
+                        int LA12_47 = input.LA(5);
 
-                        if ( (LA12_42=='m') ) {
-                            int LA12_46 = input.LA(6);
+                        if ( (LA12_47=='m') ) {
+                            int LA12_52 = input.LA(6);
 
-                            if ( (LA12_46=='a') ) {
-                                int LA12_50 = input.LA(7);
+                            if ( (LA12_52=='a') ) {
+                                int LA12_57 = input.LA(7);
 
-                                if ( (LA12_50=='t') ) {
-                                    int LA12_54 = input.LA(8);
+                                if ( (LA12_57=='t') ) {
+                                    int LA12_62 = input.LA(8);
 
-                                    if ( (LA12_54=='o') ) {
-                                        int LA12_57 = input.LA(9);
+                                    if ( (LA12_62=='o') ) {
+                                        int LA12_65 = input.LA(9);
 
-                                        if ( (LA12_57=='n') ) {
-                                            int LA12_59 = input.LA(10);
+                                        if ( (LA12_65=='n') ) {
+                                            int LA12_67 = input.LA(10);
 
-                                            if ( ((LA12_59>='0' && LA12_59<='9')||(LA12_59>='A' && LA12_59<='Z')||LA12_59=='_'||(LA12_59>='a' && LA12_59<='z')) ) {
-                                                alt12=12;
+                                            if ( ((LA12_67>='0' && LA12_67<='9')||(LA12_67>='A' && LA12_67<='Z')||LA12_67=='_'||(LA12_67>='a' && LA12_67<='z')) ) {
+                                                alt12=14;
                                             }
                                             else {
                                                 alt12=3;}
                                         }
                                         else {
-                                            alt12=12;}
+                                            alt12=14;}
                                     }
                                     else {
-                                        alt12=12;}
+                                        alt12=14;}
                                 }
                                 else {
-                                    alt12=12;}
+                                    alt12=14;}
                             }
                             else {
-                                alt12=12;}
+                                alt12=14;}
                         }
                         else {
-                            alt12=12;}
+                            alt12=14;}
                     }
                     else {
-                        alt12=12;}
+                        alt12=14;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=14;}
             }
             else {
-                alt12=12;}
+                alt12=14;}
         }
         else if ( (LA12_0=='{') ) {
             alt12=4;
         }
-        else if ( (LA12_0=='}') ) {
-            alt12=5;
-        }
         else if ( (LA12_0=='i') ) {
-            int LA12_6 = input.LA(2);
+            int LA12_5 = input.LA(2);
 
-            if ( (LA12_6=='n') ) {
-                int LA12_26 = input.LA(3);
-
-                if ( (LA12_26=='i') ) {
-                    int LA12_39 = input.LA(4);
-
-                    if ( (LA12_39=='t') ) {
-                        int LA12_43 = input.LA(5);
-
-                        if ( (LA12_43=='i') ) {
-                            int LA12_47 = input.LA(6);
-
-                            if ( (LA12_47=='a') ) {
-                                int LA12_51 = input.LA(7);
-
-                                if ( (LA12_51=='l') ) {
-                                    int LA12_55 = input.LA(8);
-
-                                    if ( ((LA12_55>='0' && LA12_55<='9')||(LA12_55>='A' && LA12_55<='Z')||LA12_55=='_'||(LA12_55>='a' && LA12_55<='z')) ) {
-                                        alt12=12;
-                                    }
-                                    else {
-                                        alt12=6;}
-                                }
-                                else {
-                                    alt12=12;}
-                            }
-                            else {
-                                alt12=12;}
-                        }
-                        else {
-                            alt12=12;}
-                    }
-                    else {
-                        alt12=12;}
-                }
-                else {
-                    alt12=12;}
-            }
-            else {
-                alt12=12;}
-        }
-        else if ( (LA12_0=='s') ) {
-            int LA12_7 = input.LA(2);
-
-            if ( (LA12_7=='t') ) {
+            if ( (LA12_5=='n') ) {
                 int LA12_27 = input.LA(3);
 
-                if ( (LA12_27=='a') ) {
-                    int LA12_40 = input.LA(4);
+                if ( (LA12_27=='i') ) {
+                    int LA12_43 = input.LA(4);
 
-                    if ( (LA12_40=='t') ) {
-                        int LA12_44 = input.LA(5);
+                    if ( (LA12_43=='t') ) {
+                        int LA12_48 = input.LA(5);
 
-                        if ( (LA12_44=='e') ) {
-                            int LA12_48 = input.LA(6);
+                        if ( (LA12_48=='i') ) {
+                            int LA12_53 = input.LA(6);
 
-                            if ( ((LA12_48>='0' && LA12_48<='9')||(LA12_48>='A' && LA12_48<='Z')||LA12_48=='_'||(LA12_48>='a' && LA12_48<='z')) ) {
-                                alt12=12;
+                            if ( (LA12_53=='a') ) {
+                                int LA12_58 = input.LA(7);
+
+                                if ( (LA12_58=='l') ) {
+                                    int LA12_63 = input.LA(8);
+
+                                    if ( ((LA12_63>='0' && LA12_63<='9')||(LA12_63>='A' && LA12_63<='Z')||LA12_63=='_'||(LA12_63>='a' && LA12_63<='z')) ) {
+                                        alt12=14;
+                                    }
+                                    else {
+                                        alt12=5;}
+                                }
+                                else {
+                                    alt12=14;}
+                            }
+                            else {
+                                alt12=14;}
+                        }
+                        else {
+                            alt12=14;}
+                    }
+                    else {
+                        alt12=14;}
+                }
+                else {
+                    alt12=14;}
+            }
+            else {
+                alt12=14;}
+        }
+        else if ( (LA12_0=='=') ) {
+            alt12=6;
+        }
+        else if ( (LA12_0=='e') ) {
+            int LA12_7 = input.LA(2);
+
+            if ( (LA12_7=='r') ) {
+                int LA12_29 = input.LA(3);
+
+                if ( (LA12_29=='r') ) {
+                    int LA12_44 = input.LA(4);
+
+                    if ( (LA12_44=='o') ) {
+                        int LA12_49 = input.LA(5);
+
+                        if ( (LA12_49=='r') ) {
+                            int LA12_54 = input.LA(6);
+
+                            if ( ((LA12_54>='0' && LA12_54<='9')||(LA12_54>='A' && LA12_54<='Z')||LA12_54=='_'||(LA12_54>='a' && LA12_54<='z')) ) {
+                                alt12=14;
                             }
                             else {
                                 alt12=7;}
                         }
                         else {
-                            alt12=12;}
+                            alt12=14;}
                     }
                     else {
-                        alt12=12;}
+                        alt12=14;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=14;}
             }
             else {
-                alt12=12;}
+                alt12=14;}
+        }
+        else if ( (LA12_0=='}') ) {
+            alt12=8;
+        }
+        else if ( (LA12_0=='s') ) {
+            int LA12_9 = input.LA(2);
+
+            if ( (LA12_9=='t') ) {
+                int LA12_31 = input.LA(3);
+
+                if ( (LA12_31=='a') ) {
+                    int LA12_45 = input.LA(4);
+
+                    if ( (LA12_45=='t') ) {
+                        int LA12_50 = input.LA(5);
+
+                        if ( (LA12_50=='e') ) {
+                            int LA12_55 = input.LA(6);
+
+                            if ( ((LA12_55>='0' && LA12_55<='9')||(LA12_55>='A' && LA12_55<='Z')||LA12_55=='_'||(LA12_55>='a' && LA12_55<='z')) ) {
+                                alt12=14;
+                            }
+                            else {
+                                alt12=9;}
+                        }
+                        else {
+                            alt12=14;}
+                    }
+                    else {
+                        alt12=14;}
+                }
+                else {
+                    alt12=14;}
+            }
+            else {
+                alt12=14;}
         }
         else if ( (LA12_0=='-') ) {
-            int LA12_8 = input.LA(2);
+            int LA12_10 = input.LA(2);
 
-            if ( (LA12_8=='>') ) {
-                alt12=8;
+            if ( (LA12_10=='>') ) {
+                alt12=10;
             }
             else {
-                alt12=18;}
+                alt12=20;}
         }
         else if ( (LA12_0=='(') ) {
-            alt12=9;
-        }
-        else if ( (LA12_0==')') ) {
-            alt12=10;
-        }
-        else if ( (LA12_0=='.') ) {
             alt12=11;
         }
-        else if ( (LA12_0=='^') ) {
-            int LA12_12 = input.LA(2);
-
-            if ( ((LA12_12>='A' && LA12_12<='Z')||LA12_12=='_'||(LA12_12>='a' && LA12_12<='z')) ) {
-                alt12=12;
-            }
-            else {
-                alt12=18;}
-        }
-        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='b' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='o')||(LA12_0>='q' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='z')) ) {
+        else if ( (LA12_0==')') ) {
             alt12=12;
         }
-        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
+        else if ( (LA12_0=='.') ) {
             alt12=13;
         }
-        else if ( (LA12_0=='\"') ) {
-            int LA12_15 = input.LA(2);
+        else if ( (LA12_0=='^') ) {
+            int LA12_14 = input.LA(2);
 
-            if ( ((LA12_15>='\u0000' && LA12_15<='\uFFFE')) ) {
+            if ( ((LA12_14>='A' && LA12_14<='Z')||LA12_14=='_'||(LA12_14>='a' && LA12_14<='z')) ) {
                 alt12=14;
             }
             else {
-                alt12=18;}
+                alt12=20;}
+        }
+        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='b' && LA12_0<='d')||(LA12_0>='f' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='o')||(LA12_0>='q' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='z')) ) {
+            alt12=14;
+        }
+        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
+            alt12=15;
+        }
+        else if ( (LA12_0=='\"') ) {
+            int LA12_17 = input.LA(2);
+
+            if ( ((LA12_17>='\u0000' && LA12_17<='\uFFFE')) ) {
+                alt12=16;
+            }
+            else {
+                alt12=20;}
         }
         else if ( (LA12_0=='\'') ) {
-            int LA12_16 = input.LA(2);
+            int LA12_18 = input.LA(2);
 
-            if ( ((LA12_16>='\u0000' && LA12_16<='\uFFFE')) ) {
-                alt12=14;
+            if ( ((LA12_18>='\u0000' && LA12_18<='\uFFFE')) ) {
+                alt12=16;
             }
             else {
-                alt12=18;}
+                alt12=20;}
         }
         else if ( (LA12_0=='/') ) {
             switch ( input.LA(2) ) {
             case '*':
                 {
-                alt12=15;
+                alt12=17;
                 }
                 break;
             case '/':
                 {
-                alt12=16;
+                alt12=18;
                 }
                 break;
             default:
-                alt12=18;}
+                alt12=20;}
 
         }
         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
-            alt12=17;
+            alt12=19;
         }
-        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<=',')||LA12_0==':'||(LA12_0>='<' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
-            alt12=18;
+        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<=',')||LA12_0==':'||LA12_0=='<'||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
+            alt12=20;
         }
         else {
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
 
             throw nvae;
         }
@@ -1100,49 +1175,63 @@ public class InternalAutomataLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:54: RULE_ID
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:54: T22
+                {
+                mT22(); 
+
+                }
+                break;
+            case 13 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:58: T23
+                {
+                mT23(); 
+
+                }
+                break;
+            case 14 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:62: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 13 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:62: RULE_INT
+            case 15 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:70: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 14 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:71: RULE_STRING
+            case 16 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:79: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 15 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:83: RULE_ML_COMMENT
+            case 17 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:91: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:99: RULE_SL_COMMENT
+            case 18 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:107: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 17 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:115: RULE_WS
+            case 19 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:123: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 18 :
-                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:123: RULE_ANY_OTHER
+            case 20 :
+                // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1:131: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

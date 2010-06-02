@@ -6,10 +6,12 @@ Automata :
 	(package=Package)?
 	(automata+=Automaton)+ ;
 
-Package : 'package' JAVAID ';' ;
+Package : 'package' name=JAVAID ';' ;
 
 Automaton :
-	'automaton' Class '{'
+	'automaton' klass=Class '{'
+		'initial' '=' initialState=[State] ';'
+		('error' '=' errorState=[State] ';')?
 		(states+=State)+
 	'}';
 
@@ -21,10 +23,13 @@ State :
 	'}';
 
 Transition :
-	(method=Method) '->' (state=[State]) ';';
+	(method=Method|Constructor) '->' (state=[State]) ';';
 
 Method :
 	(returntype=Type) (name=ID) '(' (args+=Type)* ')';
+
+Constructor :
+	Class '(' (args+=Type)* ')' ;
 
 Type : name=JAVAID ;
 
