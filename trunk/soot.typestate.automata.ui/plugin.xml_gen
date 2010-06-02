@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="automata"
+            id="soot.typestate.automata.Automata"
+            name="Automata Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="soot.typestate.automata.Automata.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
+            commandId="soot.typestate.automata.Automata.validate">
+         <activeWhen>
+            <reference
+                    definitionId="soot.typestate.automata.Automata.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="soot.typestate.automata.Automata.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.core.editor.XtextEditor.languageName" 
+                        value="soot.typestate.automata.Automata" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
+            id="soot.typestate.automata.Automata"
+            name="Automata"
+            category="org.eclipse.xtext.languages">
+            <keywordReference id="soot.typestate.automata.ui.keyword_Automata"/>
+        </page>
+        <page
+            category="soot.typestate.automata.Automata"
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="soot.typestate.automata.Automata.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="soot.typestate.automata.ui.keyword_Automata"/>
+        </page>
+        <page
+            category="soot.typestate.automata.Automata"
+            class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
+            id="soot.typestate.automata.Automata.templates"
+            name="Templates">
+            <keywordReference id="soot.typestate.automata.ui.keyword_Automata"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="soot.typestate.automata.ui.keyword_Automata"
+            label="Automata"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="soot.typestate.automata.Automata.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.open">
+             <command
+                 commandId="soot.typestate.automata.Automata.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="soot.typestate.automata.Automata.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="soot.typestate.automata.AutomataExecutableExtensionFactory:org.eclipse.xtext.resource.XtextResourceFactory"
+			type="automata">
+		</parser>
+	</extension>
+
+
+
+
+</plugin>
