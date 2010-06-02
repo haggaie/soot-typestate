@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -108,6 +109,13 @@ public class AutomataSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AutomataPackage.PACKAGE:
+      {
+        soot.typestate.automata.automata.Package package_ = (soot.typestate.automata.automata.Package)theEObject;
+        T result = casePackage(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AutomataPackage.AUTOMATON:
       {
         Automaton automaton = (Automaton)theEObject;
@@ -119,7 +127,8 @@ public class AutomataSwitch<T>
       {
         soot.typestate.automata.automata.Class class_ = (soot.typestate.automata.automata.Class)theEObject;
         T result = caseClass(class_);
-        if (result == null) result = caseAutomaton(class_);
+        if (result == null) result = caseConstructor(class_);
+        if (result == null) result = caseTransition(class_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,6 +150,14 @@ public class AutomataSwitch<T>
       {
         Method method = (Method)theEObject;
         T result = caseMethod(method);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AutomataPackage.CONSTRUCTOR:
+      {
+        Constructor constructor = (Constructor)theEObject;
+        T result = caseConstructor(constructor);
+        if (result == null) result = caseTransition(constructor);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,6 +184,22 @@ public class AutomataSwitch<T>
    * @generated
    */
   public T caseAutomata(Automata object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(soot.typestate.automata.automata.Package object)
   {
     return null;
   }
@@ -247,6 +280,22 @@ public class AutomataSwitch<T>
    * @generated
    */
   public T caseMethod(Method object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constructor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstructor(Constructor object)
   {
     return null;
   }

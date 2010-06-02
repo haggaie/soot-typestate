@@ -10,13 +10,21 @@
   <genPackages prefix="Automata" basePackage="soot.typestate.automata" disposableProviderFactory="true"
       ecorePackage="Automata.ecore#/">
     <genClasses ecoreClass="Automata.ecore#//Automata">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Automata/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Automata/package"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Automata/automata"/>
     </genClasses>
-    <genClasses ecoreClass="Automata.ecore#//Automaton"/>
+    <genClasses ecoreClass="Automata.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Package/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Automata.ecore#//Automaton">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Automaton/klass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Automata.ecore#//Automaton/initialState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Automata.ecore#//Automaton/errorState"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Automaton/states"/>
+    </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Class">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Class/states"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Class/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Class/args"/>
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//State/initial"/>
@@ -32,6 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Method/args"/>
     </genClasses>
+    <genClasses ecoreClass="Automata.ecore#//Constructor"/>
     <genClasses ecoreClass="Automata.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Type/name"/>
     </genClasses>
