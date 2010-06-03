@@ -3,8 +3,6 @@
  */
 package soot.typestate.automata;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -60,7 +58,7 @@ public class ClassAutomaton {
 		// create resource set and resource 
 		ResourceSet resourceSet = new ResourceSetImpl();
 
-		Resource resource = resourceSet.createResource(URI.createFileURI("./examples/java.util.Collection.automata"));
+		Resource resource = resourceSet.createResource(URI.createFileURI(filename));
 		resource.load(null);
 		EList<Diagnostic> errors = resource.getErrors();
 		for (Diagnostic error : errors) {
@@ -148,7 +146,8 @@ public class ClassAutomaton {
 		return Scene.v().loadClassAndSupport(className);
 	}
 	
-	private SootMethod resolveMethod(Method method) {
+	private SootMethod resolveMethod(Method method)
+	{
 		StringBuffer buffer = new StringBuffer();
 		
 		buffer.append(method.getReturntype().getName() + " " + Scene.v().quotedNameOf(method.getName()) + "(");
