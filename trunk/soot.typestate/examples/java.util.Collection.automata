@@ -3,8 +3,8 @@ package java.util;
 automaton Collection {
 	initial = EMPTY;
 	state EMPTY {
-		boolean add(Object) -> NON_EMPTY;
-		boolean addAll(Collection) -> NON_EMPTY;
+		boolean add(java.lang.Object) -> NON_EMPTY;
+		boolean addAll(java.util.Collection) -> NON_EMPTY;
 	}
 	
 	state NON_EMPTY {
