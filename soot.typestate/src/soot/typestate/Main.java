@@ -35,6 +35,7 @@ public class Main {
 		ClassAutomaton automaton = ClassAutomaton.load(args[1]);
 		
 		for (SootMethod method : klass.getMethods()) {
+			System.out.println(method);
 			Body body = method.retrieveActiveBody();
 			UnitGraph graph = new BriefUnitGraph(body);
 			Typestate typestate = new Typestate(graph, automaton);

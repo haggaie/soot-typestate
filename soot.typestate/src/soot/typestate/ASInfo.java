@@ -29,7 +29,35 @@ public class ASInfo {
 		return new ASInfo(this);
 	}
 
+	// Merge the other node into this one.
 	public void merge(ASInfo other) {
-		states.union(other.states);
+		merge(other.states);
+	}
+	
+	// Add the new states to the current ones.
+	public void merge(FlowSet states) {
+		states.union(states);
+	}
+	
+	// Return the set of states.
+	public FlowSet getStates() {
+		return states;
+	}
+	
+	// Update the set of states.
+	public void setStates(FlowSet states) {
+		states.copy(this.states);
+	}
+	
+
+	// Copy our data into another node.
+	public void copy(ASInfo outInfo) {
+		outInfo.setStates(states);
+	}
+
+	// Convert to string for debugging.
+	@Override
+	public String toString() {
+		return "ASInfo(" + states.toString() + ")";
 	}
 }

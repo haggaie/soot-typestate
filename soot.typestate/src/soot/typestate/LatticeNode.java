@@ -4,7 +4,10 @@
 package soot.typestate;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+
+import soot.toolkits.scalar.FlowUniverse;
 
 /**
  * @author fshaked
@@ -12,10 +15,13 @@ import java.util.Map;
  */
 public class LatticeNode {
 	private final Map<Integer, ASInfo> map;
+	// An empty ASInfo ready for insertion for missing allocation sites.
+	private final ASInfo emptyASInfo;
 	
-	LatticeNode()
+	LatticeNode(FlowUniverse<Integer> statesUniverse)
 	{
 		map = new HashMap<Integer, ASInfo>();
+		emptyASInfo = new ASInfo(statesUniverse);
 	}
 	
 	void union(LatticeNode other, LatticeNode dest)
@@ -42,5 +48,41 @@ public class LatticeNode {
 	public boolean equals(Object obj) {
 		LatticeNode other = (LatticeNode) obj;
 		return map.equals(other.map);
+	}
+	
+	// Return the ASInfo for a given allocation site.
+	public ASInfo getASInfo(Integer allocSite)
+	{
+		if (!map.containsKey(allocSite))
+			map.put(allocSite, emptyASInfo.clone());
+		return map.get(allocSite);
+	}
+	
+	// Convert to String for debugging.
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("LN(");
+		
+		Iterator<Integer> it = map.keySet().iterator();
+		if (it.hasNext()) {
+			Integer allocSite = it.next();
+			buffer.append(allocSite);
+			buffer.append(" -> ");
+			buffer.append(map.get(allocSite));
+			
+			while (it.hasNext()) {
+				buffer.append(", ");
+				
+				allocSite = it.next();
+				buffer.append(allocSite);
+				buffer.append(" -> ");
+				buffer.append(map.get(allocSite));
+			}
+		}
+		buffer.append(")");
+		
+		return buffer.toString();
 	}
 }
