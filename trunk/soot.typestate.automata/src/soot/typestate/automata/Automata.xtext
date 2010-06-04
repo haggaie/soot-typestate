@@ -26,7 +26,7 @@ Transition :
 	(method=Method|Constructor) '->' (state=[State]) ';';
 
 Method :
-	(returntype=Type) (name=ID) '(' (args+=Type)* ')';
+	(returntype=Type) (name=ID) '(' (args+=Type (',' args+=Type)*)? ')';
 
 Constructor :
 	Class '(' (args+=Type)* ')' ;

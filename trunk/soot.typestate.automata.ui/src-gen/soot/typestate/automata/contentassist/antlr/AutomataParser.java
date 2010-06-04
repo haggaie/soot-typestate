@@ -50,6 +50,8 @@ public class AutomataParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getMethodAccess().getGroup(), "rule__Method__Group__0");
+					put(grammarAccess.getMethodAccess().getGroup_3(), "rule__Method__Group_3__0");
+					put(grammarAccess.getMethodAccess().getGroup_3_1(), "rule__Method__Group_3_1__0");
 					put(grammarAccess.getConstructorAccess().getGroup(), "rule__Constructor__Group__0");
 					put(grammarAccess.getJAVAIDAccess().getGroup(), "rule__JAVAID__Group__0");
 					put(grammarAccess.getJAVAIDAccess().getGroup_1(), "rule__JAVAID__Group_1__0");
@@ -68,7 +70,8 @@ public class AutomataParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransitionAccess().getStateAssignment_2(), "rule__Transition__StateAssignment_2");
 					put(grammarAccess.getMethodAccess().getReturntypeAssignment_0(), "rule__Method__ReturntypeAssignment_0");
 					put(grammarAccess.getMethodAccess().getNameAssignment_1(), "rule__Method__NameAssignment_1");
-					put(grammarAccess.getMethodAccess().getArgsAssignment_3(), "rule__Method__ArgsAssignment_3");
+					put(grammarAccess.getMethodAccess().getArgsAssignment_3_0(), "rule__Method__ArgsAssignment_3_0");
+					put(grammarAccess.getMethodAccess().getArgsAssignment_3_1_1(), "rule__Method__ArgsAssignment_3_1_1");
 					put(grammarAccess.getConstructorAccess().getArgsAssignment_2(), "rule__Constructor__ArgsAssignment_2");
 					put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
 				}

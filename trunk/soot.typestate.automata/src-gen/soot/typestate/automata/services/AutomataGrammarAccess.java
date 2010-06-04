@@ -287,15 +287,20 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cArgsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cArgsTypeParserRuleCall_3_0 = (RuleCall)cArgsAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cArgsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cArgsTypeParserRuleCall_3_0_0 = (RuleCall)cArgsAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cArgsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cArgsTypeParserRuleCall_3_1_1_0 = (RuleCall)cArgsAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Method:
-		//  returntype=Type name=ID "(" args+=Type* ")";
+		//  returntype=Type name=ID "(" (args+=Type ("," args+=Type)*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//returntype=Type name=ID "(" args+=Type* ")"
+		//returntype=Type name=ID "(" (args+=Type ("," args+=Type)*)? ")"
 		public Group getGroup() { return cGroup; }
 
 		//returntype=Type
@@ -313,11 +318,26 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//args+=Type*
-		public Assignment getArgsAssignment_3() { return cArgsAssignment_3; }
+		//(args+=Type ("," args+=Type)*)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//args+=Type
+		public Assignment getArgsAssignment_3_0() { return cArgsAssignment_3_0; }
 
 		//Type
-		public RuleCall getArgsTypeParserRuleCall_3_0() { return cArgsTypeParserRuleCall_3_0; }
+		public RuleCall getArgsTypeParserRuleCall_3_0_0() { return cArgsTypeParserRuleCall_3_0_0; }
+
+		//("," args+=Type)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+
+		//args+=Type
+		public Assignment getArgsAssignment_3_1_1() { return cArgsAssignment_3_1_1; }
+
+		//Type
+		public RuleCall getArgsTypeParserRuleCall_3_1_1_0() { return cArgsTypeParserRuleCall_3_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -494,7 +514,7 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	}
 
 	//Method:
-	//  returntype=Type name=ID "(" args+=Type* ")";
+	//  returntype=Type name=ID "(" (args+=Type ("," args+=Type)*)? ")";
 	public MethodElements getMethodAccess() {
 		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());
 	}

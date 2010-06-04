@@ -1112,11 +1112,11 @@ protected class Transition_SemicolonKeyword_3 extends KeywordToken  {
 /************ begin Rule Method ****************
  *
  * Method:
- *   returntype=Type name=ID "(" args+=Type* ")";
+ *   returntype=Type name=ID "(" (args+=Type ("," args+=Type)*)? ")";
  *
  **/
 
-// returntype=Type name=ID "(" args+=Type* ")"
+// returntype=Type name=ID "(" (args+=Type ("," args+=Type)*)? ")"
 protected class Method_Group extends GroupToken {
 	
 	public Method_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1232,15 +1232,119 @@ protected class Method_LeftParenthesisKeyword_2 extends KeywordToken  {
 		
 }
 
-// args+=Type*
-protected class Method_ArgsAssignment_3 extends AssignmentToken  {
+// (args+=Type ("," args+=Type)*)?
+protected class Method_Group_3 extends GroupToken {
 	
-	public Method_ArgsAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Method_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getMethodAccess().getGroup_3();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Method_Group_3_1(parent, this, 0, inst);
+			case 1: return new Method_ArgsAssignment_3_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// args+=Type
+protected class Method_ArgsAssignment_3_0 extends AssignmentToken  {
+	
+	public Method_ArgsAssignment_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMethodAccess().getArgsAssignment_3();
+		return grammarAccess.getMethodAccess().getArgsAssignment_3_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Type_NameAssignment(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("args",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("args");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Method_LeftParenthesisKeyword_2(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," args+=Type)*
+protected class Method_Group_3_1 extends GroupToken {
+	
+	public Method_Group_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getMethodAccess().getGroup_3_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Method_ArgsAssignment_3_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class Method_CommaKeyword_3_1_0 extends KeywordToken  {
+	
+	public Method_CommaKeyword_3_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getMethodAccess().getCommaKeyword_3_1_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Method_Group_3_1(parent, this, 0, inst);
+			case 1: return new Method_ArgsAssignment_3_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// args+=Type
+protected class Method_ArgsAssignment_3_1_1 extends AssignmentToken  {
+	
+	public Method_ArgsAssignment_3_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMethodAccess().getArgsAssignment_3_1_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -1257,7 +1361,7 @@ protected class Method_ArgsAssignment_3 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0(); 
+				element = grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1268,12 +1372,13 @@ protected class Method_ArgsAssignment_3 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Method_ArgsAssignment_3(parent, next, actIndex, consumed);
-			case 1: return new Method_LeftParenthesisKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new Method_CommaKeyword_3_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
+
+
 
 // ")"
 protected class Method_RightParenthesisKeyword_4 extends KeywordToken  {
@@ -1288,7 +1393,7 @@ protected class Method_RightParenthesisKeyword_4 extends KeywordToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Method_ArgsAssignment_3(parent, this, 0, inst);
+			case 0: return new Method_Group_3(parent, this, 0, inst);
 			case 1: return new Method_LeftParenthesisKeyword_2(parent, this, 1, inst);
 			default: return null;
 		}	
