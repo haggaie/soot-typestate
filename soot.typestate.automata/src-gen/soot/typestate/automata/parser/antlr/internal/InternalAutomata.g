@@ -585,11 +585,11 @@ ruleMethod returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getMethodAccess().getLeftParenthesisKeyword_2(), null); 
     }
-(	
+((	
 	
 	    
 	    { 
-	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0_0(), currentNode); 
 	    }
 	    lv_args_3=ruleType 
 	    {
@@ -606,7 +606,32 @@ ruleMethod returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 	
-)*')' 
+)(',' 
+    {
+        createLeafNode(grammarAccess.getMethodAccess().getCommaKeyword_3_1_0(), null); 
+    }
+(	
+	
+	    
+	    { 
+	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_1_1_0(), currentNode); 
+	    }
+	    lv_args_5=ruleType 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getMethodRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        
+	        try {
+	       		add($current, "args", lv_args_5, "Type", currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+	
+))*)?')' 
     {
         createLeafNode(grammarAccess.getMethodAccess().getRightParenthesisKeyword_4(), null); 
     }
