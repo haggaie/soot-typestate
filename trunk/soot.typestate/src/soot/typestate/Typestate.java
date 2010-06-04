@@ -14,10 +14,10 @@ import soot.typestate.automata.ClassAutomaton;
 public class Typestate {
 	final ClassAutomaton automaton;
 	
-	Typestate(DirectedGraph<Unit> graph, ClassAutomaton automaton)
+	Typestate(DirectedGraph<Unit> graph, ClassAutomaton automaton, boolean pointsToAnalysis)
 	{
 		this.automaton = automaton;
-		TypestateAnalysis analysis = new TypestateAnalysis(graph, automaton);
+		TypestateAnalysis analysis = new TypestateAnalysis(graph, automaton, pointsToAnalysis);
 		
 		// TODO process the results
 	}
