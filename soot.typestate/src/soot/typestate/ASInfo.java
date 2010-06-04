@@ -35,8 +35,8 @@ public class ASInfo {
 	}
 	
 	// Add the new states to the current ones.
-	public void merge(FlowSet states) {
-		states.union(states);
+	public void merge(FlowSet newStates) {
+		states.union(newStates);
 	}
 	
 	// Return the set of states.
