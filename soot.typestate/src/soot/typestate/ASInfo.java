@@ -55,6 +55,13 @@ public class ASInfo {
 		outInfo.setStates(states);
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		ASInfo other = (ASInfo) obj;
+		
+		return states.equals(other.states);
+	}
+	
 	// Convert to string for debugging.
 	@Override
 	public String toString() {
