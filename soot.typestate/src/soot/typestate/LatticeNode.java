@@ -16,21 +16,21 @@ import soot.toolkits.scalar.FlowUniverse;
  *
  */
 public class LatticeNode {
-	private final Map<Integer, ASInfo> map;
+	private final Map<AllocationSite, ASInfo> map;
 	// An empty ASInfo ready for insertion for missing allocation sites.
 	private final ASInfo emptyASInfo;
 	
 	LatticeNode(FlowUniverse<Integer> statesUniverse)
 	{
-		map = new HashMap<Integer, ASInfo>();
+		map = new HashMap<AllocationSite, ASInfo>();
 		emptyASInfo = new ASInfo(statesUniverse);
 	}
 	
 	void union(LatticeNode other, LatticeNode dest)
 	{
 		other.copy(dest);
-		for (Map.Entry<Integer, ASInfo> entry : map.entrySet()) {
-			final Integer key = entry.getKey();
+		for (Map.Entry<AllocationSite, ASInfo> entry : map.entrySet()) {
+			final AllocationSite key = entry.getKey();
 			if (dest.map.containsKey(key))
 				dest.map.get(key).merge(entry.getValue());
 			else
@@ -41,7 +41,7 @@ public class LatticeNode {
 	void copy(LatticeNode other)
 	{
 		other.map.clear();
-		for (Map.Entry<Integer, ASInfo> entry : map.entrySet()) {
+		for (Map.Entry<AllocationSite, ASInfo> entry : map.entrySet()) {
 			other.map.put(entry.getKey(), entry.getValue().clone());
 		}
 	}
@@ -53,7 +53,7 @@ public class LatticeNode {
 	}
 	
 	// Return the ASInfo for a given allocation site.
-	public ASInfo getASInfo(Integer allocSite)
+	public ASInfo getASInfo(AllocationSite allocSite)
 	{
 		if (!map.containsKey(allocSite))
 			map.put(allocSite, emptyASInfo.clone());
@@ -67,9 +67,9 @@ public class LatticeNode {
 		
 		buffer.append("LN(");
 		
-		Iterator<Integer> it = map.keySet().iterator();
+		Iterator<AllocationSite> it = map.keySet().iterator();
 		if (it.hasNext()) {
-			Integer allocSite = it.next();
+			AllocationSite allocSite = it.next();
 			buffer.append(allocSite);
 			buffer.append(" -> ");
 			buffer.append(map.get(allocSite));
@@ -90,12 +90,12 @@ public class LatticeNode {
 	
 	public interface ASInfoVisitor
 	{
-		void visit(Integer allocSite, ASInfo asInfo);
+		void visit(AllocationSite allocSite, ASInfo asInfo);
 	}
-	public void forEachAllocationSite(Collection<Integer> allocationSites,
+	public void forEachAllocationSite(Collection<AllocationSite> allocationSites,
 		ASInfoVisitor visitor)
 	{
-		for (Integer allocSite : allocationSites) {
+		for (AllocationSite allocSite : allocationSites) {
 			visitor.visit(allocSite, getASInfo(allocSite));
 		}
 	}
