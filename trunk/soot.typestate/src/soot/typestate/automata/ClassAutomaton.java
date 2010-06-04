@@ -20,6 +20,7 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.toolkits.scalar.ArrayPackedSet;
+import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.CollectionFlowUniverse;
 import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.FlowUniverse;
@@ -43,8 +44,8 @@ public class ClassAutomaton {
 	private final Map<String, Integer> nameToState = new HashMap<String, Integer>();
 	
 	private final List<Integer> trivialDelta;
-	// Holds the sets of states containing the initial and error states respectively.
-	private final FlowSet initialState, errorState;
+	// Holds the sets of states containing the initial, error and all states respectively.
+	private final BoundedFlowSet initialState, errorState, allStates;
 	
 	ClassAutomaton(Automaton automaton, Package pkg)
 	{
@@ -62,6 +63,8 @@ public class ClassAutomaton {
 		initialState.add(getStateIndex(automaton.getInitialState()));
 		errorState = new ArrayPackedSet(getFlowUniverse());
 		errorState.add(getStateIndex(automaton.getErrorState()));
+		allStates = new ArrayPackedSet(getFlowUniverse());
+		allStates.complement();
 	}
 	
 	public static ClassAutomaton load(String filename) throws Exception
@@ -195,5 +198,9 @@ public class ClassAutomaton {
 	
 	public FlowSet getErrorState() {
 		return errorState;
+	}
+
+	public FlowSet getAllStates() {
+		return allStates;
 	}
 }
