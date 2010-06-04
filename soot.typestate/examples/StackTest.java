@@ -44,4 +44,24 @@ public class StackTest {
 		s.pop();
 	}
 
+	public static void main(String[] args) throws Exception
+	{
+		StackTest test = new StackTest();
+		test.setUp();
+		test.testPush();
+		test.setUp();
+		try {
+			test.testPop();
+		}
+		catch (EmptyStackException e) {
+		}
+		test.setUp();
+		test.testEmpty();
+		test.setUp();
+		try {
+			test.testClear();
+		}
+		catch (EmptyStackException e) {
+		}
+	}
 }

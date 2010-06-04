@@ -3,10 +3,12 @@
  */
 package soot.typestate;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
 /**
@@ -84,5 +86,17 @@ public class LatticeNode {
 		buffer.append(")");
 		
 		return buffer.toString();
+	}
+	
+	public interface ASInfoVisitor
+	{
+		void visit(Integer allocSite, ASInfo asInfo);
+	}
+	public void forEachAllocationSite(Collection<Integer> allocationSites,
+		ASInfoVisitor visitor)
+	{
+		for (Integer allocSite : allocationSites) {
+			visitor.visit(allocSite, getASInfo(allocSite));
+		}
 	}
 }
