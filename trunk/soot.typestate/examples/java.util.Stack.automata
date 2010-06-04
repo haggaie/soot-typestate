@@ -1,0 +1,24 @@
+package java.util;
+
+automaton Stack {
+	initial = EMPTY;
+	error = ERROR;
+	state EMPTY {
+		// TODO support superclass methods
+		// boolean add(java.lang.Object) -> NON_EMPTY;
+		// boolean add(int,java.lang.Object) -> NON_EMPTY;
+		// boolean addAll(java.util.Collection) -> NON_EMPTY;
+		// boolean addAll(int,java.util.Collection) -> NON_EMPTY;
+
+		java.lang.Object push(java.lang.Object) -> NON_EMPTY;
+
+		java.lang.Object pop() -> ERROR;
+		java.lang.Object peek() -> ERROR;
+	}
+	
+	state NON_EMPTY {
+		// void clear() -> EMPTY;
+	}
+	
+	state ERROR {}
+}
