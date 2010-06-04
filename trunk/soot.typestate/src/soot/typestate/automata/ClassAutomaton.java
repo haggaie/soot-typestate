@@ -19,7 +19,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
+import soot.toolkits.scalar.ArrayPackedSet;
+import soot.toolkits.scalar.CollectionFlowUniverse;
 import soot.toolkits.scalar.FlowSet;
+import soot.toolkits.scalar.FlowUniverse;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.Automaton;
 import soot.typestate.automata.automata.Class;
@@ -40,6 +43,8 @@ public class ClassAutomaton {
 	private final Map<String, Integer> nameToState = new HashMap<String, Integer>();
 	
 	private final List<Integer> trivialDelta;
+	// Holds the sets of states containing the initial and error states respectively.
+	private final FlowSet initialState, errorState;
 	
 	ClassAutomaton(Automaton automaton, Package pkg)
 	{
@@ -51,6 +56,12 @@ public class ClassAutomaton {
 			trivialDelta.add(s);
 		
 		buildStates(automaton.getStates());
+		
+		// Initialize the initial state and error state members.
+		initialState = new ArrayPackedSet(getFlowUniverse());
+		initialState.add(getStateIndex(automaton.getInitialState()));
+		errorState = new ArrayPackedSet(getFlowUniverse());
+		errorState.add(getStateIndex(automaton.getErrorState()));
 	}
 	
 	public static ClassAutomaton load(String filename) throws Exception
@@ -136,6 +147,12 @@ public class ClassAutomaton {
 		}
 		return result;
 	}
+	
+	// Returns a FlowUniverse containing all the state numbers.
+	public FlowUniverse<Integer> getFlowUniverse()
+	{
+		return new CollectionFlowUniverse<Integer>(nameToState.values());
+	}
 
 	private static SootClass resolveClass(Class klass, Package pkg)
 	{
@@ -166,6 +183,17 @@ public class ClassAutomaton {
 		}
 		buffer.append(")");
 		
+//		for (SootMethod m : klass.getMethods()) {
+//			System.out.println(m);
+//		}
 		return klass.getMethod(buffer.toString().intern());
+	}
+
+	public FlowSet getInitialState() {
+		return initialState;
+	}
+	
+	public FlowSet getErrorState() {
+		return errorState;
 	}
 }

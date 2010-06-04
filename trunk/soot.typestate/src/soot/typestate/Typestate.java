@@ -17,7 +17,7 @@ public class Typestate {
 	Typestate(DirectedGraph<Unit> graph, ClassAutomaton automaton)
 	{
 		this.automaton = automaton;
-		TypestateAnalysis analysis = new TypestateAnalysis(graph);
+		TypestateAnalysis analysis = new TypestateAnalysis(graph, automaton);
 		
 		// TODO process the results
 	}
