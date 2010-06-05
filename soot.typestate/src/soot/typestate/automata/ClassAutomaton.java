@@ -140,10 +140,10 @@ public class ClassAutomaton {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public FlowSet getDelta(SootMethod method, FlowSet states)
+	public BoundedFlowSet  getDelta(SootMethod method, FlowSet states)
 	{
 		List<Integer> delta = getDelta(method);
-		FlowSet result = (FlowSet) states.emptySet();
+		BoundedFlowSet  result = (BoundedFlowSet) states.emptySet();
 		for (Iterator iterator = states.iterator(); iterator.hasNext();) {
 			Integer state = (Integer) iterator.next();
 			result.add(delta.get(state));
@@ -192,15 +192,15 @@ public class ClassAutomaton {
 		return klass.getMethod(buffer.toString().intern());
 	}
 
-	public FlowSet getInitialState() {
+	public BoundedFlowSet  getInitialState() {
 		return initialState;
 	}
 	
-	public FlowSet getErrorState() {
+	public BoundedFlowSet  getErrorState() {
 		return errorState;
 	}
 
-	public FlowSet getAllStates() {
+	public BoundedFlowSet  getAllStates() {
 		return allStates;
 	}
 }

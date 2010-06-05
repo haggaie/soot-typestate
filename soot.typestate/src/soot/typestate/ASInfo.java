@@ -4,7 +4,7 @@
 package soot.typestate;
 
 import soot.toolkits.scalar.ArrayPackedSet;
-import soot.toolkits.scalar.FlowSet;
+import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
 /**
@@ -12,7 +12,7 @@ import soot.toolkits.scalar.FlowUniverse;
  *
  */
 public class ASInfo {
-	private final FlowSet states;
+	private final BoundedFlowSet states;
 	
 	ASInfo(FlowUniverse<Integer> statesUniverse)
 	{
@@ -21,7 +21,7 @@ public class ASInfo {
 	
 	ASInfo(ASInfo other)
 	{
-		states = other.states.clone();
+		states = (BoundedFlowSet) other.states.clone();
 	}
 	
 	@Override
@@ -35,17 +35,17 @@ public class ASInfo {
 	}
 	
 	// Add the new states to the current ones.
-	public void merge(FlowSet newStates) {
+	public void merge(BoundedFlowSet newStates) {
 		states.union(newStates);
 	}
 	
 	// Return the set of states.
-	public FlowSet getStates() {
+	public BoundedFlowSet getStates() {
 		return states;
 	}
 	
 	// Update the set of states.
-	public void setStates(FlowSet states) {
+	public void setStates(BoundedFlowSet  states) {
 		states.copy(this.states);
 	}
 	

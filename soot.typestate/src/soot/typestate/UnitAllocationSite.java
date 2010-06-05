@@ -1,6 +1,5 @@
 package soot.typestate;
 
-import soot.Unit;
 import soot.jimple.DefinitionStmt;
 
 /**

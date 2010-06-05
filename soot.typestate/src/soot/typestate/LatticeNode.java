@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
 /**
@@ -17,13 +16,14 @@ import soot.toolkits.scalar.FlowUniverse;
  */
 public class LatticeNode {
 	private final Map<AllocationSite, ASInfo> map;
-	// An empty ASInfo ready for insertion for missing allocation sites.
-	private final ASInfo emptyASInfo;
+	// A full ASInfo ready for insertion for missing allocation sites.
+	private final ASInfo fullASInfo;
 	
 	LatticeNode(FlowUniverse<Integer> statesUniverse)
 	{
 		map = new HashMap<AllocationSite, ASInfo>();
-		emptyASInfo = new ASInfo(statesUniverse);
+		fullASInfo = new ASInfo(statesUniverse);
+		fullASInfo.getStates().complement();
 	}
 	
 	void union(LatticeNode other, LatticeNode dest)
@@ -56,7 +56,7 @@ public class LatticeNode {
 	public ASInfo getASInfo(AllocationSite allocSite)
 	{
 		if (!map.containsKey(allocSite))
-			map.put(allocSite, emptyASInfo.clone());
+			map.put(allocSite, fullASInfo.clone());
 		return map.get(allocSite);
 	}
 	
