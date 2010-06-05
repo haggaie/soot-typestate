@@ -11,7 +11,6 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.jimple.spark.SparkTransformer;
-import soot.options.Options;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.typestate.automata.AutomataStandaloneSetup;
@@ -23,14 +22,21 @@ import soot.typestate.automata.ClassAutomaton;
  */
 public class Main {
 
+	final static boolean pointsToAnalysis = true;
+	static {
+		// Set soot options before starting
+		if (pointsToAnalysis)
+		{
+			soot.options.Options.v().set_whole_program(true);
+			soot.options.Options.v().setPhaseOption("cg","verbose:true");
+		}
+	}
+	
 	/**
 	 * @param args
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception {
-		
-		final boolean pointsToAnalysis = false;
-		
 		if (args.length != 2)
 		{
 			System.out.println("Usage: program <class name to analyze> <automata filename>");
@@ -41,10 +47,6 @@ public class Main {
 		ClassAutomaton automaton = ClassAutomaton.load(args[1]);		
 		
 		soot.options.Options.v().set_keep_line_number(true);
-		if (pointsToAnalysis) {
-			soot.options.Options.v().set_whole_program(true);
-			soot.options.Options.v().setPhaseOption("cg","verbose:true");
-		}
 		
 		SootClass klass = Scene.v().loadClassAndSupport(args[0]);
 		Scene.v().loadNecessaryClasses();

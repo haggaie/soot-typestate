@@ -3,8 +3,7 @@
  */
 package soot.typestate;
 
-import soot.Unit;
-import soot.toolkits.graph.DirectedGraph;
+import soot.Scene;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.LocalDefs;
 import soot.toolkits.scalar.SimpleLocalDefs;
@@ -16,13 +15,21 @@ import soot.typestate.automata.ClassAutomaton;
  */
 public class Typestate {
 	final ClassAutomaton automaton;
-	final LocalDefs localDefs;
 	
 	Typestate(UnitGraph graph, ClassAutomaton automaton, boolean pointsToAnalysis)
 	{
+		TypestateAnalysis analysis;
+		
 		this.automaton = automaton;
-		localDefs = new SimpleLocalDefs(graph);
-		TypestateAnalysis analysis = new TypestateAnalysis(graph, automaton, localDefs, pointsToAnalysis);
+		if (pointsToAnalysis) {
+			analysis = new TypestateAnalysis(graph, automaton,
+					new SparkAllocationSiteHandler(Scene.v().getPointsToAnalysis()));
+		}
+		else {
+			LocalDefs localDefs = new SimpleLocalDefs(graph);
+			analysis = new TypestateAnalysis(graph, automaton, 
+					new LocalDefsAllocationSiteHandler(localDefs));
+		}
 		
 		// TODO process the results
 	}
