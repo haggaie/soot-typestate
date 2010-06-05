@@ -43,6 +43,16 @@ public class StackTest {
 		s.clear();
 		s.pop();
 	}
+	
+	@Test
+	public void testCollectionMethods() {
+		Stack<Integer> s = new Stack<Integer>();
+		s.add(1);
+		s.addAll(s);
+		s.pop();
+		s.pop();
+	}
+	
 
 	public static void main(String[] args) throws Exception
 	{

@@ -38,7 +38,9 @@ import soot.typestate.automata.automata.Type;
  *
  */
 public class ClassAutomaton {
-	private final SootClass klass;
+	@SuppressWarnings("unchecked")
+	private final java.lang.Class javaClass;
+	private final SootClass sootClass;
 	private final Map<SootMethod, List<Integer>> map = new HashMap<SootMethod, List<Integer>>();
 	private final ArrayList<String> stateNames = new ArrayList<String>();
 	private final Map<String, Integer> nameToState = new HashMap<String, Integer>();
@@ -47,9 +49,10 @@ public class ClassAutomaton {
 	// Holds the sets of states containing the initial, error and all states respectively.
 	private final BoundedFlowSet initialState, errorState, allStates;
 	
-	ClassAutomaton(Automaton automaton, Package pkg)
+	ClassAutomaton(Automaton automaton, Package pkg) throws ClassNotFoundException, SecurityException, NoSuchMethodException
 	{
-		klass = resolveClass(automaton.getKlass(), pkg);
+		sootClass = resolveClass(automaton.getKlass(), pkg);
+		javaClass = java.lang.Class.forName(sootClass.getName());
 		
 		int numStates = automaton.getStates().size();
 		trivialDelta = new ArrayList<Integer>(numStates);
@@ -88,7 +91,7 @@ public class ClassAutomaton {
 		return new ClassAutomaton(root.getAutomata().get(0), root.getPackage());
 	}
 
-	private void buildStates(EList<State> states) {
+	private void buildStates(EList<State> states) throws SecurityException, ClassNotFoundException, NoSuchMethodException {
 		int numStates = states.size();
 		stateNames.ensureCapacity(numStates);
 		int s = 0;
@@ -118,7 +121,7 @@ public class ClassAutomaton {
 
 	public SootClass getKlass()
 	{
-		return klass;
+		return sootClass;
 	}
 
 	public List<Integer> getDelta(SootMethod method) {
@@ -166,30 +169,81 @@ public class ClassAutomaton {
 		return Scene.v().loadClassAndSupport(className);
 	}
 	
-	private SootMethod resolveMethod(Method method)
+	@SuppressWarnings("unchecked")
+	private SootMethod resolveMethod(Method method) throws ClassNotFoundException, SecurityException, NoSuchMethodException
 	{
-		StringBuffer buffer = new StringBuffer();
-		
-		buffer.append(method.getReturntype().getName() + " " + Scene.v().quotedNameOf(method.getName()) + "(");
-		
-		Iterator<Type> typeIt = method.getArgs().iterator();
-		if (typeIt.hasNext()) {
-			Type type = typeIt.next();
-			buffer.append(type.getName());
-			
-			while (typeIt.hasNext()) {
-				buffer.append(",");
-				
-				type = typeIt.next();
-				buffer.append(type.getName());
+		java.lang.Class args[] = new java.lang.Class[method.getArgs().size()];
+		{
+			int i = 0;
+			for (Type type : method.getArgs()) {
+				args[i++] = resolvType(type);
 			}
 		}
-		buffer.append(")");
+		java.lang.reflect.Method javaMethod = javaClass.getMethod(method.getName(), args);
+		
+		StringBuffer buffer = new StringBuffer();
+		
+		// Declaring class name
+		buffer.append("<");
+		buffer.append(javaMethod.getDeclaringClass().getCanonicalName());
+		buffer.append(": ");
+		
+		// Return type
+		buffer.append(javaMethod.getReturnType().getCanonicalName());
+		buffer.append(" ");
+		
+		// Method name
+		buffer.append(Scene.v().quotedNameOf(javaMethod.getName()));
+		
+		buffer.append("(");
+		
+		args = javaMethod.getParameterTypes();
+		if (args.length > 0) {
+			buffer.append(args[0].getCanonicalName());
+			
+			for (int i = 1; i < args.length; ++i) {
+				buffer.append(",");
+				
+				buffer.append(args[i].getCanonicalName());
+			}
+		}
+		buffer.append(")>");
 		
 //		for (SootMethod m : klass.getMethods()) {
 //			System.out.println(m);
 //		}
-		return klass.getMethod(buffer.toString().intern());
+		
+		return Scene.v().getMethod(buffer.toString().intern());
+	}
+	
+	@SuppressWarnings("unchecked")
+	java.lang.Class resolvType(Type type) throws ClassNotFoundException
+	{
+		String typeName = type.getName();
+		if (typeName.equals("byte")) return byte.class;
+		if (typeName.equals("short")) return short.class;
+		if (typeName.equals("int")) return int.class;
+		if (typeName.equals("long")) return long.class;
+		if (typeName.equals("char")) return char.class;
+		if (typeName.equals("float")) return float.class;
+		if (typeName.equals("double")) return double.class;
+		if (typeName.equals("boolean")) return boolean.class;
+		if (typeName.equals("void")) return void.class;
+
+		String fullName;
+		try {
+			fullName = getKlass().getPackageName() + "." + typeName;
+			return java.lang.Class.forName(fullName);
+		}
+		catch (ClassNotFoundException e) {}
+		
+		try {
+			fullName = "java.lang." + typeName;
+			return java.lang.Class.forName(fullName);
+		}
+		catch (ClassNotFoundException e) {}
+		
+		return java.lang.Class.forName(typeName);
 	}
 
 	public BoundedFlowSet  getInitialState() {
