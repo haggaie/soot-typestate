@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Typestate
+Bundle-SymbolicName: soot.typestate
+Bundle-Version: 1.0.0.qualifier
+Export-Package: .,
+ soot.typestate,
+ soot.typestate.automata,
+ soot.typestate.automata.tests
+Require-Bundle: soot.typestate.automata;bundle-version="1.0.0",
+ org.eclipse.emf.common;bundle-version="2.5.0",
+ org.eclipse.emf.ecore;bundle-version="2.5.0"
