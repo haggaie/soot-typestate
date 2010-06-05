@@ -3,9 +3,14 @@
  */
 package soot.typestate.automata;
 
+import soot.typestate.automata.outline.AutomataLocationInFileProvider;
+
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class AutomataUiModule extends soot.typestate.automata.AbstractAutomataUiModule {
-
+	@Override
+	public Class<? extends org.eclipse.xtext.ui.core.ILocationInFileProvider> bindILocationInFileProvider() {
+		return AutomataLocationInFileProvider.class;
+	}
 }
