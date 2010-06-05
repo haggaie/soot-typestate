@@ -1,6 +1,10 @@
 Dependencies:
-‪ * org.eclipse.emf.common_2.5.0.v200906151043.jar‬
- * ‪org.eclipse.xtext_0.7.2.v200908120607.jar‬
- * org.eclipse.emf.ecore_2.5.0.v200906151043.jar‬
+‪ * EMF and XText. Install XText using the update site:
+	http://download.itemis.com/updates/releases
 
-For use in eclipse, define an XText user library, and add the above to it. 
+Compiling the eclipse plugin for writing .automata files:
+ * Open the META-INF/MANIFEST.MF file with Eclipse's plugin manifest editor.
+ * Open the Export Wizard and export both soot.typestate.automata and soot.typestate.automata.ui plugins.
+Installation:
+ * Put the resulting .jar files in Eclipse's plugins or dropins directory.
+A pre-compiled version of the .jar files are available in the soot.typestate/lib directory.    
