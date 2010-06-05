@@ -3,7 +3,21 @@
 */
 package soot.typestate.automata.outline;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jdt.ui.ISharedImages;
+import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.ui.common.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
+
+import org.eclipse.jdt.ui.JavaUI;
+
+import soot.typestate.automata.automata.Automata;
+import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Package;
+import soot.typestate.automata.automata.State;
+import soot.typestate.automata.automata.Transition;
+import soot.typestate.automata.automata.Type;
 
 /**
  * customization of the default outline structure
@@ -11,4 +25,68 @@ import org.eclipse.xtext.ui.common.editor.outline.transformer.AbstractDeclarativ
  */
 public class AutomataTransformer extends AbstractDeclarativeSemanticModelTransformer {
 	
+	public ContentOutlineNode createNode(Automata semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		return outlineParentNode;
+	}
+	
+	public ContentOutlineNode createNode(Package semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		ContentOutlineNode node = super.newOutlineNode(semanticNode, outlineParentNode);
+	    node.setLabel(node.getLabel());
+	    node.setImage(JavaUI.getSharedImages().getImage(ISharedImages.IMG_OBJS_PACKAGE));
+	    return node;
+	}
+	
+	public ContentOutlineNode createNode(Automaton semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		ContentOutlineNode node = super.newOutlineNode(semanticNode, outlineParentNode);
+	    node.setLabel(semanticNode.getKlass().getName());
+	    node.setImage(JavaUI.getSharedImages().getImage(ISharedImages.IMG_OBJS_CLASS));
+	    return node;
+	}
+
+	public ContentOutlineNode createNode(State semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		ContentOutlineNode node = super.newOutlineNode(semanticNode, outlineParentNode);
+		node.setImage(JavaUI.getSharedImages().getImage(ISharedImages.IMG_FIELD_PUBLIC));
+		return node;
+	}
+	
+	public ContentOutlineNode createNode(Transition semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		ContentOutlineNode node = super.newOutlineNode(semanticNode, outlineParentNode);
+		StringBuffer buffer = new StringBuffer();
+		if (semanticNode.getMethod() != null)
+		{
+			buffer.append(semanticNode.getMethod().getName());
+			buffer.append('(');
+			boolean start = true;
+			for (Type arg : semanticNode.getMethod().getArgs()) {
+				if (start)
+					start = false;
+				else
+					buffer.append(", ");
+				buffer.append(arg.getName());
+			}
+			buffer.append(')');
+		}
+		if (semanticNode.getState() != null)
+		{
+			buffer.append(" -> ");
+			buffer.append(semanticNode.getState().getName());
+		}
+		node.setLabel(buffer.toString());
+		node.setImage(JavaUI.getSharedImages().getImage(ISharedImages.IMG_OBJS_PUBLIC));
+	    return node;
+	}
+	
+	public ContentOutlineNode createNode(soot.typestate.automata.automata.Class semanticNode,
+			ContentOutlineNode outlineParentNode) {
+		return null;
+	}
+	
+	protected List<EObject> getChildren(Transition semanticNode) {
+		return NO_CHILDREN;
+	}
 }
