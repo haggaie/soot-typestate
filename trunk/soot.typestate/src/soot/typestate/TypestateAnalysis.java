@@ -8,6 +8,7 @@ import java.util.Collection;
 import soot.Local;
 import soot.RefType;
 import soot.SootMethod;
+import soot.SootMethodRef;
 import soot.Unit;
 import soot.jimple.AbstractStmtSwitch;
 import soot.jimple.AssignStmt;
@@ -64,11 +65,11 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 			
 			@Override
 			public void caseInvokeStmt(InvokeStmt stmt) {
-				final SootMethod method = stmt.getInvokeExpr().getMethod();
-				if (method.isStatic())
+				final SootMethodRef methodRef = stmt.getInvokeExpr().getMethodRef();
+				if (methodRef.isStatic())
 					// TODO handle side effects.
 					return;
-				if (!method.getDeclaringClass().equals(automaton.getKlass()))
+				if (!methodRef.declaringClass().equals(automaton.getKlass()))
 					// TODO should also work with subclasses, or implementing interfaces.
 					// TODO handle side effects.
 					return;
@@ -79,7 +80,7 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 						ASInfo outInfo = out.getASInfo(allocSite);
 						
 						BoundedFlowSet  states = inInfo.getStates(),
-						nextStates = automaton.getDelta(method, states);
+						nextStates = automaton.getDelta(methodRef.resolve(), states);
 				
 						inInfo.copy(outInfo);
 						// TODO unique
