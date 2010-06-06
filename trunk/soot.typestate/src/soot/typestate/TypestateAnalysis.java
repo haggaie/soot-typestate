@@ -60,7 +60,20 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 				}
 				AllocationSiteSet allocSite = allocationSiteHandler.getDefAllocationSite(stmt);
 				if (allocSite != null)
-					out.getASInfo(allocSite).setStates(automaton.getInitialState());
+				{
+					final ASInfo inAsInfo  = in.getASInfo(allocSite),
+								 outAsInfo = out.getASInfo(allocSite);
+					if (inAsInfo != null)
+					{
+						inAsInfo.copy(outAsInfo);
+						outAsInfo.setUnique(false);
+					}
+					else
+					{
+						final ASInfo newOutInfo = new ASInfo(automaton.getInitialState());
+						out.addASInfo(allocSite, newOutInfo);
+					}
+				}
 			}
 			
 			@Override
@@ -79,20 +92,28 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 					@Override
 					public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
 						ASInfo outInfo = out.getASInfo(allocSite);
+						if (outInfo == null)
+							out.addASInfo(allocSite, inInfo.clone());
 						
 						BoundedFlowSet  states = inInfo.getStates(),
 						nextStates = automaton.getDelta(methodRef.resolve(), states);
 				
-						// TODO unique
-						// if unique
-						//   outInfo.setStates(nextStates);
-						// else
-						inInfo.copy(outInfo);
-						outInfo.merge(nextStates);
+						if (inInfo.isUnique())
+						{
+							assert outInfo.isUnique();
+							outInfo.setStates(nextStates);
+						}
+						else
+						{
+							inInfo.copy(outInfo);
+							outInfo.merge(nextStates);
+						}
 					}
 				});
 			
 			}
+			
+			// TODO handle Identity statements
 		});
 		
 		System.out.println("  Output: " + out);

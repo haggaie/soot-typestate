@@ -49,6 +49,6 @@ public class Typestate {
 				System.err.println("found error in line " + unit.getTag("LineNumberTag").toString());
 			}
 		}
-		
+		System.err.flush();
 	}
 }

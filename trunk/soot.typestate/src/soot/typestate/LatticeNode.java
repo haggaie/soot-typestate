@@ -57,7 +57,8 @@ public class LatticeNode {
 	public ASInfo getASInfo(AllocationSiteSet allocSite)
 	{
 		if (!map.containsKey(allocSite))
-			map.put(allocSite, fullASInfo.clone());
+//			TODO map.put(allocSite, fullASInfo.clone());
+			return null;
 		return map.get(allocSite);
 	}
 	
@@ -113,5 +114,11 @@ public class LatticeNode {
 		}
 		
 		return false;
+	}
+
+	public void addASInfo(AllocationSiteSet allocSite, ASInfo newInfo) {
+		assert !map.containsKey(allocSite);
+		
+		map.put(allocSite, newInfo);
 	}
 }

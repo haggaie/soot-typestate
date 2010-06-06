@@ -62,7 +62,10 @@ public class Main {
 			Body body = method.retrieveActiveBody();
 			UnitGraph graph = new BriefUnitGraph(body);
 			Typestate typestate = new Typestate(graph, automaton, pointsToAnalysis);
-			// TODO
+			
+			System.out.println(method);
+			System.out.flush();
+			typestate.printResults();
 		}
 	}
 
