@@ -16,6 +16,7 @@ import soot.jimple.DefinitionStmt;
 import soot.jimple.FieldRef;
 import soot.jimple.NewExpr;
 import soot.jimple.spark.pag.Node;
+import soot.jimple.spark.sets.EqualsSupportingPointsToSet;
 import soot.jimple.spark.sets.P2SetVisitor;
 import soot.jimple.spark.sets.PointsToSetInternal;
 
@@ -35,8 +36,8 @@ public class SparkAllocationSiteHandler implements AllocationSiteHandler {
 	 * @see soot.typestate.AllocationSiteHandler#getAllocationSites(soot.Unit)
 	 */
 	@Override
-	public Collection<AllocationSite> getUseAllocationSites(Unit unit) {
-		final Collection<AllocationSite> allocationSites = new ArrayList<AllocationSite>();
+	public AllocationSiteSet getUseAllocationSites(Unit unit) {
+		final Collection<AllocationSiteSet> allocationSites = new ArrayList<AllocationSiteSet>();
 		PointsToSetInternal pts = null;
 		
 		Value value = unit.getUseBoxes().get(0).getValue();
@@ -50,34 +51,17 @@ public class SparkAllocationSiteHandler implements AllocationSiteHandler {
 			pts = (PointsToSetInternal) pta.reachingObjects(local, fieldRef.getField());
 		}
 		// TODO other cases: ArrayRef, etc.
-		pts.forall(new P2SetVisitor() {
-			@Override
-			public void visit(Node node) {
-				allocationSites.add(new IntegerAllocationSite(node.getNumber()));
-			}
-		});
 		
-		return allocationSites;
+		return new SparkAllocationSiteSet(pts);
 	}
 
 	@Override
-	public AllocationSite getDefAllocationSite(DefinitionStmt def) {
+	public AllocationSiteSet getDefAllocationSite(DefinitionStmt def) {
 		if (!(def.getRightOp() instanceof NewExpr))
 			return null;
 		
 		Local local = (Local) def.getLeftOp();
-		PointsToSetInternal pts = (PointsToSetInternal) pta.reachingObjects(local);
-		
-		final List<AllocationSite> result = new ArrayList<AllocationSite>(1);
-		pts.forall(new P2SetVisitor() {
-			@Override
-			public void visit(Node n) {
-				result.add(new IntegerAllocationSite(n.getNumber()));
-			}
-		});
-		
-		assert result.size() == 1;
-				
-		return result.get(0);
+		EqualsSupportingPointsToSet pts = (EqualsSupportingPointsToSet) pta.reachingObjects(local);
+		return new SparkAllocationSiteSet(pts);
 	}
 }

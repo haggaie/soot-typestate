@@ -3,7 +3,11 @@
  */
 package soot.typestate;
 
+import java.util.Map;
+
 import soot.Scene;
+import soot.Unit;
+import soot.tagkit.LineNumberTag;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.LocalDefs;
 import soot.toolkits.scalar.SimpleLocalDefs;
@@ -14,13 +18,15 @@ import soot.typestate.automata.ClassAutomaton;
  *
  */
 public class Typestate {
+	TypestateAnalysis analysis;
+	final UnitGraph graph;
 	final ClassAutomaton automaton;
-	
+		
 	Typestate(UnitGraph graph, ClassAutomaton automaton, boolean pointsToAnalysis)
 	{
-		TypestateAnalysis analysis;
-		
+		this.graph = graph;
 		this.automaton = automaton;
+		
 		if (pointsToAnalysis) {
 			analysis = new TypestateAnalysis(graph, automaton,
 					new SparkAllocationSiteHandler(Scene.v().getPointsToAnalysis()));
@@ -32,5 +38,17 @@ public class Typestate {
 		}
 		
 		// TODO process the results
+	}
+	
+	public void printResults()
+	{
+		for (Unit unit : graph) {
+			LatticeNode beforeNode = analysis.getFlowBefore(unit);
+			LatticeNode afterNode = analysis.getFlowAfter(unit);
+			if (!beforeNode.hasState( automaton.getErrorState() ) && afterNode.hasState( automaton.getErrorState() )) {
+				System.err.println("found error in line " + unit.getTag("LineNumberTag").toString());
+			}
+		}
+		
 	}
 }

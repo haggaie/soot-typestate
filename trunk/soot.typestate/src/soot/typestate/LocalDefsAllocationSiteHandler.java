@@ -21,15 +21,14 @@ import soot.toolkits.scalar.LocalDefs;
  */
 public class LocalDefsAllocationSiteHandler implements AllocationSiteHandler {
 	private final LocalDefs localDefs;
-	private final UnknownAllocationSite unknownAllocationSite = new UnknownAllocationSite();
+	private final ExternalAllocationSiteSet externalAllocationSiteSet = new ExternalAllocationSiteSet();
 	
 	public LocalDefsAllocationSiteHandler(LocalDefs localDefs) {
 		this.localDefs = localDefs;
 	}
 	
-	@Override
-	public Collection<AllocationSite> getUseAllocationSites(Unit unit) {
-		final Collection<AllocationSite> allocationSites = new ArrayList<AllocationSite>();
+	public Collection<AllocationSiteSet> getUseAllocationSitesCollection(Unit unit) {
+		final Collection<AllocationSiteSet> allocationSites = new ArrayList<AllocationSiteSet>();
 		
 		Local local = (Local) unit.getUseBoxes().get(0).getValue();
 		// Recursively try to find a local allocation site for the variable,
@@ -41,24 +40,27 @@ public class LocalDefsAllocationSiteHandler implements AllocationSiteHandler {
 			if (stmt.getLeftOp().equivTo(local))
 			{
 				Value right = stmt.getRightOp();
-				if (right instanceof NewExpr) {
-					allocationSites.add(new UnitAllocationSite(stmt));
-					continue;
-				}
-				if (right instanceof Local) {
-					allocationSites.addAll(getUseAllocationSites(def));
-					continue;
-				}
-				// Consider such definitions as coming from the unknown allocation site.				
-				allocationSites.add(unknownAllocationSite);
+				if (right instanceof NewExpr)
+					allocationSites.add(new UnitsAllocationSiteSet(stmt));
+				else if (right instanceof Local)
+					allocationSites.addAll(getUseAllocationSitesCollection(def));
+				else
+					// Consider such definitions as coming from the unknown allocation site.				
+					allocationSites.add(externalAllocationSiteSet);
 			}
 		}
 			
 		return allocationSites;
 	}
+	
+	@Override
+	public AllocationSiteSet getUseAllocationSites(Unit unit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
-	public AllocationSite getDefAllocationSite(DefinitionStmt def) {
+	public AllocationSiteSet getDefAllocationSite(DefinitionStmt def) {
 		if (def.getRightOp() instanceof Local) {
 			// ignore
 			return null;
@@ -66,7 +68,7 @@ public class LocalDefsAllocationSiteHandler implements AllocationSiteHandler {
 		if (def.getRightOp() instanceof NewExpr) {
 			// An allocation statement
 			// TODO other kinds of allocations (arrays).
-			return new UnitAllocationSite(def);
+			return new UnitsAllocationSiteSet(def);
 		}
 		else {
 			// Consider such definitions as coming from the unknown allocation site.

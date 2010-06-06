@@ -67,4 +67,11 @@ public class ASInfo {
 	public String toString() {
 		return "ASInfo(" + states.toString() + ")";
 	}
+	
+	public boolean hasState(BoundedFlowSet state) {
+		BoundedFlowSet result = (BoundedFlowSet) states.clone();
+		result.intersection(state);
+		return !result.isEmpty();
+	}
+	
 }
