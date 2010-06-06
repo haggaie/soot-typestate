@@ -6,6 +6,6 @@ package soot.typestate;
  * 
  * @author Haggai Eran
  */
-public interface AllocationSite {
-
+public interface AllocationSiteSet {
+	boolean intersects(AllocationSiteSet other);
 }

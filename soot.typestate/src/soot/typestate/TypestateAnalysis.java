@@ -44,7 +44,7 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 	@Override
 	protected void flowThrough(final LatticeNode in, Unit node, final LatticeNode out) {
 		System.out.println("  Input: " + in);
-		System.out.println("    " + node);
+		System.out.println("    " + node.getTag("LineNumberTag") + ": " + node);
 		
 		in.copy(out);
 		node.apply(new AbstractStmtSwitch() {
@@ -58,7 +58,7 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 						!((RefType) local.getType()).getSootClass().equals(automaton.getKlass())) {
 					return; // TODO handle polymorphism
 				}
-				AllocationSite allocSite = allocationSiteHandler.getDefAllocationSite(stmt);
+				AllocationSiteSet allocSite = allocationSiteHandler.getDefAllocationSite(stmt);
 				if (allocSite != null)
 					out.getASInfo(allocSite).setStates(automaton.getInitialState());
 			}
@@ -74,19 +74,20 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 					// TODO handle side effects.
 					return;
 				
-				in.forEachAllocationSite(getAllocationSites(stmt), new ASInfoVisitor() {
+				// TODO check if invocation parameters appear as Used values in the stmt.
+				in.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(stmt), new ASInfoVisitor() {
 					@Override
-					public void visit(AllocationSite allocSite, ASInfo inInfo) {
+					public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
 						ASInfo outInfo = out.getASInfo(allocSite);
 						
 						BoundedFlowSet  states = inInfo.getStates(),
 						nextStates = automaton.getDelta(methodRef.resolve(), states);
 				
-						inInfo.copy(outInfo);
 						// TODO unique
 						// if unique
 						//   outInfo.setStates(nextStates);
 						// else
+						inInfo.copy(outInfo);
 						outInfo.merge(nextStates);
 					}
 				});
@@ -115,9 +116,5 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 	@Override
 	protected LatticeNode newInitialFlow() {
 		return new LatticeNode(statesUniverse);
-	}
-	
-	private Collection<AllocationSite> getAllocationSites(Unit unit) {
-		return allocationSiteHandler.getUseAllocationSites(unit);
 	}
 }

@@ -74,6 +74,7 @@ public class Main {
 		opt.put("double-set-old", "hybrid");
 		opt.put("double-set-new", "hybrid");
 		opt.put("propagator", "worklist");
+//		opt.put("on-fly-cg", "true");
 		SparkTransformer.v().transform("", opt);
 	}
 	

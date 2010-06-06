@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
 /**
@@ -15,13 +16,13 @@ import soot.toolkits.scalar.FlowUniverse;
  *
  */
 public class LatticeNode {
-	private final Map<AllocationSite, ASInfo> map;
+	private final Map<AllocationSiteSet, ASInfo> map;
 	// A full ASInfo ready for insertion for missing allocation sites.
 	private final ASInfo fullASInfo;
 	
 	LatticeNode(FlowUniverse<Integer> statesUniverse)
 	{
-		map = new HashMap<AllocationSite, ASInfo>();
+		map = new HashMap<AllocationSiteSet, ASInfo>();
 		fullASInfo = new ASInfo(statesUniverse);
 		fullASInfo.getStates().complement();
 	}
@@ -29,8 +30,8 @@ public class LatticeNode {
 	void union(LatticeNode other, LatticeNode dest)
 	{
 		other.copy(dest);
-		for (Map.Entry<AllocationSite, ASInfo> entry : map.entrySet()) {
-			final AllocationSite key = entry.getKey();
+		for (Map.Entry<AllocationSiteSet, ASInfo> entry : map.entrySet()) {
+			final AllocationSiteSet key = entry.getKey();
 			if (dest.map.containsKey(key))
 				dest.map.get(key).merge(entry.getValue());
 			else
@@ -41,7 +42,7 @@ public class LatticeNode {
 	void copy(LatticeNode other)
 	{
 		other.map.clear();
-		for (Map.Entry<AllocationSite, ASInfo> entry : map.entrySet()) {
+		for (Map.Entry<AllocationSiteSet, ASInfo> entry : map.entrySet()) {
 			other.map.put(entry.getKey(), entry.getValue().clone());
 		}
 	}
@@ -53,7 +54,7 @@ public class LatticeNode {
 	}
 	
 	// Return the ASInfo for a given allocation site.
-	public ASInfo getASInfo(AllocationSite allocSite)
+	public ASInfo getASInfo(AllocationSiteSet allocSite)
 	{
 		if (!map.containsKey(allocSite))
 			map.put(allocSite, fullASInfo.clone());
@@ -67,9 +68,9 @@ public class LatticeNode {
 		
 		buffer.append("LN(");
 		
-		Iterator<AllocationSite> it = map.keySet().iterator();
+		Iterator<AllocationSiteSet> it = map.keySet().iterator();
 		if (it.hasNext()) {
-			AllocationSite allocSite = it.next();
+			AllocationSiteSet allocSite = it.next();
 			buffer.append(allocSite);
 			buffer.append(" -> ");
 			buffer.append(map.get(allocSite));
@@ -90,13 +91,27 @@ public class LatticeNode {
 	
 	public interface ASInfoVisitor
 	{
-		void visit(AllocationSite allocSite, ASInfo asInfo);
+		void visit(AllocationSiteSet allocSite, ASInfo asInfo);
 	}
-	public void forEachAllocationSite(Collection<AllocationSite> allocationSites,
+	
+	public void forEachAllocationSite(AllocationSiteSet allocationSiteSet,
 		ASInfoVisitor visitor)
 	{
-		for (AllocationSite allocSite : allocationSites) {
-			visitor.visit(allocSite, getASInfo(allocSite));
+		for (Map.Entry<AllocationSiteSet, ASInfo> entry : map.entrySet())
+		{
+			AllocationSiteSet allocSite = entry.getKey();
+			if (allocSite.intersects(allocationSiteSet))
+				visitor.visit(allocSite, entry.getValue());
 		}
+	}
+	
+	public boolean hasState(BoundedFlowSet state)
+	{
+		for (Map.Entry<AllocationSiteSet, ASInfo> entry : map.entrySet()) {
+			if (entry.getValue().hasState(state))
+				return true;
+		}
+		
+		return false;
 	}
 }
