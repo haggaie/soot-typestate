@@ -37,7 +37,7 @@ public class StackTest {
 	@Test(expected = EmptyStackException.class)
 	public void testClear() {
 		// Creating a new stack to have a simpler
-		// example where the stack is allocated locally.
+		// example wnew AShere the stack is allocated locally.
 		Stack<Integer> s = new Stack<Integer>();
 		s.push(1);
 		s.clear();
@@ -53,6 +53,29 @@ public class StackTest {
 		s.pop();
 	}
 	
+	@Test
+	public void testLoop() {
+		for (int i = 0; i < 100; ++i)
+		{
+			Stack<String> s = new Stack<String>();
+			s.push("TEST");
+			s.pop();
+			s.clear();
+		}
+	}
+	
+	@Test 
+	public void testBranch() {
+		Stack<String> s;
+		if (stack.empty())
+		{
+			s = new Stack<String>();
+			s.push("Empty");
+		}
+		else
+			s = new Stack<String>();
+		s.pop();
+	}
 
 	public static void main(String[] args) throws Exception
 	{
@@ -73,5 +96,7 @@ public class StackTest {
 		}
 		catch (EmptyStackException e) {
 		}
+		test.testCollectionMethods();
+		test.testLoop();
 	}
 }
