@@ -1,0 +1,5 @@
+#summary Assumptions made about soot
+
+= Assumptions =
+
+  * An InvokeStmt always has a Local as its base.
