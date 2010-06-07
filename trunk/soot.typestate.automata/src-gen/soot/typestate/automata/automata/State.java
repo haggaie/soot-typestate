@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link soot.typestate.automata.automata.State#isInitial <em>Initial</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.State#getName <em>Name</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.State#getTransitions <em>Transitions</em>}</li>
  * </ul>
@@ -29,32 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface State extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Initial</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Initial</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Initial</em>' attribute.
-   * @see #setInitial(boolean)
-   * @see soot.typestate.automata.automata.AutomataPackage#getState_Initial()
-   * @model
-   * @generated
-   */
-  boolean isInitial();
-
-  /**
-   * Sets the value of the '{@link soot.typestate.automata.automata.State#isInitial <em>Initial</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Initial</em>' attribute.
-   * @see #isInitial()
-   * @generated
-   */
-  void setInitial(boolean value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

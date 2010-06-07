@@ -27,6 +27,8 @@ import soot.toolkits.scalar.FlowUniverse;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.Automaton;
 import soot.typestate.automata.automata.Class;
+import soot.typestate.automata.automata.Constructor;
+import soot.typestate.automata.automata.Invocation;
 import soot.typestate.automata.automata.Package;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
@@ -65,7 +67,9 @@ public class ClassAutomaton {
 		initialState = new ArrayPackedSet(getFlowUniverse());
 		initialState.add(getStateIndex(automaton.getInitialState()));
 		errorState = new ArrayPackedSet(getFlowUniverse());
-		errorState.add(getStateIndex(automaton.getErrorState()));
+		State automatonErrorState = automaton.getErrorState();
+		if (automatonErrorState != null)
+			errorState.add(getStateIndex(automatonErrorState));
 		allStates = new ArrayPackedSet(getFlowUniverse());
 		allStates.complement();
 	}
@@ -104,7 +108,7 @@ public class ClassAutomaton {
 		
 		for (State state : states) {
 			for (Transition transition : state.getTransitions()) {
-				SootMethod method = resolveMethod(transition.getMethod());
+				SootMethod method = resolveMethod(transition.getInvocation());
 				List<Integer> delta = getDelta(method);
 				delta.set(getStateIndex(state), getStateIndex(transition.getState()));
 			}
@@ -170,34 +174,57 @@ public class ClassAutomaton {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private SootMethod resolveMethod(Method method) throws ClassNotFoundException, SecurityException, NoSuchMethodException
+	private SootMethod resolveMethod(Invocation invocation) throws ClassNotFoundException, SecurityException, NoSuchMethodException
 	{
-		java.lang.Class args[] = new java.lang.Class[method.getArgs().size()];
+		java.lang.Class args[] = new java.lang.Class[invocation.getArgs().size()];
 		{
 			int i = 0;
-			for (Type type : method.getArgs()) {
+			for (Type type : invocation.getArgs()) {
 				args[i++] = resolvType(type);
 			}
 		}
-		java.lang.reflect.Method javaMethod = javaClass.getMethod(method.getName(), args);
-		
 		StringBuffer buffer = new StringBuffer();
-		
-		// Declaring class name
 		buffer.append("<");
-		buffer.append(javaMethod.getDeclaringClass().getCanonicalName());
-		buffer.append(": ");
-		
-		// Return type
-		buffer.append(javaMethod.getReturnType().getCanonicalName());
-		buffer.append(" ");
-		
-		// Method name
-		buffer.append(Scene.v().quotedNameOf(javaMethod.getName()));
+		if (invocation instanceof Method) {
+			Method method = (Method) invocation;
+			java.lang.reflect.Method javaMethod = javaClass.getMethod(method.getName(), args);
+			
+			// Declaring class name
+			buffer.append(javaMethod.getDeclaringClass().getCanonicalName());
+			buffer.append(": ");
+			
+			// Return type
+			buffer.append(javaMethod.getReturnType().getCanonicalName());
+			buffer.append(" ");
+
+			// Method name
+			buffer.append(Scene.v().quotedNameOf(javaMethod.getName()));
+			
+			args = javaMethod.getParameterTypes();
+		}
+		else {
+			assert invocation instanceof Constructor;
+			
+//			for (java.lang.reflect.Constructor c : javaClass.getConstructors())
+//				System.out.println(c);
+			
+			java.lang.reflect.Constructor constructor = javaClass.getConstructor(args);
+			
+			// Declaring class name
+			buffer.append(javaClass.getCanonicalName());
+			buffer.append(": ");
+			
+			// Return type
+			buffer.append("void ");
+
+			// Method name
+			buffer.append("<init>");
+
+			args = constructor.getParameterTypes();
+		}
 		
 		buffer.append("(");
 		
-		args = javaMethod.getParameterTypes();
 		if (args.length > 0) {
 			buffer.append(args[0].getCanonicalName());
 			

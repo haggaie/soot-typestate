@@ -32,7 +32,6 @@ import soot.typestate.automata.automata.Transition;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link soot.typestate.automata.automata.impl.StateImpl#isInitial <em>Initial</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
@@ -42,26 +41,6 @@ import soot.typestate.automata.automata.Transition;
  */
 public class StateImpl extends MinimalEObjectImpl.Container implements State
 {
-  /**
-   * The default value of the '{@link #isInitial() <em>Initial</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isInitial()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean INITIAL_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isInitial() <em>Initial</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isInitial()
-   * @generated
-   * @ordered
-   */
-  protected boolean initial = INITIAL_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -111,29 +90,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   protected EClass eStaticClass()
   {
     return AutomataPackage.Literals.STATE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isInitial()
-  {
-    return initial;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInitial(boolean newInitial)
-  {
-    boolean oldInitial = initial;
-    initial = newInitial;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.STATE__INITIAL, oldInitial, initial));
   }
 
   /**
@@ -199,8 +155,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case AutomataPackage.STATE__INITIAL:
-        return isInitial();
       case AutomataPackage.STATE__NAME:
         return getName();
       case AutomataPackage.STATE__TRANSITIONS:
@@ -220,9 +174,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case AutomataPackage.STATE__INITIAL:
-        setInitial((Boolean)newValue);
-        return;
       case AutomataPackage.STATE__NAME:
         setName((String)newValue);
         return;
@@ -244,9 +195,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case AutomataPackage.STATE__INITIAL:
-        setInitial(INITIAL_EDEFAULT);
-        return;
       case AutomataPackage.STATE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -267,8 +215,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case AutomataPackage.STATE__INITIAL:
-        return initial != INITIAL_EDEFAULT;
       case AutomataPackage.STATE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AutomataPackage.STATE__TRANSITIONS:
@@ -288,9 +234,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (initial: ");
-    result.append(initial);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

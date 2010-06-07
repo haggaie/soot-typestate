@@ -41,4 +41,10 @@ public class Automaton {
 		assertEquals("EMPTY", listAutomaton.getDelta(method, "EMPTY"));
 	}
 
+	@Test
+	public void testConstructors() throws Exception {
+		ClassAutomaton automaton = ClassAutomaton.load("examples/java.net.Socket.automata");
+		SootMethod method = automaton.getKlass().getMethod("void <init>(java.net.InetAddress,int)");
+		assertEquals("CONNECTED", automaton.getDelta(method, "INIT"));
+	}
 }

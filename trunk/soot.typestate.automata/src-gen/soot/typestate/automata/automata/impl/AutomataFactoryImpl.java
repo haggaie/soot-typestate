@@ -18,6 +18,7 @@ import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
 import soot.typestate.automata.automata.Constructor;
+import soot.typestate.automata.automata.Invocation;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -81,6 +82,7 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
       case AutomataPackage.CLASS: return createClass();
       case AutomataPackage.STATE: return createState();
       case AutomataPackage.TRANSITION: return createTransition();
+      case AutomataPackage.INVOCATION: return createInvocation();
       case AutomataPackage.METHOD: return createMethod();
       case AutomataPackage.CONSTRUCTOR: return createConstructor();
       case AutomataPackage.TYPE: return createType();
@@ -153,6 +155,17 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
   {
     TransitionImpl transition = new TransitionImpl();
     return transition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Invocation createInvocation()
+  {
+    InvocationImpl invocation = new InvocationImpl();
+    return invocation;
   }
 
   /**

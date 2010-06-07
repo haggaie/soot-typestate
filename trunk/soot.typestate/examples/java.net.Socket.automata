@@ -1,0 +1,38 @@
+package java.net;
+
+automaton Socket {
+	initial = INIT;
+	error   = ERROR;
+	
+	state INIT {
+		Socket(InetAddress, int) 				-> CONNECTED;
+		Socket(InetAddress, int, InetAddress, int) -> CONNECTED;
+		Socket(String, int) 					-> CONNECTED;
+		Socket(String, int, InetAddress, int)	-> CONNECTED;
+		
+		void connect(SocketAddress) 		-> CONNECTED;
+		void connect(SocketAddress, int) 	-> CONNECTED;
+		
+		InputStream getInputStream()	-> ERROR;
+		OutputStream getOutputStream()	-> ERROR; 
+	}
+	
+	state CONNECTED {
+		void connect(SocketAddress) 	-> ERROR;
+		void connect(SocketAddress, int)-> ERROR;
+
+		void close() 					-> CLOSED;
+	}
+	
+	state CLOSED {
+		void bind(SocketAddress) 		-> ERROR;
+		
+		void connect(SocketAddress) 	-> ERROR;
+		void connect(SocketAddress, int)-> ERROR;
+		
+		InputStream getInputStream()	-> ERROR;
+		OutputStream getOutputStream()	-> ERROR;
+	}
+	
+	state ERROR {}
+}

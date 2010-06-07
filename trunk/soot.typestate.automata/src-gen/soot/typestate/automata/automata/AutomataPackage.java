@@ -180,6 +180,71 @@ public interface AutomataPackage extends EPackage
   int AUTOMATON_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.ClassImpl <em>Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.ClassImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getClass_()
+   * @generated
+   */
+  int CLASS = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.StateImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getState()
+   * @generated
+   */
+  int STATE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__TRANSITIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link soot.typestate.automata.automata.impl.TransitionImpl <em>Transition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -190,13 +255,13 @@ public interface AutomataPackage extends EPackage
   int TRANSITION = 5;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference.
+   * The feature id for the '<em><b>Invocation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION__METHOD = 0;
+  int TRANSITION__INVOCATION = 0;
 
   /**
    * The feature id for the '<em><b>State</b></em>' reference.
@@ -217,78 +282,14 @@ public interface AutomataPackage extends EPackage
   int TRANSITION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link soot.typestate.automata.automata.impl.ConstructorImpl <em>Constructor</em>}' class.
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.InvocationImpl <em>Invocation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see soot.typestate.automata.automata.impl.ConstructorImpl
-   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getConstructor()
+   * @see soot.typestate.automata.automata.impl.InvocationImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getInvocation()
    * @generated
    */
-  int CONSTRUCTOR = 7;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRUCTOR__METHOD = TRANSITION__METHOD;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRUCTOR__STATE = TRANSITION__STATE;
-
-  /**
-   * The number of structural features of the '<em>Constructor</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRUCTOR_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link soot.typestate.automata.automata.impl.ClassImpl <em>Class</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see soot.typestate.automata.automata.impl.ClassImpl
-   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getClass_()
-   * @generated
-   */
-  int CLASS = 3;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS__METHOD = CONSTRUCTOR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS__STATE = CONSTRUCTOR__STATE;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS__NAME = CONSTRUCTOR_FEATURE_COUNT + 0;
+  int INVOCATION = 6;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -297,62 +298,16 @@ public interface AutomataPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__ARGS = CONSTRUCTOR_FEATURE_COUNT + 1;
+  int INVOCATION__ARGS = 0;
 
   /**
-   * The number of structural features of the '<em>Class</em>' class.
+   * The number of structural features of the '<em>Invocation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = CONSTRUCTOR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link soot.typestate.automata.automata.impl.StateImpl <em>State</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see soot.typestate.automata.automata.impl.StateImpl
-   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getState()
-   * @generated
-   */
-  int STATE = 4;
-
-  /**
-   * The feature id for the '<em><b>Initial</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__INITIAL = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__TRANSITIONS = 2;
-
-  /**
-   * The number of structural features of the '<em>State</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE_FEATURE_COUNT = 3;
+  int INVOCATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link soot.typestate.automata.automata.impl.MethodImpl <em>Method</em>}' class.
@@ -362,25 +317,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 6;
-
-  /**
-   * The feature id for the '<em><b>Returntype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD__RETURNTYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD__NAME = 1;
+  int METHOD = 7;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -389,7 +326,25 @@ public interface AutomataPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD__ARGS = 2;
+  int METHOD__ARGS = INVOCATION__ARGS;
+
+  /**
+   * The feature id for the '<em><b>Returntype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__RETURNTYPE = INVOCATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__NAME = INVOCATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Method</em>' class.
@@ -398,7 +353,44 @@ public interface AutomataPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_FEATURE_COUNT = 3;
+  int METHOD_FEATURE_COUNT = INVOCATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.ConstructorImpl <em>Constructor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.ConstructorImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getConstructor()
+   * @generated
+   */
+  int CONSTRUCTOR = 8;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRUCTOR__ARGS = INVOCATION__ARGS;
+
+  /**
+   * The feature id for the '<em><b>Klass</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRUCTOR__KLASS = INVOCATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Constructor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRUCTOR_FEATURE_COUNT = INVOCATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link soot.typestate.automata.automata.impl.TypeImpl <em>Type</em>}' class.
@@ -408,7 +400,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getType()
    * @generated
    */
-  int TYPE = 8;
+  int TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -558,17 +550,6 @@ public interface AutomataPackage extends EPackage
   EAttribute getClass_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link soot.typestate.automata.automata.Class#getArgs <em>Args</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Args</em>'.
-   * @see soot.typestate.automata.automata.Class#getArgs()
-   * @see #getClass_()
-   * @generated
-   */
-  EReference getClass_Args();
-
-  /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.State <em>State</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -577,17 +558,6 @@ public interface AutomataPackage extends EPackage
    * @generated
    */
   EClass getState();
-
-  /**
-   * Returns the meta object for the attribute '{@link soot.typestate.automata.automata.State#isInitial <em>Initial</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Initial</em>'.
-   * @see soot.typestate.automata.automata.State#isInitial()
-   * @see #getState()
-   * @generated
-   */
-  EAttribute getState_Initial();
 
   /**
    * Returns the meta object for the attribute '{@link soot.typestate.automata.automata.State#getName <em>Name</em>}'.
@@ -622,15 +592,15 @@ public interface AutomataPackage extends EPackage
   EClass getTransition();
 
   /**
-   * Returns the meta object for the containment reference '{@link soot.typestate.automata.automata.Transition#getMethod <em>Method</em>}'.
+   * Returns the meta object for the containment reference '{@link soot.typestate.automata.automata.Transition#getInvocation <em>Invocation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Method</em>'.
-   * @see soot.typestate.automata.automata.Transition#getMethod()
+   * @return the meta object for the containment reference '<em>Invocation</em>'.
+   * @see soot.typestate.automata.automata.Transition#getInvocation()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_Method();
+  EReference getTransition_Invocation();
 
   /**
    * Returns the meta object for the reference '{@link soot.typestate.automata.automata.Transition#getState <em>State</em>}'.
@@ -642,6 +612,27 @@ public interface AutomataPackage extends EPackage
    * @generated
    */
   EReference getTransition_State();
+
+  /**
+   * Returns the meta object for class '{@link soot.typestate.automata.automata.Invocation <em>Invocation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Invocation</em>'.
+   * @see soot.typestate.automata.automata.Invocation
+   * @generated
+   */
+  EClass getInvocation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link soot.typestate.automata.automata.Invocation#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see soot.typestate.automata.automata.Invocation#getArgs()
+   * @see #getInvocation()
+   * @generated
+   */
+  EReference getInvocation_Args();
 
   /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.Method <em>Method</em>}'.
@@ -676,17 +667,6 @@ public interface AutomataPackage extends EPackage
   EAttribute getMethod_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link soot.typestate.automata.automata.Method#getArgs <em>Args</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Args</em>'.
-   * @see soot.typestate.automata.automata.Method#getArgs()
-   * @see #getMethod()
-   * @generated
-   */
-  EReference getMethod_Args();
-
-  /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.Constructor <em>Constructor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -695,6 +675,17 @@ public interface AutomataPackage extends EPackage
    * @generated
    */
   EClass getConstructor();
+
+  /**
+   * Returns the meta object for the reference '{@link soot.typestate.automata.automata.Constructor#getKlass <em>Klass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Klass</em>'.
+   * @see soot.typestate.automata.automata.Constructor#getKlass()
+   * @see #getConstructor()
+   * @generated
+   */
+  EReference getConstructor_Klass();
 
   /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.Type <em>Type</em>}'.
@@ -845,14 +836,6 @@ public interface AutomataPackage extends EPackage
     EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
 
     /**
-     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS__ARGS = eINSTANCE.getClass_Args();
-
-    /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.StateImpl <em>State</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -861,14 +844,6 @@ public interface AutomataPackage extends EPackage
      * @generated
      */
     EClass STATE = eINSTANCE.getState();
-
-    /**
-     * The meta object literal for the '<em><b>Initial</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATE__INITIAL = eINSTANCE.getState_Initial();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -897,12 +872,12 @@ public interface AutomataPackage extends EPackage
     EClass TRANSITION = eINSTANCE.getTransition();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Invocation</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__METHOD = eINSTANCE.getTransition_Method();
+    EReference TRANSITION__INVOCATION = eINSTANCE.getTransition_Invocation();
 
     /**
      * The meta object literal for the '<em><b>State</b></em>' reference feature.
@@ -911,6 +886,24 @@ public interface AutomataPackage extends EPackage
      * @generated
      */
     EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
+
+    /**
+     * The meta object literal for the '{@link soot.typestate.automata.automata.impl.InvocationImpl <em>Invocation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see soot.typestate.automata.automata.impl.InvocationImpl
+     * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getInvocation()
+     * @generated
+     */
+    EClass INVOCATION = eINSTANCE.getInvocation();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INVOCATION__ARGS = eINSTANCE.getInvocation_Args();
 
     /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.MethodImpl <em>Method</em>}' class.
@@ -939,14 +932,6 @@ public interface AutomataPackage extends EPackage
     EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
 
     /**
-     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference METHOD__ARGS = eINSTANCE.getMethod_Args();
-
-    /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.ConstructorImpl <em>Constructor</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -955,6 +940,14 @@ public interface AutomataPackage extends EPackage
      * @generated
      */
     EClass CONSTRUCTOR = eINSTANCE.getConstructor();
+
+    /**
+     * The meta object literal for the '<em><b>Klass</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRUCTOR__KLASS = eINSTANCE.getConstructor_Klass();
 
     /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.TypeImpl <em>Type</em>}' class.

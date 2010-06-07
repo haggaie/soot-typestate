@@ -24,23 +24,25 @@
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Class/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Class/args"/>
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//State/initial"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//State/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//State/transitions"/>
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Transition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Transition/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Transition/invocation"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Automata.ecore#//Transition/state"/>
+    </genClasses>
+    <genClasses ecoreClass="Automata.ecore#//Invocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Invocation/args"/>
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Method/returntype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Method/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Method/args"/>
     </genClasses>
-    <genClasses ecoreClass="Automata.ecore#//Constructor"/>
+    <genClasses ecoreClass="Automata.ecore#//Constructor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Automata.ecore#//Constructor/klass"/>
+    </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Type/name"/>
     </genClasses>

@@ -14,6 +14,8 @@ import org.eclipse.jdt.ui.JavaUI;
 
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.Constructor;
+import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.Package;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -57,12 +59,22 @@ public class AutomataTransformer extends AbstractDeclarativeSemanticModelTransfo
 			ContentOutlineNode outlineParentNode) {
 		ContentOutlineNode node = super.newOutlineNode(semanticNode, outlineParentNode);
 		StringBuffer buffer = new StringBuffer();
-		if (semanticNode.getMethod() != null)
+		if (semanticNode.getInvocation() != null)
 		{
-			buffer.append(semanticNode.getMethod().getName());
+			String name;
+			if (semanticNode.getInvocation() instanceof Method) {
+				Method method = (Method) semanticNode.getInvocation();
+				name = method.getName();
+			}
+			else {
+				assert semanticNode.getInvocation() instanceof Constructor;
+				Constructor constructor = (Constructor) semanticNode.getInvocation(); 
+				name = constructor.getKlass().getName();
+			}
+			buffer.append(name);
 			buffer.append('(');
 			boolean start = true;
-			for (Type arg : semanticNode.getMethod().getArgs()) {
+			for (Type arg : semanticNode.getInvocation().getArgs()) {
 				if (start)
 					start = false;
 				else
