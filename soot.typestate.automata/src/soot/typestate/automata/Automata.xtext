@@ -18,18 +18,20 @@ Automaton :
 Class : name=JAVAID ;
 
 State :
-	(initial?='initial')? 'state' name=ID '{'
+	'state' name=ID '{'
 		(transitions+=Transition)*
 	'}';
 
 Transition :
-	(method=Method|Constructor) '->' (state=[State]) ';';
+	(invocation=Invocation) '->' (state=[State]) ';';
+
+Invocation: Method | Constructor ;
 
 Method :
 	(returntype=Type) (name=ID) '(' (args+=Type (',' args+=Type)*)? ')';
 
 Constructor :
-	Class '(' (args+=Type)* ')' ;
+	klass=[Class] '(' (args+=Type (',' args+=Type)*)? ')' ;
 
 Type : name=JAVAID ;
 

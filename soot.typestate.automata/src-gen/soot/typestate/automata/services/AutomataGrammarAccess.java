@@ -186,58 +186,48 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	public class StateElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cInitialAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cInitialInitialKeyword_0_0 = (Keyword)cInitialAssignment_0.eContents().get(0);
-		private final Keyword cStateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTransitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTransitionsTransitionParserRuleCall_4_0 = (RuleCall)cTransitionsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTransitionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTransitionsTransitionParserRuleCall_3_0 = (RuleCall)cTransitionsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//State:
-		//  initial?="initial"? "state" name=ID "{" transitions+=Transition* "}";
+		//  "state" name=ID "{" transitions+=Transition* "}";
 		public ParserRule getRule() { return rule; }
 
-		//initial?="initial"? "state" name=ID "{" transitions+=Transition* "}"
+		//"state" name=ID "{" transitions+=Transition* "}"
 		public Group getGroup() { return cGroup; }
 
-		//initial?="initial"?
-		public Assignment getInitialAssignment_0() { return cInitialAssignment_0; }
-
-		//"initial"
-		public Keyword getInitialInitialKeyword_0_0() { return cInitialInitialKeyword_0_0; }
-
 		//"state"
-		public Keyword getStateKeyword_1() { return cStateKeyword_1; }
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
+		public Assignment getTransitionsAssignment_3() { return cTransitionsAssignment_3; }
 
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_3_0() { return cTransitionsTransitionParserRuleCall_3_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class TransitionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Transition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Assignment cMethodAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final RuleCall cMethodMethodParserRuleCall_0_0_0 = (RuleCall)cMethodAssignment_0_0.eContents().get(0);
-		private final RuleCall cConstructorParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final Assignment cInvocationAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cInvocationInvocationParserRuleCall_0_0 = (RuleCall)cInvocationAssignment_0.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cStateStateCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
@@ -245,23 +235,17 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Transition:
-		//  (method=Method|Constructor) "->" state=[State] ";";
+		//  invocation=Invocation "->" state=[State] ";";
 		public ParserRule getRule() { return rule; }
 
-		//(method=Method|Constructor) "->" state=[State] ";"
+		//invocation=Invocation "->" state=[State] ";"
 		public Group getGroup() { return cGroup; }
 
-		//method=Method|Constructor
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//invocation=Invocation
+		public Assignment getInvocationAssignment_0() { return cInvocationAssignment_0; }
 
-		//method=Method
-		public Assignment getMethodAssignment_0_0() { return cMethodAssignment_0_0; }
-
-		//Method
-		public RuleCall getMethodMethodParserRuleCall_0_0_0() { return cMethodMethodParserRuleCall_0_0_0; }
-
-		//Constructor
-		public RuleCall getConstructorParserRuleCall_0_1() { return cConstructorParserRuleCall_0_1; }
+		//Invocation
+		public RuleCall getInvocationInvocationParserRuleCall_0_0() { return cInvocationInvocationParserRuleCall_0_0; }
 
 		//"->"
 		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
@@ -277,6 +261,26 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class InvocationElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Invocation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMethodParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cConstructorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Invocation:
+		//  Method|Constructor;
+		public ParserRule getRule() { return rule; }
+
+		//Method|Constructor
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Method
+		public RuleCall getMethodParserRuleCall_0() { return cMethodParserRuleCall_0; }
+
+		//Constructor
+		public RuleCall getConstructorParserRuleCall_1() { return cConstructorParserRuleCall_1; }
 	}
 
 	public class MethodElements implements IParserRuleAccess {
@@ -346,30 +350,58 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	public class ConstructorElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Constructor");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cClassParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cKlassAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cKlassClassCrossReference_0_0 = (CrossReference)cKlassAssignment_0.eContents().get(0);
+		private final RuleCall cKlassClassIDTerminalRuleCall_0_0_1 = (RuleCall)cKlassClassCrossReference_0_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cArgsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cArgsTypeParserRuleCall_2_0 = (RuleCall)cArgsAssignment_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cArgsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cArgsTypeParserRuleCall_2_0_0 = (RuleCall)cArgsAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cArgsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cArgsTypeParserRuleCall_2_1_1_0 = (RuleCall)cArgsAssignment_2_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Constructor:
-		//  Class "(" args+=Type* ")";
+		//  klass=[Class] "(" (args+=Type ("," args+=Type)*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//Class "(" args+=Type* ")"
+		//klass=[Class] "(" (args+=Type ("," args+=Type)*)? ")"
 		public Group getGroup() { return cGroup; }
 
-		//Class
-		public RuleCall getClassParserRuleCall_0() { return cClassParserRuleCall_0; }
+		//klass=[Class]
+		public Assignment getKlassAssignment_0() { return cKlassAssignment_0; }
+
+		//[Class]
+		public CrossReference getKlassClassCrossReference_0_0() { return cKlassClassCrossReference_0_0; }
+
+		//ID
+		public RuleCall getKlassClassIDTerminalRuleCall_0_0_1() { return cKlassClassIDTerminalRuleCall_0_0_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//args+=Type*
-		public Assignment getArgsAssignment_2() { return cArgsAssignment_2; }
+		//(args+=Type ("," args+=Type)*)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//args+=Type
+		public Assignment getArgsAssignment_2_0() { return cArgsAssignment_2_0; }
 
 		//Type
-		public RuleCall getArgsTypeParserRuleCall_2_0() { return cArgsTypeParserRuleCall_2_0; }
+		public RuleCall getArgsTypeParserRuleCall_2_0_0() { return cArgsTypeParserRuleCall_2_0_0; }
+
+		//("," args+=Type)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//","
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+
+		//args+=Type
+		public Assignment getArgsAssignment_2_1_1() { return cArgsAssignment_2_1_1; }
+
+		//Type
+		public RuleCall getArgsTypeParserRuleCall_2_1_1_0() { return cArgsTypeParserRuleCall_2_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -426,6 +458,7 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	private ClassElements pClass;
 	private StateElements pState;
 	private TransitionElements pTransition;
+	private InvocationElements pInvocation;
 	private MethodElements pMethod;
 	private ConstructorElements pConstructor;
 	private TypeElements pType;
@@ -494,7 +527,7 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	}
 
 	//State:
-	//  initial?="initial"? "state" name=ID "{" transitions+=Transition* "}";
+	//  "state" name=ID "{" transitions+=Transition* "}";
 	public StateElements getStateAccess() {
 		return (pState != null) ? pState : (pState = new StateElements());
 	}
@@ -504,13 +537,23 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	}
 
 	//Transition:
-	//  (method=Method|Constructor) "->" state=[State] ";";
+	//  invocation=Invocation "->" state=[State] ";";
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
 	}
 	
 	public ParserRule getTransitionRule() {
 		return getTransitionAccess().getRule();
+	}
+
+	//Invocation:
+	//  Method|Constructor;
+	public InvocationElements getInvocationAccess() {
+		return (pInvocation != null) ? pInvocation : (pInvocation = new InvocationElements());
+	}
+	
+	public ParserRule getInvocationRule() {
+		return getInvocationAccess().getRule();
 	}
 
 	//Method:
@@ -524,7 +567,7 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	}
 
 	//Constructor:
-	//  Class "(" args+=Type* ")";
+	//  klass=[Class] "(" (args+=Type ("," args+=Type)*)? ")";
 	public ConstructorElements getConstructorAccess() {
 		return (pConstructor != null) ? pConstructor : (pConstructor = new ConstructorElements());
 	}

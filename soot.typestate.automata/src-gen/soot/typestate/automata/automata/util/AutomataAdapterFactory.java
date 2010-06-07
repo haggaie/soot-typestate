@@ -16,6 +16,7 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
 import soot.typestate.automata.automata.Constructor;
+import soot.typestate.automata.automata.Invocation;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -113,6 +114,11 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTransition(Transition object)
       {
         return createTransitionAdapter();
+      }
+      @Override
+      public Adapter caseInvocation(Invocation object)
+      {
+        return createInvocationAdapter();
       }
       @Override
       public Adapter caseMethod(Method object)
@@ -237,6 +243,21 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTransitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link soot.typestate.automata.automata.Invocation <em>Invocation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see soot.typestate.automata.automata.Invocation
+   * @generated
+   */
+  public Adapter createInvocationAdapter()
   {
     return null;
   }

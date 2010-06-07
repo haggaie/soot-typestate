@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link soot.typestate.automata.automata.Transition#getMethod <em>Method</em>}</li>
+ *   <li>{@link soot.typestate.automata.automata.Transition#getInvocation <em>Invocation</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.Transition#getState <em>State</em>}</li>
  * </ul>
  * </p>
@@ -27,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Transition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Method</b></em>' containment reference.
+   * Returns the value of the '<em><b>Invocation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Invocation</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' containment reference.
-   * @see #setMethod(Method)
-   * @see soot.typestate.automata.automata.AutomataPackage#getTransition_Method()
+   * @return the value of the '<em>Invocation</em>' containment reference.
+   * @see #setInvocation(Invocation)
+   * @see soot.typestate.automata.automata.AutomataPackage#getTransition_Invocation()
    * @model containment="true"
    * @generated
    */
-  Method getMethod();
+  Invocation getInvocation();
 
   /**
-   * Sets the value of the '{@link soot.typestate.automata.automata.Transition#getMethod <em>Method</em>}' containment reference.
+   * Sets the value of the '{@link soot.typestate.automata.automata.Transition#getInvocation <em>Invocation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method</em>' containment reference.
-   * @see #getMethod()
+   * @param value the new value of the '<em>Invocation</em>' containment reference.
+   * @see #getInvocation()
    * @generated
    */
-  void setMethod(Method value);
+  void setInvocation(Invocation value);
 
   /**
    * Returns the value of the '<em><b>State</b></em>' reference.

@@ -80,6 +80,15 @@ public interface AutomataFactory extends EFactory
   Transition createTransition();
 
   /**
+   * Returns a new object of class '<em>Invocation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Invocation</em>'.
+   * @generated
+   */
+  Invocation createInvocation();
+
+  /**
    * Returns a new object of class '<em>Method</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

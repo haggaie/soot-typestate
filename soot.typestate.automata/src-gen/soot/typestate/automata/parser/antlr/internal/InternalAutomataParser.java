@@ -504,7 +504,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==15||LA4_0==19) ) {
+                if ( (LA4_0==19) ) {
                     alt4=1;
                 }
 
@@ -702,69 +702,34 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleState
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:366:1: ruleState returns [EObject current=null] : ( (lv_initial_0= 'initial' )? 'state' (lv_name_2= RULE_ID ) '{' (lv_transitions_4= ruleTransition )* '}' ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:366:1: ruleState returns [EObject current=null] : ( 'state' (lv_name_1= RULE_ID ) '{' (lv_transitions_3= ruleTransition )* '}' ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
-        Token lv_initial_0=null;
-        Token lv_name_2=null;
-        EObject lv_transitions_4 = null;
+        Token lv_name_1=null;
+        EObject lv_transitions_3 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:371:6: ( ( (lv_initial_0= 'initial' )? 'state' (lv_name_2= RULE_ID ) '{' (lv_transitions_4= ruleTransition )* '}' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:1: ( (lv_initial_0= 'initial' )? 'state' (lv_name_2= RULE_ID ) '{' (lv_transitions_4= ruleTransition )* '}' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:371:6: ( ( 'state' (lv_name_1= RULE_ID ) '{' (lv_transitions_3= ruleTransition )* '}' ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:1: ( 'state' (lv_name_1= RULE_ID ) '{' (lv_transitions_3= ruleTransition )* '}' )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:1: ( (lv_initial_0= 'initial' )? 'state' (lv_name_2= RULE_ID ) '{' (lv_transitions_4= ruleTransition )* '}' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:2: (lv_initial_0= 'initial' )? 'state' (lv_name_2= RULE_ID ) '{' (lv_transitions_4= ruleTransition )* '}'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:1: ( 'state' (lv_name_1= RULE_ID ) '{' (lv_transitions_3= ruleTransition )* '}' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:2: 'state' (lv_name_1= RULE_ID ) '{' (lv_transitions_3= ruleTransition )* '}'
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:372:2: (lv_initial_0= 'initial' )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            match(input,19,FOLLOW_19_in_ruleState770); 
 
-            if ( (LA5_0==15) ) {
-                alt5=1;
-            }
-            switch (alt5) {
-                case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:374:6: lv_initial_0= 'initial'
-                    {
-                    lv_initial_0=(Token)input.LT(1);
-                    match(input,15,FOLLOW_15_in_ruleState782); 
-
-                            createLeafNode(grammarAccess.getStateAccess().getInitialInitialKeyword_0_0(), "initial"); 
-                        
-
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getStateRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "initial", true, "initial", lastConsumedNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	    
-
-                    }
-                    break;
-
-            }
-
-            match(input,19,FOLLOW_19_in_ruleState805); 
-
-                    createLeafNode(grammarAccess.getStateAccess().getStateKeyword_1(), null); 
+                    createLeafNode(grammarAccess.getStateAccess().getStateKeyword_0(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:397:1: (lv_name_2= RULE_ID )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:399:6: lv_name_2= RULE_ID
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:376:1: (lv_name_1= RULE_ID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:378:6: lv_name_1= RULE_ID
             {
-            lv_name_2=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState827); 
+            lv_name_1=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState792); 
 
-            		createLeafNode(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
+            		createLeafNode(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             	
 
             	        if (current==null) {
@@ -773,7 +738,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             	        }
             	        
             	        try {
-            	       		set(current, "name", lv_name_2, "ID", lastConsumedNode);
+            	       		set(current, "name", lv_name_1, "ID", lastConsumedNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
@@ -781,30 +746,30 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleState844); 
+            match(input,14,FOLLOW_14_in_ruleState809); 
 
-                    createLeafNode(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3(), null); 
+                    createLeafNode(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:421:1: (lv_transitions_4= ruleTransition )*
-            loop6:
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:400:1: (lv_transitions_3= ruleTransition )*
+            loop5:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_ID) ) {
-                    alt6=1;
+                if ( (LA5_0==RULE_ID) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt5) {
             	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:424:6: lv_transitions_4= ruleTransition
+            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:403:6: lv_transitions_3= ruleTransition
             	    {
             	     
-            	    	        currentNode=createCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0(), currentNode); 
+            	    	        currentNode=createCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_3_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleTransition_in_ruleState878);
-            	    lv_transitions_4=ruleTransition();
+            	    pushFollow(FOLLOW_ruleTransition_in_ruleState843);
+            	    lv_transitions_3=ruleTransition();
             	    _fsp--;
 
 
@@ -814,7 +779,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             	    	        }
             	    	        
             	    	        try {
-            	    	       		add(current, "transitions", lv_transitions_4, "Transition", currentNode);
+            	    	       		add(current, "transitions", lv_transitions_3, "Transition", currentNode);
             	    	        } catch (ValueConverterException vce) {
             	    				handleValueConverterException(vce);
             	    	        }
@@ -825,13 +790,13 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop5;
                 }
             } while (true);
 
-            match(input,18,FOLLOW_18_in_ruleState892); 
+            match(input,18,FOLLOW_18_in_ruleState857); 
 
-                    createLeafNode(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_5(), null); 
+                    createLeafNode(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4(), null); 
                 
 
             }
@@ -856,7 +821,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTransition
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:453:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:432:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -864,16 +829,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:453:52: (iv_ruleTransition= ruleTransition EOF )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:454:2: iv_ruleTransition= ruleTransition EOF
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:432:52: (iv_ruleTransition= ruleTransition EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:433:2: iv_ruleTransition= ruleTransition EOF
             {
              currentNode = createCompositeNode(grammarAccess.getTransitionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition925);
+            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition890);
             iv_ruleTransition=ruleTransition();
             _fsp--;
 
              current =iv_ruleTransition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition935); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition900); 
 
             }
 
@@ -891,86 +856,54 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTransition
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:461:1: ruleTransition returns [EObject current=null] : ( ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor ) '->' ( RULE_ID ) ';' ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:440:1: ruleTransition returns [EObject current=null] : ( (lv_invocation_0= ruleInvocation ) '->' ( RULE_ID ) ';' ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_method_0 = null;
-
-        EObject this_Constructor_1 = null;
+        EObject lv_invocation_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:466:6: ( ( ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor ) '->' ( RULE_ID ) ';' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:1: ( ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor ) '->' ( RULE_ID ) ';' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:445:6: ( ( (lv_invocation_0= ruleInvocation ) '->' ( RULE_ID ) ';' ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:446:1: ( (lv_invocation_0= ruleInvocation ) '->' ( RULE_ID ) ';' )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:1: ( ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor ) '->' ( RULE_ID ) ';' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:2: ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor ) '->' ( RULE_ID ) ';'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:446:1: ( (lv_invocation_0= ruleInvocation ) '->' ( RULE_ID ) ';' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:446:2: (lv_invocation_0= ruleInvocation ) '->' ( RULE_ID ) ';'
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:2: ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor )
-            int alt7=2;
-            alt7 = dfa7.predict(input);
-            switch (alt7) {
-                case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:3: (lv_method_0= ruleMethod )
-                    {
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:467:3: (lv_method_0= ruleMethod )
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:470:6: lv_method_0= ruleMethod
-                    {
-                     
-                    	        currentNode=createCompositeNode(grammarAccess.getTransitionAccess().getMethodMethodParserRuleCall_0_0_0(), currentNode); 
-                    	    
-                    pushFollow(FOLLOW_ruleMethod_in_ruleTransition995);
-                    lv_method_0=ruleMethod();
-                    _fsp--;
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:446:2: (lv_invocation_0= ruleInvocation )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:449:6: lv_invocation_0= ruleInvocation
+            {
+             
+            	        currentNode=createCompositeNode(grammarAccess.getTransitionAccess().getInvocationInvocationParserRuleCall_0_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleInvocation_in_ruleTransition959);
+            lv_invocation_0=ruleInvocation();
+            _fsp--;
 
 
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getTransitionRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode.getParent(), current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "method", lv_method_0, "Method", currentNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	        currentNode = currentNode.getParent();
-                    	    
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:490:5: this_Constructor_1= ruleConstructor
-                    {
-                     
-                            currentNode=createCompositeNode(grammarAccess.getTransitionAccess().getConstructorParserRuleCall_0_1(), currentNode); 
-                        
-                    pushFollow(FOLLOW_ruleConstructor_in_ruleTransition1027);
-                    this_Constructor_1=ruleConstructor();
-                    _fsp--;
-
-                     
-                            current = this_Constructor_1; 
-                            currentNode = currentNode.getParent();
-                        
-
-                    }
-                    break;
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getTransitionRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "invocation", lv_invocation_0, "Invocation", currentNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	        currentNode = currentNode.getParent();
+            	    
 
             }
 
-            match(input,20,FOLLOW_20_in_ruleTransition1036); 
+            match(input,20,FOLLOW_20_in_ruleTransition972); 
 
                     createLeafNode(grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_1(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:502:1: ( RULE_ID )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:505:3: RULE_ID
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:471:1: ( RULE_ID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:474:3: RULE_ID
             {
 
             			if (current==null) {
@@ -978,14 +911,14 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition1058); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition994); 
 
             		createLeafNode(grammarAccess.getTransitionAccess().getStateStateCrossReference_2_0(), "state"); 
             	
 
             }
 
-            match(input,12,FOLLOW_12_in_ruleTransition1070); 
+            match(input,12,FOLLOW_12_in_ruleTransition1006); 
 
                     createLeafNode(grammarAccess.getTransitionAccess().getSemicolonKeyword_3(), null); 
                 
@@ -1011,8 +944,142 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleTransition
 
 
+    // $ANTLR start entryRuleInvocation
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:498:1: entryRuleInvocation returns [EObject current=null] : iv_ruleInvocation= ruleInvocation EOF ;
+    public final EObject entryRuleInvocation() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleInvocation = null;
+
+
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:498:52: (iv_ruleInvocation= ruleInvocation EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:499:2: iv_ruleInvocation= ruleInvocation EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getInvocationRule(), currentNode); 
+            pushFollow(FOLLOW_ruleInvocation_in_entryRuleInvocation1039);
+            iv_ruleInvocation=ruleInvocation();
+            _fsp--;
+
+             current =iv_ruleInvocation; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInvocation1049); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleInvocation
+
+
+    // $ANTLR start ruleInvocation
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:506:1: ruleInvocation returns [EObject current=null] : (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor ) ;
+    public final EObject ruleInvocation() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Method_0 = null;
+
+        EObject this_Constructor_1 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:511:6: ( (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:512:1: (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor )
+            {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:512:1: (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==RULE_ID) ) {
+                int LA6_1 = input.LA(2);
+
+                if ( (LA6_1==21) ) {
+                    alt6=2;
+                }
+                else if ( (LA6_1==RULE_ID||LA6_1==24) ) {
+                    alt6=1;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("512:1: (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor )", 6, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("512:1: (this_Method_0= ruleMethod | this_Constructor_1= ruleConstructor )", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:513:5: this_Method_0= ruleMethod
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getInvocationAccess().getMethodParserRuleCall_0(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleMethod_in_ruleInvocation1096);
+                    this_Method_0=ruleMethod();
+                    _fsp--;
+
+                     
+                            current = this_Method_0; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:523:5: this_Constructor_1= ruleConstructor
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getInvocationAccess().getConstructorParserRuleCall_1(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleConstructor_in_ruleInvocation1123);
+                    this_Constructor_1=ruleConstructor();
+                    _fsp--;
+
+                     
+                            current = this_Constructor_1; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleInvocation
+
+
     // $ANTLR start entryRuleMethod
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:529:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:538:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
     public final EObject entryRuleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1020,16 +1087,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:529:48: (iv_ruleMethod= ruleMethod EOF )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:530:2: iv_ruleMethod= ruleMethod EOF
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:538:48: (iv_ruleMethod= ruleMethod EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:539:2: iv_ruleMethod= ruleMethod EOF
             {
              currentNode = createCompositeNode(grammarAccess.getMethodRule(), currentNode); 
-            pushFollow(FOLLOW_ruleMethod_in_entryRuleMethod1103);
+            pushFollow(FOLLOW_ruleMethod_in_entryRuleMethod1155);
             iv_ruleMethod=ruleMethod();
             _fsp--;
 
              current =iv_ruleMethod; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMethod1113); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMethod1165); 
 
             }
 
@@ -1047,7 +1114,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMethod
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:537:1: ruleMethod returns [EObject current=null] : ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:546:1: ruleMethod returns [EObject current=null] : ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' ) ;
     public final EObject ruleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1062,19 +1129,19 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:542:6: ( ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:543:1: ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:551:6: ( ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:552:1: ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:543:1: ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:543:2: (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:552:1: ( (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:552:2: (lv_returntype_0= ruleType ) (lv_name_1= RULE_ID ) '(' ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )? ')'
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:543:2: (lv_returntype_0= ruleType )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:546:6: lv_returntype_0= ruleType
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:552:2: (lv_returntype_0= ruleType )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:555:6: lv_returntype_0= ruleType
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getReturntypeTypeParserRuleCall_0_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleType_in_ruleMethod1172);
+            pushFollow(FOLLOW_ruleType_in_ruleMethod1224);
             lv_returntype_0=ruleType();
             _fsp--;
 
@@ -1094,11 +1161,11 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:564:2: (lv_name_1= RULE_ID )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:566:6: lv_name_1= RULE_ID
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:573:2: (lv_name_1= RULE_ID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:575:6: lv_name_1= RULE_ID
             {
             lv_name_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMethod1198); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMethod1250); 
 
             		createLeafNode(grammarAccess.getMethodAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             	
@@ -1117,28 +1184,28 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleMethod1215); 
+            match(input,21,FOLLOW_21_in_ruleMethod1267); 
 
                     createLeafNode(grammarAccess.getMethodAccess().getLeftParenthesisKeyword_2(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:588:1: ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:597:1: ( (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )* )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_ID) ) {
-                alt9=1;
+            if ( (LA8_0==RULE_ID) ) {
+                alt8=1;
             }
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:588:2: (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )*
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:597:2: (lv_args_3= ruleType ) ( ',' (lv_args_5= ruleType ) )*
                     {
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:588:2: (lv_args_3= ruleType )
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:591:6: lv_args_3= ruleType
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:597:2: (lv_args_3= ruleType )
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:600:6: lv_args_3= ruleType
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleType_in_ruleMethod1250);
+                    pushFollow(FOLLOW_ruleType_in_ruleMethod1302);
                     lv_args_3=ruleType();
                     _fsp--;
 
@@ -1158,32 +1225,32 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:609:2: ( ',' (lv_args_5= ruleType ) )*
-                    loop8:
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:618:2: ( ',' (lv_args_5= ruleType ) )*
+                    loop7:
                     do {
-                        int alt8=2;
-                        int LA8_0 = input.LA(1);
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA8_0==22) ) {
-                            alt8=1;
+                        if ( (LA7_0==22) ) {
+                            alt7=1;
                         }
 
 
-                        switch (alt8) {
+                        switch (alt7) {
                     	case 1 :
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:609:3: ',' (lv_args_5= ruleType )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:618:3: ',' (lv_args_5= ruleType )
                     	    {
-                    	    match(input,22,FOLLOW_22_in_ruleMethod1264); 
+                    	    match(input,22,FOLLOW_22_in_ruleMethod1316); 
 
                     	            createLeafNode(grammarAccess.getMethodAccess().getCommaKeyword_3_1_0(), null); 
                     	        
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:613:1: (lv_args_5= ruleType )
-                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:616:6: lv_args_5= ruleType
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:622:1: (lv_args_5= ruleType )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:625:6: lv_args_5= ruleType
                     	    {
                     	     
                     	    	        currentNode=createCompositeNode(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_1_1_0(), currentNode); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleType_in_ruleMethod1298);
+                    	    pushFollow(FOLLOW_ruleType_in_ruleMethod1350);
                     	    lv_args_5=ruleType();
                     	    _fsp--;
 
@@ -1208,7 +1275,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop8;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -1218,7 +1285,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,23,FOLLOW_23_in_ruleMethod1315); 
+            match(input,23,FOLLOW_23_in_ruleMethod1367); 
 
                     createLeafNode(grammarAccess.getMethodAccess().getRightParenthesisKeyword_4(), null); 
                 
@@ -1245,7 +1312,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstructor
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:645:1: entryRuleConstructor returns [EObject current=null] : iv_ruleConstructor= ruleConstructor EOF ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:654:1: entryRuleConstructor returns [EObject current=null] : iv_ruleConstructor= ruleConstructor EOF ;
     public final EObject entryRuleConstructor() throws RecognitionException {
         EObject current = null;
 
@@ -1253,16 +1320,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:645:53: (iv_ruleConstructor= ruleConstructor EOF )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:646:2: iv_ruleConstructor= ruleConstructor EOF
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:654:53: (iv_ruleConstructor= ruleConstructor EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:655:2: iv_ruleConstructor= ruleConstructor EOF
             {
              currentNode = createCompositeNode(grammarAccess.getConstructorRule(), currentNode); 
-            pushFollow(FOLLOW_ruleConstructor_in_entryRuleConstructor1348);
+            pushFollow(FOLLOW_ruleConstructor_in_entryRuleConstructor1400);
             iv_ruleConstructor=ruleConstructor();
             _fsp--;
 
              current =iv_ruleConstructor; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstructor1358); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConstructor1410); 
 
             }
 
@@ -1280,84 +1347,142 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstructor
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:653:1: ruleConstructor returns [EObject current=null] : (this_Class_0= ruleClass '(' (lv_args_2= ruleType )* ')' ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:662:1: ruleConstructor returns [EObject current=null] : ( ( RULE_ID ) '(' ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )? ')' ) ;
     public final EObject ruleConstructor() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Class_0 = null;
-
         EObject lv_args_2 = null;
+
+        EObject lv_args_4 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:658:6: ( (this_Class_0= ruleClass '(' (lv_args_2= ruleType )* ')' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:659:1: (this_Class_0= ruleClass '(' (lv_args_2= ruleType )* ')' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:667:6: ( ( ( RULE_ID ) '(' ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )? ')' ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:668:1: ( ( RULE_ID ) '(' ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )? ')' )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:659:1: (this_Class_0= ruleClass '(' (lv_args_2= ruleType )* ')' )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:660:5: this_Class_0= ruleClass '(' (lv_args_2= ruleType )* ')'
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:668:1: ( ( RULE_ID ) '(' ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )? ')' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:668:2: ( RULE_ID ) '(' ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )? ')'
             {
-             
-                    currentNode=createCompositeNode(grammarAccess.getConstructorAccess().getClassParserRuleCall_0(), currentNode); 
-                
-            pushFollow(FOLLOW_ruleClass_in_ruleConstructor1405);
-            this_Class_0=ruleClass();
-            _fsp--;
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:668:2: ( RULE_ID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:671:3: RULE_ID
+            {
 
-             
-                    current = this_Class_0; 
-                    currentNode = currentNode.getParent();
-                
-            match(input,21,FOLLOW_21_in_ruleConstructor1413); 
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getConstructorRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstructor1457); 
+
+            		createLeafNode(grammarAccess.getConstructorAccess().getKlassClassCrossReference_0_0(), "klass"); 
+            	
+
+            }
+
+            match(input,21,FOLLOW_21_in_ruleConstructor1469); 
 
                     createLeafNode(grammarAccess.getConstructorAccess().getLeftParenthesisKeyword_1(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:672:1: (lv_args_2= ruleType )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:688:1: ( (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )* )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_ID) ) {
-                    alt10=1;
-                }
+            if ( (LA10_0==RULE_ID) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:688:2: (lv_args_2= ruleType ) ( ',' (lv_args_4= ruleType ) )*
+                    {
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:688:2: (lv_args_2= ruleType )
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:691:6: lv_args_2= ruleType
+                    {
+                     
+                    	        currentNode=createCompositeNode(grammarAccess.getConstructorAccess().getArgsTypeParserRuleCall_2_0_0(), currentNode); 
+                    	    
+                    pushFollow(FOLLOW_ruleType_in_ruleConstructor1504);
+                    lv_args_2=ruleType();
+                    _fsp--;
 
 
-                switch (alt10) {
-            	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:675:6: lv_args_2= ruleType
-            	    {
-            	     
-            	    	        currentNode=createCompositeNode(grammarAccess.getConstructorAccess().getArgsTypeParserRuleCall_2_0(), currentNode); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleType_in_ruleConstructor1447);
-            	    lv_args_2=ruleType();
-            	    _fsp--;
+                    	        if (current==null) {
+                    	            current = factory.create(grammarAccess.getConstructorRule().getType().getClassifier());
+                    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	        }
+                    	        
+                    	        try {
+                    	       		add(current, "args", lv_args_2, "Type", currentNode);
+                    	        } catch (ValueConverterException vce) {
+                    				handleValueConverterException(vce);
+                    	        }
+                    	        currentNode = currentNode.getParent();
+                    	    
+
+                    }
+
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:709:2: ( ',' (lv_args_4= ruleType ) )*
+                    loop9:
+                    do {
+                        int alt9=2;
+                        int LA9_0 = input.LA(1);
+
+                        if ( (LA9_0==22) ) {
+                            alt9=1;
+                        }
 
 
-            	    	        if (current==null) {
-            	    	            current = factory.create(grammarAccess.getConstructorRule().getType().getClassifier());
-            	    	            associateNodeWithAstElement(currentNode.getParent(), current);
-            	    	        }
-            	    	        
-            	    	        try {
-            	    	       		add(current, "args", lv_args_2, "Type", currentNode);
-            	    	        } catch (ValueConverterException vce) {
-            	    				handleValueConverterException(vce);
-            	    	        }
-            	    	        currentNode = currentNode.getParent();
-            	    	    
+                        switch (alt9) {
+                    	case 1 :
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:709:3: ',' (lv_args_4= ruleType )
+                    	    {
+                    	    match(input,22,FOLLOW_22_in_ruleConstructor1518); 
 
-            	    }
-            	    break;
+                    	            createLeafNode(grammarAccess.getConstructorAccess().getCommaKeyword_2_1_0(), null); 
+                    	        
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:713:1: (lv_args_4= ruleType )
+                    	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:716:6: lv_args_4= ruleType
+                    	    {
+                    	     
+                    	    	        currentNode=createCompositeNode(grammarAccess.getConstructorAccess().getArgsTypeParserRuleCall_2_1_1_0(), currentNode); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleType_in_ruleConstructor1552);
+                    	    lv_args_4=ruleType();
+                    	    _fsp--;
 
-            	default :
-            	    break loop10;
-                }
-            } while (true);
 
-            match(input,23,FOLLOW_23_in_ruleConstructor1461); 
+                    	    	        if (current==null) {
+                    	    	            current = factory.create(grammarAccess.getConstructorRule().getType().getClassifier());
+                    	    	            associateNodeWithAstElement(currentNode.getParent(), current);
+                    	    	        }
+                    	    	        
+                    	    	        try {
+                    	    	       		add(current, "args", lv_args_4, "Type", currentNode);
+                    	    	        } catch (ValueConverterException vce) {
+                    	    				handleValueConverterException(vce);
+                    	    	        }
+                    	    	        currentNode = currentNode.getParent();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop9;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,23,FOLLOW_23_in_ruleConstructor1569); 
 
                     createLeafNode(grammarAccess.getConstructorAccess().getRightParenthesisKeyword_3(), null); 
                 
@@ -1384,7 +1509,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleType
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:704:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:745:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
     public final EObject entryRuleType() throws RecognitionException {
         EObject current = null;
 
@@ -1392,16 +1517,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:704:46: (iv_ruleType= ruleType EOF )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:705:2: iv_ruleType= ruleType EOF
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:745:46: (iv_ruleType= ruleType EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:746:2: iv_ruleType= ruleType EOF
             {
              currentNode = createCompositeNode(grammarAccess.getTypeRule(), currentNode); 
-            pushFollow(FOLLOW_ruleType_in_entryRuleType1494);
+            pushFollow(FOLLOW_ruleType_in_entryRuleType1602);
             iv_ruleType=ruleType();
             _fsp--;
 
              current =iv_ruleType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleType1504); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleType1612); 
 
             }
 
@@ -1419,7 +1544,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleType
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:712:1: ruleType returns [EObject current=null] : (lv_name_0= ruleJAVAID ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:753:1: ruleType returns [EObject current=null] : (lv_name_0= ruleJAVAID ) ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -1429,16 +1554,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:717:6: ( (lv_name_0= ruleJAVAID ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:718:1: (lv_name_0= ruleJAVAID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:758:6: ( (lv_name_0= ruleJAVAID ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:759:1: (lv_name_0= ruleJAVAID )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:718:1: (lv_name_0= ruleJAVAID )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:721:6: lv_name_0= ruleJAVAID
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:759:1: (lv_name_0= ruleJAVAID )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:762:6: lv_name_0= ruleJAVAID
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getTypeAccess().getNameJAVAIDParserRuleCall_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleJAVAID_in_ruleType1562);
+            pushFollow(FOLLOW_ruleJAVAID_in_ruleType1670);
             lv_name_0=ruleJAVAID();
             _fsp--;
 
@@ -1478,7 +1603,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleJAVAID
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:746:1: entryRuleJAVAID returns [String current=null] : iv_ruleJAVAID= ruleJAVAID EOF ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:787:1: entryRuleJAVAID returns [String current=null] : iv_ruleJAVAID= ruleJAVAID EOF ;
     public final String entryRuleJAVAID() throws RecognitionException {
         String current = null;
 
@@ -1486,16 +1611,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:746:47: (iv_ruleJAVAID= ruleJAVAID EOF )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:747:2: iv_ruleJAVAID= ruleJAVAID EOF
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:787:47: (iv_ruleJAVAID= ruleJAVAID EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:788:2: iv_ruleJAVAID= ruleJAVAID EOF
             {
              currentNode = createCompositeNode(grammarAccess.getJAVAIDRule(), currentNode); 
-            pushFollow(FOLLOW_ruleJAVAID_in_entryRuleJAVAID1599);
+            pushFollow(FOLLOW_ruleJAVAID_in_entryRuleJAVAID1707);
             iv_ruleJAVAID=ruleJAVAID();
             _fsp--;
 
              current =iv_ruleJAVAID.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleJAVAID1610); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleJAVAID1718); 
 
             }
 
@@ -1513,7 +1638,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleJAVAID
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:754:1: ruleJAVAID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:795:1: ruleJAVAID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleJAVAID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1524,21 +1649,21 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:760:6: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:761:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:801:6: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:802:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:761:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:761:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:802:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:802:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleJAVAID1650); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleJAVAID1758); 
 
             		current.merge(this_ID_0);
                 
              
                 createLeafNode(grammarAccess.getJAVAIDAccess().getIDTerminalRuleCall_0(), null); 
                 
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:768:1: (kw= '.' this_ID_2= RULE_ID )*
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:809:1: (kw= '.' this_ID_2= RULE_ID )*
             loop11:
             do {
                 int alt11=2;
@@ -1551,16 +1676,16 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:769:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:810:2: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)input.LT(1);
-            	    match(input,24,FOLLOW_24_in_ruleJAVAID1669); 
+            	    match(input,24,FOLLOW_24_in_ruleJAVAID1777); 
 
             	            current.merge(kw);
             	            createLeafNode(grammarAccess.getJAVAIDAccess().getFullStopKeyword_1_0(), null); 
             	        
             	    this_ID_2=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleJAVAID1684); 
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleJAVAID1792); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -1599,61 +1724,6 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleJAVAID
 
 
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String DFA7_eotS =
-        "\6\uffff";
-    static final String DFA7_eofS =
-        "\6\uffff";
-    static final String DFA7_minS =
-        "\3\4\2\uffff\1\4";
-    static final String DFA7_maxS =
-        "\1\4\1\30\1\4\2\uffff\1\30";
-    static final String DFA7_acceptS =
-        "\3\uffff\1\2\1\1\1\uffff";
-    static final String DFA7_specialS =
-        "\6\uffff}>";
-    static final String[] DFA7_transitionS = {
-            "\1\1",
-            "\1\4\20\uffff\1\3\2\uffff\1\2",
-            "\1\5",
-            "",
-            "",
-            "\1\4\20\uffff\1\3\2\uffff\1\2"
-    };
-
-    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
-    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
-    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
-    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
-    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
-    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
-    static final short[][] DFA7_transition;
-
-    static {
-        int numStates = DFA7_transitionS.length;
-        DFA7_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
-        }
-    }
-
-    class DFA7 extends DFA {
-
-        public DFA7(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = DFA7_eot;
-            this.eof = DFA7_eof;
-            this.min = DFA7_min;
-            this.max = DFA7_max;
-            this.accept = DFA7_accept;
-            this.special = DFA7_special;
-            this.transition = DFA7_transition;
-        }
-        public String getDescription() {
-            return "467:2: ( (lv_method_0= ruleMethod ) | this_Constructor_1= ruleConstructor )";
-        }
-    }
  
 
     public static final BitSet FOLLOW_ruleAutomata_in_entryRuleAutomata73 = new BitSet(new long[]{0x0000000000000000L});
@@ -1673,53 +1743,57 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleAutomaton443 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleAutomaton452 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleAutomaton474 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleAutomaton486 = new BitSet(new long[]{0x00000000000A8000L});
+    public static final BitSet FOLLOW_12_in_ruleAutomaton486 = new BitSet(new long[]{0x00000000000A0000L});
     public static final BitSet FOLLOW_17_in_ruleAutomaton496 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleAutomaton505 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleAutomaton527 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleAutomaton539 = new BitSet(new long[]{0x0000000000088000L});
-    public static final BitSet FOLLOW_ruleState_in_ruleAutomaton575 = new BitSet(new long[]{0x00000000000C8000L});
+    public static final BitSet FOLLOW_12_in_ruleAutomaton539 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_ruleState_in_ruleAutomaton575 = new BitSet(new long[]{0x00000000000C0000L});
     public static final BitSet FOLLOW_18_in_ruleAutomaton589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleClass_in_entryRuleClass622 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleClass632 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJAVAID_in_ruleClass690 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleState_in_entryRuleState726 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleState736 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_ruleState782 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleState805 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleState827 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleState844 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleTransition_in_ruleState878 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_18_in_ruleState892 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition925 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTransition935 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethod_in_ruleTransition995 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ruleConstructor_in_ruleTransition1027 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleTransition1036 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition1058 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleTransition1070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethod_in_entryRuleMethod1103 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMethod1113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_ruleMethod1172 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMethod1198 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleMethod1215 = new BitSet(new long[]{0x0000000000800010L});
-    public static final BitSet FOLLOW_ruleType_in_ruleMethod1250 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_22_in_ruleMethod1264 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleType_in_ruleMethod1298 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_23_in_ruleMethod1315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstructor_in_entryRuleConstructor1348 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstructor1358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClass_in_ruleConstructor1405 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleConstructor1413 = new BitSet(new long[]{0x0000000000800010L});
-    public static final BitSet FOLLOW_ruleType_in_ruleConstructor1447 = new BitSet(new long[]{0x0000000000800010L});
-    public static final BitSet FOLLOW_23_in_ruleConstructor1461 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_entryRuleType1494 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleType1504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJAVAID_in_ruleType1562 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJAVAID_in_entryRuleJAVAID1599 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleJAVAID1610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID1650 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleJAVAID1669 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID1684 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_19_in_ruleState770 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleState792 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleState809 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_ruleTransition_in_ruleState843 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_18_in_ruleState857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition890 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTransition900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvocation_in_ruleTransition959 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleTransition972 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition994 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleTransition1006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvocation_in_entryRuleInvocation1039 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInvocation1049 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethod_in_ruleInvocation1096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstructor_in_ruleInvocation1123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethod_in_entryRuleMethod1155 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMethod1165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_ruleMethod1224 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleMethod1250 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleMethod1267 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleMethod1302 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_22_in_ruleMethod1316 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleMethod1350 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_23_in_ruleMethod1367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstructor_in_entryRuleConstructor1400 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConstructor1410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleConstructor1457 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleConstructor1469 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleConstructor1504 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_22_in_ruleConstructor1518 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleConstructor1552 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_23_in_ruleConstructor1569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_entryRuleType1602 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleType1612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJAVAID_in_ruleType1670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJAVAID_in_entryRuleJAVAID1707 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleJAVAID1718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID1758 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_ruleJAVAID1777 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID1792 = new BitSet(new long[]{0x0000000001000002L});
 
 }

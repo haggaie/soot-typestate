@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import soot.typestate.automata.automata.AutomataPackage;
-import soot.typestate.automata.automata.Method;
+import soot.typestate.automata.automata.Invocation;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
 
@@ -26,7 +26,7 @@ import soot.typestate.automata.automata.Transition;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link soot.typestate.automata.automata.impl.TransitionImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link soot.typestate.automata.automata.impl.TransitionImpl#getInvocation <em>Invocation</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.impl.TransitionImpl#getState <em>State</em>}</li>
  * </ul>
  * </p>
@@ -36,14 +36,14 @@ import soot.typestate.automata.automata.Transition;
 public class TransitionImpl extends MinimalEObjectImpl.Container implements Transition
 {
   /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
+   * The cached value of the '{@link #getInvocation() <em>Invocation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMethod()
+   * @see #getInvocation()
    * @generated
    * @ordered
    */
-  protected Method method;
+  protected Invocation invocation;
 
   /**
    * The cached value of the '{@link #getState() <em>State</em>}' reference.
@@ -81,9 +81,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
-  public Method getMethod()
+  public Invocation getInvocation()
   {
-    return method;
+    return invocation;
   }
 
   /**
@@ -91,13 +91,13 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMethod(Method newMethod, NotificationChain msgs)
+  public NotificationChain basicSetInvocation(Invocation newInvocation, NotificationChain msgs)
   {
-    Method oldMethod = method;
-    method = newMethod;
+    Invocation oldInvocation = invocation;
+    invocation = newInvocation;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AutomataPackage.TRANSITION__METHOD, oldMethod, newMethod);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AutomataPackage.TRANSITION__INVOCATION, oldInvocation, newInvocation);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -108,20 +108,20 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(Method newMethod)
+  public void setInvocation(Invocation newInvocation)
   {
-    if (newMethod != method)
+    if (newInvocation != invocation)
     {
       NotificationChain msgs = null;
-      if (method != null)
-        msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.TRANSITION__METHOD, null, msgs);
-      if (newMethod != null)
-        msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.TRANSITION__METHOD, null, msgs);
-      msgs = basicSetMethod(newMethod, msgs);
+      if (invocation != null)
+        msgs = ((InternalEObject)invocation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.TRANSITION__INVOCATION, null, msgs);
+      if (newInvocation != null)
+        msgs = ((InternalEObject)newInvocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.TRANSITION__INVOCATION, null, msgs);
+      msgs = basicSetInvocation(newInvocation, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.TRANSITION__METHOD, newMethod, newMethod));
+      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.TRANSITION__INVOCATION, newInvocation, newInvocation));
   }
 
   /**
@@ -177,8 +177,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   {
     switch (featureID)
     {
-      case AutomataPackage.TRANSITION__METHOD:
-        return basicSetMethod(null, msgs);
+      case AutomataPackage.TRANSITION__INVOCATION:
+        return basicSetInvocation(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -193,8 +193,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   {
     switch (featureID)
     {
-      case AutomataPackage.TRANSITION__METHOD:
-        return getMethod();
+      case AutomataPackage.TRANSITION__INVOCATION:
+        return getInvocation();
       case AutomataPackage.TRANSITION__STATE:
         if (resolve) return getState();
         return basicGetState();
@@ -212,8 +212,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   {
     switch (featureID)
     {
-      case AutomataPackage.TRANSITION__METHOD:
-        setMethod((Method)newValue);
+      case AutomataPackage.TRANSITION__INVOCATION:
+        setInvocation((Invocation)newValue);
         return;
       case AutomataPackage.TRANSITION__STATE:
         setState((State)newValue);
@@ -232,8 +232,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   {
     switch (featureID)
     {
-      case AutomataPackage.TRANSITION__METHOD:
-        setMethod((Method)null);
+      case AutomataPackage.TRANSITION__INVOCATION:
+        setInvocation((Invocation)null);
         return;
       case AutomataPackage.TRANSITION__STATE:
         setState((State)null);
@@ -252,8 +252,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   {
     switch (featureID)
     {
-      case AutomataPackage.TRANSITION__METHOD:
-        return method != null;
+      case AutomataPackage.TRANSITION__INVOCATION:
+        return invocation != null;
       case AutomataPackage.TRANSITION__STATE:
         return state != null;
     }

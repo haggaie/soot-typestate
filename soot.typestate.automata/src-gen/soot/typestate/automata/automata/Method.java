@@ -5,9 +5,6 @@
  */
 package soot.typestate.automata.automata;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link soot.typestate.automata.automata.Method#getReturntype <em>Returntype</em>}</li>
  *   <li>{@link soot.typestate.automata.automata.Method#getName <em>Name</em>}</li>
- *   <li>{@link soot.typestate.automata.automata.Method#getArgs <em>Args</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Method extends EObject
+public interface Method extends Invocation
 {
   /**
    * Returns the value of the '<em><b>Returntype</b></em>' containment reference.
@@ -80,21 +76,5 @@ public interface Method extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-   * The list contents are of type {@link soot.typestate.automata.automata.Type}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Args</em>' containment reference list.
-   * @see soot.typestate.automata.automata.AutomataPackage#getMethod_Args()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Type> getArgs();
 
 } // Method

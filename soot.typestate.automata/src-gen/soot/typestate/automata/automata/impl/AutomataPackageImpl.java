@@ -17,6 +17,7 @@ import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
 import soot.typestate.automata.automata.Constructor;
+import soot.typestate.automata.automata.Invocation;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -71,6 +72,13 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * @generated
    */
   private EClass transitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass invocationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -281,16 +289,6 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Args()
-  {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getState()
   {
     return stateEClass;
@@ -301,7 +299,7 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getState_Initial()
+  public EAttribute getState_Name()
   {
     return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
   }
@@ -311,19 +309,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getState_Name()
-  {
-    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getState_Transitions()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(2);
+    return (EReference)stateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -341,7 +329,7 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransition_Method()
+  public EReference getTransition_Invocation()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(0);
   }
@@ -354,6 +342,26 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
   public EReference getTransition_State()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInvocation()
+  {
+    return invocationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInvocation_Args()
+  {
+    return (EReference)invocationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -391,9 +399,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethod_Args()
+  public EClass getConstructor()
   {
-    return (EReference)methodEClass.getEStructuralFeatures().get(2);
+    return constructorEClass;
   }
 
   /**
@@ -401,9 +409,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConstructor()
+  public EReference getConstructor_Klass()
   {
-    return constructorEClass;
+    return (EReference)constructorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -471,23 +479,24 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
 
     classEClass = createEClass(CLASS);
     createEAttribute(classEClass, CLASS__NAME);
-    createEReference(classEClass, CLASS__ARGS);
 
     stateEClass = createEClass(STATE);
-    createEAttribute(stateEClass, STATE__INITIAL);
     createEAttribute(stateEClass, STATE__NAME);
     createEReference(stateEClass, STATE__TRANSITIONS);
 
     transitionEClass = createEClass(TRANSITION);
-    createEReference(transitionEClass, TRANSITION__METHOD);
+    createEReference(transitionEClass, TRANSITION__INVOCATION);
     createEReference(transitionEClass, TRANSITION__STATE);
+
+    invocationEClass = createEClass(INVOCATION);
+    createEReference(invocationEClass, INVOCATION__ARGS);
 
     methodEClass = createEClass(METHOD);
     createEReference(methodEClass, METHOD__RETURNTYPE);
     createEAttribute(methodEClass, METHOD__NAME);
-    createEReference(methodEClass, METHOD__ARGS);
 
     constructorEClass = createEClass(CONSTRUCTOR);
+    createEReference(constructorEClass, CONSTRUCTOR__KLASS);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
@@ -522,8 +531,8 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    classEClass.getESuperTypes().add(this.getConstructor());
-    constructorEClass.getESuperTypes().add(this.getTransition());
+    methodEClass.getESuperTypes().add(this.getInvocation());
+    constructorEClass.getESuperTypes().add(this.getInvocation());
 
     // Initialize classes and features; add operations and parameters
     initEClass(automataEClass, Automata.class, "Automata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -541,23 +550,24 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
 
     initEClass(classEClass, soot.typestate.automata.automata.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, soot.typestate.automata.automata.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Args(), this.getType(), null, "args", null, 0, -1, soot.typestate.automata.automata.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getState_Initial(), ecorePackage.getEBoolean(), "initial", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransition_Method(), this.getMethod(), null, "method", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Invocation(), this.getInvocation(), null, "invocation", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_State(), this.getState(), null, "state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(invocationEClass, Invocation.class, "Invocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInvocation_Args(), this.getType(), null, "args", null, 0, -1, Invocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethod_Returntype(), this.getType(), null, "returntype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethod_Args(), this.getType(), null, "args", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstructor_Klass(), this.getClass_(), null, "klass", null, 0, 1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
