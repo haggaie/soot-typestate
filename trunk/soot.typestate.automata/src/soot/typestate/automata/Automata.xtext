@@ -22,8 +22,14 @@ State :
 		(transitions+=Transition)*
 	'}';
 
-Transition :
+Transition: InvocationTransition | BranchedTransition;
+
+InvocationTransition :
 	(invocation=Invocation) '->' (state=[State]) ';';
+	
+BranchedTransition:
+	(invocation=Invocation) 'returns' (value=BooleanLiteral) '->'
+	(state=[State]) ';' ;
 
 Invocation: Method | Constructor ;
 
@@ -36,3 +42,5 @@ Constructor :
 Type : name=JAVAID ;
 
 JAVAID : ID('.' ID)*;
+
+BooleanLiteral: (true?='true') | 'false' ;

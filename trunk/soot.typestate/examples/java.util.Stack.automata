@@ -17,6 +17,7 @@ automaton Stack {
 	
 	state NON_EMPTY {
 		void clear() -> EMPTY;
+		boolean empty() returns true -> EMPTY;
 	}
 	
 	state ERROR {}

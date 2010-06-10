@@ -26,9 +26,11 @@ import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Class;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
+import soot.typestate.automata.automata.InvocationTransition;
 import soot.typestate.automata.automata.Package;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
@@ -43,7 +45,8 @@ public class ClassAutomaton {
 	@SuppressWarnings("unchecked")
 	private final java.lang.Class javaClass;
 	private final SootClass sootClass;
-	private final Map<SootMethod, List<Integer>> map = new HashMap<SootMethod, List<Integer>>();
+	// Maps from objects which are either SootMethod, or BranchedTransitionKey
+	private final Map<Object, List<Integer>> map = new HashMap<Object, List<Integer>>();
 	private final ArrayList<String> stateNames = new ArrayList<String>();
 	private final Map<String, Integer> nameToState = new HashMap<String, Integer>();
 	
@@ -109,7 +112,12 @@ public class ClassAutomaton {
 		for (State state : states) {
 			for (Transition transition : state.getTransitions()) {
 				SootMethod method = resolveMethod(transition.getInvocation());
-				List<Integer> delta = getDelta(method);
+				Object key = method;
+				if (transition instanceof BranchedTransition) {
+					BranchedTransition branchedTransition = (BranchedTransition) transition;
+					key = new BranchedTransitionKey(method, branchedTransition.getValue().isTrue());
+				}
+				List<Integer> delta = getDelta(key);
 				delta.set(getStateIndex(state), getStateIndex(transition.getState()));
 			}
 		}
@@ -128,16 +136,26 @@ public class ClassAutomaton {
 		return sootClass;
 	}
 
-	public List<Integer> getDelta(SootMethod method) {
-		if (!map.containsKey(method))
-			map.put(method, new ArrayList<Integer>(trivialDelta));
+	public List<Integer> getDelta(Object key) {
+		if (!map.containsKey(key))
+			map.put(key, new ArrayList<Integer>(trivialDelta));
 		
-		return map.get(method);
+		return map.get(key);
+	}
+	
+	public List<Integer> getDelta(SootMethod method, boolean returnValue) {
+		BranchedTransitionKey key = new BranchedTransitionKey(method, returnValue);
+		return getDelta(key);
 	}
 	
 	public int getDelta(SootMethod method, int state)
 	{
 		return getDelta(method).get(state);
+	}
+
+	public int getDelta(SootMethod method, boolean returnValue, int state)
+	{
+		return getDelta(method, returnValue).get(state);
 	}
 	
 	// For testing
@@ -146,16 +164,26 @@ public class ClassAutomaton {
 		return stateNames.get(getDelta(method, getStateIndex(state)));
 	}
 	
-	@SuppressWarnings("unchecked")
-	public BoundedFlowSet  getDelta(SootMethod method, FlowSet states)
+	// For testing
+	public String getDelta(SootMethod method, boolean returnValue, String state)
 	{
-		List<Integer> delta = getDelta(method);
+		return stateNames.get(getDelta(method, returnValue, getStateIndex(state)));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public BoundedFlowSet  getDelta(Object key, FlowSet states)
+	{
+		List<Integer> delta = getDelta(key);
 		BoundedFlowSet  result = (BoundedFlowSet) states.emptySet();
 		for (Iterator iterator = states.iterator(); iterator.hasNext();) {
 			Integer state = (Integer) iterator.next();
 			result.add(delta.get(state));
 		}
 		return result;
+	}
+	
+	public BoundedFlowSet  getDelta(SootMethod method, boolean returnValue, FlowSet states) {
+		return getDelta(new BranchedTransitionKey(method, returnValue), states);
 	}
 	
 	// Returns a FlowUniverse containing all the state numbers.
