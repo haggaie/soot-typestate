@@ -44,7 +44,7 @@ public class Typestate {
 	{
 		for (Unit unit : graph) {
 			LatticeNode beforeNode = analysis.getFlowBefore(unit);
-			LatticeNode afterNode = analysis.getFlowAfter(unit);
+			LatticeNode afterNode = analysis.getFallFlowAfter(unit);
 			if (!beforeNode.hasState( automaton.getErrorState() ) && afterNode.hasState( automaton.getErrorState() )) {
 				System.err.println("found error in line " + unit.getTag("LineNumberTag").toString());
 			}
