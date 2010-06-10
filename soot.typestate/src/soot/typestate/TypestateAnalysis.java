@@ -3,20 +3,19 @@
  */
 package soot.typestate;
 
-import java.util.Collection;
+import java.util.List;
 
 import soot.Local;
 import soot.RefType;
-import soot.SootMethod;
 import soot.SootMethodRef;
 import soot.Unit;
 import soot.jimple.AbstractStmtSwitch;
 import soot.jimple.AssignStmt;
 import soot.jimple.InvokeStmt;
-import soot.toolkits.graph.DirectedGraph;
+import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
-import soot.toolkits.scalar.ForwardFlowAnalysis;
+import soot.toolkits.scalar.ForwardBranchedFlowAnalysis;
 import soot.typestate.LatticeNode.ASInfoVisitor;
 import soot.typestate.automata.ClassAutomaton;
 
@@ -24,7 +23,7 @@ import soot.typestate.automata.ClassAutomaton;
  * @author haggaie
  *
  */
-public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
+public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> {
 	// Our automaton
 	private final ClassAutomaton automaton;
 	// The FlowUniverse of state numbers.
@@ -32,7 +31,7 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 	// Allocation site handler that finds allocation sites of variables
 	private final AllocationSiteHandler allocationSiteHandler;
 	
-	TypestateAnalysis(DirectedGraph<Unit> graph, ClassAutomaton automaton, AllocationSiteHandler allocationSiteHandler)
+	TypestateAnalysis(UnitGraph graph, ClassAutomaton automaton, AllocationSiteHandler allocationSiteHandler)
     {
         super(graph);
         this.automaton = automaton;
@@ -42,11 +41,11 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
     }
 	
 	@Override
-	protected void flowThrough(final LatticeNode in, Unit node, final LatticeNode out) {
-		System.out.println("  Input: " + in);
-		System.out.println("    " + node.getTag("LineNumberTag") + ": " + node);
+	protected void flowThrough(final LatticeNode in, Unit node, 
+            List<LatticeNode> fallOut, List<LatticeNode> branchOuts) {
+		final LatticeNode out = new LatticeNode(in),
+		      			  outBranch = out;
 		
-		in.copy(out);
 		node.apply(new AbstractStmtSwitch() {
 			@Override
 			public void caseAssignStmt(AssignStmt stmt) {
@@ -116,7 +115,18 @@ public class TypestateAnalysis extends ForwardFlowAnalysis<Unit, LatticeNode> {
 			// TODO handle Identity statements
 		});
 		
-		System.out.println("  Output: " + out);
+		for (LatticeNode latticeNode : fallOut) {
+			out.copy(latticeNode);
+		}
+		for (LatticeNode latticeNode : branchOuts) {
+			outBranch.copy(latticeNode);
+		}
+
+		System.out.println("  Input: " + in);
+		System.out.println("    " + node.getTag("LineNumberTag") + ": " + node);
+		System.out.println("  Output: ");
+		System.out.println("    Fall: " + fallOut);
+		System.out.println("    Branch: " + branchOuts);
 	}
 
 	@Override

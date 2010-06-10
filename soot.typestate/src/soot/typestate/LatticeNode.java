@@ -3,10 +3,10 @@
  */
 package soot.typestate;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
@@ -25,6 +25,14 @@ public class LatticeNode {
 		map = new HashMap<AllocationSiteSet, ASInfo>();
 		fullASInfo = new ASInfo(statesUniverse);
 		fullASInfo.getStates().complement();
+	}
+
+	LatticeNode(LatticeNode other)
+	{
+		map = new HashMap<AllocationSiteSet, ASInfo>();
+		for (Entry<AllocationSiteSet, ASInfo> e : other.map.entrySet())
+			map.put(e.getKey(), e.getValue().clone());
+		fullASInfo = other.fullASInfo;
 	}
 	
 	void union(LatticeNode other, LatticeNode dest)
