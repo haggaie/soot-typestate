@@ -30,7 +30,6 @@ import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Class;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
-import soot.typestate.automata.automata.InvocationTransition;
 import soot.typestate.automata.automata.Package;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;

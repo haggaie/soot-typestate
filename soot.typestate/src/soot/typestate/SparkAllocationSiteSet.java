@@ -1,6 +1,11 @@
 package soot.typestate;
 
+import soot.jimple.spark.pag.Node;
+import soot.jimple.spark.sets.EmptyPointsToSet;
 import soot.jimple.spark.sets.EqualsSupportingPointsToSet;
+import soot.jimple.spark.sets.P2SetVisitor;
+import soot.jimple.spark.sets.PointsToSetInternal;
+import soot.util.Numberable;
 
 /**
  * An allocation sites that is an Integer. For use with points-to analysis
@@ -24,6 +29,20 @@ public class SparkAllocationSiteSet implements AllocationSiteSet {
 	
 	@Override
 	public String toString() {
+		 if (allocSite instanceof EmptyPointsToSet)
+			return "{}";
+		else if (allocSite instanceof PointsToSetInternal) {
+			final StringBuffer buffer = new StringBuffer("{");
+			PointsToSetInternal pts = (PointsToSetInternal) allocSite;
+			pts.forall(new P2SetVisitor() {
+				@Override
+				public void visit(Node n) {
+					buffer.append(n.getNumber() + ", ");
+				}
+			});
+			buffer.append("}");
+			return buffer.toString();
+		}
 		return allocSite.toString();
 	}
 	
