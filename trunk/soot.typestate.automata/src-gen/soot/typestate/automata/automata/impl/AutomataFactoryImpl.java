@@ -17,8 +17,11 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.BooleanLiteral;
+import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
+import soot.typestate.automata.automata.InvocationTransition;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -82,10 +85,13 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
       case AutomataPackage.CLASS: return createClass();
       case AutomataPackage.STATE: return createState();
       case AutomataPackage.TRANSITION: return createTransition();
+      case AutomataPackage.INVOCATION_TRANSITION: return createInvocationTransition();
+      case AutomataPackage.BRANCHED_TRANSITION: return createBranchedTransition();
       case AutomataPackage.INVOCATION: return createInvocation();
       case AutomataPackage.METHOD: return createMethod();
       case AutomataPackage.CONSTRUCTOR: return createConstructor();
       case AutomataPackage.TYPE: return createType();
+      case AutomataPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -162,6 +168,28 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public InvocationTransition createInvocationTransition()
+  {
+    InvocationTransitionImpl invocationTransition = new InvocationTransitionImpl();
+    return invocationTransition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BranchedTransition createBranchedTransition()
+  {
+    BranchedTransitionImpl branchedTransition = new BranchedTransitionImpl();
+    return branchedTransition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Invocation createInvocation()
   {
     InvocationImpl invocation = new InvocationImpl();
@@ -199,6 +227,17 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanLiteral createBooleanLiteral()
+  {
+    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
+    return booleanLiteral;
   }
 
   /**

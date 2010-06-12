@@ -13,8 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.BooleanLiteral;
+import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
+import soot.typestate.automata.automata.InvocationTransition;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -145,6 +148,22 @@ public class AutomataSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AutomataPackage.INVOCATION_TRANSITION:
+      {
+        InvocationTransition invocationTransition = (InvocationTransition)theEObject;
+        T result = caseInvocationTransition(invocationTransition);
+        if (result == null) result = caseTransition(invocationTransition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AutomataPackage.BRANCHED_TRANSITION:
+      {
+        BranchedTransition branchedTransition = (BranchedTransition)theEObject;
+        T result = caseBranchedTransition(branchedTransition);
+        if (result == null) result = caseTransition(branchedTransition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AutomataPackage.INVOCATION:
       {
         Invocation invocation = (Invocation)theEObject;
@@ -172,6 +191,13 @@ public class AutomataSwitch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AutomataPackage.BOOLEAN_LITERAL:
+      {
+        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
+        T result = caseBooleanLiteral(booleanLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -276,6 +302,38 @@ public class AutomataSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Invocation Transition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Invocation Transition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInvocationTransition(InvocationTransition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Branched Transition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Branched Transition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBranchedTransition(BranchedTransition object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Invocation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -335,6 +393,22 @@ public class AutomataSwitch<T>
    * @generated
    */
   public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanLiteral(BooleanLiteral object)
   {
     return null;
   }

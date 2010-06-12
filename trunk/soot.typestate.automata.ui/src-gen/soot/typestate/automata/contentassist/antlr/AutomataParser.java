@@ -42,13 +42,16 @@ public class AutomataParser extends AbstractContentAssistParser {
 		if (nameMappings == null) {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				{
+					put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
 					put(grammarAccess.getInvocationAccess().getAlternatives(), "rule__Invocation__Alternatives");
+					put(grammarAccess.getBooleanLiteralAccess().getAlternatives(), "rule__BooleanLiteral__Alternatives");
 					put(grammarAccess.getAutomataAccess().getGroup(), "rule__Automata__Group__0");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getAutomatonAccess().getGroup(), "rule__Automaton__Group__0");
 					put(grammarAccess.getAutomatonAccess().getGroup_7(), "rule__Automaton__Group_7__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
-					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+					put(grammarAccess.getInvocationTransitionAccess().getGroup(), "rule__InvocationTransition__Group__0");
+					put(grammarAccess.getBranchedTransitionAccess().getGroup(), "rule__BranchedTransition__Group__0");
 					put(grammarAccess.getMethodAccess().getGroup(), "rule__Method__Group__0");
 					put(grammarAccess.getMethodAccess().getGroup_3(), "rule__Method__Group_3__0");
 					put(grammarAccess.getMethodAccess().getGroup_3_1(), "rule__Method__Group_3_1__0");
@@ -67,8 +70,11 @@ public class AutomataParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClassAccess().getNameAssignment(), "rule__Class__NameAssignment");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 					put(grammarAccess.getStateAccess().getTransitionsAssignment_3(), "rule__State__TransitionsAssignment_3");
-					put(grammarAccess.getTransitionAccess().getInvocationAssignment_0(), "rule__Transition__InvocationAssignment_0");
-					put(grammarAccess.getTransitionAccess().getStateAssignment_2(), "rule__Transition__StateAssignment_2");
+					put(grammarAccess.getInvocationTransitionAccess().getInvocationAssignment_0(), "rule__InvocationTransition__InvocationAssignment_0");
+					put(grammarAccess.getInvocationTransitionAccess().getStateAssignment_2(), "rule__InvocationTransition__StateAssignment_2");
+					put(grammarAccess.getBranchedTransitionAccess().getInvocationAssignment_0(), "rule__BranchedTransition__InvocationAssignment_0");
+					put(grammarAccess.getBranchedTransitionAccess().getValueAssignment_2(), "rule__BranchedTransition__ValueAssignment_2");
+					put(grammarAccess.getBranchedTransitionAccess().getStateAssignment_4(), "rule__BranchedTransition__StateAssignment_4");
 					put(grammarAccess.getMethodAccess().getReturntypeAssignment_0(), "rule__Method__ReturntypeAssignment_0");
 					put(grammarAccess.getMethodAccess().getNameAssignment_1(), "rule__Method__NameAssignment_1");
 					put(grammarAccess.getMethodAccess().getArgsAssignment_3_0(), "rule__Method__ArgsAssignment_3_0");
@@ -77,6 +83,7 @@ public class AutomataParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstructorAccess().getArgsAssignment_2_0(), "rule__Constructor__ArgsAssignment_2_0");
 					put(grammarAccess.getConstructorAccess().getArgsAssignment_2_1_1(), "rule__Constructor__ArgsAssignment_2_1_1");
 					put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
+					put(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0(), "rule__BooleanLiteral__TrueAssignment_0");
 				}
 			};
 		}

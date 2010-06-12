@@ -225,6 +225,26 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 
 	public class TransitionElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Transition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cInvocationTransitionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBranchedTransitionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Transition:
+		//  InvocationTransition|BranchedTransition;
+		public ParserRule getRule() { return rule; }
+
+		//InvocationTransition|BranchedTransition
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//InvocationTransition
+		public RuleCall getInvocationTransitionParserRuleCall_0() { return cInvocationTransitionParserRuleCall_0; }
+
+		//BranchedTransition
+		public RuleCall getBranchedTransitionParserRuleCall_1() { return cBranchedTransitionParserRuleCall_1; }
+	}
+
+	public class InvocationTransitionElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InvocationTransition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cInvocationAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cInvocationInvocationParserRuleCall_0_0 = (RuleCall)cInvocationAssignment_0.eContents().get(0);
@@ -234,7 +254,7 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		private final RuleCall cStateStateIDTerminalRuleCall_2_0_1 = (RuleCall)cStateStateCrossReference_2_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//Transition:
+		//InvocationTransition:
 		//  invocation=Invocation "->" state=[State] ";";
 		public ParserRule getRule() { return rule; }
 
@@ -261,6 +281,58 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class BranchedTransitionElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BranchedTransition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cInvocationAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cInvocationInvocationParserRuleCall_0_0 = (RuleCall)cInvocationAssignment_0.eContents().get(0);
+		private final Keyword cReturnsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueBooleanLiteralParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cStateStateCrossReference_4_0 = (CrossReference)cStateAssignment_4.eContents().get(0);
+		private final RuleCall cStateStateIDTerminalRuleCall_4_0_1 = (RuleCall)cStateStateCrossReference_4_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//BranchedTransition:
+		//  invocation=Invocation "returns" value=BooleanLiteral "->" state=[State] ";";
+		public ParserRule getRule() { return rule; }
+
+		//invocation=Invocation "returns" value=BooleanLiteral "->" state=[State] ";"
+		public Group getGroup() { return cGroup; }
+
+		//invocation=Invocation
+		public Assignment getInvocationAssignment_0() { return cInvocationAssignment_0; }
+
+		//Invocation
+		public RuleCall getInvocationInvocationParserRuleCall_0_0() { return cInvocationInvocationParserRuleCall_0_0; }
+
+		//"returns"
+		public Keyword getReturnsKeyword_1() { return cReturnsKeyword_1; }
+
+		//value=BooleanLiteral
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//BooleanLiteral
+		public RuleCall getValueBooleanLiteralParserRuleCall_2_0() { return cValueBooleanLiteralParserRuleCall_2_0; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3() { return cHyphenMinusGreaterThanSignKeyword_3; }
+
+		//state=[State]
+		public Assignment getStateAssignment_4() { return cStateAssignment_4; }
+
+		//[State]
+		public CrossReference getStateStateCrossReference_4_0() { return cStateStateCrossReference_4_0; }
+
+		//ID
+		public RuleCall getStateStateIDTerminalRuleCall_4_0_1() { return cStateStateIDTerminalRuleCall_4_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class InvocationElements implements IParserRuleAccess {
@@ -450,6 +522,30 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
+
+	public class BooleanLiteralElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BooleanLiteral");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cTrueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cTrueTrueKeyword_0_0 = (Keyword)cTrueAssignment_0.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//BooleanLiteral:
+		//  true?="true"|"false";
+		public ParserRule getRule() { return rule; }
+
+		//true?="true"|"false"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//true?="true"
+		public Assignment getTrueAssignment_0() { return cTrueAssignment_0; }
+
+		//"true"
+		public Keyword getTrueTrueKeyword_0_0() { return cTrueTrueKeyword_0_0; }
+
+		//"false"
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+	}
 	
 	
 	private AutomataElements pAutomata;
@@ -458,11 +554,14 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	private ClassElements pClass;
 	private StateElements pState;
 	private TransitionElements pTransition;
+	private InvocationTransitionElements pInvocationTransition;
+	private BranchedTransitionElements pBranchedTransition;
 	private InvocationElements pInvocation;
 	private MethodElements pMethod;
 	private ConstructorElements pConstructor;
 	private TypeElements pType;
 	private JAVAIDElements pJAVAID;
+	private BooleanLiteralElements pBooleanLiteral;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -537,13 +636,33 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	}
 
 	//Transition:
-	//  invocation=Invocation "->" state=[State] ";";
+	//  InvocationTransition|BranchedTransition;
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
 	}
 	
 	public ParserRule getTransitionRule() {
 		return getTransitionAccess().getRule();
+	}
+
+	//InvocationTransition:
+	//  invocation=Invocation "->" state=[State] ";";
+	public InvocationTransitionElements getInvocationTransitionAccess() {
+		return (pInvocationTransition != null) ? pInvocationTransition : (pInvocationTransition = new InvocationTransitionElements());
+	}
+	
+	public ParserRule getInvocationTransitionRule() {
+		return getInvocationTransitionAccess().getRule();
+	}
+
+	//BranchedTransition:
+	//  invocation=Invocation "returns" value=BooleanLiteral "->" state=[State] ";";
+	public BranchedTransitionElements getBranchedTransitionAccess() {
+		return (pBranchedTransition != null) ? pBranchedTransition : (pBranchedTransition = new BranchedTransitionElements());
+	}
+	
+	public ParserRule getBranchedTransitionRule() {
+		return getBranchedTransitionAccess().getRule();
 	}
 
 	//Invocation:
@@ -594,6 +713,16 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	
 	public ParserRule getJAVAIDRule() {
 		return getJAVAIDAccess().getRule();
+	}
+
+	//BooleanLiteral:
+	//  true?="true"|"false";
+	public BooleanLiteralElements getBooleanLiteralAccess() {
+		return (pBooleanLiteral != null) ? pBooleanLiteral : (pBooleanLiteral = new BooleanLiteralElements());
+	}
+	
+	public ParserRule getBooleanLiteralRule() {
+		return getBooleanLiteralAccess().getRule();
 	}
 
 	//terminal ID:

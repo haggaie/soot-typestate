@@ -33,6 +33,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Transition/invocation"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Automata.ecore#//Transition/state"/>
     </genClasses>
+    <genClasses ecoreClass="Automata.ecore#//InvocationTransition"/>
+    <genClasses ecoreClass="Automata.ecore#//BranchedTransition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//BranchedTransition/value"/>
+    </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Invocation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Automata.ecore#//Invocation/args"/>
     </genClasses>
@@ -45,6 +49,9 @@
     </genClasses>
     <genClasses ecoreClass="Automata.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Automata.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Automata.ecore#//BooleanLiteral/true"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
