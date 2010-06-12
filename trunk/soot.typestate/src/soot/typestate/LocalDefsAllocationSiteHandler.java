@@ -54,7 +54,7 @@ public class LocalDefsAllocationSiteHandler implements AllocationSiteHandler {
 	}
 	
 	@Override
-	public AllocationSiteSet getUseAllocationSites(Unit unit) {
+	public AllocationSiteSet getUseAllocationSites(Unit unit, Local local) {
 		// TODO Auto-generated method stub
 		return null;
 	}

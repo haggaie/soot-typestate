@@ -76,6 +76,16 @@ public class StackTest {
 			s = new Stack<String>();
 		s.pop();
 	}
+	
+	@Test(expected = EmptyStackException.class)
+	public void testBranchLocal() {
+		Stack<String> stack = new Stack<String>();
+		stack.add("1");
+		stack.add("2");
+		while (!stack.empty())
+			stack.pop();
+		stack.pop();
+	}
 
 	public static void main(String[] args) throws Exception
 	{
@@ -98,5 +108,6 @@ public class StackTest {
 		}
 		test.testCollectionMethods();
 		test.testLoop();
+		test.testBranchLocal();
 	}
 }

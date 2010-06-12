@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import soot.Local;
+import soot.jimple.AssignStmt;
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
@@ -17,12 +19,14 @@ import soot.toolkits.scalar.FlowUniverse;
  */
 public class LatticeNode {
 	private final Map<AllocationSiteSet, ASInfo> map;
+	private final Map<Local, AssignStmt> liveConditionals;
 	// A full ASInfo ready for insertion for missing allocation sites.
 	private final ASInfo fullASInfo;
 	
 	LatticeNode(FlowUniverse<Integer> statesUniverse)
 	{
 		map = new HashMap<AllocationSiteSet, ASInfo>();
+		liveConditionals = new HashMap<Local, AssignStmt>();
 		fullASInfo = new ASInfo(statesUniverse);
 		fullASInfo.getStates().complement();
 	}
@@ -32,6 +36,7 @@ public class LatticeNode {
 		map = new HashMap<AllocationSiteSet, ASInfo>();
 		for (Entry<AllocationSiteSet, ASInfo> e : other.map.entrySet())
 			map.put(e.getKey(), e.getValue().clone());
+		liveConditionals = new HashMap<Local, AssignStmt>(other.liveConditionals);
 		fullASInfo = other.fullASInfo;
 	}
 	
@@ -45,6 +50,15 @@ public class LatticeNode {
 			else
 				dest.map.put(key, entry.getValue());
 		}
+		for (Map.Entry<Local, AssignStmt> entry : liveConditionals.entrySet()) {
+			final Local key = entry.getKey();
+			if (dest.liveConditionals.containsKey(key)) {
+				if (!dest.liveConditionals.get(key).equals(entry.getValue()))
+					dest.liveConditionals.remove(key);
+			}
+			else
+				dest.liveConditionals.put(key, entry.getValue());
+		}
 	}
 	
 	void copy(LatticeNode other)
@@ -53,12 +67,14 @@ public class LatticeNode {
 		for (Map.Entry<AllocationSiteSet, ASInfo> entry : map.entrySet()) {
 			other.map.put(entry.getKey(), entry.getValue().clone());
 		}
+		other.liveConditionals.clear();
+		other.liveConditionals.putAll(liveConditionals);
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		LatticeNode other = (LatticeNode) obj;
-		return map.equals(other.map);
+		return map.equals(other.map) && liveConditionals.equals(other.liveConditionals);
 	}
 	
 	// Return the ASInfo for a given allocation site.
@@ -93,6 +109,8 @@ public class LatticeNode {
 				buffer.append(map.get(allocSite));
 			}
 		}
+		buffer.append(", live conditionals: ");
+		buffer.append(liveConditionals);
 		buffer.append(")");
 		
 		return buffer.toString();
@@ -128,5 +146,20 @@ public class LatticeNode {
 		assert !map.containsKey(allocSite);
 		
 		map.put(allocSite, newInfo);
+	}
+
+	public void setConditional(Local local, AssignStmt stmt) {
+		liveConditionals.put(local, stmt);
+	}
+
+	public void killConditional(Local local) {
+		liveConditionals.remove(local);
+	}
+	
+	public AssignStmt getConditional(Local local) {
+		if (liveConditionals.containsKey(local))
+			return liveConditionals.get(local);
+		else
+			return null;
 	}
 }

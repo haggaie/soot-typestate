@@ -3,8 +3,7 @@
  */
 package soot.typestate;
 
-import java.util.Collection;
-
+import soot.Local;
 import soot.Unit;
 import soot.jimple.DefinitionStmt;
 
@@ -16,6 +15,6 @@ import soot.jimple.DefinitionStmt;
 public interface AllocationSiteHandler {
 	// Return an allocation site that is defined at this statement.
 	AllocationSiteSet getDefAllocationSite(DefinitionStmt def);
-	// Return all allocation sites that may be used at this statement.
-	AllocationSiteSet getUseAllocationSites(Unit unit);
+	// Return all allocation sites that may be used at this pointer.
+	AllocationSiteSet getUseAllocationSites(Unit unit, Local local);
 }
