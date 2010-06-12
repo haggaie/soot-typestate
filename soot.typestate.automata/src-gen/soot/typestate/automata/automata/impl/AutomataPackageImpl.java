@@ -16,8 +16,11 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
+import soot.typestate.automata.automata.BooleanLiteral;
+import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
+import soot.typestate.automata.automata.InvocationTransition;
 import soot.typestate.automata.automata.Method;
 import soot.typestate.automata.automata.State;
 import soot.typestate.automata.automata.Transition;
@@ -78,6 +81,20 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass invocationTransitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass branchedTransitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass invocationEClass = null;
 
   /**
@@ -100,6 +117,13 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * @generated
    */
   private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanLiteralEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -349,6 +373,36 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getInvocationTransition()
+  {
+    return invocationTransitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBranchedTransition()
+  {
+    return branchedTransitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBranchedTransition_Value()
+  {
+    return (EReference)branchedTransitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInvocation()
   {
     return invocationEClass;
@@ -439,6 +493,26 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBooleanLiteral()
+  {
+    return booleanLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBooleanLiteral_True()
+  {
+    return (EAttribute)booleanLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public AutomataFactory getAutomataFactory()
   {
     return (AutomataFactory)getEFactoryInstance();
@@ -488,6 +562,11 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     createEReference(transitionEClass, TRANSITION__INVOCATION);
     createEReference(transitionEClass, TRANSITION__STATE);
 
+    invocationTransitionEClass = createEClass(INVOCATION_TRANSITION);
+
+    branchedTransitionEClass = createEClass(BRANCHED_TRANSITION);
+    createEReference(branchedTransitionEClass, BRANCHED_TRANSITION__VALUE);
+
     invocationEClass = createEClass(INVOCATION);
     createEReference(invocationEClass, INVOCATION__ARGS);
 
@@ -500,6 +579,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
+
+    booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
+    createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__TRUE);
   }
 
   /**
@@ -531,6 +613,8 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    invocationTransitionEClass.getESuperTypes().add(this.getTransition());
+    branchedTransitionEClass.getESuperTypes().add(this.getTransition());
     methodEClass.getESuperTypes().add(this.getInvocation());
     constructorEClass.getESuperTypes().add(this.getInvocation());
 
@@ -559,6 +643,11 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
     initEReference(getTransition_Invocation(), this.getInvocation(), null, "invocation", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_State(), this.getState(), null, "state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(invocationTransitionEClass, InvocationTransition.class, "InvocationTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(branchedTransitionEClass, BranchedTransition.class, "BranchedTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBranchedTransition_Value(), this.getBooleanLiteral(), null, "value", null, 0, 1, BranchedTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(invocationEClass, Invocation.class, "Invocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInvocation_Args(), this.getType(), null, "args", null, 0, -1, Invocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -571,6 +660,9 @@ public class AutomataPackageImpl extends EPackageImpl implements AutomataPackage
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanLiteral_True(), ecorePackage.getEBoolean(), "true", null, 0, 1, BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

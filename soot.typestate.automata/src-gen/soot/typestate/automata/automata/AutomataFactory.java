@@ -80,6 +80,24 @@ public interface AutomataFactory extends EFactory
   Transition createTransition();
 
   /**
+   * Returns a new object of class '<em>Invocation Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Invocation Transition</em>'.
+   * @generated
+   */
+  InvocationTransition createInvocationTransition();
+
+  /**
+   * Returns a new object of class '<em>Branched Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Branched Transition</em>'.
+   * @generated
+   */
+  BranchedTransition createBranchedTransition();
+
+  /**
    * Returns a new object of class '<em>Invocation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,6 +132,15 @@ public interface AutomataFactory extends EFactory
    * @generated
    */
   Type createType();
+
+  /**
+   * Returns a new object of class '<em>Boolean Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Literal</em>'.
+   * @generated
+   */
+  BooleanLiteral createBooleanLiteral();
 
   /**
    * Returns the package supported by this factory.

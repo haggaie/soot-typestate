@@ -282,6 +282,89 @@ public interface AutomataPackage extends EPackage
   int TRANSITION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.InvocationTransitionImpl <em>Invocation Transition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.InvocationTransitionImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getInvocationTransition()
+   * @generated
+   */
+  int INVOCATION_TRANSITION = 6;
+
+  /**
+   * The feature id for the '<em><b>Invocation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INVOCATION_TRANSITION__INVOCATION = TRANSITION__INVOCATION;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INVOCATION_TRANSITION__STATE = TRANSITION__STATE;
+
+  /**
+   * The number of structural features of the '<em>Invocation Transition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INVOCATION_TRANSITION_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.BranchedTransitionImpl <em>Branched Transition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.BranchedTransitionImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBranchedTransition()
+   * @generated
+   */
+  int BRANCHED_TRANSITION = 7;
+
+  /**
+   * The feature id for the '<em><b>Invocation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BRANCHED_TRANSITION__INVOCATION = TRANSITION__INVOCATION;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BRANCHED_TRANSITION__STATE = TRANSITION__STATE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BRANCHED_TRANSITION__VALUE = TRANSITION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Branched Transition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BRANCHED_TRANSITION_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link soot.typestate.automata.automata.impl.InvocationImpl <em>Invocation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -289,7 +372,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getInvocation()
    * @generated
    */
-  int INVOCATION = 6;
+  int INVOCATION = 8;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -317,7 +400,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 7;
+  int METHOD = 9;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -363,7 +446,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getConstructor()
    * @generated
    */
-  int CONSTRUCTOR = 8;
+  int CONSTRUCTOR = 10;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -400,7 +483,7 @@ public interface AutomataPackage extends EPackage
    * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getType()
    * @generated
    */
-  int TYPE = 9;
+  int TYPE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -419,6 +502,34 @@ public interface AutomataPackage extends EPackage
    * @ordered
    */
   int TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link soot.typestate.automata.automata.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see soot.typestate.automata.automata.impl.BooleanLiteralImpl
+   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBooleanLiteral()
+   * @generated
+   */
+  int BOOLEAN_LITERAL = 12;
+
+  /**
+   * The feature id for the '<em><b>True</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL__TRUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL_FEATURE_COUNT = 1;
 
 
   /**
@@ -614,6 +725,37 @@ public interface AutomataPackage extends EPackage
   EReference getTransition_State();
 
   /**
+   * Returns the meta object for class '{@link soot.typestate.automata.automata.InvocationTransition <em>Invocation Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Invocation Transition</em>'.
+   * @see soot.typestate.automata.automata.InvocationTransition
+   * @generated
+   */
+  EClass getInvocationTransition();
+
+  /**
+   * Returns the meta object for class '{@link soot.typestate.automata.automata.BranchedTransition <em>Branched Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Branched Transition</em>'.
+   * @see soot.typestate.automata.automata.BranchedTransition
+   * @generated
+   */
+  EClass getBranchedTransition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link soot.typestate.automata.automata.BranchedTransition#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see soot.typestate.automata.automata.BranchedTransition#getValue()
+   * @see #getBranchedTransition()
+   * @generated
+   */
+  EReference getBranchedTransition_Value();
+
+  /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.Invocation <em>Invocation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -707,6 +849,27 @@ public interface AutomataPackage extends EPackage
    * @generated
    */
   EAttribute getType_Name();
+
+  /**
+   * Returns the meta object for class '{@link soot.typestate.automata.automata.BooleanLiteral <em>Boolean Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Literal</em>'.
+   * @see soot.typestate.automata.automata.BooleanLiteral
+   * @generated
+   */
+  EClass getBooleanLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link soot.typestate.automata.automata.BooleanLiteral#isTrue <em>True</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>True</em>'.
+   * @see soot.typestate.automata.automata.BooleanLiteral#isTrue()
+   * @see #getBooleanLiteral()
+   * @generated
+   */
+  EAttribute getBooleanLiteral_True();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -888,6 +1051,34 @@ public interface AutomataPackage extends EPackage
     EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
 
     /**
+     * The meta object literal for the '{@link soot.typestate.automata.automata.impl.InvocationTransitionImpl <em>Invocation Transition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see soot.typestate.automata.automata.impl.InvocationTransitionImpl
+     * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getInvocationTransition()
+     * @generated
+     */
+    EClass INVOCATION_TRANSITION = eINSTANCE.getInvocationTransition();
+
+    /**
+     * The meta object literal for the '{@link soot.typestate.automata.automata.impl.BranchedTransitionImpl <em>Branched Transition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see soot.typestate.automata.automata.impl.BranchedTransitionImpl
+     * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBranchedTransition()
+     * @generated
+     */
+    EClass BRANCHED_TRANSITION = eINSTANCE.getBranchedTransition();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BRANCHED_TRANSITION__VALUE = eINSTANCE.getBranchedTransition_Value();
+
+    /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.InvocationImpl <em>Invocation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -966,6 +1157,24 @@ public interface AutomataPackage extends EPackage
      * @generated
      */
     EAttribute TYPE__NAME = eINSTANCE.getType_Name();
+
+    /**
+     * The meta object literal for the '{@link soot.typestate.automata.automata.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see soot.typestate.automata.automata.impl.BooleanLiteralImpl
+     * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBooleanLiteral()
+     * @generated
+     */
+    EClass BOOLEAN_LITERAL = eINSTANCE.getBooleanLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>True</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_LITERAL__TRUE = eINSTANCE.getBooleanLiteral_True();
 
   }
 

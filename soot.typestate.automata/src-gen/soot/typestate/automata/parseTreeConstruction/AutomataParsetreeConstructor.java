@@ -37,11 +37,14 @@ protected class ThisRootNode extends RootToken {
 			case 2: return new Automaton_Group(this, this, 2, inst);
 			case 3: return new Class_NameAssignment(this, this, 3, inst);
 			case 4: return new State_Group(this, this, 4, inst);
-			case 5: return new Transition_Group(this, this, 5, inst);
-			case 6: return new Invocation_Alternatives(this, this, 6, inst);
-			case 7: return new Method_Group(this, this, 7, inst);
-			case 8: return new Constructor_Group(this, this, 8, inst);
-			case 9: return new Type_NameAssignment(this, this, 9, inst);
+			case 5: return new Transition_Alternatives(this, this, 5, inst);
+			case 6: return new InvocationTransition_Group(this, this, 6, inst);
+			case 7: return new BranchedTransition_Group(this, this, 7, inst);
+			case 8: return new Invocation_Alternatives(this, this, 8, inst);
+			case 9: return new Method_Group(this, this, 9, inst);
+			case 10: return new Constructor_Group(this, this, 10, inst);
+			case 11: return new Type_NameAssignment(this, this, 11, inst);
+			case 12: return new BooleanLiteral_Alternatives(this, this, 12, inst);
 			default: return null;
 		}	
 	}	
@@ -821,7 +824,7 @@ protected class State_TransitionsAssignment_3 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Transition_Group(this, this, 0, inst);
+			case 0: return new Transition_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -879,24 +882,25 @@ protected class State_RightCurlyBracketKeyword_4 extends KeywordToken  {
 /************ begin Rule Transition ****************
  *
  * Transition:
- *   invocation=Invocation "->" state=[State] ";";
+ *   InvocationTransition|BranchedTransition;
  *
  **/
 
-// invocation=Invocation "->" state=[State] ";"
-protected class Transition_Group extends GroupToken {
-	
-	public Transition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// InvocationTransition|BranchedTransition
+protected class Transition_Alternatives extends AlternativesToken {
+
+	public Transition_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
-	public Group getGrammarElement() {
-		return grammarAccess.getTransitionAccess().getGroup();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTransitionAccess().getAlternatives();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Transition_SemicolonKeyword_3(parent, this, 0, inst);
+			case 0: return new Transition_InvocationTransitionParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new Transition_BranchedTransitionParserRuleCall_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -907,15 +911,112 @@ protected class Transition_Group extends GroupToken {
 	}
 }
 
-// invocation=Invocation
-protected class Transition_InvocationAssignment_0 extends AssignmentToken  {
+// InvocationTransition
+protected class Transition_InvocationTransitionParserRuleCall_0 extends RuleCallToken {
 	
-	public Transition_InvocationAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Transition_InvocationTransitionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTransitionAccess().getInvocationTransitionParserRuleCall_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InvocationTransition_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(InvocationTransition_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getInvocationTransitionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// BranchedTransition
+protected class Transition_BranchedTransitionParserRuleCall_1 extends RuleCallToken {
+	
+	public Transition_BranchedTransitionParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTransitionAccess().getBranchedTransitionParserRuleCall_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(BranchedTransition_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getBranchedTransitionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+
+/************ end Rule Transition ****************/
+
+
+/************ begin Rule InvocationTransition ****************
+ *
+ * InvocationTransition:
+ *   invocation=Invocation "->" state=[State] ";";
+ *
+ **/
+
+// invocation=Invocation "->" state=[State] ";"
+protected class InvocationTransition_Group extends GroupToken {
+	
+	public InvocationTransition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getInvocationTransitionAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InvocationTransition_SemicolonKeyword_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getInvocationTransitionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// invocation=Invocation
+protected class InvocationTransition_InvocationAssignment_0 extends AssignmentToken  {
+	
+	public InvocationTransition_InvocationAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTransitionAccess().getInvocationAssignment_0();
+		return grammarAccess.getInvocationTransitionAccess().getInvocationAssignment_0();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
@@ -932,7 +1033,7 @@ protected class Transition_InvocationAssignment_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getInvocationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getTransitionAccess().getInvocationInvocationParserRuleCall_0_0(); 
+				element = grammarAccess.getInvocationTransitionAccess().getInvocationInvocationParserRuleCall_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -949,19 +1050,19 @@ protected class Transition_InvocationAssignment_0 extends AssignmentToken  {
 }
 
 // "->"
-protected class Transition_HyphenMinusGreaterThanSignKeyword_1 extends KeywordToken  {
+protected class InvocationTransition_HyphenMinusGreaterThanSignKeyword_1 extends KeywordToken  {
 	
-	public Transition_HyphenMinusGreaterThanSignKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InvocationTransition_HyphenMinusGreaterThanSignKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_1();
+		return grammarAccess.getInvocationTransitionAccess().getHyphenMinusGreaterThanSignKeyword_1();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Transition_InvocationAssignment_0(parent, this, 0, inst);
+			case 0: return new InvocationTransition_InvocationAssignment_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -969,19 +1070,19 @@ protected class Transition_HyphenMinusGreaterThanSignKeyword_1 extends KeywordTo
 }
 
 // state=[State]
-protected class Transition_StateAssignment_2 extends AssignmentToken  {
+protected class InvocationTransition_StateAssignment_2 extends AssignmentToken  {
 	
-	public Transition_StateAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InvocationTransition_StateAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTransitionAccess().getStateAssignment_2();
+		return grammarAccess.getInvocationTransitionAccess().getStateAssignment_2();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Transition_HyphenMinusGreaterThanSignKeyword_1(parent, this, 0, inst);
+			case 0: return new InvocationTransition_HyphenMinusGreaterThanSignKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -991,9 +1092,9 @@ protected class Transition_StateAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("state");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTransitionAccess().getStateStateCrossReference_2_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getInvocationTransitionAccess().getStateStateCrossReference_2_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getTransitionAccess().getStateStateCrossReference_2_0(); 
+				element = grammarAccess.getInvocationTransitionAccess().getStateStateCrossReference_2_0(); 
 				return obj;
 			}
 		}
@@ -1003,19 +1104,19 @@ protected class Transition_StateAssignment_2 extends AssignmentToken  {
 }
 
 // ";"
-protected class Transition_SemicolonKeyword_3 extends KeywordToken  {
+protected class InvocationTransition_SemicolonKeyword_3 extends KeywordToken  {
 	
-	public Transition_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InvocationTransition_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTransitionAccess().getSemicolonKeyword_3();
+		return grammarAccess.getInvocationTransitionAccess().getSemicolonKeyword_3();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Transition_StateAssignment_2(parent, this, 0, inst);
+			case 0: return new InvocationTransition_StateAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1023,7 +1124,219 @@ protected class Transition_SemicolonKeyword_3 extends KeywordToken  {
 }
 
 
-/************ end Rule Transition ****************/
+/************ end Rule InvocationTransition ****************/
+
+
+/************ begin Rule BranchedTransition ****************
+ *
+ * BranchedTransition:
+ *   invocation=Invocation "returns" value=BooleanLiteral "->" state=[State] ";";
+ *
+ **/
+
+// invocation=Invocation "returns" value=BooleanLiteral "->" state=[State] ";"
+protected class BranchedTransition_Group extends GroupToken {
+	
+	public BranchedTransition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Group getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getGroup();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_SemicolonKeyword_5(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getBranchedTransitionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// invocation=Invocation
+protected class BranchedTransition_InvocationAssignment_0 extends AssignmentToken  {
+	
+	public BranchedTransition_InvocationAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getInvocationAssignment_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Invocation_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("invocation",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("invocation");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getInvocationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchedTransitionAccess().getInvocationInvocationParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// "returns"
+protected class BranchedTransition_ReturnsKeyword_1 extends KeywordToken  {
+	
+	public BranchedTransition_ReturnsKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getReturnsKeyword_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_InvocationAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// value=BooleanLiteral
+protected class BranchedTransition_ValueAssignment_2 extends AssignmentToken  {
+	
+	public BranchedTransition_ValueAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getValueAssignment_2();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BooleanLiteral_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("value",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("value");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBooleanLiteralRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBranchedTransitionAccess().getValueBooleanLiteralParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BranchedTransition_ReturnsKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "->"
+protected class BranchedTransition_HyphenMinusGreaterThanSignKeyword_3 extends KeywordToken  {
+	
+	public BranchedTransition_HyphenMinusGreaterThanSignKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getHyphenMinusGreaterThanSignKeyword_3();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_ValueAssignment_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// state=[State]
+protected class BranchedTransition_StateAssignment_4 extends AssignmentToken  {
+	
+	public BranchedTransition_StateAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getStateAssignment_4();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_HyphenMinusGreaterThanSignKeyword_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("state",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("state");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBranchedTransitionAccess().getStateStateCrossReference_4_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getBranchedTransitionAccess().getStateStateCrossReference_4_0(); 
+				return obj;
+			}
+		}
+		return null;
+	}
+
+}
+
+// ";"
+protected class BranchedTransition_SemicolonKeyword_5 extends KeywordToken  {
+	
+	public BranchedTransition_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBranchedTransitionAccess().getSemicolonKeyword_5();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BranchedTransition_StateAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule BranchedTransition ****************/
 
 
 /************ begin Rule Invocation ****************
@@ -1720,5 +2033,90 @@ protected class Type_NameAssignment extends AssignmentToken  {
 
 /************ end Rule Type ****************/
 
+
+
+/************ begin Rule BooleanLiteral ****************
+ *
+ * BooleanLiteral:
+ *   true?="true"|"false";
+ *
+ **/
+
+// true?="true"|"false"
+protected class BooleanLiteral_Alternatives extends AlternativesToken {
+
+	public BooleanLiteral_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getBooleanLiteralAccess().getAlternatives();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BooleanLiteral_TrueAssignment_0(parent, this, 0, inst);
+			case 1: return new BooleanLiteral_FalseKeyword_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getBooleanLiteralRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// true?="true"
+protected class BooleanLiteral_TrueAssignment_0 extends AssignmentToken  {
+	
+	public BooleanLiteral_TrueAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("true",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("true");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "false"
+protected class BooleanLiteral_FalseKeyword_1 extends KeywordToken  {
+	
+	public BooleanLiteral_FalseKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1();
+	}
+
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+
+/************ end Rule BooleanLiteral ****************/
 
 }
