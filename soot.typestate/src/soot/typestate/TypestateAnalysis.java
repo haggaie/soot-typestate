@@ -185,7 +185,6 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 						}
 					});
 				}
-				super.caseIfStmt(stmt);
 			}
 		});
 		
