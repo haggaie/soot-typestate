@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 import soot.Local;
 import soot.jimple.AssignStmt;
+import soot.jimple.internal.JAssignStmt;
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 
@@ -52,12 +53,13 @@ public class LatticeNode {
 		}
 		for (Map.Entry<Local, AssignStmt> entry : liveConditionals.entrySet()) {
 			final Local key = entry.getKey();
-			if (dest.liveConditionals.containsKey(key)) {
-				if (!dest.liveConditionals.get(key).equals(entry.getValue()))
-					dest.liveConditionals.remove(key);
+			if (!dest.liveConditionals.containsKey(key)) {
+				dest.liveConditionals.put(key, null); // null designates Top.
+				continue;
 			}
-			else
-				dest.liveConditionals.put(key, entry.getValue());
+			AssignStmt otherStmt = dest.liveConditionals.get(key);
+			if (otherStmt != null && !otherStmt.equals(entry.getValue()))
+				dest.liveConditionals.put(key, null); // null designates Top.
 		}
 	}
 	

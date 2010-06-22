@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
@@ -86,6 +87,22 @@ public class StackTest {
 			stack.pop();
 		stack.pop();
 	}
+	
+	@Test
+	public void testConditionalsInBranch() {
+		boolean x;
+		Stack<String> s = new Stack<String>();
+		if (System.nanoTime() > 0) {// non deterministic
+			s.push("1");
+			x = s.empty();
+		}
+		else {
+			x = s.empty();
+		}
+		
+		if(x == false)
+			s.pop();
+	}
 
 	public static void main(String[] args) throws Exception
 	{
@@ -108,6 +125,7 @@ public class StackTest {
 		}
 		test.testCollectionMethods();
 		test.testLoop();
+		test.testBranch();
 		test.testBranchLocal();
 	}
 }
