@@ -1,0 +1,19 @@
+package java.io;
+
+automaton FileInputStream {
+	initial = OPEN;
+	error = ERROR;
+	
+	state OPEN {
+		void close() -> CLOSED;
+	}
+	
+	state CLOSED {
+		int read() -> ERROR;
+		int read(byte[] b) -> ERROR;
+		int read(byte[] b, int off, int len) -> ERROR;
+		long skip(long n) -> ERROR;
+	}
+	
+	state ERROR {}
+}
