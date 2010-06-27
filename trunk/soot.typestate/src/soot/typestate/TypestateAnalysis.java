@@ -24,6 +24,7 @@ import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
+import soot.options.Options;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
@@ -265,11 +266,13 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 			(differentFallAndBranch.get(0) ? outBranch : out).copy(latticeNode);
 		}
 
-		System.out.println("  Input: " + in);
-		System.out.println("    " + node.getTag("LineNumberTag") + ": " + node);
-		System.out.println("  Output: ");
-		System.out.println("    Fall: " + fallOut);
-		System.out.println("    Branch: " + branchOuts);
+		if (Options.v().verbose()) {
+			System.out.println("  Input: " + in);
+			System.out.println("    " + node.getTag("LineNumberTag") + ": " + node);
+			System.out.println("  Output: ");
+			System.out.println("    Fall: " + fallOut);
+			System.out.println("    Branch: " + branchOuts);
+		}
 	}
 
 	@Override
