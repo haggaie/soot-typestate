@@ -6,15 +6,12 @@
 package soot.typestate.automata.automata.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import soot.typestate.automata.automata.AutomataPackage;
-import soot.typestate.automata.automata.BooleanLiteral;
 import soot.typestate.automata.automata.BranchedTransition;
 
 /**
@@ -33,14 +30,24 @@ import soot.typestate.automata.automata.BranchedTransition;
 public class BranchedTransitionImpl extends TransitionImpl implements BranchedTransition
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected BooleanLiteral value;
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +75,7 @@ public class BranchedTransitionImpl extends TransitionImpl implements BranchedTr
    * <!-- end-user-doc -->
    * @generated
    */
-  public BooleanLiteral getValue()
+  public String getValue()
   {
     return value;
   }
@@ -78,53 +85,12 @@ public class BranchedTransitionImpl extends TransitionImpl implements BranchedTr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(BooleanLiteral newValue, NotificationChain msgs)
+  public void setValue(String newValue)
   {
-    BooleanLiteral oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AutomataPackage.BRANCHED_TRANSITION__VALUE, oldValue, newValue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(BooleanLiteral newValue)
-  {
-    if (newValue != value)
-    {
-      NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.BRANCHED_TRANSITION__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AutomataPackage.BRANCHED_TRANSITION__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.BRANCHED_TRANSITION__VALUE, newValue, newValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AutomataPackage.BRANCHED_TRANSITION__VALUE:
-        return basicSetValue(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AutomataPackage.BRANCHED_TRANSITION__VALUE, oldValue, value));
   }
 
   /**
@@ -154,7 +120,7 @@ public class BranchedTransitionImpl extends TransitionImpl implements BranchedTr
     switch (featureID)
     {
       case AutomataPackage.BRANCHED_TRANSITION__VALUE:
-        setValue((BooleanLiteral)newValue);
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +137,7 @@ public class BranchedTransitionImpl extends TransitionImpl implements BranchedTr
     switch (featureID)
     {
       case AutomataPackage.BRANCHED_TRANSITION__VALUE:
-        setValue((BooleanLiteral)null);
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -188,9 +154,26 @@ public class BranchedTransitionImpl extends TransitionImpl implements BranchedTr
     switch (featureID)
     {
       case AutomataPackage.BRANCHED_TRANSITION__VALUE:
-        return value != null;
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (value: ");
+    result.append(value);
+    result.append(')');
+    return result.toString();
   }
 
 } //BranchedTransitionImpl

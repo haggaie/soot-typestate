@@ -958,47 +958,104 @@ ruleJAVAID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 // Entry rule entryRuleBooleanLiteral
-entryRuleBooleanLiteral returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getBooleanLiteralRule(), currentNode); }
+entryRuleBooleanLiteral returns [String current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getBooleanLiteralRule(), currentNode); } 
 	 iv_ruleBooleanLiteral=ruleBooleanLiteral 
-	 { $current=$iv_ruleBooleanLiteral.current; } 
+	 { $current=$iv_ruleBooleanLiteral.current.getText(); }  
 	 EOF 
 ;
 
 // Rule BooleanLiteral
-ruleBooleanLiteral returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+ruleBooleanLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
+	    lastConsumedNode = currentNode;
+	    lastConsumedDatatypeToken = $current;
     }:
-((	
-	
-	    lv_true_0='true' 
-    {
-        createLeafNode(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0(), "true"); 
+(
+    { 
+        currentNode=createCompositeNode(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0(), currentNode); 
+    }
+    this_True_0=ruleTrue    {
+		$current.merge(this_True_0);
     }
 
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBooleanLiteralRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "true", true, "true", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-	
-)
-    |'false' 
-    {
-        createLeafNode(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1(), null); 
+    { 
+        currentNode = currentNode.getParent();
     }
-);
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1(), currentNode); 
+    }
+    this_False_1=ruleFalse    {
+		$current.merge(this_False_1);
+    }
+
+    { 
+        currentNode = currentNode.getParent();
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleTrue
+entryRuleTrue returns [String current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getTrueRule(), currentNode); } 
+	 iv_ruleTrue=ruleTrue 
+	 { $current=$iv_ruleTrue.current.getText(); }  
+	 EOF 
+;
+
+// Rule True
+ruleTrue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+	    lastConsumedDatatypeToken = $current;
+    }:
+
+	kw='true' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getTrueAccess().getTrueKeyword(), null); 
+    }
+
+    ;
+
+
+
+
+
+// Entry rule entryRuleFalse
+entryRuleFalse returns [String current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getFalseRule(), currentNode); } 
+	 iv_ruleFalse=ruleFalse 
+	 { $current=$iv_ruleFalse.current.getText(); }  
+	 EOF 
+;
+
+// Rule False
+ruleFalse returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+	    lastConsumedDatatypeToken = $current;
+    }:
+
+	kw='false' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getFalseAccess().getFalseKeyword(), null); 
+    }
+
+    ;
 
 
 

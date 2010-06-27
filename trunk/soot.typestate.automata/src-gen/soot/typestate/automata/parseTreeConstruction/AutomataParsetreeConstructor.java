@@ -44,7 +44,6 @@ protected class ThisRootNode extends RootToken {
 			case 9: return new Method_Group(this, this, 9, inst);
 			case 10: return new Constructor_Group(this, this, 10, inst);
 			case 11: return new Type_NameAssignment(this, this, 11, inst);
-			case 12: return new BooleanLiteral_Alternatives(this, this, 12, inst);
 			default: return null;
 		}	
 	}	
@@ -1232,7 +1231,7 @@ protected class BranchedTransition_ValueAssignment_2 extends AssignmentToken  {
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BooleanLiteral_Alternatives(this, this, 0, inst);
+			case 0: return new BranchedTransition_ReturnsKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1240,25 +1239,14 @@ protected class BranchedTransition_ValueAssignment_2 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("value",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("value");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBooleanLiteralRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBranchedTransitionAccess().getValueBooleanLiteralParserRuleCall_2_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getBranchedTransitionAccess().getValueBooleanLiteralParserRuleCall_2_0();
+			return obj;
 		}
 		return null;
 	}
 
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BranchedTransition_ReturnsKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 // "->"
@@ -2035,88 +2023,6 @@ protected class Type_NameAssignment extends AssignmentToken  {
 
 
 
-/************ begin Rule BooleanLiteral ****************
- *
- * BooleanLiteral:
- *   true?="true"|"false";
- *
- **/
 
-// true?="true"|"false"
-protected class BooleanLiteral_Alternatives extends AlternativesToken {
-
-	public BooleanLiteral_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getBooleanLiteralAccess().getAlternatives();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BooleanLiteral_TrueAssignment_0(parent, this, 0, inst);
-			case 1: return new BooleanLiteral_FalseKeyword_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getBooleanLiteralRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// true?="true"
-protected class BooleanLiteral_TrueAssignment_0 extends AssignmentToken  {
-	
-	public BooleanLiteral_TrueAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("true",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("true");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "false"
-protected class BooleanLiteral_FalseKeyword_1 extends KeywordToken  {
-	
-	public BooleanLiteral_FalseKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1();
-	}
-
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-
-/************ end Rule BooleanLiteral ****************/
 
 }

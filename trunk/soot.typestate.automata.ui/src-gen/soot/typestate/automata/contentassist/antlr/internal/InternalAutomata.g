@@ -434,6 +434,64 @@ finally {
 
 
 
+// Entry rule entryRuleTrue
+entryRuleTrue :
+{ before(grammarAccess.getTrueRule()); }
+	 ruleTrue
+{ after(grammarAccess.getTrueRule()); } 
+	 EOF 
+;
+
+// Rule True
+ruleTrue 
+    @init {
+		int stackSize = keepStackSize();
+    }
+ :
+(
+{ before(grammarAccess.getTrueAccess().getTrueKeyword()); }
+
+	'true' 
+
+{ after(grammarAccess.getTrueAccess().getTrueKeyword()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleFalse
+entryRuleFalse :
+{ before(grammarAccess.getFalseRule()); }
+	 ruleFalse
+{ after(grammarAccess.getFalseRule()); } 
+	 EOF 
+;
+
+// Rule False
+ruleFalse 
+    @init {
+		int stackSize = keepStackSize();
+    }
+ :
+(
+{ before(grammarAccess.getFalseAccess().getFalseKeyword()); }
+
+	'false' 
+
+{ after(grammarAccess.getFalseAccess().getFalseKeyword()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 rule__Transition__Alternatives
     @init {
@@ -485,17 +543,15 @@ rule__BooleanLiteral__Alternatives
     }
 :
 (
-{ before(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0()); }
-(rule__BooleanLiteral__TrueAssignment_0)
-{ after(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0()); }
+{ before(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0()); }
+	ruleTrue
+{ after(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1()); }
-
-	'false' 
-
-{ after(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1()); }
+{ before(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1()); }
+	ruleFalse
+{ after(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1()); }
 )
 
 ;
@@ -2014,29 +2070,6 @@ rule__Type__NameAssignment
 (
 { before(grammarAccess.getTypeAccess().getNameJAVAIDParserRuleCall_0()); }
 	ruleJAVAID{ after(grammarAccess.getTypeAccess().getNameJAVAIDParserRuleCall_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BooleanLiteral__TrueAssignment_0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); }
-(
-{ before(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); }
-
-	'true' 
-
-{ after(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); }
-)
-
-{ after(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); }
 )
 
 ;

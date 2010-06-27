@@ -526,25 +526,45 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	public class BooleanLiteralElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BooleanLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cTrueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cTrueTrueKeyword_0_0 = (Keyword)cTrueAssignment_0.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final RuleCall cTrueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFalseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//BooleanLiteral:
-		//  true?="true"|"false";
+		//BooleanLiteral returns ecore::EString:
+		//  True|False;
 		public ParserRule getRule() { return rule; }
 
-		//true?="true"|"false"
+		//True|False
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//true?="true"
-		public Assignment getTrueAssignment_0() { return cTrueAssignment_0; }
+		//True
+		public RuleCall getTrueParserRuleCall_0() { return cTrueParserRuleCall_0; }
+
+		//False
+		public RuleCall getFalseParserRuleCall_1() { return cFalseParserRuleCall_1; }
+	}
+
+	public class TrueElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "True");
+		private final Keyword cTrueKeyword = (Keyword)rule.eContents().get(1);
+		
+		//True returns ecore::EString:
+		//  "true";
+		public ParserRule getRule() { return rule; }
 
 		//"true"
-		public Keyword getTrueTrueKeyword_0_0() { return cTrueTrueKeyword_0_0; }
+		public Keyword getTrueKeyword() { return cTrueKeyword; }
+	}
+
+	public class FalseElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "False");
+		private final Keyword cFalseKeyword = (Keyword)rule.eContents().get(1);
+		
+		//False returns ecore::EString:
+		//  "false";
+		public ParserRule getRule() { return rule; }
 
 		//"false"
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+		public Keyword getFalseKeyword() { return cFalseKeyword; }
 	}
 	
 	
@@ -562,6 +582,8 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 	private TypeElements pType;
 	private JAVAIDElements pJAVAID;
 	private BooleanLiteralElements pBooleanLiteral;
+	private TrueElements pTrue;
+	private FalseElements pFalse;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -715,14 +737,34 @@ public class AutomataGrammarAccess implements IGrammarAccess {
 		return getJAVAIDAccess().getRule();
 	}
 
-	//BooleanLiteral:
-	//  true?="true"|"false";
+	//BooleanLiteral returns ecore::EString:
+	//  True|False;
 	public BooleanLiteralElements getBooleanLiteralAccess() {
 		return (pBooleanLiteral != null) ? pBooleanLiteral : (pBooleanLiteral = new BooleanLiteralElements());
 	}
 	
 	public ParserRule getBooleanLiteralRule() {
 		return getBooleanLiteralAccess().getRule();
+	}
+
+	//True returns ecore::EString:
+	//  "true";
+	public TrueElements getTrueAccess() {
+		return (pTrue != null) ? pTrue : (pTrue = new TrueElements());
+	}
+	
+	public ParserRule getTrueRule() {
+		return getTrueAccess().getRule();
+	}
+
+	//False returns ecore::EString:
+	//  "false";
+	public FalseElements getFalseAccess() {
+		return (pFalse != null) ? pFalse : (pFalse = new FalseElements());
+	}
+	
+	public ParserRule getFalseRule() {
+		return getFalseAccess().getRule();
 	}
 
 	//terminal ID:

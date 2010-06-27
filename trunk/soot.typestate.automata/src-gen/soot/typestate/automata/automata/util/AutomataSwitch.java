@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
-import soot.typestate.automata.automata.BooleanLiteral;
 import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
@@ -191,13 +190,6 @@ public class AutomataSwitch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AutomataPackage.BOOLEAN_LITERAL:
-      {
-        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
-        T result = caseBooleanLiteral(booleanLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -393,22 +385,6 @@ public class AutomataSwitch<T>
    * @generated
    */
   public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBooleanLiteral(BooleanLiteral object)
   {
     return null;
   }

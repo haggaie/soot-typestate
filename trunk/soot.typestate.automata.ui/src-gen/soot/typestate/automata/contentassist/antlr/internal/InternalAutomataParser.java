@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class InternalAutomataParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'false'", "'package'", "';'", "'automaton'", "'{'", "'initial'", "'='", "'}'", "'error'", "'state'", "'->'", "'returns'", "'('", "')'", "','", "'.'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'true'", "'false'", "'package'", "';'", "'automaton'", "'{'", "'initial'", "'='", "'}'", "'error'", "'state'", "'->'", "'returns'", "'('", "')'", "','", "'.'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_STRING=6;
@@ -1111,25 +1111,157 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
     // $ANTLR end ruleBooleanLiteral
 
 
+    // $ANTLR start entryRuleTrue
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:438:1: entryRuleTrue : ruleTrue EOF ;
+    public final void entryRuleTrue() throws RecognitionException {
+        try {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:438:15: ( ruleTrue EOF )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:439:1: ruleTrue EOF
+            {
+             before(grammarAccess.getTrueRule()); 
+            pushFollow(FOLLOW_ruleTrue_in_entryRuleTrue900);
+            ruleTrue();
+            _fsp--;
+
+             after(grammarAccess.getTrueRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTrue907); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end entryRuleTrue
+
+
+    // $ANTLR start ruleTrue
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:446:1: ruleTrue : ( 'true' ) ;
+    public final void ruleTrue() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:450:2: ( ( 'true' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:451:1: ( 'true' )
+            {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:451:1: ( 'true' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:452:1: 'true'
+            {
+             before(grammarAccess.getTrueAccess().getTrueKeyword()); 
+            match(input,11,FOLLOW_11_in_ruleTrue935); 
+             after(grammarAccess.getTrueAccess().getTrueKeyword()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end ruleTrue
+
+
+    // $ANTLR start entryRuleFalse
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:467:1: entryRuleFalse : ruleFalse EOF ;
+    public final void entryRuleFalse() throws RecognitionException {
+        try {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:467:16: ( ruleFalse EOF )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:468:1: ruleFalse EOF
+            {
+             before(grammarAccess.getFalseRule()); 
+            pushFollow(FOLLOW_ruleFalse_in_entryRuleFalse962);
+            ruleFalse();
+            _fsp--;
+
+             after(grammarAccess.getFalseRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFalse969); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end entryRuleFalse
+
+
+    // $ANTLR start ruleFalse
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:475:1: ruleFalse : ( 'false' ) ;
+    public final void ruleFalse() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:479:2: ( ( 'false' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:480:1: ( 'false' )
+            {
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:480:1: ( 'false' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:481:1: 'false'
+            {
+             before(grammarAccess.getFalseAccess().getFalseKeyword()); 
+            match(input,12,FOLLOW_12_in_ruleFalse997); 
+             after(grammarAccess.getFalseAccess().getFalseKeyword()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end ruleFalse
+
+
     // $ANTLR start rule__Transition__Alternatives
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:438:1: rule__Transition__Alternatives : ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) );
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:496:1: rule__Transition__Alternatives : ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) );
     public final void rule__Transition__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:442:1: ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:500:1: ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) )
             int alt1=2;
             alt1 = dfa1.predict(input);
             switch (alt1) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:443:1: ( ruleInvocationTransition )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:501:1: ( ruleInvocationTransition )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:443:1: ( ruleInvocationTransition )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:444:1: ruleInvocationTransition
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:501:1: ( ruleInvocationTransition )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:502:1: ruleInvocationTransition
                     {
                      before(grammarAccess.getTransitionAccess().getInvocationTransitionParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleInvocationTransition_in_rule__Transition__Alternatives910);
+                    pushFollow(FOLLOW_ruleInvocationTransition_in_rule__Transition__Alternatives1034);
                     ruleInvocationTransition();
                     _fsp--;
 
@@ -1141,13 +1273,13 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:449:6: ( ruleBranchedTransition )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:507:6: ( ruleBranchedTransition )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:449:6: ( ruleBranchedTransition )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:450:1: ruleBranchedTransition
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:507:6: ( ruleBranchedTransition )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:508:1: ruleBranchedTransition
                     {
                      before(grammarAccess.getTransitionAccess().getBranchedTransitionParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleBranchedTransition_in_rule__Transition__Alternatives927);
+                    pushFollow(FOLLOW_ruleBranchedTransition_in_rule__Transition__Alternatives1051);
                     ruleBranchedTransition();
                     _fsp--;
 
@@ -1176,47 +1308,47 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Invocation__Alternatives
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:460:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:518:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );
     public final void rule__Invocation__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:464:1: ( ( ruleMethod ) | ( ruleConstructor ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:522:1: ( ( ruleMethod ) | ( ruleConstructor ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==RULE_ID) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==23) ) {
+                if ( (LA2_1==24) ) {
                     alt2=2;
                 }
-                else if ( (LA2_1==RULE_ID||LA2_1==26) ) {
+                else if ( (LA2_1==RULE_ID||LA2_1==27) ) {
                     alt2=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("460:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );", 2, 1, input);
+                        new NoViableAltException("518:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );", 2, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("460:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );", 2, 0, input);
+                    new NoViableAltException("518:1: rule__Invocation__Alternatives : ( ( ruleMethod ) | ( ruleConstructor ) );", 2, 0, input);
 
                 throw nvae;
             }
             switch (alt2) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:465:1: ( ruleMethod )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:523:1: ( ruleMethod )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:465:1: ( ruleMethod )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:466:1: ruleMethod
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:523:1: ( ruleMethod )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:524:1: ruleMethod
                     {
                      before(grammarAccess.getInvocationAccess().getMethodParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleMethod_in_rule__Invocation__Alternatives959);
+                    pushFollow(FOLLOW_ruleMethod_in_rule__Invocation__Alternatives1083);
                     ruleMethod();
                     _fsp--;
 
@@ -1228,13 +1360,13 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:471:6: ( ruleConstructor )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:529:6: ( ruleConstructor )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:471:6: ( ruleConstructor )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:472:1: ruleConstructor
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:529:6: ( ruleConstructor )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:530:1: ruleConstructor
                     {
                      before(grammarAccess.getInvocationAccess().getConstructorParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleConstructor_in_rule__Invocation__Alternatives976);
+                    pushFollow(FOLLOW_ruleConstructor_in_rule__Invocation__Alternatives1100);
                     ruleConstructor();
                     _fsp--;
 
@@ -1263,47 +1395,41 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BooleanLiteral__Alternatives
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:482:1: rule__BooleanLiteral__Alternatives : ( ( ( rule__BooleanLiteral__TrueAssignment_0 ) ) | ( 'false' ) );
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:540:1: rule__BooleanLiteral__Alternatives : ( ( ruleTrue ) | ( ruleFalse ) );
     public final void rule__BooleanLiteral__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:486:1: ( ( ( rule__BooleanLiteral__TrueAssignment_0 ) ) | ( 'false' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:544:1: ( ( ruleTrue ) | ( ruleFalse ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==27) ) {
+            if ( (LA3_0==11) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==11) ) {
+            else if ( (LA3_0==12) ) {
                 alt3=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("482:1: rule__BooleanLiteral__Alternatives : ( ( ( rule__BooleanLiteral__TrueAssignment_0 ) ) | ( 'false' ) );", 3, 0, input);
+                    new NoViableAltException("540:1: rule__BooleanLiteral__Alternatives : ( ( ruleTrue ) | ( ruleFalse ) );", 3, 0, input);
 
                 throw nvae;
             }
             switch (alt3) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:487:1: ( ( rule__BooleanLiteral__TrueAssignment_0 ) )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:545:1: ( ruleTrue )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:487:1: ( ( rule__BooleanLiteral__TrueAssignment_0 ) )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:488:1: ( rule__BooleanLiteral__TrueAssignment_0 )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:545:1: ( ruleTrue )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:546:1: ruleTrue
                     {
-                     before(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0()); 
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:489:1: ( rule__BooleanLiteral__TrueAssignment_0 )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:489:2: rule__BooleanLiteral__TrueAssignment_0
-                    {
-                    pushFollow(FOLLOW_rule__BooleanLiteral__TrueAssignment_0_in_rule__BooleanLiteral__Alternatives1008);
-                    rule__BooleanLiteral__TrueAssignment_0();
+                     before(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0()); 
+                    pushFollow(FOLLOW_ruleTrue_in_rule__BooleanLiteral__Alternatives1132);
+                    ruleTrue();
                     _fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0()); 
+                     after(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0()); 
 
                     }
 
@@ -1311,14 +1437,17 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:493:6: ( 'false' )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:551:6: ( ruleFalse )
                     {
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:493:6: ( 'false' )
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:494:1: 'false'
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:551:6: ( ruleFalse )
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:552:1: ruleFalse
                     {
-                     before(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1()); 
-                    match(input,11,FOLLOW_11_in_rule__BooleanLiteral__Alternatives1027); 
-                     after(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1()); 
+                     before(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1()); 
+                    pushFollow(FOLLOW_ruleFalse_in_rule__BooleanLiteral__Alternatives1149);
+                    ruleFalse();
+                    _fsp--;
+
+                     after(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1()); 
 
                     }
 
@@ -1343,31 +1472,31 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automata__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:508:1: rule__Automata__Group__0 : ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:564:1: rule__Automata__Group__0 : ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1 ;
     public final void rule__Automata__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:512:1: ( ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:513:1: ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:568:1: ( ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:569:1: ( ( rule__Automata__PackageAssignment_0 )? ) rule__Automata__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:513:1: ( ( rule__Automata__PackageAssignment_0 )? )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:514:1: ( rule__Automata__PackageAssignment_0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:569:1: ( ( rule__Automata__PackageAssignment_0 )? )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:570:1: ( rule__Automata__PackageAssignment_0 )?
             {
              before(grammarAccess.getAutomataAccess().getPackageAssignment_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:515:1: ( rule__Automata__PackageAssignment_0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:571:1: ( rule__Automata__PackageAssignment_0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==12) ) {
+            if ( (LA4_0==13) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:515:2: rule__Automata__PackageAssignment_0
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:571:2: rule__Automata__PackageAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Automata__PackageAssignment_0_in_rule__Automata__Group__01063);
+                    pushFollow(FOLLOW_rule__Automata__PackageAssignment_0_in_rule__Automata__Group__01183);
                     rule__Automata__PackageAssignment_0();
                     _fsp--;
 
@@ -1381,7 +1510,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automata__Group__1_in_rule__Automata__Group__01073);
+            pushFollow(FOLLOW_rule__Automata__Group__1_in_rule__Automata__Group__01193);
             rule__Automata__Group__1();
             _fsp--;
 
@@ -1404,26 +1533,26 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automata__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:526:1: rule__Automata__Group__1 : ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:582:1: rule__Automata__Group__1 : ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) ) ;
     public final void rule__Automata__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:530:1: ( ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:531:1: ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:586:1: ( ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:587:1: ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:531:1: ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:532:1: ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:587:1: ( ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:588:1: ( ( rule__Automata__AutomataAssignment_1 ) ) ( ( rule__Automata__AutomataAssignment_1 )* )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:532:1: ( ( rule__Automata__AutomataAssignment_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:533:1: ( rule__Automata__AutomataAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:588:1: ( ( rule__Automata__AutomataAssignment_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:589:1: ( rule__Automata__AutomataAssignment_1 )
             {
              before(grammarAccess.getAutomataAccess().getAutomataAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:534:1: ( rule__Automata__AutomataAssignment_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:534:2: rule__Automata__AutomataAssignment_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:590:1: ( rule__Automata__AutomataAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:590:2: rule__Automata__AutomataAssignment_1
             {
-            pushFollow(FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11103);
+            pushFollow(FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11223);
             rule__Automata__AutomataAssignment_1();
             _fsp--;
 
@@ -1434,26 +1563,26 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:537:1: ( ( rule__Automata__AutomataAssignment_1 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:538:1: ( rule__Automata__AutomataAssignment_1 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:593:1: ( ( rule__Automata__AutomataAssignment_1 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:594:1: ( rule__Automata__AutomataAssignment_1 )*
             {
              before(grammarAccess.getAutomataAccess().getAutomataAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:539:1: ( rule__Automata__AutomataAssignment_1 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:595:1: ( rule__Automata__AutomataAssignment_1 )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==14) ) {
+                if ( (LA5_0==15) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:539:2: rule__Automata__AutomataAssignment_1
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:595:2: rule__Automata__AutomataAssignment_1
             	    {
-            	    pushFollow(FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11115);
+            	    pushFollow(FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11235);
             	    rule__Automata__AutomataAssignment_1();
             	    _fsp--;
 
@@ -1492,25 +1621,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Package__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:554:1: rule__Package__Group__0 : ( 'package' ) rule__Package__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:610:1: rule__Package__Group__0 : ( 'package' ) rule__Package__Group__1 ;
     public final void rule__Package__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:558:1: ( ( 'package' ) rule__Package__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:559:1: ( 'package' ) rule__Package__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:614:1: ( ( 'package' ) rule__Package__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:615:1: ( 'package' ) rule__Package__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:559:1: ( 'package' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:560:1: 'package'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:615:1: ( 'package' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:616:1: 'package'
             {
              before(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
-            match(input,12,FOLLOW_12_in_rule__Package__Group__01157); 
+            match(input,13,FOLLOW_13_in_rule__Package__Group__01277); 
              after(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Package__Group__1_in_rule__Package__Group__01167);
+            pushFollow(FOLLOW_rule__Package__Group__1_in_rule__Package__Group__01287);
             rule__Package__Group__1();
             _fsp--;
 
@@ -1533,23 +1662,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Package__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:574:1: rule__Package__Group__1 : ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:630:1: rule__Package__Group__1 : ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2 ;
     public final void rule__Package__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:578:1: ( ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:579:1: ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:634:1: ( ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:635:1: ( ( rule__Package__NameAssignment_1 ) ) rule__Package__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:579:1: ( ( rule__Package__NameAssignment_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:580:1: ( rule__Package__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:635:1: ( ( rule__Package__NameAssignment_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:636:1: ( rule__Package__NameAssignment_1 )
             {
              before(grammarAccess.getPackageAccess().getNameAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:581:1: ( rule__Package__NameAssignment_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:581:2: rule__Package__NameAssignment_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:637:1: ( rule__Package__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:637:2: rule__Package__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__11195);
+            pushFollow(FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__11315);
             rule__Package__NameAssignment_1();
             _fsp--;
 
@@ -1560,7 +1689,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Package__Group__2_in_rule__Package__Group__11204);
+            pushFollow(FOLLOW_rule__Package__Group__2_in_rule__Package__Group__11324);
             rule__Package__Group__2();
             _fsp--;
 
@@ -1583,20 +1712,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Package__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:592:1: rule__Package__Group__2 : ( ';' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:648:1: rule__Package__Group__2 : ( ';' ) ;
     public final void rule__Package__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:596:1: ( ( ';' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:597:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:652:1: ( ( ';' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:653:1: ( ';' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:597:1: ( ';' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:598:1: ';'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:653:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:654:1: ';'
             {
              before(grammarAccess.getPackageAccess().getSemicolonKeyword_2()); 
-            match(input,13,FOLLOW_13_in_rule__Package__Group__21233); 
+            match(input,14,FOLLOW_14_in_rule__Package__Group__21353); 
              after(grammarAccess.getPackageAccess().getSemicolonKeyword_2()); 
 
             }
@@ -1620,25 +1749,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:617:1: rule__Automaton__Group__0 : ( 'automaton' ) rule__Automaton__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:673:1: rule__Automaton__Group__0 : ( 'automaton' ) rule__Automaton__Group__1 ;
     public final void rule__Automaton__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:621:1: ( ( 'automaton' ) rule__Automaton__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:622:1: ( 'automaton' ) rule__Automaton__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:677:1: ( ( 'automaton' ) rule__Automaton__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:678:1: ( 'automaton' ) rule__Automaton__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:622:1: ( 'automaton' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:623:1: 'automaton'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:678:1: ( 'automaton' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:679:1: 'automaton'
             {
              before(grammarAccess.getAutomatonAccess().getAutomatonKeyword_0()); 
-            match(input,14,FOLLOW_14_in_rule__Automaton__Group__01275); 
+            match(input,15,FOLLOW_15_in_rule__Automaton__Group__01395); 
              after(grammarAccess.getAutomatonAccess().getAutomatonKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__1_in_rule__Automaton__Group__01285);
+            pushFollow(FOLLOW_rule__Automaton__Group__1_in_rule__Automaton__Group__01405);
             rule__Automaton__Group__1();
             _fsp--;
 
@@ -1661,23 +1790,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:637:1: rule__Automaton__Group__1 : ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:693:1: rule__Automaton__Group__1 : ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2 ;
     public final void rule__Automaton__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:641:1: ( ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:642:1: ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:697:1: ( ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:698:1: ( ( rule__Automaton__KlassAssignment_1 ) ) rule__Automaton__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:642:1: ( ( rule__Automaton__KlassAssignment_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:643:1: ( rule__Automaton__KlassAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:698:1: ( ( rule__Automaton__KlassAssignment_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:699:1: ( rule__Automaton__KlassAssignment_1 )
             {
              before(grammarAccess.getAutomatonAccess().getKlassAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:644:1: ( rule__Automaton__KlassAssignment_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:644:2: rule__Automaton__KlassAssignment_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:700:1: ( rule__Automaton__KlassAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:700:2: rule__Automaton__KlassAssignment_1
             {
-            pushFollow(FOLLOW_rule__Automaton__KlassAssignment_1_in_rule__Automaton__Group__11313);
+            pushFollow(FOLLOW_rule__Automaton__KlassAssignment_1_in_rule__Automaton__Group__11433);
             rule__Automaton__KlassAssignment_1();
             _fsp--;
 
@@ -1688,7 +1817,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__2_in_rule__Automaton__Group__11322);
+            pushFollow(FOLLOW_rule__Automaton__Group__2_in_rule__Automaton__Group__11442);
             rule__Automaton__Group__2();
             _fsp--;
 
@@ -1711,25 +1840,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:655:1: rule__Automaton__Group__2 : ( '{' ) rule__Automaton__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:711:1: rule__Automaton__Group__2 : ( '{' ) rule__Automaton__Group__3 ;
     public final void rule__Automaton__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:659:1: ( ( '{' ) rule__Automaton__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:660:1: ( '{' ) rule__Automaton__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:715:1: ( ( '{' ) rule__Automaton__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:716:1: ( '{' ) rule__Automaton__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:660:1: ( '{' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:661:1: '{'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:716:1: ( '{' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:717:1: '{'
             {
              before(grammarAccess.getAutomatonAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,15,FOLLOW_15_in_rule__Automaton__Group__21351); 
+            match(input,16,FOLLOW_16_in_rule__Automaton__Group__21471); 
              after(grammarAccess.getAutomatonAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__3_in_rule__Automaton__Group__21361);
+            pushFollow(FOLLOW_rule__Automaton__Group__3_in_rule__Automaton__Group__21481);
             rule__Automaton__Group__3();
             _fsp--;
 
@@ -1752,25 +1881,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:675:1: rule__Automaton__Group__3 : ( 'initial' ) rule__Automaton__Group__4 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:731:1: rule__Automaton__Group__3 : ( 'initial' ) rule__Automaton__Group__4 ;
     public final void rule__Automaton__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:679:1: ( ( 'initial' ) rule__Automaton__Group__4 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:680:1: ( 'initial' ) rule__Automaton__Group__4
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:735:1: ( ( 'initial' ) rule__Automaton__Group__4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:736:1: ( 'initial' ) rule__Automaton__Group__4
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:680:1: ( 'initial' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:681:1: 'initial'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:736:1: ( 'initial' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:737:1: 'initial'
             {
              before(grammarAccess.getAutomatonAccess().getInitialKeyword_3()); 
-            match(input,16,FOLLOW_16_in_rule__Automaton__Group__31390); 
+            match(input,17,FOLLOW_17_in_rule__Automaton__Group__31510); 
              after(grammarAccess.getAutomatonAccess().getInitialKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__4_in_rule__Automaton__Group__31400);
+            pushFollow(FOLLOW_rule__Automaton__Group__4_in_rule__Automaton__Group__31520);
             rule__Automaton__Group__4();
             _fsp--;
 
@@ -1793,25 +1922,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__4
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:695:1: rule__Automaton__Group__4 : ( '=' ) rule__Automaton__Group__5 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:751:1: rule__Automaton__Group__4 : ( '=' ) rule__Automaton__Group__5 ;
     public final void rule__Automaton__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:699:1: ( ( '=' ) rule__Automaton__Group__5 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:700:1: ( '=' ) rule__Automaton__Group__5
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:755:1: ( ( '=' ) rule__Automaton__Group__5 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:756:1: ( '=' ) rule__Automaton__Group__5
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:700:1: ( '=' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:701:1: '='
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:756:1: ( '=' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:757:1: '='
             {
              before(grammarAccess.getAutomatonAccess().getEqualsSignKeyword_4()); 
-            match(input,17,FOLLOW_17_in_rule__Automaton__Group__41429); 
+            match(input,18,FOLLOW_18_in_rule__Automaton__Group__41549); 
              after(grammarAccess.getAutomatonAccess().getEqualsSignKeyword_4()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__5_in_rule__Automaton__Group__41439);
+            pushFollow(FOLLOW_rule__Automaton__Group__5_in_rule__Automaton__Group__41559);
             rule__Automaton__Group__5();
             _fsp--;
 
@@ -1834,23 +1963,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__5
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:715:1: rule__Automaton__Group__5 : ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:771:1: rule__Automaton__Group__5 : ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6 ;
     public final void rule__Automaton__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:719:1: ( ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:720:1: ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:775:1: ( ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:776:1: ( ( rule__Automaton__InitialStateAssignment_5 ) ) rule__Automaton__Group__6
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:720:1: ( ( rule__Automaton__InitialStateAssignment_5 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:721:1: ( rule__Automaton__InitialStateAssignment_5 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:776:1: ( ( rule__Automaton__InitialStateAssignment_5 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:777:1: ( rule__Automaton__InitialStateAssignment_5 )
             {
              before(grammarAccess.getAutomatonAccess().getInitialStateAssignment_5()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:722:1: ( rule__Automaton__InitialStateAssignment_5 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:722:2: rule__Automaton__InitialStateAssignment_5
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:778:1: ( rule__Automaton__InitialStateAssignment_5 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:778:2: rule__Automaton__InitialStateAssignment_5
             {
-            pushFollow(FOLLOW_rule__Automaton__InitialStateAssignment_5_in_rule__Automaton__Group__51467);
+            pushFollow(FOLLOW_rule__Automaton__InitialStateAssignment_5_in_rule__Automaton__Group__51587);
             rule__Automaton__InitialStateAssignment_5();
             _fsp--;
 
@@ -1861,7 +1990,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__6_in_rule__Automaton__Group__51476);
+            pushFollow(FOLLOW_rule__Automaton__Group__6_in_rule__Automaton__Group__51596);
             rule__Automaton__Group__6();
             _fsp--;
 
@@ -1884,25 +2013,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__6
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:733:1: rule__Automaton__Group__6 : ( ';' ) rule__Automaton__Group__7 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:789:1: rule__Automaton__Group__6 : ( ';' ) rule__Automaton__Group__7 ;
     public final void rule__Automaton__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:737:1: ( ( ';' ) rule__Automaton__Group__7 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:738:1: ( ';' ) rule__Automaton__Group__7
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:793:1: ( ( ';' ) rule__Automaton__Group__7 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:794:1: ( ';' ) rule__Automaton__Group__7
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:738:1: ( ';' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:739:1: ';'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:794:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:795:1: ';'
             {
              before(grammarAccess.getAutomatonAccess().getSemicolonKeyword_6()); 
-            match(input,13,FOLLOW_13_in_rule__Automaton__Group__61505); 
+            match(input,14,FOLLOW_14_in_rule__Automaton__Group__61625); 
              after(grammarAccess.getAutomatonAccess().getSemicolonKeyword_6()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__7_in_rule__Automaton__Group__61515);
+            pushFollow(FOLLOW_rule__Automaton__Group__7_in_rule__Automaton__Group__61635);
             rule__Automaton__Group__7();
             _fsp--;
 
@@ -1925,31 +2054,31 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__7
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:753:1: rule__Automaton__Group__7 : ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:809:1: rule__Automaton__Group__7 : ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8 ;
     public final void rule__Automaton__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:757:1: ( ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:758:1: ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:813:1: ( ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:814:1: ( ( rule__Automaton__Group_7__0 )? ) rule__Automaton__Group__8
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:758:1: ( ( rule__Automaton__Group_7__0 )? )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:759:1: ( rule__Automaton__Group_7__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:814:1: ( ( rule__Automaton__Group_7__0 )? )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:815:1: ( rule__Automaton__Group_7__0 )?
             {
              before(grammarAccess.getAutomatonAccess().getGroup_7()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:760:1: ( rule__Automaton__Group_7__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:816:1: ( rule__Automaton__Group_7__0 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==19) ) {
+            if ( (LA6_0==20) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:760:2: rule__Automaton__Group_7__0
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:816:2: rule__Automaton__Group_7__0
                     {
-                    pushFollow(FOLLOW_rule__Automaton__Group_7__0_in_rule__Automaton__Group__71543);
+                    pushFollow(FOLLOW_rule__Automaton__Group_7__0_in_rule__Automaton__Group__71663);
                     rule__Automaton__Group_7__0();
                     _fsp--;
 
@@ -1963,7 +2092,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__8_in_rule__Automaton__Group__71553);
+            pushFollow(FOLLOW_rule__Automaton__Group__8_in_rule__Automaton__Group__71673);
             rule__Automaton__Group__8();
             _fsp--;
 
@@ -1986,26 +2115,26 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__8
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:771:1: rule__Automaton__Group__8 : ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:827:1: rule__Automaton__Group__8 : ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9 ;
     public final void rule__Automaton__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:775:1: ( ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:776:1: ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:831:1: ( ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:832:1: ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) ) rule__Automaton__Group__9
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:776:1: ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:777:1: ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:832:1: ( ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:833:1: ( ( rule__Automaton__StatesAssignment_8 ) ) ( ( rule__Automaton__StatesAssignment_8 )* )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:777:1: ( ( rule__Automaton__StatesAssignment_8 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:778:1: ( rule__Automaton__StatesAssignment_8 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:833:1: ( ( rule__Automaton__StatesAssignment_8 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:834:1: ( rule__Automaton__StatesAssignment_8 )
             {
              before(grammarAccess.getAutomatonAccess().getStatesAssignment_8()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:779:1: ( rule__Automaton__StatesAssignment_8 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:779:2: rule__Automaton__StatesAssignment_8
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:835:1: ( rule__Automaton__StatesAssignment_8 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:835:2: rule__Automaton__StatesAssignment_8
             {
-            pushFollow(FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81583);
+            pushFollow(FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81703);
             rule__Automaton__StatesAssignment_8();
             _fsp--;
 
@@ -2016,26 +2145,26 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:782:1: ( ( rule__Automaton__StatesAssignment_8 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:783:1: ( rule__Automaton__StatesAssignment_8 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:838:1: ( ( rule__Automaton__StatesAssignment_8 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:839:1: ( rule__Automaton__StatesAssignment_8 )*
             {
              before(grammarAccess.getAutomatonAccess().getStatesAssignment_8()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:784:1: ( rule__Automaton__StatesAssignment_8 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:840:1: ( rule__Automaton__StatesAssignment_8 )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==20) ) {
+                if ( (LA7_0==21) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:784:2: rule__Automaton__StatesAssignment_8
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:840:2: rule__Automaton__StatesAssignment_8
             	    {
-            	    pushFollow(FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81595);
+            	    pushFollow(FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81715);
             	    rule__Automaton__StatesAssignment_8();
             	    _fsp--;
 
@@ -2055,7 +2184,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group__9_in_rule__Automaton__Group__81607);
+            pushFollow(FOLLOW_rule__Automaton__Group__9_in_rule__Automaton__Group__81727);
             rule__Automaton__Group__9();
             _fsp--;
 
@@ -2078,20 +2207,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group__9
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:796:1: rule__Automaton__Group__9 : ( '}' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:852:1: rule__Automaton__Group__9 : ( '}' ) ;
     public final void rule__Automaton__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:800:1: ( ( '}' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:801:1: ( '}' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:856:1: ( ( '}' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:857:1: ( '}' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:801:1: ( '}' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:802:1: '}'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:857:1: ( '}' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:858:1: '}'
             {
              before(grammarAccess.getAutomatonAccess().getRightCurlyBracketKeyword_9()); 
-            match(input,18,FOLLOW_18_in_rule__Automaton__Group__91636); 
+            match(input,19,FOLLOW_19_in_rule__Automaton__Group__91756); 
              after(grammarAccess.getAutomatonAccess().getRightCurlyBracketKeyword_9()); 
 
             }
@@ -2115,25 +2244,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group_7__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:835:1: rule__Automaton__Group_7__0 : ( 'error' ) rule__Automaton__Group_7__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:891:1: rule__Automaton__Group_7__0 : ( 'error' ) rule__Automaton__Group_7__1 ;
     public final void rule__Automaton__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:839:1: ( ( 'error' ) rule__Automaton__Group_7__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:840:1: ( 'error' ) rule__Automaton__Group_7__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:895:1: ( ( 'error' ) rule__Automaton__Group_7__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:896:1: ( 'error' ) rule__Automaton__Group_7__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:840:1: ( 'error' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:841:1: 'error'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:896:1: ( 'error' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:897:1: 'error'
             {
              before(grammarAccess.getAutomatonAccess().getErrorKeyword_7_0()); 
-            match(input,19,FOLLOW_19_in_rule__Automaton__Group_7__01692); 
+            match(input,20,FOLLOW_20_in_rule__Automaton__Group_7__01812); 
              after(grammarAccess.getAutomatonAccess().getErrorKeyword_7_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group_7__1_in_rule__Automaton__Group_7__01702);
+            pushFollow(FOLLOW_rule__Automaton__Group_7__1_in_rule__Automaton__Group_7__01822);
             rule__Automaton__Group_7__1();
             _fsp--;
 
@@ -2156,25 +2285,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group_7__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:855:1: rule__Automaton__Group_7__1 : ( '=' ) rule__Automaton__Group_7__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:911:1: rule__Automaton__Group_7__1 : ( '=' ) rule__Automaton__Group_7__2 ;
     public final void rule__Automaton__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:859:1: ( ( '=' ) rule__Automaton__Group_7__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:860:1: ( '=' ) rule__Automaton__Group_7__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:915:1: ( ( '=' ) rule__Automaton__Group_7__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:916:1: ( '=' ) rule__Automaton__Group_7__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:860:1: ( '=' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:861:1: '='
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:916:1: ( '=' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:917:1: '='
             {
              before(grammarAccess.getAutomatonAccess().getEqualsSignKeyword_7_1()); 
-            match(input,17,FOLLOW_17_in_rule__Automaton__Group_7__11731); 
+            match(input,18,FOLLOW_18_in_rule__Automaton__Group_7__11851); 
              after(grammarAccess.getAutomatonAccess().getEqualsSignKeyword_7_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group_7__2_in_rule__Automaton__Group_7__11741);
+            pushFollow(FOLLOW_rule__Automaton__Group_7__2_in_rule__Automaton__Group_7__11861);
             rule__Automaton__Group_7__2();
             _fsp--;
 
@@ -2197,23 +2326,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group_7__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:875:1: rule__Automaton__Group_7__2 : ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:931:1: rule__Automaton__Group_7__2 : ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3 ;
     public final void rule__Automaton__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:879:1: ( ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:880:1: ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:935:1: ( ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:936:1: ( ( rule__Automaton__ErrorStateAssignment_7_2 ) ) rule__Automaton__Group_7__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:880:1: ( ( rule__Automaton__ErrorStateAssignment_7_2 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:881:1: ( rule__Automaton__ErrorStateAssignment_7_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:936:1: ( ( rule__Automaton__ErrorStateAssignment_7_2 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:937:1: ( rule__Automaton__ErrorStateAssignment_7_2 )
             {
              before(grammarAccess.getAutomatonAccess().getErrorStateAssignment_7_2()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:882:1: ( rule__Automaton__ErrorStateAssignment_7_2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:882:2: rule__Automaton__ErrorStateAssignment_7_2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:938:1: ( rule__Automaton__ErrorStateAssignment_7_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:938:2: rule__Automaton__ErrorStateAssignment_7_2
             {
-            pushFollow(FOLLOW_rule__Automaton__ErrorStateAssignment_7_2_in_rule__Automaton__Group_7__21769);
+            pushFollow(FOLLOW_rule__Automaton__ErrorStateAssignment_7_2_in_rule__Automaton__Group_7__21889);
             rule__Automaton__ErrorStateAssignment_7_2();
             _fsp--;
 
@@ -2224,7 +2353,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Automaton__Group_7__3_in_rule__Automaton__Group_7__21778);
+            pushFollow(FOLLOW_rule__Automaton__Group_7__3_in_rule__Automaton__Group_7__21898);
             rule__Automaton__Group_7__3();
             _fsp--;
 
@@ -2247,20 +2376,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__Group_7__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:893:1: rule__Automaton__Group_7__3 : ( ';' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:949:1: rule__Automaton__Group_7__3 : ( ';' ) ;
     public final void rule__Automaton__Group_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:897:1: ( ( ';' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:898:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:953:1: ( ( ';' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:954:1: ( ';' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:898:1: ( ';' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:899:1: ';'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:954:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:955:1: ';'
             {
              before(grammarAccess.getAutomatonAccess().getSemicolonKeyword_7_3()); 
-            match(input,13,FOLLOW_13_in_rule__Automaton__Group_7__31807); 
+            match(input,14,FOLLOW_14_in_rule__Automaton__Group_7__31927); 
              after(grammarAccess.getAutomatonAccess().getSemicolonKeyword_7_3()); 
 
             }
@@ -2284,25 +2413,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:920:1: rule__State__Group__0 : ( 'state' ) rule__State__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:976:1: rule__State__Group__0 : ( 'state' ) rule__State__Group__1 ;
     public final void rule__State__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:924:1: ( ( 'state' ) rule__State__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:925:1: ( 'state' ) rule__State__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:980:1: ( ( 'state' ) rule__State__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:981:1: ( 'state' ) rule__State__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:925:1: ( 'state' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:926:1: 'state'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:981:1: ( 'state' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:982:1: 'state'
             {
              before(grammarAccess.getStateAccess().getStateKeyword_0()); 
-            match(input,20,FOLLOW_20_in_rule__State__Group__01851); 
+            match(input,21,FOLLOW_21_in_rule__State__Group__01971); 
              after(grammarAccess.getStateAccess().getStateKeyword_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__State__Group__1_in_rule__State__Group__01861);
+            pushFollow(FOLLOW_rule__State__Group__1_in_rule__State__Group__01981);
             rule__State__Group__1();
             _fsp--;
 
@@ -2325,23 +2454,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:940:1: rule__State__Group__1 : ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:996:1: rule__State__Group__1 : ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2 ;
     public final void rule__State__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:944:1: ( ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:945:1: ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1000:1: ( ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1001:1: ( ( rule__State__NameAssignment_1 ) ) rule__State__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:945:1: ( ( rule__State__NameAssignment_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:946:1: ( rule__State__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1001:1: ( ( rule__State__NameAssignment_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1002:1: ( rule__State__NameAssignment_1 )
             {
              before(grammarAccess.getStateAccess().getNameAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:947:1: ( rule__State__NameAssignment_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:947:2: rule__State__NameAssignment_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1003:1: ( rule__State__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1003:2: rule__State__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__11889);
+            pushFollow(FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__12009);
             rule__State__NameAssignment_1();
             _fsp--;
 
@@ -2352,7 +2481,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__State__Group__2_in_rule__State__Group__11898);
+            pushFollow(FOLLOW_rule__State__Group__2_in_rule__State__Group__12018);
             rule__State__Group__2();
             _fsp--;
 
@@ -2375,25 +2504,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:958:1: rule__State__Group__2 : ( '{' ) rule__State__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1014:1: rule__State__Group__2 : ( '{' ) rule__State__Group__3 ;
     public final void rule__State__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:962:1: ( ( '{' ) rule__State__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:963:1: ( '{' ) rule__State__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1018:1: ( ( '{' ) rule__State__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1019:1: ( '{' ) rule__State__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:963:1: ( '{' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:964:1: '{'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1019:1: ( '{' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1020:1: '{'
             {
              before(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,15,FOLLOW_15_in_rule__State__Group__21927); 
+            match(input,16,FOLLOW_16_in_rule__State__Group__22047); 
              after(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__State__Group__3_in_rule__State__Group__21937);
+            pushFollow(FOLLOW_rule__State__Group__3_in_rule__State__Group__22057);
             rule__State__Group__3();
             _fsp--;
 
@@ -2416,20 +2545,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:978:1: rule__State__Group__3 : ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1034:1: rule__State__Group__3 : ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4 ;
     public final void rule__State__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:982:1: ( ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:983:1: ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1038:1: ( ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1039:1: ( ( rule__State__TransitionsAssignment_3 )* ) rule__State__Group__4
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:983:1: ( ( rule__State__TransitionsAssignment_3 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:984:1: ( rule__State__TransitionsAssignment_3 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1039:1: ( ( rule__State__TransitionsAssignment_3 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1040:1: ( rule__State__TransitionsAssignment_3 )*
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_3()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:985:1: ( rule__State__TransitionsAssignment_3 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1041:1: ( rule__State__TransitionsAssignment_3 )*
             loop8:
             do {
                 int alt8=2;
@@ -2442,9 +2571,9 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
                 switch (alt8) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:985:2: rule__State__TransitionsAssignment_3
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1041:2: rule__State__TransitionsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_rule__State__TransitionsAssignment_3_in_rule__State__Group__31965);
+            	    pushFollow(FOLLOW_rule__State__TransitionsAssignment_3_in_rule__State__Group__32085);
             	    rule__State__TransitionsAssignment_3();
             	    _fsp--;
 
@@ -2461,7 +2590,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__State__Group__4_in_rule__State__Group__31975);
+            pushFollow(FOLLOW_rule__State__Group__4_in_rule__State__Group__32095);
             rule__State__Group__4();
             _fsp--;
 
@@ -2484,20 +2613,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__Group__4
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:996:1: rule__State__Group__4 : ( '}' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1052:1: rule__State__Group__4 : ( '}' ) ;
     public final void rule__State__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1000:1: ( ( '}' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1001:1: ( '}' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1056:1: ( ( '}' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1057:1: ( '}' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1001:1: ( '}' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1002:1: '}'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1057:1: ( '}' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1058:1: '}'
             {
              before(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,18,FOLLOW_18_in_rule__State__Group__42004); 
+            match(input,19,FOLLOW_19_in_rule__State__Group__42124); 
              after(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -2521,23 +2650,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1025:1: rule__InvocationTransition__Group__0 : ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1081:1: rule__InvocationTransition__Group__0 : ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1 ;
     public final void rule__InvocationTransition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1029:1: ( ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1030:1: ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1085:1: ( ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1086:1: ( ( rule__InvocationTransition__InvocationAssignment_0 ) ) rule__InvocationTransition__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1030:1: ( ( rule__InvocationTransition__InvocationAssignment_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1031:1: ( rule__InvocationTransition__InvocationAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1086:1: ( ( rule__InvocationTransition__InvocationAssignment_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1087:1: ( rule__InvocationTransition__InvocationAssignment_0 )
             {
              before(grammarAccess.getInvocationTransitionAccess().getInvocationAssignment_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1032:1: ( rule__InvocationTransition__InvocationAssignment_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1032:2: rule__InvocationTransition__InvocationAssignment_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1088:1: ( rule__InvocationTransition__InvocationAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1088:2: rule__InvocationTransition__InvocationAssignment_0
             {
-            pushFollow(FOLLOW_rule__InvocationTransition__InvocationAssignment_0_in_rule__InvocationTransition__Group__02049);
+            pushFollow(FOLLOW_rule__InvocationTransition__InvocationAssignment_0_in_rule__InvocationTransition__Group__02169);
             rule__InvocationTransition__InvocationAssignment_0();
             _fsp--;
 
@@ -2548,7 +2677,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__InvocationTransition__Group__1_in_rule__InvocationTransition__Group__02058);
+            pushFollow(FOLLOW_rule__InvocationTransition__Group__1_in_rule__InvocationTransition__Group__02178);
             rule__InvocationTransition__Group__1();
             _fsp--;
 
@@ -2571,25 +2700,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1043:1: rule__InvocationTransition__Group__1 : ( '->' ) rule__InvocationTransition__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1099:1: rule__InvocationTransition__Group__1 : ( '->' ) rule__InvocationTransition__Group__2 ;
     public final void rule__InvocationTransition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1047:1: ( ( '->' ) rule__InvocationTransition__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1048:1: ( '->' ) rule__InvocationTransition__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1103:1: ( ( '->' ) rule__InvocationTransition__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1104:1: ( '->' ) rule__InvocationTransition__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1048:1: ( '->' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1049:1: '->'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1104:1: ( '->' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1105:1: '->'
             {
              before(grammarAccess.getInvocationTransitionAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
-            match(input,21,FOLLOW_21_in_rule__InvocationTransition__Group__12087); 
+            match(input,22,FOLLOW_22_in_rule__InvocationTransition__Group__12207); 
              after(grammarAccess.getInvocationTransitionAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__InvocationTransition__Group__2_in_rule__InvocationTransition__Group__12097);
+            pushFollow(FOLLOW_rule__InvocationTransition__Group__2_in_rule__InvocationTransition__Group__12217);
             rule__InvocationTransition__Group__2();
             _fsp--;
 
@@ -2612,23 +2741,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1063:1: rule__InvocationTransition__Group__2 : ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1119:1: rule__InvocationTransition__Group__2 : ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3 ;
     public final void rule__InvocationTransition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1067:1: ( ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1068:1: ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1123:1: ( ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1124:1: ( ( rule__InvocationTransition__StateAssignment_2 ) ) rule__InvocationTransition__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1068:1: ( ( rule__InvocationTransition__StateAssignment_2 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1069:1: ( rule__InvocationTransition__StateAssignment_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1124:1: ( ( rule__InvocationTransition__StateAssignment_2 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1125:1: ( rule__InvocationTransition__StateAssignment_2 )
             {
              before(grammarAccess.getInvocationTransitionAccess().getStateAssignment_2()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1070:1: ( rule__InvocationTransition__StateAssignment_2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1070:2: rule__InvocationTransition__StateAssignment_2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1126:1: ( rule__InvocationTransition__StateAssignment_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1126:2: rule__InvocationTransition__StateAssignment_2
             {
-            pushFollow(FOLLOW_rule__InvocationTransition__StateAssignment_2_in_rule__InvocationTransition__Group__22125);
+            pushFollow(FOLLOW_rule__InvocationTransition__StateAssignment_2_in_rule__InvocationTransition__Group__22245);
             rule__InvocationTransition__StateAssignment_2();
             _fsp--;
 
@@ -2639,7 +2768,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__InvocationTransition__Group__3_in_rule__InvocationTransition__Group__22134);
+            pushFollow(FOLLOW_rule__InvocationTransition__Group__3_in_rule__InvocationTransition__Group__22254);
             rule__InvocationTransition__Group__3();
             _fsp--;
 
@@ -2662,20 +2791,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1081:1: rule__InvocationTransition__Group__3 : ( ';' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1137:1: rule__InvocationTransition__Group__3 : ( ';' ) ;
     public final void rule__InvocationTransition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1085:1: ( ( ';' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1086:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1141:1: ( ( ';' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1142:1: ( ';' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1086:1: ( ';' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1087:1: ';'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1142:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1143:1: ';'
             {
              before(grammarAccess.getInvocationTransitionAccess().getSemicolonKeyword_3()); 
-            match(input,13,FOLLOW_13_in_rule__InvocationTransition__Group__32163); 
+            match(input,14,FOLLOW_14_in_rule__InvocationTransition__Group__32283); 
              after(grammarAccess.getInvocationTransitionAccess().getSemicolonKeyword_3()); 
 
             }
@@ -2699,23 +2828,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1108:1: rule__BranchedTransition__Group__0 : ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1164:1: rule__BranchedTransition__Group__0 : ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1 ;
     public final void rule__BranchedTransition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1112:1: ( ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1113:1: ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1168:1: ( ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1169:1: ( ( rule__BranchedTransition__InvocationAssignment_0 ) ) rule__BranchedTransition__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1113:1: ( ( rule__BranchedTransition__InvocationAssignment_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1114:1: ( rule__BranchedTransition__InvocationAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1169:1: ( ( rule__BranchedTransition__InvocationAssignment_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1170:1: ( rule__BranchedTransition__InvocationAssignment_0 )
             {
              before(grammarAccess.getBranchedTransitionAccess().getInvocationAssignment_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1115:1: ( rule__BranchedTransition__InvocationAssignment_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1115:2: rule__BranchedTransition__InvocationAssignment_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1171:1: ( rule__BranchedTransition__InvocationAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1171:2: rule__BranchedTransition__InvocationAssignment_0
             {
-            pushFollow(FOLLOW_rule__BranchedTransition__InvocationAssignment_0_in_rule__BranchedTransition__Group__02206);
+            pushFollow(FOLLOW_rule__BranchedTransition__InvocationAssignment_0_in_rule__BranchedTransition__Group__02326);
             rule__BranchedTransition__InvocationAssignment_0();
             _fsp--;
 
@@ -2726,7 +2855,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__BranchedTransition__Group__1_in_rule__BranchedTransition__Group__02215);
+            pushFollow(FOLLOW_rule__BranchedTransition__Group__1_in_rule__BranchedTransition__Group__02335);
             rule__BranchedTransition__Group__1();
             _fsp--;
 
@@ -2749,25 +2878,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1126:1: rule__BranchedTransition__Group__1 : ( 'returns' ) rule__BranchedTransition__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1182:1: rule__BranchedTransition__Group__1 : ( 'returns' ) rule__BranchedTransition__Group__2 ;
     public final void rule__BranchedTransition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1130:1: ( ( 'returns' ) rule__BranchedTransition__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1131:1: ( 'returns' ) rule__BranchedTransition__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1186:1: ( ( 'returns' ) rule__BranchedTransition__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1187:1: ( 'returns' ) rule__BranchedTransition__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1131:1: ( 'returns' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1132:1: 'returns'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1187:1: ( 'returns' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1188:1: 'returns'
             {
              before(grammarAccess.getBranchedTransitionAccess().getReturnsKeyword_1()); 
-            match(input,22,FOLLOW_22_in_rule__BranchedTransition__Group__12244); 
+            match(input,23,FOLLOW_23_in_rule__BranchedTransition__Group__12364); 
              after(grammarAccess.getBranchedTransitionAccess().getReturnsKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__BranchedTransition__Group__2_in_rule__BranchedTransition__Group__12254);
+            pushFollow(FOLLOW_rule__BranchedTransition__Group__2_in_rule__BranchedTransition__Group__12374);
             rule__BranchedTransition__Group__2();
             _fsp--;
 
@@ -2790,23 +2919,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1146:1: rule__BranchedTransition__Group__2 : ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1202:1: rule__BranchedTransition__Group__2 : ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3 ;
     public final void rule__BranchedTransition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1150:1: ( ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1151:1: ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1206:1: ( ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1207:1: ( ( rule__BranchedTransition__ValueAssignment_2 ) ) rule__BranchedTransition__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1151:1: ( ( rule__BranchedTransition__ValueAssignment_2 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1152:1: ( rule__BranchedTransition__ValueAssignment_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1207:1: ( ( rule__BranchedTransition__ValueAssignment_2 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1208:1: ( rule__BranchedTransition__ValueAssignment_2 )
             {
              before(grammarAccess.getBranchedTransitionAccess().getValueAssignment_2()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1153:1: ( rule__BranchedTransition__ValueAssignment_2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1153:2: rule__BranchedTransition__ValueAssignment_2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1209:1: ( rule__BranchedTransition__ValueAssignment_2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1209:2: rule__BranchedTransition__ValueAssignment_2
             {
-            pushFollow(FOLLOW_rule__BranchedTransition__ValueAssignment_2_in_rule__BranchedTransition__Group__22282);
+            pushFollow(FOLLOW_rule__BranchedTransition__ValueAssignment_2_in_rule__BranchedTransition__Group__22402);
             rule__BranchedTransition__ValueAssignment_2();
             _fsp--;
 
@@ -2817,7 +2946,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__BranchedTransition__Group__3_in_rule__BranchedTransition__Group__22291);
+            pushFollow(FOLLOW_rule__BranchedTransition__Group__3_in_rule__BranchedTransition__Group__22411);
             rule__BranchedTransition__Group__3();
             _fsp--;
 
@@ -2840,25 +2969,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1164:1: rule__BranchedTransition__Group__3 : ( '->' ) rule__BranchedTransition__Group__4 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1220:1: rule__BranchedTransition__Group__3 : ( '->' ) rule__BranchedTransition__Group__4 ;
     public final void rule__BranchedTransition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1168:1: ( ( '->' ) rule__BranchedTransition__Group__4 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1169:1: ( '->' ) rule__BranchedTransition__Group__4
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1224:1: ( ( '->' ) rule__BranchedTransition__Group__4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1225:1: ( '->' ) rule__BranchedTransition__Group__4
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1169:1: ( '->' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1170:1: '->'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1225:1: ( '->' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1226:1: '->'
             {
              before(grammarAccess.getBranchedTransitionAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
-            match(input,21,FOLLOW_21_in_rule__BranchedTransition__Group__32320); 
+            match(input,22,FOLLOW_22_in_rule__BranchedTransition__Group__32440); 
              after(grammarAccess.getBranchedTransitionAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
 
             }
 
-            pushFollow(FOLLOW_rule__BranchedTransition__Group__4_in_rule__BranchedTransition__Group__32330);
+            pushFollow(FOLLOW_rule__BranchedTransition__Group__4_in_rule__BranchedTransition__Group__32450);
             rule__BranchedTransition__Group__4();
             _fsp--;
 
@@ -2881,23 +3010,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__4
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1184:1: rule__BranchedTransition__Group__4 : ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1240:1: rule__BranchedTransition__Group__4 : ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5 ;
     public final void rule__BranchedTransition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1188:1: ( ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1189:1: ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1244:1: ( ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1245:1: ( ( rule__BranchedTransition__StateAssignment_4 ) ) rule__BranchedTransition__Group__5
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1189:1: ( ( rule__BranchedTransition__StateAssignment_4 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1190:1: ( rule__BranchedTransition__StateAssignment_4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1245:1: ( ( rule__BranchedTransition__StateAssignment_4 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1246:1: ( rule__BranchedTransition__StateAssignment_4 )
             {
              before(grammarAccess.getBranchedTransitionAccess().getStateAssignment_4()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1191:1: ( rule__BranchedTransition__StateAssignment_4 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1191:2: rule__BranchedTransition__StateAssignment_4
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1247:1: ( rule__BranchedTransition__StateAssignment_4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1247:2: rule__BranchedTransition__StateAssignment_4
             {
-            pushFollow(FOLLOW_rule__BranchedTransition__StateAssignment_4_in_rule__BranchedTransition__Group__42358);
+            pushFollow(FOLLOW_rule__BranchedTransition__StateAssignment_4_in_rule__BranchedTransition__Group__42478);
             rule__BranchedTransition__StateAssignment_4();
             _fsp--;
 
@@ -2908,7 +3037,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__BranchedTransition__Group__5_in_rule__BranchedTransition__Group__42367);
+            pushFollow(FOLLOW_rule__BranchedTransition__Group__5_in_rule__BranchedTransition__Group__42487);
             rule__BranchedTransition__Group__5();
             _fsp--;
 
@@ -2931,20 +3060,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__Group__5
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1202:1: rule__BranchedTransition__Group__5 : ( ';' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1258:1: rule__BranchedTransition__Group__5 : ( ';' ) ;
     public final void rule__BranchedTransition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1206:1: ( ( ';' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1207:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1262:1: ( ( ';' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1263:1: ( ';' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1207:1: ( ';' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1208:1: ';'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1263:1: ( ';' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1264:1: ';'
             {
              before(grammarAccess.getBranchedTransitionAccess().getSemicolonKeyword_5()); 
-            match(input,13,FOLLOW_13_in_rule__BranchedTransition__Group__52396); 
+            match(input,14,FOLLOW_14_in_rule__BranchedTransition__Group__52516); 
              after(grammarAccess.getBranchedTransitionAccess().getSemicolonKeyword_5()); 
 
             }
@@ -2968,23 +3097,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1233:1: rule__Method__Group__0 : ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1289:1: rule__Method__Group__0 : ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1 ;
     public final void rule__Method__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1237:1: ( ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1238:1: ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1293:1: ( ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1294:1: ( ( rule__Method__ReturntypeAssignment_0 ) ) rule__Method__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1238:1: ( ( rule__Method__ReturntypeAssignment_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1239:1: ( rule__Method__ReturntypeAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1294:1: ( ( rule__Method__ReturntypeAssignment_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1295:1: ( rule__Method__ReturntypeAssignment_0 )
             {
              before(grammarAccess.getMethodAccess().getReturntypeAssignment_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1240:1: ( rule__Method__ReturntypeAssignment_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1240:2: rule__Method__ReturntypeAssignment_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1296:1: ( rule__Method__ReturntypeAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1296:2: rule__Method__ReturntypeAssignment_0
             {
-            pushFollow(FOLLOW_rule__Method__ReturntypeAssignment_0_in_rule__Method__Group__02443);
+            pushFollow(FOLLOW_rule__Method__ReturntypeAssignment_0_in_rule__Method__Group__02563);
             rule__Method__ReturntypeAssignment_0();
             _fsp--;
 
@@ -2995,7 +3124,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group__1_in_rule__Method__Group__02452);
+            pushFollow(FOLLOW_rule__Method__Group__1_in_rule__Method__Group__02572);
             rule__Method__Group__1();
             _fsp--;
 
@@ -3018,23 +3147,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1251:1: rule__Method__Group__1 : ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1307:1: rule__Method__Group__1 : ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2 ;
     public final void rule__Method__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1255:1: ( ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1256:1: ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1311:1: ( ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1312:1: ( ( rule__Method__NameAssignment_1 ) ) rule__Method__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1256:1: ( ( rule__Method__NameAssignment_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1257:1: ( rule__Method__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1312:1: ( ( rule__Method__NameAssignment_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1313:1: ( rule__Method__NameAssignment_1 )
             {
              before(grammarAccess.getMethodAccess().getNameAssignment_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1258:1: ( rule__Method__NameAssignment_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1258:2: rule__Method__NameAssignment_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1314:1: ( rule__Method__NameAssignment_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1314:2: rule__Method__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Method__NameAssignment_1_in_rule__Method__Group__12480);
+            pushFollow(FOLLOW_rule__Method__NameAssignment_1_in_rule__Method__Group__12600);
             rule__Method__NameAssignment_1();
             _fsp--;
 
@@ -3045,7 +3174,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group__2_in_rule__Method__Group__12489);
+            pushFollow(FOLLOW_rule__Method__Group__2_in_rule__Method__Group__12609);
             rule__Method__Group__2();
             _fsp--;
 
@@ -3068,25 +3197,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1269:1: rule__Method__Group__2 : ( '(' ) rule__Method__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1325:1: rule__Method__Group__2 : ( '(' ) rule__Method__Group__3 ;
     public final void rule__Method__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1273:1: ( ( '(' ) rule__Method__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1274:1: ( '(' ) rule__Method__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1329:1: ( ( '(' ) rule__Method__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1330:1: ( '(' ) rule__Method__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1274:1: ( '(' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1275:1: '('
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1330:1: ( '(' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1331:1: '('
             {
              before(grammarAccess.getMethodAccess().getLeftParenthesisKeyword_2()); 
-            match(input,23,FOLLOW_23_in_rule__Method__Group__22518); 
+            match(input,24,FOLLOW_24_in_rule__Method__Group__22638); 
              after(grammarAccess.getMethodAccess().getLeftParenthesisKeyword_2()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group__3_in_rule__Method__Group__22528);
+            pushFollow(FOLLOW_rule__Method__Group__3_in_rule__Method__Group__22648);
             rule__Method__Group__3();
             _fsp--;
 
@@ -3109,20 +3238,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1289:1: rule__Method__Group__3 : ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1345:1: rule__Method__Group__3 : ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4 ;
     public final void rule__Method__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1293:1: ( ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1294:1: ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1349:1: ( ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1350:1: ( ( rule__Method__Group_3__0 )? ) rule__Method__Group__4
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1294:1: ( ( rule__Method__Group_3__0 )? )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1295:1: ( rule__Method__Group_3__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1350:1: ( ( rule__Method__Group_3__0 )? )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1351:1: ( rule__Method__Group_3__0 )?
             {
              before(grammarAccess.getMethodAccess().getGroup_3()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1296:1: ( rule__Method__Group_3__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1352:1: ( rule__Method__Group_3__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -3131,9 +3260,9 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
             }
             switch (alt9) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1296:2: rule__Method__Group_3__0
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1352:2: rule__Method__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__Method__Group_3__0_in_rule__Method__Group__32556);
+                    pushFollow(FOLLOW_rule__Method__Group_3__0_in_rule__Method__Group__32676);
                     rule__Method__Group_3__0();
                     _fsp--;
 
@@ -3147,7 +3276,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group__4_in_rule__Method__Group__32566);
+            pushFollow(FOLLOW_rule__Method__Group__4_in_rule__Method__Group__32686);
             rule__Method__Group__4();
             _fsp--;
 
@@ -3170,20 +3299,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group__4
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1307:1: rule__Method__Group__4 : ( ')' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1363:1: rule__Method__Group__4 : ( ')' ) ;
     public final void rule__Method__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1311:1: ( ( ')' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1312:1: ( ')' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1367:1: ( ( ')' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1368:1: ( ')' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1312:1: ( ')' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1313:1: ')'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1368:1: ( ')' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1369:1: ')'
             {
              before(grammarAccess.getMethodAccess().getRightParenthesisKeyword_4()); 
-            match(input,24,FOLLOW_24_in_rule__Method__Group__42595); 
+            match(input,25,FOLLOW_25_in_rule__Method__Group__42715); 
              after(grammarAccess.getMethodAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -3207,23 +3336,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group_3__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1336:1: rule__Method__Group_3__0 : ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1392:1: rule__Method__Group_3__0 : ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1 ;
     public final void rule__Method__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1340:1: ( ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1341:1: ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1396:1: ( ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1397:1: ( ( rule__Method__ArgsAssignment_3_0 ) ) rule__Method__Group_3__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1341:1: ( ( rule__Method__ArgsAssignment_3_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1342:1: ( rule__Method__ArgsAssignment_3_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1397:1: ( ( rule__Method__ArgsAssignment_3_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1398:1: ( rule__Method__ArgsAssignment_3_0 )
             {
              before(grammarAccess.getMethodAccess().getArgsAssignment_3_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1343:1: ( rule__Method__ArgsAssignment_3_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1343:2: rule__Method__ArgsAssignment_3_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1399:1: ( rule__Method__ArgsAssignment_3_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1399:2: rule__Method__ArgsAssignment_3_0
             {
-            pushFollow(FOLLOW_rule__Method__ArgsAssignment_3_0_in_rule__Method__Group_3__02640);
+            pushFollow(FOLLOW_rule__Method__ArgsAssignment_3_0_in_rule__Method__Group_3__02760);
             rule__Method__ArgsAssignment_3_0();
             _fsp--;
 
@@ -3234,7 +3363,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group_3__1_in_rule__Method__Group_3__02649);
+            pushFollow(FOLLOW_rule__Method__Group_3__1_in_rule__Method__Group_3__02769);
             rule__Method__Group_3__1();
             _fsp--;
 
@@ -3257,35 +3386,35 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group_3__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1354:1: rule__Method__Group_3__1 : ( ( rule__Method__Group_3_1__0 )* ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1410:1: rule__Method__Group_3__1 : ( ( rule__Method__Group_3_1__0 )* ) ;
     public final void rule__Method__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1358:1: ( ( ( rule__Method__Group_3_1__0 )* ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1359:1: ( ( rule__Method__Group_3_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1414:1: ( ( ( rule__Method__Group_3_1__0 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1415:1: ( ( rule__Method__Group_3_1__0 )* )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1359:1: ( ( rule__Method__Group_3_1__0 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1360:1: ( rule__Method__Group_3_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1415:1: ( ( rule__Method__Group_3_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1416:1: ( rule__Method__Group_3_1__0 )*
             {
              before(grammarAccess.getMethodAccess().getGroup_3_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1361:1: ( rule__Method__Group_3_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1417:1: ( rule__Method__Group_3_1__0 )*
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==25) ) {
+                if ( (LA10_0==26) ) {
                     alt10=1;
                 }
 
 
                 switch (alt10) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1361:2: rule__Method__Group_3_1__0
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1417:2: rule__Method__Group_3_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__Method__Group_3_1__0_in_rule__Method__Group_3__12677);
+            	    pushFollow(FOLLOW_rule__Method__Group_3_1__0_in_rule__Method__Group_3__12797);
             	    rule__Method__Group_3_1__0();
             	    _fsp--;
 
@@ -3321,25 +3450,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group_3_1__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1375:1: rule__Method__Group_3_1__0 : ( ',' ) rule__Method__Group_3_1__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1431:1: rule__Method__Group_3_1__0 : ( ',' ) rule__Method__Group_3_1__1 ;
     public final void rule__Method__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1379:1: ( ( ',' ) rule__Method__Group_3_1__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1380:1: ( ',' ) rule__Method__Group_3_1__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1435:1: ( ( ',' ) rule__Method__Group_3_1__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1436:1: ( ',' ) rule__Method__Group_3_1__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1380:1: ( ',' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1381:1: ','
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1436:1: ( ',' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1437:1: ','
             {
              before(grammarAccess.getMethodAccess().getCommaKeyword_3_1_0()); 
-            match(input,25,FOLLOW_25_in_rule__Method__Group_3_1__02717); 
+            match(input,26,FOLLOW_26_in_rule__Method__Group_3_1__02837); 
              after(grammarAccess.getMethodAccess().getCommaKeyword_3_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Method__Group_3_1__1_in_rule__Method__Group_3_1__02727);
+            pushFollow(FOLLOW_rule__Method__Group_3_1__1_in_rule__Method__Group_3_1__02847);
             rule__Method__Group_3_1__1();
             _fsp--;
 
@@ -3362,23 +3491,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__Group_3_1__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1395:1: rule__Method__Group_3_1__1 : ( ( rule__Method__ArgsAssignment_3_1_1 ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1451:1: rule__Method__Group_3_1__1 : ( ( rule__Method__ArgsAssignment_3_1_1 ) ) ;
     public final void rule__Method__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1399:1: ( ( ( rule__Method__ArgsAssignment_3_1_1 ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1400:1: ( ( rule__Method__ArgsAssignment_3_1_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1455:1: ( ( ( rule__Method__ArgsAssignment_3_1_1 ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1456:1: ( ( rule__Method__ArgsAssignment_3_1_1 ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1400:1: ( ( rule__Method__ArgsAssignment_3_1_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1401:1: ( rule__Method__ArgsAssignment_3_1_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1456:1: ( ( rule__Method__ArgsAssignment_3_1_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1457:1: ( rule__Method__ArgsAssignment_3_1_1 )
             {
              before(grammarAccess.getMethodAccess().getArgsAssignment_3_1_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1402:1: ( rule__Method__ArgsAssignment_3_1_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1402:2: rule__Method__ArgsAssignment_3_1_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1458:1: ( rule__Method__ArgsAssignment_3_1_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1458:2: rule__Method__ArgsAssignment_3_1_1
             {
-            pushFollow(FOLLOW_rule__Method__ArgsAssignment_3_1_1_in_rule__Method__Group_3_1__12755);
+            pushFollow(FOLLOW_rule__Method__ArgsAssignment_3_1_1_in_rule__Method__Group_3_1__12875);
             rule__Method__ArgsAssignment_3_1_1();
             _fsp--;
 
@@ -3408,23 +3537,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1416:1: rule__Constructor__Group__0 : ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1472:1: rule__Constructor__Group__0 : ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1 ;
     public final void rule__Constructor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1420:1: ( ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1421:1: ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1476:1: ( ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1477:1: ( ( rule__Constructor__KlassAssignment_0 ) ) rule__Constructor__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1421:1: ( ( rule__Constructor__KlassAssignment_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1422:1: ( rule__Constructor__KlassAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1477:1: ( ( rule__Constructor__KlassAssignment_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1478:1: ( rule__Constructor__KlassAssignment_0 )
             {
              before(grammarAccess.getConstructorAccess().getKlassAssignment_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1423:1: ( rule__Constructor__KlassAssignment_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1423:2: rule__Constructor__KlassAssignment_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1479:1: ( rule__Constructor__KlassAssignment_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1479:2: rule__Constructor__KlassAssignment_0
             {
-            pushFollow(FOLLOW_rule__Constructor__KlassAssignment_0_in_rule__Constructor__Group__02793);
+            pushFollow(FOLLOW_rule__Constructor__KlassAssignment_0_in_rule__Constructor__Group__02913);
             rule__Constructor__KlassAssignment_0();
             _fsp--;
 
@@ -3435,7 +3564,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Constructor__Group__1_in_rule__Constructor__Group__02802);
+            pushFollow(FOLLOW_rule__Constructor__Group__1_in_rule__Constructor__Group__02922);
             rule__Constructor__Group__1();
             _fsp--;
 
@@ -3458,25 +3587,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1434:1: rule__Constructor__Group__1 : ( '(' ) rule__Constructor__Group__2 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1490:1: rule__Constructor__Group__1 : ( '(' ) rule__Constructor__Group__2 ;
     public final void rule__Constructor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1438:1: ( ( '(' ) rule__Constructor__Group__2 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1439:1: ( '(' ) rule__Constructor__Group__2
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1494:1: ( ( '(' ) rule__Constructor__Group__2 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1495:1: ( '(' ) rule__Constructor__Group__2
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1439:1: ( '(' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1440:1: '('
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1495:1: ( '(' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1496:1: '('
             {
              before(grammarAccess.getConstructorAccess().getLeftParenthesisKeyword_1()); 
-            match(input,23,FOLLOW_23_in_rule__Constructor__Group__12831); 
+            match(input,24,FOLLOW_24_in_rule__Constructor__Group__12951); 
              after(grammarAccess.getConstructorAccess().getLeftParenthesisKeyword_1()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Constructor__Group__2_in_rule__Constructor__Group__12841);
+            pushFollow(FOLLOW_rule__Constructor__Group__2_in_rule__Constructor__Group__12961);
             rule__Constructor__Group__2();
             _fsp--;
 
@@ -3499,20 +3628,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group__2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1454:1: rule__Constructor__Group__2 : ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1510:1: rule__Constructor__Group__2 : ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3 ;
     public final void rule__Constructor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1458:1: ( ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1459:1: ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1514:1: ( ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1515:1: ( ( rule__Constructor__Group_2__0 )? ) rule__Constructor__Group__3
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1459:1: ( ( rule__Constructor__Group_2__0 )? )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1460:1: ( rule__Constructor__Group_2__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1515:1: ( ( rule__Constructor__Group_2__0 )? )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1516:1: ( rule__Constructor__Group_2__0 )?
             {
              before(grammarAccess.getConstructorAccess().getGroup_2()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1461:1: ( rule__Constructor__Group_2__0 )?
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1517:1: ( rule__Constructor__Group_2__0 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -3521,9 +3650,9 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
             }
             switch (alt11) {
                 case 1 :
-                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1461:2: rule__Constructor__Group_2__0
+                    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1517:2: rule__Constructor__Group_2__0
                     {
-                    pushFollow(FOLLOW_rule__Constructor__Group_2__0_in_rule__Constructor__Group__22869);
+                    pushFollow(FOLLOW_rule__Constructor__Group_2__0_in_rule__Constructor__Group__22989);
                     rule__Constructor__Group_2__0();
                     _fsp--;
 
@@ -3537,7 +3666,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Constructor__Group__3_in_rule__Constructor__Group__22879);
+            pushFollow(FOLLOW_rule__Constructor__Group__3_in_rule__Constructor__Group__22999);
             rule__Constructor__Group__3();
             _fsp--;
 
@@ -3560,20 +3689,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group__3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1472:1: rule__Constructor__Group__3 : ( ')' ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1528:1: rule__Constructor__Group__3 : ( ')' ) ;
     public final void rule__Constructor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1476:1: ( ( ')' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1477:1: ( ')' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1532:1: ( ( ')' ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1533:1: ( ')' )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1477:1: ( ')' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1478:1: ')'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1533:1: ( ')' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1534:1: ')'
             {
              before(grammarAccess.getConstructorAccess().getRightParenthesisKeyword_3()); 
-            match(input,24,FOLLOW_24_in_rule__Constructor__Group__32908); 
+            match(input,25,FOLLOW_25_in_rule__Constructor__Group__33028); 
              after(grammarAccess.getConstructorAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -3597,23 +3726,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group_2__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1499:1: rule__Constructor__Group_2__0 : ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1555:1: rule__Constructor__Group_2__0 : ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1 ;
     public final void rule__Constructor__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1503:1: ( ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1504:1: ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1559:1: ( ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1560:1: ( ( rule__Constructor__ArgsAssignment_2_0 ) ) rule__Constructor__Group_2__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1504:1: ( ( rule__Constructor__ArgsAssignment_2_0 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1505:1: ( rule__Constructor__ArgsAssignment_2_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1560:1: ( ( rule__Constructor__ArgsAssignment_2_0 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1561:1: ( rule__Constructor__ArgsAssignment_2_0 )
             {
              before(grammarAccess.getConstructorAccess().getArgsAssignment_2_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1506:1: ( rule__Constructor__ArgsAssignment_2_0 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1506:2: rule__Constructor__ArgsAssignment_2_0
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1562:1: ( rule__Constructor__ArgsAssignment_2_0 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1562:2: rule__Constructor__ArgsAssignment_2_0
             {
-            pushFollow(FOLLOW_rule__Constructor__ArgsAssignment_2_0_in_rule__Constructor__Group_2__02951);
+            pushFollow(FOLLOW_rule__Constructor__ArgsAssignment_2_0_in_rule__Constructor__Group_2__03071);
             rule__Constructor__ArgsAssignment_2_0();
             _fsp--;
 
@@ -3624,7 +3753,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
             }
 
-            pushFollow(FOLLOW_rule__Constructor__Group_2__1_in_rule__Constructor__Group_2__02960);
+            pushFollow(FOLLOW_rule__Constructor__Group_2__1_in_rule__Constructor__Group_2__03080);
             rule__Constructor__Group_2__1();
             _fsp--;
 
@@ -3647,35 +3776,35 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group_2__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1517:1: rule__Constructor__Group_2__1 : ( ( rule__Constructor__Group_2_1__0 )* ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1573:1: rule__Constructor__Group_2__1 : ( ( rule__Constructor__Group_2_1__0 )* ) ;
     public final void rule__Constructor__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1521:1: ( ( ( rule__Constructor__Group_2_1__0 )* ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1522:1: ( ( rule__Constructor__Group_2_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1577:1: ( ( ( rule__Constructor__Group_2_1__0 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1578:1: ( ( rule__Constructor__Group_2_1__0 )* )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1522:1: ( ( rule__Constructor__Group_2_1__0 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1523:1: ( rule__Constructor__Group_2_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1578:1: ( ( rule__Constructor__Group_2_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1579:1: ( rule__Constructor__Group_2_1__0 )*
             {
              before(grammarAccess.getConstructorAccess().getGroup_2_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1524:1: ( rule__Constructor__Group_2_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1580:1: ( rule__Constructor__Group_2_1__0 )*
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==25) ) {
+                if ( (LA12_0==26) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1524:2: rule__Constructor__Group_2_1__0
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1580:2: rule__Constructor__Group_2_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__Constructor__Group_2_1__0_in_rule__Constructor__Group_2__12988);
+            	    pushFollow(FOLLOW_rule__Constructor__Group_2_1__0_in_rule__Constructor__Group_2__13108);
             	    rule__Constructor__Group_2_1__0();
             	    _fsp--;
 
@@ -3711,25 +3840,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group_2_1__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1538:1: rule__Constructor__Group_2_1__0 : ( ',' ) rule__Constructor__Group_2_1__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1594:1: rule__Constructor__Group_2_1__0 : ( ',' ) rule__Constructor__Group_2_1__1 ;
     public final void rule__Constructor__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1542:1: ( ( ',' ) rule__Constructor__Group_2_1__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1543:1: ( ',' ) rule__Constructor__Group_2_1__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1598:1: ( ( ',' ) rule__Constructor__Group_2_1__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1599:1: ( ',' ) rule__Constructor__Group_2_1__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1543:1: ( ',' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1544:1: ','
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1599:1: ( ',' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1600:1: ','
             {
              before(grammarAccess.getConstructorAccess().getCommaKeyword_2_1_0()); 
-            match(input,25,FOLLOW_25_in_rule__Constructor__Group_2_1__03028); 
+            match(input,26,FOLLOW_26_in_rule__Constructor__Group_2_1__03148); 
              after(grammarAccess.getConstructorAccess().getCommaKeyword_2_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__Constructor__Group_2_1__1_in_rule__Constructor__Group_2_1__03038);
+            pushFollow(FOLLOW_rule__Constructor__Group_2_1__1_in_rule__Constructor__Group_2_1__03158);
             rule__Constructor__Group_2_1__1();
             _fsp--;
 
@@ -3752,23 +3881,23 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__Group_2_1__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1558:1: rule__Constructor__Group_2_1__1 : ( ( rule__Constructor__ArgsAssignment_2_1_1 ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1614:1: rule__Constructor__Group_2_1__1 : ( ( rule__Constructor__ArgsAssignment_2_1_1 ) ) ;
     public final void rule__Constructor__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1562:1: ( ( ( rule__Constructor__ArgsAssignment_2_1_1 ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1563:1: ( ( rule__Constructor__ArgsAssignment_2_1_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1618:1: ( ( ( rule__Constructor__ArgsAssignment_2_1_1 ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1619:1: ( ( rule__Constructor__ArgsAssignment_2_1_1 ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1563:1: ( ( rule__Constructor__ArgsAssignment_2_1_1 ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1564:1: ( rule__Constructor__ArgsAssignment_2_1_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1619:1: ( ( rule__Constructor__ArgsAssignment_2_1_1 ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1620:1: ( rule__Constructor__ArgsAssignment_2_1_1 )
             {
              before(grammarAccess.getConstructorAccess().getArgsAssignment_2_1_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1565:1: ( rule__Constructor__ArgsAssignment_2_1_1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1565:2: rule__Constructor__ArgsAssignment_2_1_1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1621:1: ( rule__Constructor__ArgsAssignment_2_1_1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1621:2: rule__Constructor__ArgsAssignment_2_1_1
             {
-            pushFollow(FOLLOW_rule__Constructor__ArgsAssignment_2_1_1_in_rule__Constructor__Group_2_1__13066);
+            pushFollow(FOLLOW_rule__Constructor__ArgsAssignment_2_1_1_in_rule__Constructor__Group_2_1__13186);
             rule__Constructor__ArgsAssignment_2_1_1();
             _fsp--;
 
@@ -3798,25 +3927,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__JAVAID__Group__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1579:1: rule__JAVAID__Group__0 : ( RULE_ID ) rule__JAVAID__Group__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1635:1: rule__JAVAID__Group__0 : ( RULE_ID ) rule__JAVAID__Group__1 ;
     public final void rule__JAVAID__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1583:1: ( ( RULE_ID ) rule__JAVAID__Group__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1584:1: ( RULE_ID ) rule__JAVAID__Group__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1639:1: ( ( RULE_ID ) rule__JAVAID__Group__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1640:1: ( RULE_ID ) rule__JAVAID__Group__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1584:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1585:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1640:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1641:1: RULE_ID
             {
              before(grammarAccess.getJAVAIDAccess().getIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JAVAID__Group__03104); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JAVAID__Group__03224); 
              after(grammarAccess.getJAVAIDAccess().getIDTerminalRuleCall_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__JAVAID__Group__1_in_rule__JAVAID__Group__03112);
+            pushFollow(FOLLOW_rule__JAVAID__Group__1_in_rule__JAVAID__Group__03232);
             rule__JAVAID__Group__1();
             _fsp--;
 
@@ -3839,35 +3968,35 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__JAVAID__Group__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1597:1: rule__JAVAID__Group__1 : ( ( rule__JAVAID__Group_1__0 )* ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1653:1: rule__JAVAID__Group__1 : ( ( rule__JAVAID__Group_1__0 )* ) ;
     public final void rule__JAVAID__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1601:1: ( ( ( rule__JAVAID__Group_1__0 )* ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1602:1: ( ( rule__JAVAID__Group_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1657:1: ( ( ( rule__JAVAID__Group_1__0 )* ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1658:1: ( ( rule__JAVAID__Group_1__0 )* )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1602:1: ( ( rule__JAVAID__Group_1__0 )* )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1603:1: ( rule__JAVAID__Group_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1658:1: ( ( rule__JAVAID__Group_1__0 )* )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1659:1: ( rule__JAVAID__Group_1__0 )*
             {
              before(grammarAccess.getJAVAIDAccess().getGroup_1()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1604:1: ( rule__JAVAID__Group_1__0 )*
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1660:1: ( rule__JAVAID__Group_1__0 )*
             loop13:
             do {
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
-                if ( (LA13_0==26) ) {
+                if ( (LA13_0==27) ) {
                     alt13=1;
                 }
 
 
                 switch (alt13) {
             	case 1 :
-            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1604:2: rule__JAVAID__Group_1__0
+            	    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1660:2: rule__JAVAID__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__JAVAID__Group_1__0_in_rule__JAVAID__Group__13140);
+            	    pushFollow(FOLLOW_rule__JAVAID__Group_1__0_in_rule__JAVAID__Group__13260);
             	    rule__JAVAID__Group_1__0();
             	    _fsp--;
 
@@ -3903,25 +4032,25 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__JAVAID__Group_1__0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1618:1: rule__JAVAID__Group_1__0 : ( '.' ) rule__JAVAID__Group_1__1 ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1674:1: rule__JAVAID__Group_1__0 : ( '.' ) rule__JAVAID__Group_1__1 ;
     public final void rule__JAVAID__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1622:1: ( ( '.' ) rule__JAVAID__Group_1__1 )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1623:1: ( '.' ) rule__JAVAID__Group_1__1
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1678:1: ( ( '.' ) rule__JAVAID__Group_1__1 )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1679:1: ( '.' ) rule__JAVAID__Group_1__1
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1623:1: ( '.' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1624:1: '.'
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1679:1: ( '.' )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1680:1: '.'
             {
              before(grammarAccess.getJAVAIDAccess().getFullStopKeyword_1_0()); 
-            match(input,26,FOLLOW_26_in_rule__JAVAID__Group_1__03180); 
+            match(input,27,FOLLOW_27_in_rule__JAVAID__Group_1__03300); 
              after(grammarAccess.getJAVAIDAccess().getFullStopKeyword_1_0()); 
 
             }
 
-            pushFollow(FOLLOW_rule__JAVAID__Group_1__1_in_rule__JAVAID__Group_1__03190);
+            pushFollow(FOLLOW_rule__JAVAID__Group_1__1_in_rule__JAVAID__Group_1__03310);
             rule__JAVAID__Group_1__1();
             _fsp--;
 
@@ -3944,20 +4073,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__JAVAID__Group_1__1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1638:1: rule__JAVAID__Group_1__1 : ( RULE_ID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1694:1: rule__JAVAID__Group_1__1 : ( RULE_ID ) ;
     public final void rule__JAVAID__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1642:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1643:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1698:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1699:1: ( RULE_ID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1643:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1644:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1699:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1700:1: RULE_ID
             {
              before(grammarAccess.getJAVAIDAccess().getIDTerminalRuleCall_1_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JAVAID__Group_1__13218); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__JAVAID__Group_1__13338); 
              after(grammarAccess.getJAVAIDAccess().getIDTerminalRuleCall_1_1()); 
 
             }
@@ -3981,20 +4110,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automata__PackageAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1659:1: rule__Automata__PackageAssignment_0 : ( rulePackage ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1715:1: rule__Automata__PackageAssignment_0 : ( rulePackage ) ;
     public final void rule__Automata__PackageAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1663:1: ( ( rulePackage ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1664:1: ( rulePackage )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1719:1: ( ( rulePackage ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1720:1: ( rulePackage )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1664:1: ( rulePackage )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1665:1: rulePackage
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1720:1: ( rulePackage )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1721:1: rulePackage
             {
              before(grammarAccess.getAutomataAccess().getPackagePackageParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_rulePackage_in_rule__Automata__PackageAssignment_03255);
+            pushFollow(FOLLOW_rulePackage_in_rule__Automata__PackageAssignment_03375);
             rulePackage();
             _fsp--;
 
@@ -4021,20 +4150,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automata__AutomataAssignment_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1674:1: rule__Automata__AutomataAssignment_1 : ( ruleAutomaton ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1730:1: rule__Automata__AutomataAssignment_1 : ( ruleAutomaton ) ;
     public final void rule__Automata__AutomataAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1678:1: ( ( ruleAutomaton ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1679:1: ( ruleAutomaton )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1734:1: ( ( ruleAutomaton ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1735:1: ( ruleAutomaton )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1679:1: ( ruleAutomaton )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1680:1: ruleAutomaton
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1735:1: ( ruleAutomaton )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1736:1: ruleAutomaton
             {
              before(grammarAccess.getAutomataAccess().getAutomataAutomatonParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleAutomaton_in_rule__Automata__AutomataAssignment_13286);
+            pushFollow(FOLLOW_ruleAutomaton_in_rule__Automata__AutomataAssignment_13406);
             ruleAutomaton();
             _fsp--;
 
@@ -4061,20 +4190,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Package__NameAssignment_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1689:1: rule__Package__NameAssignment_1 : ( ruleJAVAID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1745:1: rule__Package__NameAssignment_1 : ( ruleJAVAID ) ;
     public final void rule__Package__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1693:1: ( ( ruleJAVAID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1694:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1749:1: ( ( ruleJAVAID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1750:1: ( ruleJAVAID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1694:1: ( ruleJAVAID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1695:1: ruleJAVAID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1750:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1751:1: ruleJAVAID
             {
              before(grammarAccess.getPackageAccess().getNameJAVAIDParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleJAVAID_in_rule__Package__NameAssignment_13317);
+            pushFollow(FOLLOW_ruleJAVAID_in_rule__Package__NameAssignment_13437);
             ruleJAVAID();
             _fsp--;
 
@@ -4101,20 +4230,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__KlassAssignment_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1704:1: rule__Automaton__KlassAssignment_1 : ( ruleClass ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1760:1: rule__Automaton__KlassAssignment_1 : ( ruleClass ) ;
     public final void rule__Automaton__KlassAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1708:1: ( ( ruleClass ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1709:1: ( ruleClass )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1764:1: ( ( ruleClass ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1765:1: ( ruleClass )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1709:1: ( ruleClass )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1710:1: ruleClass
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1765:1: ( ruleClass )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1766:1: ruleClass
             {
              before(grammarAccess.getAutomatonAccess().getKlassClassParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleClass_in_rule__Automaton__KlassAssignment_13348);
+            pushFollow(FOLLOW_ruleClass_in_rule__Automaton__KlassAssignment_13468);
             ruleClass();
             _fsp--;
 
@@ -4141,24 +4270,24 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__InitialStateAssignment_5
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1719:1: rule__Automaton__InitialStateAssignment_5 : ( ( RULE_ID ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1775:1: rule__Automaton__InitialStateAssignment_5 : ( ( RULE_ID ) ) ;
     public final void rule__Automaton__InitialStateAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1723:1: ( ( ( RULE_ID ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1724:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1779:1: ( ( ( RULE_ID ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1780:1: ( ( RULE_ID ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1724:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1725:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1780:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1781:1: ( RULE_ID )
             {
              before(grammarAccess.getAutomatonAccess().getInitialStateStateCrossReference_5_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1726:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1727:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1782:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1783:1: RULE_ID
             {
              before(grammarAccess.getAutomatonAccess().getInitialStateStateIDTerminalRuleCall_5_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Automaton__InitialStateAssignment_53383); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Automaton__InitialStateAssignment_53503); 
              after(grammarAccess.getAutomatonAccess().getInitialStateStateIDTerminalRuleCall_5_0_1()); 
 
             }
@@ -4186,24 +4315,24 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__ErrorStateAssignment_7_2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1738:1: rule__Automaton__ErrorStateAssignment_7_2 : ( ( RULE_ID ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1794:1: rule__Automaton__ErrorStateAssignment_7_2 : ( ( RULE_ID ) ) ;
     public final void rule__Automaton__ErrorStateAssignment_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1742:1: ( ( ( RULE_ID ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1743:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1798:1: ( ( ( RULE_ID ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1799:1: ( ( RULE_ID ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1743:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1744:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1799:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1800:1: ( RULE_ID )
             {
              before(grammarAccess.getAutomatonAccess().getErrorStateStateCrossReference_7_2_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1745:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1746:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1801:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1802:1: RULE_ID
             {
              before(grammarAccess.getAutomatonAccess().getErrorStateStateIDTerminalRuleCall_7_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Automaton__ErrorStateAssignment_7_23422); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Automaton__ErrorStateAssignment_7_23542); 
              after(grammarAccess.getAutomatonAccess().getErrorStateStateIDTerminalRuleCall_7_2_0_1()); 
 
             }
@@ -4231,20 +4360,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Automaton__StatesAssignment_8
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1757:1: rule__Automaton__StatesAssignment_8 : ( ruleState ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1813:1: rule__Automaton__StatesAssignment_8 : ( ruleState ) ;
     public final void rule__Automaton__StatesAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1761:1: ( ( ruleState ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1762:1: ( ruleState )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1817:1: ( ( ruleState ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1818:1: ( ruleState )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1762:1: ( ruleState )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1763:1: ruleState
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1818:1: ( ruleState )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1819:1: ruleState
             {
              before(grammarAccess.getAutomatonAccess().getStatesStateParserRuleCall_8_0()); 
-            pushFollow(FOLLOW_ruleState_in_rule__Automaton__StatesAssignment_83457);
+            pushFollow(FOLLOW_ruleState_in_rule__Automaton__StatesAssignment_83577);
             ruleState();
             _fsp--;
 
@@ -4271,20 +4400,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Class__NameAssignment
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1772:1: rule__Class__NameAssignment : ( ruleJAVAID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1828:1: rule__Class__NameAssignment : ( ruleJAVAID ) ;
     public final void rule__Class__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1776:1: ( ( ruleJAVAID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1777:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1832:1: ( ( ruleJAVAID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1833:1: ( ruleJAVAID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1777:1: ( ruleJAVAID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1778:1: ruleJAVAID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1833:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1834:1: ruleJAVAID
             {
              before(grammarAccess.getClassAccess().getNameJAVAIDParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleJAVAID_in_rule__Class__NameAssignment3488);
+            pushFollow(FOLLOW_ruleJAVAID_in_rule__Class__NameAssignment3608);
             ruleJAVAID();
             _fsp--;
 
@@ -4311,20 +4440,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__NameAssignment_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1787:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1843:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__State__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1791:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1792:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1847:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1848:1: ( RULE_ID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1792:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1793:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1848:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1849:1: RULE_ID
             {
              before(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__NameAssignment_13519); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__NameAssignment_13639); 
              after(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4348,20 +4477,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__State__TransitionsAssignment_3
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1802:1: rule__State__TransitionsAssignment_3 : ( ruleTransition ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1858:1: rule__State__TransitionsAssignment_3 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1806:1: ( ( ruleTransition ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1807:1: ( ruleTransition )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1862:1: ( ( ruleTransition ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1863:1: ( ruleTransition )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1807:1: ( ruleTransition )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1808:1: ruleTransition
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1863:1: ( ruleTransition )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1864:1: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_33550);
+            pushFollow(FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_33670);
             ruleTransition();
             _fsp--;
 
@@ -4388,20 +4517,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__InvocationAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1817:1: rule__InvocationTransition__InvocationAssignment_0 : ( ruleInvocation ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1873:1: rule__InvocationTransition__InvocationAssignment_0 : ( ruleInvocation ) ;
     public final void rule__InvocationTransition__InvocationAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1821:1: ( ( ruleInvocation ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1822:1: ( ruleInvocation )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1877:1: ( ( ruleInvocation ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1878:1: ( ruleInvocation )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1822:1: ( ruleInvocation )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1823:1: ruleInvocation
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1878:1: ( ruleInvocation )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1879:1: ruleInvocation
             {
              before(grammarAccess.getInvocationTransitionAccess().getInvocationInvocationParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleInvocation_in_rule__InvocationTransition__InvocationAssignment_03581);
+            pushFollow(FOLLOW_ruleInvocation_in_rule__InvocationTransition__InvocationAssignment_03701);
             ruleInvocation();
             _fsp--;
 
@@ -4428,24 +4557,24 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__InvocationTransition__StateAssignment_2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1832:1: rule__InvocationTransition__StateAssignment_2 : ( ( RULE_ID ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1888:1: rule__InvocationTransition__StateAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__InvocationTransition__StateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1836:1: ( ( ( RULE_ID ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1837:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1892:1: ( ( ( RULE_ID ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1893:1: ( ( RULE_ID ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1837:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1838:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1893:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1894:1: ( RULE_ID )
             {
              before(grammarAccess.getInvocationTransitionAccess().getStateStateCrossReference_2_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1839:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1840:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1895:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1896:1: RULE_ID
             {
              before(grammarAccess.getInvocationTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InvocationTransition__StateAssignment_23616); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__InvocationTransition__StateAssignment_23736); 
              after(grammarAccess.getInvocationTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1()); 
 
             }
@@ -4473,20 +4602,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__InvocationAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1851:1: rule__BranchedTransition__InvocationAssignment_0 : ( ruleInvocation ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1907:1: rule__BranchedTransition__InvocationAssignment_0 : ( ruleInvocation ) ;
     public final void rule__BranchedTransition__InvocationAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1855:1: ( ( ruleInvocation ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1856:1: ( ruleInvocation )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1911:1: ( ( ruleInvocation ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1912:1: ( ruleInvocation )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1856:1: ( ruleInvocation )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1857:1: ruleInvocation
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1912:1: ( ruleInvocation )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1913:1: ruleInvocation
             {
              before(grammarAccess.getBranchedTransitionAccess().getInvocationInvocationParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleInvocation_in_rule__BranchedTransition__InvocationAssignment_03651);
+            pushFollow(FOLLOW_ruleInvocation_in_rule__BranchedTransition__InvocationAssignment_03771);
             ruleInvocation();
             _fsp--;
 
@@ -4513,20 +4642,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__ValueAssignment_2
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1866:1: rule__BranchedTransition__ValueAssignment_2 : ( ruleBooleanLiteral ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1922:1: rule__BranchedTransition__ValueAssignment_2 : ( ruleBooleanLiteral ) ;
     public final void rule__BranchedTransition__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1870:1: ( ( ruleBooleanLiteral ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1871:1: ( ruleBooleanLiteral )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1926:1: ( ( ruleBooleanLiteral ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1927:1: ( ruleBooleanLiteral )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1871:1: ( ruleBooleanLiteral )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1872:1: ruleBooleanLiteral
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1927:1: ( ruleBooleanLiteral )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1928:1: ruleBooleanLiteral
             {
              before(grammarAccess.getBranchedTransitionAccess().getValueBooleanLiteralParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_rule__BranchedTransition__ValueAssignment_23682);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_rule__BranchedTransition__ValueAssignment_23802);
             ruleBooleanLiteral();
             _fsp--;
 
@@ -4553,24 +4682,24 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__BranchedTransition__StateAssignment_4
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1881:1: rule__BranchedTransition__StateAssignment_4 : ( ( RULE_ID ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1937:1: rule__BranchedTransition__StateAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__BranchedTransition__StateAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1885:1: ( ( ( RULE_ID ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1886:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1941:1: ( ( ( RULE_ID ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1942:1: ( ( RULE_ID ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1886:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1887:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1942:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1943:1: ( RULE_ID )
             {
              before(grammarAccess.getBranchedTransitionAccess().getStateStateCrossReference_4_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1888:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1889:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1944:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1945:1: RULE_ID
             {
              before(grammarAccess.getBranchedTransitionAccess().getStateStateIDTerminalRuleCall_4_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BranchedTransition__StateAssignment_43717); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__BranchedTransition__StateAssignment_43837); 
              after(grammarAccess.getBranchedTransitionAccess().getStateStateIDTerminalRuleCall_4_0_1()); 
 
             }
@@ -4598,20 +4727,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__ReturntypeAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1900:1: rule__Method__ReturntypeAssignment_0 : ( ruleType ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1956:1: rule__Method__ReturntypeAssignment_0 : ( ruleType ) ;
     public final void rule__Method__ReturntypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1904:1: ( ( ruleType ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1905:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1960:1: ( ( ruleType ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1961:1: ( ruleType )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1905:1: ( ruleType )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1906:1: ruleType
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1961:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1962:1: ruleType
             {
              before(grammarAccess.getMethodAccess().getReturntypeTypeParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Method__ReturntypeAssignment_03752);
+            pushFollow(FOLLOW_ruleType_in_rule__Method__ReturntypeAssignment_03872);
             ruleType();
             _fsp--;
 
@@ -4638,20 +4767,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__NameAssignment_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1915:1: rule__Method__NameAssignment_1 : ( RULE_ID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1971:1: rule__Method__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Method__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1919:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1920:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1975:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1976:1: ( RULE_ID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1920:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1921:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1976:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1977:1: RULE_ID
             {
              before(grammarAccess.getMethodAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Method__NameAssignment_13783); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Method__NameAssignment_13903); 
              after(grammarAccess.getMethodAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4675,20 +4804,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__ArgsAssignment_3_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1930:1: rule__Method__ArgsAssignment_3_0 : ( ruleType ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1986:1: rule__Method__ArgsAssignment_3_0 : ( ruleType ) ;
     public final void rule__Method__ArgsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1934:1: ( ( ruleType ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1935:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1990:1: ( ( ruleType ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1991:1: ( ruleType )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1935:1: ( ruleType )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1936:1: ruleType
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1991:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1992:1: ruleType
             {
              before(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_0_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_03814);
+            pushFollow(FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_03934);
             ruleType();
             _fsp--;
 
@@ -4715,20 +4844,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Method__ArgsAssignment_3_1_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1945:1: rule__Method__ArgsAssignment_3_1_1 : ( ruleType ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2001:1: rule__Method__ArgsAssignment_3_1_1 : ( ruleType ) ;
     public final void rule__Method__ArgsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1949:1: ( ( ruleType ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1950:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2005:1: ( ( ruleType ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2006:1: ( ruleType )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1950:1: ( ruleType )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1951:1: ruleType
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2006:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2007:1: ruleType
             {
              before(grammarAccess.getMethodAccess().getArgsTypeParserRuleCall_3_1_1_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_1_13845);
+            pushFollow(FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_1_13965);
             ruleType();
             _fsp--;
 
@@ -4755,24 +4884,24 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__KlassAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1960:1: rule__Constructor__KlassAssignment_0 : ( ( RULE_ID ) ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2016:1: rule__Constructor__KlassAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Constructor__KlassAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1964:1: ( ( ( RULE_ID ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1965:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2020:1: ( ( ( RULE_ID ) ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2021:1: ( ( RULE_ID ) )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1965:1: ( ( RULE_ID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1966:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2021:1: ( ( RULE_ID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2022:1: ( RULE_ID )
             {
              before(grammarAccess.getConstructorAccess().getKlassClassCrossReference_0_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1967:1: ( RULE_ID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1968:1: RULE_ID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2023:1: ( RULE_ID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2024:1: RULE_ID
             {
              before(grammarAccess.getConstructorAccess().getKlassClassIDTerminalRuleCall_0_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Constructor__KlassAssignment_03880); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Constructor__KlassAssignment_04000); 
              after(grammarAccess.getConstructorAccess().getKlassClassIDTerminalRuleCall_0_0_1()); 
 
             }
@@ -4800,20 +4929,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__ArgsAssignment_2_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1979:1: rule__Constructor__ArgsAssignment_2_0 : ( ruleType ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2035:1: rule__Constructor__ArgsAssignment_2_0 : ( ruleType ) ;
     public final void rule__Constructor__ArgsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1983:1: ( ( ruleType ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1984:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2039:1: ( ( ruleType ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2040:1: ( ruleType )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1984:1: ( ruleType )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1985:1: ruleType
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2040:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2041:1: ruleType
             {
              before(grammarAccess.getConstructorAccess().getArgsTypeParserRuleCall_2_0_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_03915);
+            pushFollow(FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_04035);
             ruleType();
             _fsp--;
 
@@ -4840,20 +4969,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Constructor__ArgsAssignment_2_1_1
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1994:1: rule__Constructor__ArgsAssignment_2_1_1 : ( ruleType ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2050:1: rule__Constructor__ArgsAssignment_2_1_1 : ( ruleType ) ;
     public final void rule__Constructor__ArgsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1998:1: ( ( ruleType ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1999:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2054:1: ( ( ruleType ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2055:1: ( ruleType )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:1999:1: ( ruleType )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2000:1: ruleType
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2055:1: ( ruleType )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2056:1: ruleType
             {
              before(grammarAccess.getConstructorAccess().getArgsTypeParserRuleCall_2_1_1_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_1_13946);
+            pushFollow(FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_1_14066);
             ruleType();
             _fsp--;
 
@@ -4880,20 +5009,20 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__Type__NameAssignment
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2009:1: rule__Type__NameAssignment : ( ruleJAVAID ) ;
+    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2065:1: rule__Type__NameAssignment : ( ruleJAVAID ) ;
     public final void rule__Type__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2013:1: ( ( ruleJAVAID ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2014:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2069:1: ( ( ruleJAVAID ) )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2070:1: ( ruleJAVAID )
             {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2014:1: ( ruleJAVAID )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2015:1: ruleJAVAID
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2070:1: ( ruleJAVAID )
+            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2071:1: ruleJAVAID
             {
              before(grammarAccess.getTypeAccess().getNameJAVAIDParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleJAVAID_in_rule__Type__NameAssignment3977);
+            pushFollow(FOLLOW_ruleJAVAID_in_rule__Type__NameAssignment4097);
             ruleJAVAID();
             _fsp--;
 
@@ -4919,91 +5048,46 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
     // $ANTLR end rule__Type__NameAssignment
 
 
-    // $ANTLR start rule__BooleanLiteral__TrueAssignment_0
-    // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2024:1: rule__BooleanLiteral__TrueAssignment_0 : ( ( 'true' ) ) ;
-    public final void rule__BooleanLiteral__TrueAssignment_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2028:1: ( ( ( 'true' ) ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2029:1: ( ( 'true' ) )
-            {
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2029:1: ( ( 'true' ) )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2030:1: ( 'true' )
-            {
-             before(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); 
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2031:1: ( 'true' )
-            // ../soot.typestate.automata.ui/src-gen/soot/typestate/automata/contentassist/antlr/internal/InternalAutomata.g:2032:1: 'true'
-            {
-             before(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); 
-            match(input,27,FOLLOW_27_in_rule__BooleanLiteral__TrueAssignment_04013); 
-             after(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); 
-
-            }
-
-             after(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__BooleanLiteral__TrueAssignment_0
-
-
     protected DFA1 dfa1 = new DFA1(this);
     static final String DFA1_eotS =
         "\31\uffff";
     static final String DFA1_eofS =
         "\31\uffff";
     static final String DFA1_minS =
-        "\4\4\1\27\1\30\1\25\4\4\2\uffff\1\30\1\25\2\30\3\4\3\30\1\4\1\30";
+        "\3\4\1\30\3\4\1\31\1\26\1\31\1\26\2\4\2\uffff\2\4\4\31\2\4\2\31";
     static final String DFA1_maxS =
-        "\1\4\1\32\1\30\1\4\1\27\1\32\1\26\1\32\1\30\2\4\2\uffff\1\32\1\26"+
-        "\2\32\3\4\3\32\1\4\1\32";
+        "\1\4\1\33\1\4\1\30\1\31\1\33\1\31\1\33\1\27\1\33\1\27\2\4\2\uffff"+
+        "\2\4\4\33\2\4\2\33";
     static final String DFA1_acceptS =
-        "\13\uffff\1\1\1\2\14\uffff";
+        "\15\uffff\1\2\1\1\12\uffff";
     static final String DFA1_specialS =
         "\31\uffff}>";
     static final String[] DFA1_transitionS = {
             "\1\1",
-            "\1\4\22\uffff\1\2\2\uffff\1\3",
-            "\1\5\23\uffff\1\6",
-            "\1\7",
-            "\1\10",
-            "\1\6\1\12\1\11",
-            "\1\13\1\14",
-            "\1\4\25\uffff\1\3",
-            "\1\15\23\uffff\1\16",
-            "\1\17",
-            "\1\20",
+            "\1\3\23\uffff\1\4\2\uffff\1\2",
+            "\1\5",
+            "\1\6",
+            "\1\7\24\uffff\1\10",
+            "\1\3\26\uffff\1\2",
+            "\1\11\24\uffff\1\12",
+            "\1\10\1\14\1\13",
+            "\1\16\1\15",
+            "\1\12\1\20\1\17",
+            "\1\16\1\15",
+            "\1\21",
+            "\1\22",
             "",
             "",
-            "\1\16\1\22\1\21",
-            "\1\13\1\14",
-            "\1\6\1\12\1\11",
-            "\1\6\1\12\1\23",
+            "\1\23",
             "\1\24",
-            "\1\25",
-            "\1\26",
-            "\1\16\1\22\1\21",
-            "\1\16\1\22\1\27",
-            "\1\6\1\12\1\23",
+            "\1\10\1\14\1\13",
+            "\1\10\1\14\1\25",
+            "\1\12\1\20\1\17",
+            "\1\12\1\20\1\26",
+            "\1\27",
             "\1\30",
-            "\1\16\1\22\1\27"
+            "\1\10\1\14\1\25",
+            "\1\12\1\20\1\26"
     };
 
     static final short[] DFA1_eot = DFA.unpackEncodedString(DFA1_eotS);
@@ -5036,7 +5120,7 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
             this.transition = DFA1_transition;
         }
         public String getDescription() {
-            return "438:1: rule__Transition__Alternatives : ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) );";
+            return "496:1: rule__Transition__Alternatives : ( ( ruleInvocationTransition ) | ( ruleBranchedTransition ) );";
         }
     }
  
@@ -5083,132 +5167,137 @@ public class InternalAutomataParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral840 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral847 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__BooleanLiteral__Alternatives_in_ruleBooleanLiteral874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInvocationTransition_in_rule__Transition__Alternatives910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBranchedTransition_in_rule__Transition__Alternatives927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethod_in_rule__Invocation__Alternatives959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstructor_in_rule__Invocation__Alternatives976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BooleanLiteral__TrueAssignment_0_in_rule__BooleanLiteral__Alternatives1008 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__BooleanLiteral__Alternatives1027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automata__PackageAssignment_0_in_rule__Automata__Group__01063 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__Automata__Group__1_in_rule__Automata__Group__01073 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11103 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11115 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_12_in_rule__Package__Group__01157 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Package__Group__1_in_rule__Package__Group__01167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__11195 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Package__Group__2_in_rule__Package__Group__11204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Package__Group__21233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Automaton__Group__01275 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__1_in_rule__Automaton__Group__01285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automaton__KlassAssignment_1_in_rule__Automaton__Group__11313 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__2_in_rule__Automaton__Group__11322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Automaton__Group__21351 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__3_in_rule__Automaton__Group__21361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Automaton__Group__31390 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__4_in_rule__Automaton__Group__31400 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Automaton__Group__41429 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__5_in_rule__Automaton__Group__41439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automaton__InitialStateAssignment_5_in_rule__Automaton__Group__51467 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__6_in_rule__Automaton__Group__51476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Automaton__Group__61505 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__7_in_rule__Automaton__Group__61515 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automaton__Group_7__0_in_rule__Automaton__Group__71543 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__8_in_rule__Automaton__Group__71553 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81583 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81595 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group__9_in_rule__Automaton__Group__81607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Automaton__Group__91636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Automaton__Group_7__01692 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group_7__1_in_rule__Automaton__Group_7__01702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Automaton__Group_7__11731 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Automaton__Group_7__2_in_rule__Automaton__Group_7__11741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Automaton__ErrorStateAssignment_7_2_in_rule__Automaton__Group_7__21769 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Automaton__Group_7__3_in_rule__Automaton__Group_7__21778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Automaton__Group_7__31807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__State__Group__01851 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__State__Group__1_in_rule__State__Group__01861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__11889 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__State__Group__2_in_rule__State__Group__11898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__State__Group__21927 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_rule__State__Group__3_in_rule__State__Group__21937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__State__TransitionsAssignment_3_in_rule__State__Group__31965 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_rule__State__Group__4_in_rule__State__Group__31975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__State__Group__42004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvocationTransition__InvocationAssignment_0_in_rule__InvocationTransition__Group__02049 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__InvocationTransition__Group__1_in_rule__InvocationTransition__Group__02058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__InvocationTransition__Group__12087 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__InvocationTransition__Group__2_in_rule__InvocationTransition__Group__12097 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvocationTransition__StateAssignment_2_in_rule__InvocationTransition__Group__22125 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__InvocationTransition__Group__3_in_rule__InvocationTransition__Group__22134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__InvocationTransition__Group__32163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__InvocationAssignment_0_in_rule__BranchedTransition__Group__02206 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__Group__1_in_rule__BranchedTransition__Group__02215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__BranchedTransition__Group__12244 = new BitSet(new long[]{0x0000000008000800L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__Group__2_in_rule__BranchedTransition__Group__12254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__ValueAssignment_2_in_rule__BranchedTransition__Group__22282 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__Group__3_in_rule__BranchedTransition__Group__22291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__BranchedTransition__Group__32320 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__Group__4_in_rule__BranchedTransition__Group__32330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__StateAssignment_4_in_rule__BranchedTransition__Group__42358 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__BranchedTransition__Group__5_in_rule__BranchedTransition__Group__42367 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__BranchedTransition__Group__52396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__ReturntypeAssignment_0_in_rule__Method__Group__02443 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Method__Group__1_in_rule__Method__Group__02452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__NameAssignment_1_in_rule__Method__Group__12480 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__Method__Group__2_in_rule__Method__Group__12489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__Method__Group__22518 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_rule__Method__Group__3_in_rule__Method__Group__22528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__Group_3__0_in_rule__Method__Group__32556 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_rule__Method__Group__4_in_rule__Method__Group__32566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__Method__Group__42595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__ArgsAssignment_3_0_in_rule__Method__Group_3__02640 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_rule__Method__Group_3__1_in_rule__Method__Group_3__02649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__Group_3_1__0_in_rule__Method__Group_3__12677 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_25_in_rule__Method__Group_3_1__02717 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Method__Group_3_1__1_in_rule__Method__Group_3_1__02727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Method__ArgsAssignment_3_1_1_in_rule__Method__Group_3_1__12755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constructor__KlassAssignment_0_in_rule__Constructor__Group__02793 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__Constructor__Group__1_in_rule__Constructor__Group__02802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__Constructor__Group__12831 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_rule__Constructor__Group__2_in_rule__Constructor__Group__12841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constructor__Group_2__0_in_rule__Constructor__Group__22869 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_rule__Constructor__Group__3_in_rule__Constructor__Group__22879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__Constructor__Group__32908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constructor__ArgsAssignment_2_0_in_rule__Constructor__Group_2__02951 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_rule__Constructor__Group_2__1_in_rule__Constructor__Group_2__02960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constructor__Group_2_1__0_in_rule__Constructor__Group_2__12988 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_25_in_rule__Constructor__Group_2_1__03028 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Constructor__Group_2_1__1_in_rule__Constructor__Group_2_1__03038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constructor__ArgsAssignment_2_1_1_in_rule__Constructor__Group_2_1__13066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__JAVAID__Group__03104 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_rule__JAVAID__Group__1_in_rule__JAVAID__Group__03112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JAVAID__Group_1__0_in_rule__JAVAID__Group__13140 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_26_in_rule__JAVAID__Group_1__03180 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__JAVAID__Group_1__1_in_rule__JAVAID__Group_1__03190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__JAVAID__Group_1__13218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePackage_in_rule__Automata__PackageAssignment_03255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAutomaton_in_rule__Automata__AutomataAssignment_13286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Package__NameAssignment_13317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClass_in_rule__Automaton__KlassAssignment_13348 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Automaton__InitialStateAssignment_53383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Automaton__ErrorStateAssignment_7_23422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_rule__Automaton__StatesAssignment_83457 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Class__NameAssignment3488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__NameAssignment_13519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_33550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInvocation_in_rule__InvocationTransition__InvocationAssignment_03581 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__InvocationTransition__StateAssignment_23616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInvocation_in_rule__BranchedTransition__InvocationAssignment_03651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_rule__BranchedTransition__ValueAssignment_23682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__BranchedTransition__StateAssignment_43717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Method__ReturntypeAssignment_03752 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Method__NameAssignment_13783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_03814 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_1_13845 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Constructor__KlassAssignment_03880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_03915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_1_13946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Type__NameAssignment3977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__BooleanLiteral__TrueAssignment_04013 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTrue_in_entryRuleTrue900 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTrue907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleTrue935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFalse_in_entryRuleFalse962 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFalse969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleFalse997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvocationTransition_in_rule__Transition__Alternatives1034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBranchedTransition_in_rule__Transition__Alternatives1051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethod_in_rule__Invocation__Alternatives1083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstructor_in_rule__Invocation__Alternatives1100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTrue_in_rule__BooleanLiteral__Alternatives1132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFalse_in_rule__BooleanLiteral__Alternatives1149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automata__PackageAssignment_0_in_rule__Automata__Group__01183 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rule__Automata__Group__1_in_rule__Automata__Group__01193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11223 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_rule__Automata__AutomataAssignment_1_in_rule__Automata__Group__11235 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_13_in_rule__Package__Group__01277 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Package__Group__1_in_rule__Package__Group__01287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__11315 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__Package__Group__2_in_rule__Package__Group__11324 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Package__Group__21353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Automaton__Group__01395 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__1_in_rule__Automaton__Group__01405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automaton__KlassAssignment_1_in_rule__Automaton__Group__11433 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__2_in_rule__Automaton__Group__11442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Automaton__Group__21471 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__3_in_rule__Automaton__Group__21481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Automaton__Group__31510 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__4_in_rule__Automaton__Group__31520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Automaton__Group__41549 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__5_in_rule__Automaton__Group__41559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automaton__InitialStateAssignment_5_in_rule__Automaton__Group__51587 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__6_in_rule__Automaton__Group__51596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Automaton__Group__61625 = new BitSet(new long[]{0x0000000000300000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__7_in_rule__Automaton__Group__61635 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automaton__Group_7__0_in_rule__Automaton__Group__71663 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__8_in_rule__Automaton__Group__71673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81703 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_rule__Automaton__StatesAssignment_8_in_rule__Automaton__Group__81715 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group__9_in_rule__Automaton__Group__81727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Automaton__Group__91756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__Automaton__Group_7__01812 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group_7__1_in_rule__Automaton__Group_7__01822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Automaton__Group_7__11851 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Automaton__Group_7__2_in_rule__Automaton__Group_7__11861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Automaton__ErrorStateAssignment_7_2_in_rule__Automaton__Group_7__21889 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__Automaton__Group_7__3_in_rule__Automaton__Group_7__21898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Automaton__Group_7__31927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__State__Group__01971 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__State__Group__1_in_rule__State__Group__01981 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__NameAssignment_1_in_rule__State__Group__12009 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__State__Group__2_in_rule__State__Group__12018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__State__Group__22047 = new BitSet(new long[]{0x0000000000080010L});
+    public static final BitSet FOLLOW_rule__State__Group__3_in_rule__State__Group__22057 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__State__TransitionsAssignment_3_in_rule__State__Group__32085 = new BitSet(new long[]{0x0000000000080010L});
+    public static final BitSet FOLLOW_rule__State__Group__4_in_rule__State__Group__32095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__State__Group__42124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvocationTransition__InvocationAssignment_0_in_rule__InvocationTransition__Group__02169 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__InvocationTransition__Group__1_in_rule__InvocationTransition__Group__02178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__InvocationTransition__Group__12207 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__InvocationTransition__Group__2_in_rule__InvocationTransition__Group__12217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvocationTransition__StateAssignment_2_in_rule__InvocationTransition__Group__22245 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__InvocationTransition__Group__3_in_rule__InvocationTransition__Group__22254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__InvocationTransition__Group__32283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__InvocationAssignment_0_in_rule__BranchedTransition__Group__02326 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__Group__1_in_rule__BranchedTransition__Group__02335 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__BranchedTransition__Group__12364 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__Group__2_in_rule__BranchedTransition__Group__12374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__ValueAssignment_2_in_rule__BranchedTransition__Group__22402 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__Group__3_in_rule__BranchedTransition__Group__22411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__BranchedTransition__Group__32440 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__Group__4_in_rule__BranchedTransition__Group__32450 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__StateAssignment_4_in_rule__BranchedTransition__Group__42478 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__BranchedTransition__Group__5_in_rule__BranchedTransition__Group__42487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__BranchedTransition__Group__52516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__ReturntypeAssignment_0_in_rule__Method__Group__02563 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Method__Group__1_in_rule__Method__Group__02572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__NameAssignment_1_in_rule__Method__Group__12600 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__Method__Group__2_in_rule__Method__Group__12609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__Method__Group__22638 = new BitSet(new long[]{0x0000000002000010L});
+    public static final BitSet FOLLOW_rule__Method__Group__3_in_rule__Method__Group__22648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__Group_3__0_in_rule__Method__Group__32676 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_rule__Method__Group__4_in_rule__Method__Group__32686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__Method__Group__42715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__ArgsAssignment_3_0_in_rule__Method__Group_3__02760 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_rule__Method__Group_3__1_in_rule__Method__Group_3__02769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__Group_3_1__0_in_rule__Method__Group_3__12797 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_26_in_rule__Method__Group_3_1__02837 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Method__Group_3_1__1_in_rule__Method__Group_3_1__02847 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Method__ArgsAssignment_3_1_1_in_rule__Method__Group_3_1__12875 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Constructor__KlassAssignment_0_in_rule__Constructor__Group__02913 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__Constructor__Group__1_in_rule__Constructor__Group__02922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__Constructor__Group__12951 = new BitSet(new long[]{0x0000000002000010L});
+    public static final BitSet FOLLOW_rule__Constructor__Group__2_in_rule__Constructor__Group__12961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Constructor__Group_2__0_in_rule__Constructor__Group__22989 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_rule__Constructor__Group__3_in_rule__Constructor__Group__22999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__Constructor__Group__33028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Constructor__ArgsAssignment_2_0_in_rule__Constructor__Group_2__03071 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_rule__Constructor__Group_2__1_in_rule__Constructor__Group_2__03080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Constructor__Group_2_1__0_in_rule__Constructor__Group_2__13108 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_26_in_rule__Constructor__Group_2_1__03148 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Constructor__Group_2_1__1_in_rule__Constructor__Group_2_1__03158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Constructor__ArgsAssignment_2_1_1_in_rule__Constructor__Group_2_1__13186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__JAVAID__Group__03224 = new BitSet(new long[]{0x0000000008000002L});
+    public static final BitSet FOLLOW_rule__JAVAID__Group__1_in_rule__JAVAID__Group__03232 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JAVAID__Group_1__0_in_rule__JAVAID__Group__13260 = new BitSet(new long[]{0x0000000008000002L});
+    public static final BitSet FOLLOW_27_in_rule__JAVAID__Group_1__03300 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__JAVAID__Group_1__1_in_rule__JAVAID__Group_1__03310 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__JAVAID__Group_1__13338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePackage_in_rule__Automata__PackageAssignment_03375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAutomaton_in_rule__Automata__AutomataAssignment_13406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Package__NameAssignment_13437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClass_in_rule__Automaton__KlassAssignment_13468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Automaton__InitialStateAssignment_53503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Automaton__ErrorStateAssignment_7_23542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_rule__Automaton__StatesAssignment_83577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Class__NameAssignment3608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__State__NameAssignment_13639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransition_in_rule__State__TransitionsAssignment_33670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvocation_in_rule__InvocationTransition__InvocationAssignment_03701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__InvocationTransition__StateAssignment_23736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvocation_in_rule__BranchedTransition__InvocationAssignment_03771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_rule__BranchedTransition__ValueAssignment_23802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__BranchedTransition__StateAssignment_43837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Method__ReturntypeAssignment_03872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Method__NameAssignment_13903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_03934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Method__ArgsAssignment_3_1_13965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Constructor__KlassAssignment_04000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_04035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Constructor__ArgsAssignment_2_1_14066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJAVAID_in_rule__Type__NameAssignment4097 = new BitSet(new long[]{0x0000000000000002L});
 
 }

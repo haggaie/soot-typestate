@@ -83,7 +83,6 @@ public class AutomataParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstructorAccess().getArgsAssignment_2_0(), "rule__Constructor__ArgsAssignment_2_0");
 					put(grammarAccess.getConstructorAccess().getArgsAssignment_2_1_1(), "rule__Constructor__ArgsAssignment_2_1_1");
 					put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
-					put(grammarAccess.getBooleanLiteralAccess().getTrueAssignment_0(), "rule__BooleanLiteral__TrueAssignment_0");
 				}
 			};
 		}

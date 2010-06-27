@@ -134,15 +134,6 @@ public interface AutomataFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Boolean Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Literal</em>'.
-   * @generated
-   */
-  BooleanLiteral createBooleanLiteral();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

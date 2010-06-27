@@ -17,7 +17,6 @@ import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataFactory;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
-import soot.typestate.automata.automata.BooleanLiteral;
 import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
@@ -91,7 +90,6 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
       case AutomataPackage.METHOD: return createMethod();
       case AutomataPackage.CONSTRUCTOR: return createConstructor();
       case AutomataPackage.TYPE: return createType();
-      case AutomataPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -227,17 +225,6 @@ public class AutomataFactoryImpl extends EFactoryImpl implements AutomataFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BooleanLiteral createBooleanLiteral()
-  {
-    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
-    return booleanLiteral;
   }
 
   /**
