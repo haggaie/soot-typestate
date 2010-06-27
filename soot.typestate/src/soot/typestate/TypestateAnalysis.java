@@ -17,7 +17,9 @@ import soot.jimple.AbstractStmtSwitch;
 import soot.jimple.AssignStmt;
 import soot.jimple.Constant;
 import soot.jimple.EqExpr;
+import soot.jimple.FieldRef;
 import soot.jimple.IfStmt;
+import soot.jimple.InstanceFieldRef;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
@@ -34,6 +36,14 @@ import soot.typestate.automata.ClassAutomaton;
  *
  */
 public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> {
+	private static final class SetTop implements ASInfoVisitor {
+		@Override
+		public void visit(AllocationSiteSet allocSite,
+				ASInfo asInfo) {
+			asInfo.setTop(true);
+		}
+	}
+
 	// Our automaton
 	private final ClassAutomaton automaton;
 	// The FlowUniverse of state numbers.
@@ -50,13 +60,13 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
         doAnalysis();
     }
 	
-	boolean ourType(Local local) {
+	boolean ourType(Value local) {
 		return local.getType() instanceof RefType &&
 			((RefType) local.getType()).getSootClass().equals(automaton.getKlass());
 	}
 	
 	@Override
-	protected void flowThrough(final LatticeNode in, Unit node, 
+	protected void flowThrough(final LatticeNode in, final Unit node, 
             List<LatticeNode> fallOut, List<LatticeNode> branchOuts) {
 		final LatticeNode out = new LatticeNode(in),
 		      			  outBranch = new LatticeNode(in);
@@ -66,10 +76,38 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 		node.apply(new AbstractStmtSwitch() {
 			@Override
 			public void caseAssignStmt(AssignStmt stmt) {
-				if (!(stmt.getLeftOp() instanceof Local))
-					return; // TODO handle other assignments
-				Local local = (Local) stmt.getLeftOp();
+				Value r = stmt.getRightOp();
+				// Treat statements like (not local) = ourclass;
+				if (!(stmt.getLeftOp() instanceof Local)) {
+					if (r instanceof Local) {
+						Local right = (Local) r;
+						if (ourType(right)) {
+							setOutTop(right);
+						}
+					}
+				}
+				// Treat statements like ? = ourclass.b
+				if (r instanceof InstanceFieldRef) {
+					InstanceFieldRef right = (InstanceFieldRef) r;
+					if (ourType(right.getBase())) {
+						setOutTop(right.getBase());
+					}
+				}
+				// Treat statements like ourclass.? = ?
+				if (stmt.getLeftOp() instanceof InstanceFieldRef) {
+					InstanceFieldRef left = (InstanceFieldRef) stmt.getLeftOp();
+					if (ourType(left.getBase())) {
+						setOutTop(left.getBase());
+					}
+				}
+				if (r instanceof InvokeExpr) {
+					InvokeExpr invokeExpr = (InvokeExpr) r;
+					handleInvokeExpr(invokeExpr);
+				}
 				// Make sure this local is of an interesting type
+				if (!(stmt.getLeftOp() instanceof Local))
+					return;
+				Local local = (Local) stmt.getLeftOp();
 				if (ourType(local)) {
 					AllocationSiteSet allocSite = allocationSiteHandler.getDefAllocationSite(stmt);
 					if (allocSite != null)
@@ -104,18 +142,41 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 			
 			@Override
 			public void caseInvokeStmt(InvokeStmt stmt) {
-				final SootMethodRef methodRef = stmt.getInvokeExpr().getMethodRef();
-				if (!(stmt.getInvokeExpr() instanceof InstanceInvokeExpr))
-					// TODO handle side effects.
+				InvokeExpr invokeExpr = stmt.getInvokeExpr();
+				handleInvokeExpr(invokeExpr);
+			}
+
+			private void handleInvokeExpr(InvokeExpr invokeExpr) {
+				final SootMethodRef methodRef = invokeExpr.getMethodRef();
+				// Check if our type is passed as a parameter
+				for (Value arg : (List<Value>)invokeExpr.getArgs()) {
+					if (arg instanceof Local) {
+						Local localArg = (Local) arg;
+						if (ourType(localArg)) {
+							setOutTop(localArg);
+							break;
+						}
+					}
+					if (arg instanceof InstanceFieldRef) {
+						InstanceFieldRef fieldRef = (InstanceFieldRef) arg;
+						if (ourType(fieldRef.getBase())) {
+							setOutTop(fieldRef.getBase());
+							break;
+						}
+					}
+				}
+				if (!(invokeExpr instanceof InstanceInvokeExpr))
 					return;
-				InstanceInvokeExpr invokeExpr = (InstanceInvokeExpr) stmt.getInvokeExpr();
-				if (!methodRef.declaringClass().equals(automaton.getKlass()))
-					// TODO should also work with subclasses, or implementing interfaces.
-					// TODO handle side effects.
+				InstanceInvokeExpr instanceInvokeExpr = (InstanceInvokeExpr) invokeExpr;
+
+				Local base = (Local) instanceInvokeExpr.getBase();
+				if (!ourType(base))
 					return;
-				// TODO check if invocation parameters appear as Used values in the stmt.
-				Local base = (Local) invokeExpr.getBase();
-				in.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(stmt, base), new ASInfoVisitor() {
+				if (!methodRef.declaringClass().equals(automaton.getKlass())) {
+					setOutTop(base);
+					return;
+				}
+				in.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(node, base), new ASInfoVisitor() {
 					@Override
 					public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
 						ASInfo outInfo = out.getASInfo(allocSite);
@@ -140,8 +201,13 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 				
 				out.killConditional(base);
 			}
-			
-			// TODO handle Identity statements
+
+			private void setOutTop(Value arg) {
+				if (arg instanceof Local) {
+					Local local = (Local) arg;
+					out.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(node, local), new SetTop());
+				}
+			}
 			
 			@Override
 			public void caseIfStmt(IfStmt stmt) {
