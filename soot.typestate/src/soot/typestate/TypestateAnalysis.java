@@ -9,6 +9,7 @@ import java.util.List;
 import soot.BooleanType;
 import soot.Local;
 import soot.RefType;
+import soot.Scene;
 import soot.SootMethod;
 import soot.SootMethodRef;
 import soot.Unit;
@@ -17,7 +18,6 @@ import soot.jimple.AbstractStmtSwitch;
 import soot.jimple.AssignStmt;
 import soot.jimple.Constant;
 import soot.jimple.EqExpr;
-import soot.jimple.FieldRef;
 import soot.jimple.IfStmt;
 import soot.jimple.InstanceFieldRef;
 import soot.jimple.InstanceInvokeExpr;
@@ -51,12 +51,12 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 	// Allocation site handler that finds allocation sites of variables
 	private final AllocationSiteHandler allocationSiteHandler;
 	
-	TypestateAnalysis(UnitGraph graph, ClassAutomaton automaton, AllocationSiteHandler allocationSiteHandler)
+	TypestateAnalysis(UnitGraph graph, ClassAutomaton automaton)
     {
         super(graph);
         this.automaton = automaton;
         this.statesUniverse = automaton.getFlowUniverse();
-    	this.allocationSiteHandler = allocationSiteHandler;
+    	this.allocationSiteHandler = new AllocationSiteHandler(Scene.v().getPointsToAnalysis());
         doAnalysis();
     }
 	
@@ -149,7 +149,7 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 			private void handleInvokeExpr(InvokeExpr invokeExpr) {
 				final SootMethodRef methodRef = invokeExpr.getMethodRef();
 				// Check if our type is passed as a parameter
-				for (Value arg : (List<Value>)invokeExpr.getArgs()) {
+				for (Object arg : invokeExpr.getArgs()) {
 					if (arg instanceof Local) {
 						Local localArg = (Local) arg;
 						if (ourType(localArg)) {
