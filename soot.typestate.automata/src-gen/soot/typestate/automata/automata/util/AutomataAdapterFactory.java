@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.AutomataPackage;
 import soot.typestate.automata.automata.Automaton;
-import soot.typestate.automata.automata.BooleanLiteral;
 import soot.typestate.automata.automata.BranchedTransition;
 import soot.typestate.automata.automata.Constructor;
 import soot.typestate.automata.automata.Invocation;
@@ -147,11 +146,6 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
-      }
-      @Override
-      public Adapter caseBooleanLiteral(BooleanLiteral object)
-      {
-        return createBooleanLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -351,21 +345,6 @@ public class AutomataAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link soot.typestate.automata.automata.BooleanLiteral <em>Boolean Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see soot.typestate.automata.automata.BooleanLiteral
-   * @generated
-   */
-  public Adapter createBooleanLiteralAdapter()
   {
     return null;
   }

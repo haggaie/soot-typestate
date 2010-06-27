@@ -1097,7 +1097,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
         EObject lv_invocation_0 = null;
 
-        EObject lv_value_2 = null;
+        AntlrDatatypeRuleToken lv_value_2 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
@@ -1992,24 +1992,24 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBooleanLiteral
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:961:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
-    public final EObject entryRuleBooleanLiteral() throws RecognitionException {
-        EObject current = null;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:961:1: entryRuleBooleanLiteral returns [String current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
+    public final String entryRuleBooleanLiteral() throws RecognitionException {
+        String current = null;
 
-        EObject iv_ruleBooleanLiteral = null;
+        AntlrDatatypeRuleToken iv_ruleBooleanLiteral = null;
 
 
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:961:56: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:961:55: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
             // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:962:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
             {
              currentNode = createCompositeNode(grammarAccess.getBooleanLiteralRule(), currentNode); 
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral2149);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral2150);
             iv_ruleBooleanLiteral=ruleBooleanLiteral();
             _fsp--;
 
-             current =iv_ruleBooleanLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral2159); 
+             current =iv_ruleBooleanLiteral.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral2161); 
 
             }
 
@@ -2027,19 +2027,22 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBooleanLiteral
-    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:969:1: ruleBooleanLiteral returns [EObject current=null] : ( (lv_true_0= 'true' ) | 'false' ) ;
-    public final EObject ruleBooleanLiteral() throws RecognitionException {
-        EObject current = null;
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:969:1: ruleBooleanLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_True_0= ruleTrue | this_False_1= ruleFalse ) ;
+    public final AntlrDatatypeRuleToken ruleBooleanLiteral() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token lv_true_0=null;
+        AntlrDatatypeRuleToken this_True_0 = null;
 
-         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+        AntlrDatatypeRuleToken this_False_1 = null;
+
+
+         setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:974:6: ( ( (lv_true_0= 'true' ) | 'false' ) )
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:975:1: ( (lv_true_0= 'true' ) | 'false' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:975:6: ( (this_True_0= ruleTrue | this_False_1= ruleFalse ) )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:976:1: (this_True_0= ruleTrue | this_False_1= ruleFalse )
             {
-            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:975:1: ( (lv_true_0= 'true' ) | 'false' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:976:1: (this_True_0= ruleTrue | this_False_1= ruleFalse )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2051,46 +2054,45 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("975:1: ( (lv_true_0= 'true' ) | 'false' )", 13, 0, input);
+                    new NoViableAltException("976:1: (this_True_0= ruleTrue | this_False_1= ruleFalse )", 13, 0, input);
 
                 throw nvae;
             }
             switch (alt13) {
                 case 1 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:975:2: (lv_true_0= 'true' )
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:977:5: this_True_0= ruleTrue
                     {
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:975:2: (lv_true_0= 'true' )
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:977:6: lv_true_0= 'true'
-                    {
-                    lv_true_0=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_ruleBooleanLiteral2205); 
-
-                            createLeafNode(grammarAccess.getBooleanLiteralAccess().getTrueTrueKeyword_0_0(), "true"); 
+                     
+                            currentNode=createCompositeNode(grammarAccess.getBooleanLiteralAccess().getTrueParserRuleCall_0(), currentNode); 
                         
+                    pushFollow(FOLLOW_ruleTrue_in_ruleBooleanLiteral2208);
+                    this_True_0=ruleTrue();
+                    _fsp--;
 
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getBooleanLiteralRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "true", true, "true", lastConsumedNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	    
 
-                    }
-
+                    		current.merge(this_True_0);
+                        
+                     
+                            currentNode = currentNode.getParent();
+                        
 
                     }
                     break;
                 case 2 :
-                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:997:6: 'false'
+                    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:989:5: this_False_1= ruleFalse
                     {
-                    match(input,27,FOLLOW_27_in_ruleBooleanLiteral2233); 
+                     
+                            currentNode=createCompositeNode(grammarAccess.getBooleanLiteralAccess().getFalseParserRuleCall_1(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleFalse_in_ruleBooleanLiteral2241);
+                    this_False_1=ruleFalse();
+                    _fsp--;
 
-                            createLeafNode(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1(), null); 
+
+                    		current.merge(this_False_1);
+                        
+                     
+                            currentNode = currentNode.getParent();
                         
 
                     }
@@ -2102,7 +2104,8 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             }
 
              resetLookahead(); 
-                	lastConsumedNode = currentNode;
+            	    lastConsumedNode = currentNode;
+            	    lastConsumedDatatypeToken = current;
                 
         }
          
@@ -2117,6 +2120,154 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleBooleanLiteral
 
 
+    // $ANTLR start entryRuleTrue
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1007:1: entryRuleTrue returns [String current=null] : iv_ruleTrue= ruleTrue EOF ;
+    public final String entryRuleTrue() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleTrue = null;
+
+
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1007:45: (iv_ruleTrue= ruleTrue EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1008:2: iv_ruleTrue= ruleTrue EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getTrueRule(), currentNode); 
+            pushFollow(FOLLOW_ruleTrue_in_entryRuleTrue2285);
+            iv_ruleTrue=ruleTrue();
+            _fsp--;
+
+             current =iv_ruleTrue.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTrue2296); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleTrue
+
+
+    // $ANTLR start ruleTrue
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1015:1: ruleTrue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'true' ;
+    public final AntlrDatatypeRuleToken ruleTrue() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+         setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1021:6: (kw= 'true' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1023:2: kw= 'true'
+            {
+            kw=(Token)input.LT(1);
+            match(input,26,FOLLOW_26_in_ruleTrue2333); 
+
+                    current.merge(kw);
+                    createLeafNode(grammarAccess.getTrueAccess().getTrueKeyword(), null); 
+                
+
+            }
+
+             resetLookahead(); 
+            	    lastConsumedNode = currentNode;
+            	    lastConsumedDatatypeToken = current;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleTrue
+
+
+    // $ANTLR start entryRuleFalse
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1036:1: entryRuleFalse returns [String current=null] : iv_ruleFalse= ruleFalse EOF ;
+    public final String entryRuleFalse() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleFalse = null;
+
+
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1036:46: (iv_ruleFalse= ruleFalse EOF )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1037:2: iv_ruleFalse= ruleFalse EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getFalseRule(), currentNode); 
+            pushFollow(FOLLOW_ruleFalse_in_entryRuleFalse2371);
+            iv_ruleFalse=ruleFalse();
+            _fsp--;
+
+             current =iv_ruleFalse.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFalse2382); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleFalse
+
+
+    // $ANTLR start ruleFalse
+    // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1044:1: ruleFalse returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'false' ;
+    public final AntlrDatatypeRuleToken ruleFalse() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+         setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1050:6: (kw= 'false' )
+            // ../soot.typestate.automata/src-gen/soot/typestate/automata/parser/antlr/internal/InternalAutomata.g:1052:2: kw= 'false'
+            {
+            kw=(Token)input.LT(1);
+            match(input,27,FOLLOW_27_in_ruleFalse2419); 
+
+                    current.merge(kw);
+                    createLeafNode(grammarAccess.getFalseAccess().getFalseKeyword(), null); 
+                
+
+            }
+
+             resetLookahead(); 
+            	    lastConsumedNode = currentNode;
+            	    lastConsumedDatatypeToken = current;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleFalse
+
+
     protected DFA6 dfa6 = new DFA6(this);
     static final String DFA6_eotS =
         "\31\uffff";
@@ -2128,7 +2279,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
         "\1\4\1\31\1\30\1\4\1\26\1\31\1\25\1\31\1\30\2\4\2\uffff\1\31\1\25"+
         "\2\31\3\4\3\31\1\4\1\31";
     static final String DFA6_acceptS =
-        "\13\uffff\1\2\1\1\14\uffff";
+        "\13\uffff\1\1\1\2\14\uffff";
     static final String DFA6_specialS =
         "\31\uffff}>";
     static final String[] DFA6_transitionS = {
@@ -2138,7 +2289,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             "\1\7",
             "\1\10",
             "\1\12\1\6\1\11",
-            "\1\14\1\13",
+            "\1\13\1\14",
             "\1\4\24\uffff\1\3",
             "\1\15\23\uffff\1\16",
             "\1\17",
@@ -2146,7 +2297,7 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
             "",
             "",
             "\1\22\1\16\1\21",
-            "\1\14\1\13",
+            "\1\13\1\14",
             "\1\12\1\6\1\11",
             "\1\12\1\6\1\23",
             "\1\24",
@@ -2275,9 +2426,15 @@ public class InternalAutomataParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID2070 = new BitSet(new long[]{0x0000000002000002L});
     public static final BitSet FOLLOW_25_in_ruleJAVAID2089 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleJAVAID2104 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral2149 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral2159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleBooleanLiteral2205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleBooleanLiteral2233 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral2150 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral2161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTrue_in_ruleBooleanLiteral2208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFalse_in_ruleBooleanLiteral2241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTrue_in_entryRuleTrue2285 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTrue2296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleTrue2333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFalse_in_entryRuleFalse2371 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFalse2382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleFalse2419 = new BitSet(new long[]{0x0000000000000002L});
 
 }

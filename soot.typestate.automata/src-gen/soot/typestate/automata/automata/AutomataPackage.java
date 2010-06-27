@@ -347,7 +347,7 @@ public interface AutomataPackage extends EPackage
   int BRANCHED_TRANSITION__STATE = TRANSITION__STATE;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -502,34 +502,6 @@ public interface AutomataPackage extends EPackage
    * @ordered
    */
   int TYPE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link soot.typestate.automata.automata.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see soot.typestate.automata.automata.impl.BooleanLiteralImpl
-   * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBooleanLiteral()
-   * @generated
-   */
-  int BOOLEAN_LITERAL = 12;
-
-  /**
-   * The feature id for the '<em><b>True</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOLEAN_LITERAL__TRUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Boolean Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOLEAN_LITERAL_FEATURE_COUNT = 1;
 
 
   /**
@@ -745,15 +717,15 @@ public interface AutomataPackage extends EPackage
   EClass getBranchedTransition();
 
   /**
-   * Returns the meta object for the containment reference '{@link soot.typestate.automata.automata.BranchedTransition#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link soot.typestate.automata.automata.BranchedTransition#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @return the meta object for the attribute '<em>Value</em>'.
    * @see soot.typestate.automata.automata.BranchedTransition#getValue()
    * @see #getBranchedTransition()
    * @generated
    */
-  EReference getBranchedTransition_Value();
+  EAttribute getBranchedTransition_Value();
 
   /**
    * Returns the meta object for class '{@link soot.typestate.automata.automata.Invocation <em>Invocation</em>}'.
@@ -849,27 +821,6 @@ public interface AutomataPackage extends EPackage
    * @generated
    */
   EAttribute getType_Name();
-
-  /**
-   * Returns the meta object for class '{@link soot.typestate.automata.automata.BooleanLiteral <em>Boolean Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Boolean Literal</em>'.
-   * @see soot.typestate.automata.automata.BooleanLiteral
-   * @generated
-   */
-  EClass getBooleanLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link soot.typestate.automata.automata.BooleanLiteral#isTrue <em>True</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>True</em>'.
-   * @see soot.typestate.automata.automata.BooleanLiteral#isTrue()
-   * @see #getBooleanLiteral()
-   * @generated
-   */
-  EAttribute getBooleanLiteral_True();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1071,12 +1022,12 @@ public interface AutomataPackage extends EPackage
     EClass BRANCHED_TRANSITION = eINSTANCE.getBranchedTransition();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BRANCHED_TRANSITION__VALUE = eINSTANCE.getBranchedTransition_Value();
+    EAttribute BRANCHED_TRANSITION__VALUE = eINSTANCE.getBranchedTransition_Value();
 
     /**
      * The meta object literal for the '{@link soot.typestate.automata.automata.impl.InvocationImpl <em>Invocation</em>}' class.
@@ -1157,24 +1108,6 @@ public interface AutomataPackage extends EPackage
      * @generated
      */
     EAttribute TYPE__NAME = eINSTANCE.getType_Name();
-
-    /**
-     * The meta object literal for the '{@link soot.typestate.automata.automata.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see soot.typestate.automata.automata.impl.BooleanLiteralImpl
-     * @see soot.typestate.automata.automata.impl.AutomataPackageImpl#getBooleanLiteral()
-     * @generated
-     */
-    EClass BOOLEAN_LITERAL = eINSTANCE.getBooleanLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>True</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BOOLEAN_LITERAL__TRUE = eINSTANCE.getBooleanLiteral_True();
 
   }
 

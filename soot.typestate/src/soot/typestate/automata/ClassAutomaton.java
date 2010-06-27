@@ -114,7 +114,8 @@ public class ClassAutomaton {
 				Object key = method;
 				if (transition instanceof BranchedTransition) {
 					BranchedTransition branchedTransition = (BranchedTransition) transition;
-					key = new BranchedTransitionKey(method, branchedTransition.getValue().isTrue());
+					boolean value = branchedTransition.getValue().equals("true");
+					key = new BranchedTransitionKey(method, value);
 				}
 				List<Integer> delta = getDelta(key);
 				delta.set(getStateIndex(state), getStateIndex(transition.getState()));

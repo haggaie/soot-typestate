@@ -43,4 +43,7 @@ Type : name=JAVAID ;
 
 JAVAID : ID('.' ID)*;
 
-BooleanLiteral: (true?='true') | 'false' ;
+BooleanLiteral: True | False ;
+
+True: 'true';
+False: 'false';
