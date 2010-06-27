@@ -6,27 +6,32 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="soot.typestate">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../usr/lib/eclipse"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Applications/eclipse-galileo"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="${ECLIPSE_HOME}/plugins/org.junit4_4.5.0.v20090824/junit.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.1.0.jar"/>
-    </path>
-    <path id="Plug-in Dependencies.libraryclasspath">
-        <pathelement location="lib/plugins/soot.typestate.automata_1.0.0.jar"/>
-        <pathelement location="../../.eclipse/org.eclipse.platform_3.5.0_155965261/plugins/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
-        <pathelement location="../../.eclipse/org.eclipse.platform_3.5.0_155965261/plugins/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
     </path>
     <path id="soot.typestate.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
-        <path refid="Plug-in Dependencies.libraryclasspath"/>
         <pathelement location="lib/jasminclasses-2.4.0.jar"/>
         <pathelement location="lib/polyglot.jar"/>
         <pathelement location="lib/sootclasses-2.4.0.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.xtext_0.7.2.v200908120607.jar"/>
+        <pathelement location="lib/plugins/soot.typestate.automata_1.0.0.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar"/>
+        <pathelement location="lib/eclipse/guice-1.0_patched.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.xtext.log4j_1.2.15.v200908120607.jar"/>
+        <pathelement location="lib/eclipse/com.google.collect_0.8.0.v200908120607.jar"/>
+        <pathelement location="lib/eclipse/org.eclipse.xtext.util_0.7.2.v200908120607.jar"/>
+        <pathelement location="lib/eclipse/antlr-3.0.1.jar"/>
+        <pathelement location="lib/eclipse/org.antlr.runtime_3.0.0.v200908120607.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -74,52 +79,37 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="StackTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="StackTest" todir="${junit.output.dir}"/>
-            <classpath refid="soot.typestate.classpath"/>
-        </junit>
-    </target>
-    <target name="SocketTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="SocketTest" todir="${junit.output.dir}"/>
-            <classpath refid="soot.typestate.classpath"/>
-        </junit>
-    </target>
-    <target name="StackTest (1)">
-        <java classname="StackTest" failonerror="true" fork="yes">
+    <target name="FileInputStreamTest">
+        <java classname="FileInputStreamTest" failonerror="true" fork="yes">
             <classpath refid="soot.typestate.classpath"/>
         </java>
     </target>
-    <target name="Automaton.testClassAutomaton">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="soot.typestate.automata.tests.Automaton" todir="${junit.output.dir}"/>
+    <target name="Main - FileInputStream">
+        <java classname="soot.typestate.Main" failonerror="true" fork="yes">
+            <jvmarg line="-Xmx512m"/>
+            <arg line="FileInputStreamTest examples/java.io.FileInputStream.automata"/>
             <classpath refid="soot.typestate.classpath"/>
-        </junit>
+        </java>
     </target>
     <target name="Main - Socket">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
+            <jvmarg line="-Xmx512m"/>
             <arg line="SocketTest examples/java.net.Socket.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
     </target>
     <target name="Main - Stack">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
+            <jvmarg line="-Xmx512m"/>
             <arg line="StackTest examples/java.util.Stack.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
     </target>
-    <target name="Automaton">
+    <target name="StackTest">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="soot.typestate.automata.tests.Automaton" todir="${junit.output.dir}"/>
+            <test name="StackTest" todir="${junit.output.dir}"/>
             <classpath refid="soot.typestate.classpath"/>
         </junit>
     </target>
