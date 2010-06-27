@@ -1,131 +1,85 @@
-import static org.junit.Assert.*;
-
-import java.util.Date;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class StackTest {
-
-	Stack<Integer> stack;
 	
-	@Before
-	public void setUp() throws Exception {
-		stack = new Stack<Integer>();
+	@Test(expected = EmptyStackException.class)
+	public void testFailPop() {
+		Stack<?> s = new Stack<Object>();
+		s.pop(); // ERROR
+	}
+	
+	@Test
+	public void testFailMethodCall() {
+		Stack<?> s = new Stack<Object>();
+		System.out.println(s); // ERROR (for soundness)
+	}
+	
+	@Test
+	public void testPassMethodCall() {
+		@SuppressWarnings("unused")
+		Stack<?> s = new Stack<Object>();
+		System.out.println("Hello world");
 	}
 
 	@Test
-	public void testPush() {
-		stack.push(1);
-		stack.pop();
+	public void testFailBranch() {
+		Stack<Object> s = new Stack<Object>();
+		boolean x = System.currentTimeMillis() > 2012;
+		if (x)
+			s.push(new Object());
+		if (x)
+			s.pop(); // ERROR (for soundness)
 	}
-
-	@Test(expected = EmptyStackException.class)
-	public void testPop() {
-		stack.pop();
-	}
-
+	
 	@Test
-	public void testEmpty() {
-		assertTrue(stack.empty());
-		stack.push(1);
-		stack.clear();
-		assertTrue(stack.empty());
+	public void testPassBranch() {
+		Stack<Object> s = new Stack<Object>();
+		while (!s.empty())
+			s.pop();
 	}
-
-	@Test(expected = EmptyStackException.class)
-	public void testClear() {
-		// Creating a new stack to have a simpler
-		// example wnew AShere the stack is allocated locally.
-		Stack<Integer> s = new Stack<Integer>();
+	
+	@Test
+	public void testFailMultipleObjects() {
+		Stack<Integer> s;
+		boolean x = System.currentTimeMillis() > 2012;
+		if (x)
+			s = new Stack<Integer>();
+		else 
+			s = new Stack<Integer>();
 		s.push(1);
-		s.clear();
-		s.pop();
+		s.pop(); // ERROR (for soundness)
 	}
 	
 	@Test
-	public void testCollectionMethods() {
-		Stack<Integer> s = new Stack<Integer>();
-		s.add(1);
-		s.addAll(s);
-		s.pop();
-		s.pop();
-	}
-	
-	@Test
-	public void testLoop() {
+	public void testFailLoop() {
 		for (int i = 0; i < 100; ++i)
 		{
 			Stack<String> s = new Stack<String>();
 			s.push("TEST");
-			s.pop();
-			s.clear();
+			s.pop(); // ERROR (for soundness)
 		}
-	}
-	
-	@Test 
-	public void testBranch() {
-		Stack<String> s;
-		if (stack.empty())
-		{
-			s = new Stack<String>();
-			s.push("Empty");
-		}
-		else
-			s = new Stack<String>();
-		s.pop();
-	}
-	
-	@Test(expected = EmptyStackException.class)
-	public void testBranchLocal() {
-		Stack<String> stack = new Stack<String>();
-		stack.add("1");
-		stack.add("2");
-		while (!stack.empty())
-			stack.pop();
-		stack.pop();
 	}
 	
 	@Test
-	public void testConditionalsInBranch() {
-		boolean x;
-		Stack<String> s = new Stack<String>();
-		if (System.nanoTime() > 0) {// non deterministic
-			s.push("1");
-			x = s.empty();
-		}
-		else {
-			x = s.empty();
-		}
-		
-		if(x == false)
-			s.pop();
+	public void testPassUnique() {
+		Stack<Integer> s = new Stack<Integer>();
+		s.push(1);
+		s.pop();
 	}
-
+	
 	public static void main(String[] args) throws Exception
 	{
 		StackTest test = new StackTest();
-		test.setUp();
-		test.testPush();
-		test.setUp();
-		try {
-			test.testPop();
-		}
-		catch (EmptyStackException e) {
-		}
-		test.setUp();
-		test.testEmpty();
-		test.setUp();
-		try {
-			test.testClear();
-		}
-		catch (EmptyStackException e) {
-		}
-		test.testCollectionMethods();
-		test.testLoop();
-		test.testBranch();
-		test.testBranchLocal();
+		test.testFailBranch();
+		test.testFailLoop();
+		test.testFailMethodCall();
+		test.testFailMultipleObjects();
+		test.testFailPop();
+		test.testPassBranch();
+		test.testPassMethodCall();
+		test.testPassUnique();
 	}
 }

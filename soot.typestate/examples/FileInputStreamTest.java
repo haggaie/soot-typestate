@@ -1,5 +1,4 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -17,7 +16,7 @@ public class FileInputStreamTest {
 	{
 		FileInputStream file = new FileInputStream("the_file_name");
 		file.close();
-		file.read();
+		file.read(); // ERROR
 	}
 	
 	public void test3() throws IOException
@@ -38,7 +37,9 @@ public class FileInputStreamTest {
 		file.close();
 		
 		file = new FileInputStream("the_file_name");
-		file.read();
+		file.read();  // Not an error because of soot's compilation.
+					  // The current file and the previous file are two 
+					  // different locals.
 		file.close();
 	}
 	
@@ -56,7 +57,7 @@ public class FileInputStreamTest {
 		for(int c=0; c < 100; ++c)
 		{
 			FileInputStream file = new FileInputStream("the_file_name");
-			file.read();
+			file.read(); // ERROR (non unique)
 			file.close();
 		}
 	}
