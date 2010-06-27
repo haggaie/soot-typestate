@@ -83,7 +83,6 @@ public class LatticeNode {
 	public ASInfo getASInfo(AllocationSiteSet allocSite)
 	{
 		if (!map.containsKey(allocSite))
-//			TODO map.put(allocSite, fullASInfo.clone());
 			return null;
 		return map.get(allocSite);
 	}
