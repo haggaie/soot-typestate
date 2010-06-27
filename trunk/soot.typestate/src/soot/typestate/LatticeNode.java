@@ -10,7 +10,6 @@ import java.util.Map.Entry;
 
 import soot.Local;
 import soot.jimple.AssignStmt;
-import soot.jimple.internal.JAssignStmt;
 import soot.toolkits.scalar.BoundedFlowSet;
 import soot.toolkits.scalar.FlowUniverse;
 

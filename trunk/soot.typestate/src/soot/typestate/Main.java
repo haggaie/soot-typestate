@@ -22,14 +22,10 @@ import soot.typestate.automata.ClassAutomaton;
  */
 public class Main {
 
-	final static boolean pointsToAnalysis = true;
 	static {
 		// Set soot options before starting
-		if (pointsToAnalysis)
-		{
-			soot.options.Options.v().set_whole_program(true);
-			soot.options.Options.v().setPhaseOption("cg","verbose:true");
-		}
+		soot.options.Options.v().set_whole_program(true);
+		soot.options.Options.v().setPhaseOption("cg","verbose:true");
 	}
 	
 	/**
@@ -50,18 +46,17 @@ public class Main {
 		
 		SootClass klass = Scene.v().loadClassAndSupport(args[0]);
 		Scene.v().loadNecessaryClasses();
-		if (pointsToAnalysis) {
-			klass.setApplicationClass();
-			Scene.v().setMainClass(klass);
-			Scene.v().setEntryPoints(EntryPoints.v().all());
-			runSpark();
-		}
+	
+		klass.setApplicationClass();
+		Scene.v().setMainClass(klass);
+		Scene.v().setEntryPoints(EntryPoints.v().all());
+		runSpark();
 		
 		for (SootMethod method : klass.getMethods()) {
 			System.out.println(method);
 			Body body = method.retrieveActiveBody();
 			UnitGraph graph = new BriefUnitGraph(body);
-			Typestate typestate = new Typestate(graph, automaton, pointsToAnalysis);
+			Typestate typestate = new Typestate(graph, automaton);
 			
 			System.out.println(method);
 			System.out.flush();
