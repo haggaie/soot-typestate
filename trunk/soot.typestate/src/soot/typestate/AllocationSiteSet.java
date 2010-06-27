@@ -55,4 +55,14 @@ public class AllocationSiteSet {
 		AllocationSiteSet other = (AllocationSiteSet) obj;
 		return allocSite.hasNonEmptyIntersection(other.allocSite);
 	}
+
+	public int size() {
+		if (allocSite instanceof EmptyPointsToSet)
+			return 0;
+		else if (allocSite instanceof PointsToSetInternal) {
+			PointsToSetInternal pts = (PointsToSetInternal) allocSite;
+			return pts.size();
+		}
+		return -1;
+	}
 }

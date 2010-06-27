@@ -1,9 +1,9 @@
 package java.util;
 
 automaton Stack {
-	initial = EMPTY;
+	initial = MAYBE_EMPTY;
 	error = ERROR;
-	state EMPTY {
+	state MAYBE_EMPTY {
 		boolean add(java.lang.Object) -> NON_EMPTY;
 		boolean add(int,java.lang.Object) -> NON_EMPTY;
 		boolean addAll(java.util.Collection) -> NON_EMPTY;
@@ -13,11 +13,13 @@ automaton Stack {
 
 		Object pop() -> ERROR;
 		Object peek() -> ERROR;
+		
+		boolean empty() returns false -> NON_EMPTY;
 	}
 	
 	state NON_EMPTY {
-		void clear() -> EMPTY;
-		boolean empty() returns true -> EMPTY;
+		void clear() -> MAYBE_EMPTY;
+		Object pop() -> MAYBE_EMPTY;
 	}
 	
 	state ERROR {}

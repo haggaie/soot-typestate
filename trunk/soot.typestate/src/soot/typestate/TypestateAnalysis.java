@@ -148,7 +148,7 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 
 			private void handleInvokeExpr(InvokeExpr invokeExpr) {
 				final SootMethodRef methodRef = invokeExpr.getMethodRef();
-				// Check if our type is passed as a parameter
+				// Check if our type is passed as a parameter. If it is, turn it conservatively to top.
 				for (Object arg : invokeExpr.getArgs()) {
 					if (arg instanceof Local) {
 						Local localArg = (Local) arg;
@@ -171,22 +171,26 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 
 				Local base = (Local) instanceInvokeExpr.getBase();
 				if (!ourType(base))
+					// not our type
 					return;
 				if (!methodRef.declaringClass().equals(automaton.getKlass())) {
 					setOutTop(base);
 					return;
 				}
-				in.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(node, base), new ASInfoVisitor() {
+				
+				// For each allocation site referred to by base:
+				final AllocationSiteSet allocSites = allocationSiteHandler.getUseAllocationSites(node, base);
+				in.forEachAllocationSite(allocSites, new ASInfoVisitor() {
 					@Override
 					public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
 						ASInfo outInfo = out.getASInfo(allocSite);
-						if (outInfo == null)
-							out.addASInfo(allocSite, inInfo.clone());
+//						if (outInfo == null)
+//							out.addASInfo(allocSite, inInfo.clone());
 						
-						BoundedFlowSet  states = inInfo.getStates(),
+						BoundedFlowSet states = inInfo.getStates(),
 						nextStates = automaton.getDelta(methodRef.resolve(), states);
 				
-						if (inInfo.isUnique())
+						if (inInfo.isUnique() && allocSites.size() == 1)
 						{
 							assert outInfo.isUnique();
 							outInfo.setStates(nextStates);

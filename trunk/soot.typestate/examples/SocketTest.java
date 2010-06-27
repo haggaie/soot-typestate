@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -25,7 +23,7 @@ public class SocketTest {
 	@Test(expected = SocketException.class)
 	public void testSocket() throws IOException {
 		Socket s = new Socket();
-		s.getInputStream();
+		s.getInputStream(); // ERROR
 	}
 
 	/**
@@ -54,7 +52,7 @@ public class SocketTest {
 	public void testClose() throws UnknownHostException, IOException	{
 		Socket s = new Socket("www.google.com", 80);
 		s.close();
-		s.getInputStream();
+		s.getInputStream(); // ERROR
 	}
 
 	public static void main(String args[]) throws Exception

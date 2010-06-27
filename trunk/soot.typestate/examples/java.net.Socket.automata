@@ -14,7 +14,7 @@ automaton Socket {
 		void connect(SocketAddress, int) 	-> CONNECTED;
 		
 		InputStream getInputStream()	-> ERROR;
-		OutputStream getOutputStream()	-> ERROR; 
+		OutputStream getOutputStream()	-> ERROR;
 	}
 	
 	state CONNECTED {
