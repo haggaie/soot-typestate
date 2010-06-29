@@ -1,0 +1,406 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Verification and Abstract Interpretation Project
+\begin_inset Newline newline
+\end_inset
+
+Typestate Analysis
+\end_layout
+
+\begin_layout Author
+Haggai Eran 043425321 Shaked Flur 036333094
+\end_layout
+
+\begin_layout Section*
+Short Description
+\end_layout
+
+\begin_layout Standard
+We implmented an intraprocedural typestate analysis, with support for different
+ state transitions in branches.
+ We use the Spark points-to analysis available in Soot.
+\end_layout
+
+\begin_layout Subsection*
+Lattice
+\end_layout
+
+\begin_layout Standard
+For each allocation site we have a lattice of the form 
+\begin_inset Formula $ASInfo:\left\langle unique,states\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Formula $unique$
+\end_inset
+
+ bit determines if there is only one object of this site, as seen in class.
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Formula $states$
+\end_inset
+
+ set contains the possible states the objects of this site may be in.
+\end_layout
+
+\begin_layout Standard
+The analysis' lattice contains an 
+\begin_inset Formula $ASInfo$
+\end_inset
+
+ tuple for each allocation site.
+\end_layout
+
+\begin_layout Subsection*
+Branches
+\end_layout
+
+\begin_layout Standard
+We wanted to support different state transisions in branches, such as the
+ case below:
+\end_layout
+
+\begin_layout LyX-Code
+Stack s = new Stack();
+\end_layout
+
+\begin_layout LyX-Code
+boolean b = s.empty();
+\end_layout
+
+\begin_layout LyX-Code
+if (!b)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+s.pop();
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Basic typestate analysis will find an error on the 
+\family typewriter
+s.pop()
+\family default
+ call, since 
+\family typewriter
+s
+\family default
+ is in state MAYBE_EMPTY.
+ We overcome this problem by introducing branch dependant transisions: when
+ the '
+\family typewriter
+if
+\family default
+' body is executed, it is always after the 
+\family typewriter
+empty()
+\family default
+ method returned false, so the state of 
+\family typewriter
+s
+\family default
+ inside the '
+\family typewriter
+if
+\family default
+' is changed to NOT_EMPTY.
+\end_layout
+
+\begin_layout Standard
+In order to add such support, we want to relate between the condition 
+\family typewriter
+!b
+\family default
+ in the 
+\family typewriter
+if
+\family default
+ statement, and 
+\family typewriter
+s
+\family default
+ and the method call 
+\family typewriter
+empty()
+\family default
+.
+ To do that we added to the lattice a variation of reaching definition analysis.
+ This part of the lattice maps for each boolean local variable, its defining
+ statement.
+\end_layout
+
+\begin_layout Subsection*
+Automata
+\end_layout
+
+\begin_layout Standard
+Here is an (incomplete) example of our automata syntax.
+ The first two lines define the special states initial and error.
+ Each state is defined in a 
+\family typewriter
+state
+\family default
+ block, containing a list of transitions stated as 
+\emph on
+method signature
+\emph default
+ 
+\family typewriter
+->
+\family default
+ 
+\emph on
+next state
+\emph default
+.
+\end_layout
+
+\begin_layout LyX-Code
+automaton Stack {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+initial = MAYBE_EMPTY;
+\end_layout
+
+\begin_layout LyX-Code
+error = ERROR;
+\end_layout
+
+\begin_layout LyX-Code
+state MAYBE_EMPTY {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Object push(Object) -> NON_EMPTY;
+\end_layout
+
+\begin_layout LyX-Code
+Object pop() -> ERROR;
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+boolean empty() returns false -> NON_EMPTY;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+state NON_EMPTY {
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+void clear() -> MAYBE_EMPTY;
+\end_layout
+
+\begin_layout LyX-Code
+Object pop() -> MAYBE_EMPTY;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+state ERROR {}
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Standard
+In addition to the ordinary method transitions, the definition contains
+ a transition depending on a branch, for the 
+\family typewriter
+empty()
+\family default
+ method.
+ If the current state is MAYBE_EMPTY, and a branch is taken indicating the
+ return value of an 
+\family typewriter
+empty()
+\family default
+ call was false, the next state will be NON_EMPTY.
+\end_layout
+
+\begin_layout Standard
+This technique is useful when there are states such that one is semantically
+ contained in another, as is the case here where MAYBE_EMPTY contains the
+ NON_EMPTY state.
+\end_layout
+
+\begin_layout Standard
+Methods that do not appear in a state transitions list are assumed to keep
+ the current state.
+\end_layout
+
+\begin_layout Subsection*
+Lattice Transformers
+\end_layout
+
+\begin_layout Standard
+For method invocation, if there is only a single object of the given allocation
+ site (determined by the 
+\begin_inset Formula $unique$
+\end_inset
+
+ bit), and only one allocation site, we perform a strong update, and change
+ the 
+\begin_inset Formula $states$
+\end_inset
+
+ part to next states.
+ If 
+\begin_inset Formula $unique$
+\end_inset
+
+ bit is false, or there are more than one allocation site, a weak update
+ is performed, and the resulting 
+\begin_inset Formula $states$
+\end_inset
+
+ contains both the previous states and the next ones.
+\end_layout
+
+\begin_layout Standard
+In allocation sites, the site's ASInfo is set to the automaton's initial
+ state.
+ The unique bit is set or unset as needed.
+\end_layout
+
+\begin_layout Standard
+For assignment statements where a method result is assigned to a local boolean,
+ we set the statement as the local's defining statement.
+ If later a method is invoked on the base object's allocation site then
+ the defining statement is set to 
+\begin_inset Formula $\top$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If statements are handled by checking if their condition is a simple boolean
+ check on a local.
+ If so, we find the defining statement of that local, and see if it is a
+ method invocation.
+ If it is, we set the output 
+\begin_inset Formula $states$
+\end_inset
+
+ set differently in the branch case and the fall case, according to the
+ automaton.
+ In other cases the if is treated as a nop.
+\end_layout
+
+\begin_layout Standard
+In cases where a data member of our class is read or written to, we cannot
+ guarentee that the state will not change, so to preserve soundness we set
+ the ASInfo value of the allocation site associated with the object to 
+\begin_inset Formula $\top$
+\end_inset
+
+.
+ This is done also when our class is passed as an argument to a method call,
+ and when it is stored in another object's field.
+\end_layout
+
+\begin_layout Subsection*
+Lattice Join
+\end_layout
+
+\begin_layout Standard
+For each allocation site, the join is done separately:
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $states$
+\end_inset
+
+ sets' union is taken, and the result of the join is 
+\begin_inset Formula $unique$
+\end_inset
+
+ if both are set.
+\end_layout
+
+\begin_layout Standard
+For boolean locals, if a single boolean local has two different defining
+ statements, one from each side of the join, the result is 
+\begin_inset Formula $\top$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
