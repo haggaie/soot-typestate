@@ -41,6 +41,7 @@ public class Main {
 		}
 
 		System.out.println("Loading automaton from: " + args[1]);
+		// Setup the XText based automata parser.
 		AutomataStandaloneSetup.doSetup();
 		ClassAutomaton automaton = ClassAutomaton.load(args[1]);		
 		
@@ -49,6 +50,7 @@ public class Main {
 		SootClass klass = Scene.v().loadClassAndSupport(args[0]);
 		Scene.v().loadNecessaryClasses();
 	
+		// Set the this class as the main class for Soot's whole-program analysis.
 		klass.setApplicationClass();
 		Scene.v().setMainClass(klass);
 		Scene.v().setEntryPoints(EntryPoints.v().all());
@@ -68,6 +70,9 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Run the Spark points-to analysis
+	 */
 	private static void runSpark() {
 		HashMap<String, String> opt = new HashMap<String, String>();
 		opt.put("enabled", "true");
