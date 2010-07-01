@@ -1,6 +1,3 @@
-/**
- * 
- */
 package soot.typestate;
 
 import java.util.ArrayList;
@@ -33,25 +30,26 @@ import soot.typestate.LatticeNode.ASInfoVisitor;
 import soot.typestate.automata.ClassAutomaton;
 
 /**
- * @author haggaie
- *
+ * The TypestateAnalysis class implements the typestate analysis itself.
+ * Given an automaton and a method, it performs dataflow analysis using 
+ * its base class ForwardBranchedFlowAnalysis.
+ * 
+ * @author Haggai Eran
+ * @author Shaked Flur
  */
 public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> {
-	private static final class SetTop implements ASInfoVisitor {
-		@Override
-		public void visit(AllocationSiteSet allocSite,
-				ASInfo asInfo) {
-			asInfo.setTop(true);
-		}
-	}
-
-	// Our automaton
+	/// Our automaton.
 	private final ClassAutomaton automaton;
-	// The FlowUniverse of state numbers.
+	/// Describes the complete set of states.
 	private final FlowUniverse<Integer> statesUniverse;
-	// Allocation site handler that finds allocation sites of variables
+	/// Allocation site handler that finds allocation sites of variables, using spark.
 	private final AllocationSiteHandler allocationSiteHandler;
 	
+	/**
+	 * Construct a new TypestateAnalysis object and perform the analysis.
+	 * @param graph A flow-graph of the method to analyze.
+	 * @param automaton The automaton to use in the analysis.
+	 */
 	TypestateAnalysis(UnitGraph graph, ClassAutomaton automaton)
     {
         super(graph);
@@ -61,109 +59,179 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
         doAnalysis();
     }
 	
-	boolean ourType(Value local) {
-		return local.getType() instanceof RefType &&
-			((RefType) local.getType()).getSootClass().equals(automaton.getKlass());
+	/**
+	 * A helper method to determine if a given value is declared as the type
+	 * we are analyzing.
+	 * @param value The value to check.
+	 * @return true if the value is a reference type to our class.
+	 */
+	private boolean ourType(Value value) {
+		return value.getType() instanceof RefType &&
+			((RefType) value.getType()).getSootClass().equals(automaton.getKlass());
 	}
-	
+
+	/**
+	 * Implement the transformation performed by a single statement.
+	 * 
+	 * @param in The statement's input lattice node.
+	 * @param node The statement itself.
+	 * @param fallOut A list of output lattice nodes, one for each fall-target 
+	 * 				  of the statement.
+	 * @param branchOuts A list of output lattice nodes, one for each 
+	 * 					 branch-target of the statement.
+	 */
 	@Override
 	protected void flowThrough(final LatticeNode in, final Unit node, 
             List<LatticeNode> fallOut, List<LatticeNode> branchOuts) {
+		// New output nodes that will be copied to the fallOut and branchOuts 
+		// lists according to the current statement.
 		final LatticeNode out = new LatticeNode(in),
 		      			  outBranch = new LatticeNode(in);
+		/*
+		 * This variable determines whether we need a different fall and branch
+		 * output nodes. It is a singleton list of Boolean, since we need access
+		 * to it by reference from within the visitor anonymous class.
+		 */
 		final List<Boolean> differentFallAndBranch = new ArrayList<Boolean>(1);
 		differentFallAndBranch.add(false);
 		
+		// Use a visitor to handle the different types of statements
 		node.apply(new AbstractStmtSwitch() {
+			/**
+			 * Handles assignment statements.
+			 * 
+			 * @param stmt An assignment statement.
+			 */
 			@Override
 			public void caseAssignStmt(AssignStmt stmt) {
-				Value r = stmt.getRightOp();
-				// Treat statements like (not local) = ourclass;
-				if (!(stmt.getLeftOp() instanceof Local)) {
-					if (r instanceof Local) {
-						Local right = (Local) r;
-						if (ourType(right)) {
-							setOutTop(right);
-						}
-					}
-				}
-				// Treat statements like ? = ourclass.b
-				if (r instanceof InstanceFieldRef) {
-					InstanceFieldRef right = (InstanceFieldRef) r;
-					if (ourType(right.getBase())) {
-						setOutTop(right.getBase());
-					}
-				}
-				// Treat statements like ourclass.? = ?
-				if (stmt.getLeftOp() instanceof InstanceFieldRef) {
-					InstanceFieldRef left = (InstanceFieldRef) stmt.getLeftOp();
-					if (ourType(left.getBase())) {
-						setOutTop(left.getBase());
-					}
-				}
-				if (r instanceof InvokeExpr) {
-					InvokeExpr invokeExpr = (InvokeExpr) r;
+				checkObjectEscaping(stmt);
+				if (stmt.getRightOp() instanceof InvokeExpr) {
+					InvokeExpr invokeExpr = (InvokeExpr) stmt.getRightOp();
 					handleInvokeExpr(invokeExpr);
 				}
-				// Make sure this local is of an interesting type
 				if (!(stmt.getLeftOp() instanceof Local))
 					return;
 				Local local = (Local) stmt.getLeftOp();
 				if (ourType(local)) {
-					AllocationSiteSet allocSite = allocationSiteHandler.getDefAllocationSite(stmt);
+					AllocationSiteSet allocSite = 
+						allocationSiteHandler.getDefAllocationSite(stmt);
 					if (allocSite != null)
-					{
-						final ASInfo inAsInfo  = in.getASInfo(allocSite),
-									 outAsInfo = out.getASInfo(allocSite);
-						if (inAsInfo != null)
-						{
-							inAsInfo.copy(outAsInfo);
-							outAsInfo.setUnique(false);
-						}
-						else
-						{
-							final ASInfo newOutInfo = new ASInfo(automaton.getInitialState());
-							out.addASInfo(allocSite, newOutInfo);
-						}
-					}
+						handleAllocation(allocSite);
 				}
 				else if (local.getType() instanceof BooleanType) {
-					if (stmt.getRightOp() instanceof InstanceInvokeExpr) {
-						InstanceInvokeExpr invokeExpr = (InstanceInvokeExpr) stmt.getRightOp();
-						Local base = (Local) invokeExpr.getBase();
-						if (!ourType(base))
-							out.killConditional(local);
-						
-						out.setConditional(local, stmt);
-					}
-					else
-						out.killConditional(local);
+					handleBooleanAssignment(stmt, local);
 				}
 			}
+
+			/**
+			 * Check whether the given statement causes an object of our class
+			 * to escape the local scope, and whether its member fields are
+			 * accessed.
+			 * 
+			 * If one of these conditions occur, the allocation site info of 
+			 * this object is set to top, to preserve soundness.
+			 * 
+			 * @param stmt The current assignment statement.
+			 */
+			private void checkObjectEscaping(AssignStmt stmt) {
+				Value r = stmt.getRightOp();
+				// Treat statements like (not local) = ourclass;
+				if (!(stmt.getLeftOp() instanceof Local))
+					setOutTop(r);
+				
+				// Treat statements like ? = ourclass.b
+				if (r instanceof InstanceFieldRef) {
+					InstanceFieldRef right = (InstanceFieldRef) r;
+					setOutTop(right.getBase());
+				}
+				
+				// Treat statements like ourclass.? = ?
+				if (stmt.getLeftOp() instanceof InstanceFieldRef) {
+					InstanceFieldRef left = (InstanceFieldRef) stmt.getLeftOp();
+					setOutTop(left.getBase());
+				}
+			}
+
+			/**
+			 * Handle an allocation site.
+			 * 
+			 * The current statement is an assignment whose right side is a
+			 * <code>new</code> expression.
+			 * 
+			 * @param allocSite The allocation site object representing the
+			 * 					result from Spark.
+			 */
+			private void handleAllocation(AllocationSiteSet allocSite) {
+				final ASInfo inAsInfo  = in.getASInfo(allocSite),
+							 outAsInfo = out.getASInfo(allocSite);
+				if (inAsInfo != null) {
+					// If we already have this allocation site in the input
+					// lattice, then it cannot be unique.
+					inAsInfo.copy(outAsInfo);
+					outAsInfo.setUnique(false);
+				}
+				else {
+					// Add this allocation site to the output lattice, in the
+					// initial state.
+					final ASInfo newOutInfo = new ASInfo(automaton.getInitialState());
+					out.addASInfo(allocSite, newOutInfo);
+				}
+			}
+
+			/**
+			 * Handle the case of an assignment to a boolean local. 
+			 * 
+			 * This is used to keep track of the definitions of such locals that 
+			 * are alive, they are defined by a method call to an object of our 
+			 * class, and their object's state hasn't changed since the 
+			 * definition.
+			 * 
+			 * @param stmt The assignment statement.
+			 * @param local The boolean local.
+			 */
+			private void handleBooleanAssignment(AssignStmt stmt, Local local) {
+				if (stmt.getRightOp() instanceof InstanceInvokeExpr) {
+					InstanceInvokeExpr invokeExpr = (InstanceInvokeExpr) stmt.getRightOp();
+					Local base = (Local) invokeExpr.getBase();
+					if (!ourType(base))
+						out.killConditional(local);
+					
+					out.setConditional(local, stmt);
+				}
+				else
+					out.killConditional(local);
+			}
 			
+			/**
+			 * Handles method invocation statements.
+			 * 
+			 * @param stmt The invocation statement.
+			 */
 			@Override
 			public void caseInvokeStmt(InvokeStmt stmt) {
 				InvokeExpr invokeExpr = stmt.getInvokeExpr();
 				handleInvokeExpr(invokeExpr);
 			}
 
+			/**
+			 * Handle a method call expression.
+			 * 
+			 * These can be found both in invocation statements, handled by
+			 * caseInvokeStmt(), when the return value is ignored, and also in
+			 * assignment statements, handled by caseAssignStmt(), when the
+			 * return value is stored.
+			 * 
+			 * @param invokeExpr - The method invocation expression.
+			 */
 			private void handleInvokeExpr(InvokeExpr invokeExpr) {
 				final SootMethodRef methodRef = invokeExpr.getMethodRef();
-				// Check if our type is passed as a parameter. If it is, turn it conservatively to top.
+				// Check if our type is passed as a parameter. 
+				// If it is, turn it conservatively to top.
 				for (Object arg : invokeExpr.getArgs()) {
-					if (arg instanceof Local) {
-						Local localArg = (Local) arg;
-						if (ourType(localArg)) {
-							setOutTop(localArg);
-							break;
-						}
-					}
+					setOutTop(arg);
 					if (arg instanceof InstanceFieldRef) {
 						InstanceFieldRef fieldRef = (InstanceFieldRef) arg;
-						if (ourType(fieldRef.getBase())) {
-							setOutTop(fieldRef.getBase());
-							break;
-						}
+						setOutTop(fieldRef.getBase());
 					}
 				}
 				if (!(invokeExpr instanceof InstanceInvokeExpr))
@@ -172,48 +240,97 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 
 				Local base = (Local) instanceInvokeExpr.getBase();
 				if (!ourType(base))
-					// not our type
 					return;
 				if (!methodRef.declaringClass().equals(automaton.getKlass())) {
+					// The method belongs to a super-class or a sub-class.
+					// Since these are not part of the automaton, we do not know
+					// how they might affect the state.
 					setOutTop(base);
 					return;
 				}
 				
-				// For each allocation site referred to by base:
-				final AllocationSiteSet allocSites = allocationSiteHandler.getUseAllocationSites(node, base);
-				in.forEachAllocationSite(allocSites, new ASInfoVisitor() {
-					@Override
-					public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
-						ASInfo outInfo = out.getASInfo(allocSite);
-//						if (outInfo == null)
-//							out.addASInfo(allocSite, inInfo.clone());
-						
-						BoundedFlowSet states = inInfo.getStates(),
-						nextStates = automaton.getDelta(methodRef.resolve(), states);
-				
-						if (inInfo.isUnique() && allocSites.size() == 1)
-						{
-							assert outInfo.isUnique();
-							outInfo.setStates(nextStates);
-						}
-						else
-						{
-							inInfo.copy(outInfo);
-							outInfo.merge(nextStates);
-						}
-					}
-				});
+				// For each allocation site referred to by base perform the 
+				// state update.
+				final AllocationSiteSet allocSites = 
+					allocationSiteHandler.getUseAllocationSites(node, base);
+				in.forEachAllocationSite(allocSites, 
+						new PerformStateUpdate(allocSites, methodRef));
 				
 				out.killConditional(base);
 			}
 
-			private void setOutTop(Value arg) {
-				if (arg instanceof Local) {
-					Local local = (Local) arg;
-					out.forEachAllocationSite(allocationSiteHandler.getUseAllocationSites(node, local), new SetTop());
+			/**
+			 * A visitor that performs the state update for each allocation site.
+			 */
+			final class PerformStateUpdate implements ASInfoVisitor {
+				private final boolean singleAllocationSite;
+				private final SootMethodRef methodRef;
+			
+				/**
+				 * Constructs the visitor.
+				 * 
+				 * @param allocSites The set of allocation sites to update.
+				 * @param methodRef The method invoked.
+				 */
+				private PerformStateUpdate(AllocationSiteSet allocSites, 
+						SootMethodRef methodRef) {
+					this.singleAllocationSite = allocSites.size() == 1;
+					this.methodRef = methodRef;
+				}
+			
+				@Override
+				public void visit(AllocationSiteSet allocSite, ASInfo inInfo) {
+					ASInfo outInfo = out.getASInfo(allocSite);
+					
+					BoundedFlowSet states = inInfo.getStates(),
+					nextStates = automaton.getDelta(methodRef.resolve(), states);
+			
+					if (inInfo.isUnique() && singleAllocationSite)
+						// Perform a strong update.
+						outInfo.setStates(nextStates);
+					else
+						// Perform a weak update
+//						inInfo.copy(outInfo);
+						outInfo.merge(nextStates);
 				}
 			}
+
+			/**
+			 * Check whether the argument is of our class, and if so set its
+			 * ASInfo in the output lattice to top.
+			 * 
+			 * @param arg The value to check.
+			 * @return true if the value was in fact set to top.
+			 */
+			private boolean setOutTop(Object arg) {
+				if (!(arg instanceof Local))
+					return false;
+				
+				Local local = (Local) arg;
+				if (!ourType(local))
+					return false;
+				
+				out.forEachAllocationSite(
+					allocationSiteHandler.getUseAllocationSites(node, local), 
+						new ASInfoVisitor() {
+							@Override
+							public void visit(AllocationSiteSet allocSite,
+									ASInfo asInfo) {
+								asInfo.setTop(true);
+							}
+						}); 
+				return true;
+			}
 			
+			/**
+			 * Handles an if-statement.
+			 * 
+			 * Check if the condition is of the form <code>local == true</code>
+			 * or <code>local == false</code>, and if so pass it to 
+			 * handleBooleanCondition().
+			 * 
+			 * @param stmt The if-statement.
+			 */
 			@Override
 			public void caseIfStmt(IfStmt stmt) {
 				if (stmt.getCondition() instanceof EqExpr) {
@@ -230,35 +347,53 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 					}
 					else
 						return;
-					AssignStmt defStmt = in.getConditional(local);
-					if (defStmt == null)
-						return;
-					if (!(defStmt.getInvokeExpr() instanceof InstanceInvokeExpr))
-						return;
-					InstanceInvokeExpr invokeExpr = (InstanceInvokeExpr) defStmt.getInvokeExpr();
-					AllocationSiteSet allocSite = allocationSiteHandler.getUseAllocationSites(defStmt, (Local)invokeExpr.getBase());
 					
-					final SootMethod method = invokeExpr.getMethod();
-
-					in.forEachAllocationSite(allocSite, new ASInfoVisitor() {
-						@Override
-						public void visit(AllocationSiteSet allocSite, ASInfo asInfo) {
-							final BoundedFlowSet nextStatesTrue  = automaton.getDelta(method, 
-									constant.value != 0, asInfo.getStates());
-							final BoundedFlowSet nextStatesFalse = automaton.getDelta(method, 
-									constant.value == 0, asInfo.getStates());
-							if (asInfo.isUnique()) {
-								// Strong update
-								differentFallAndBranch.set(0, true);
-								out.getASInfo(allocSite).setStates(nextStatesFalse);
-								outBranch.getASInfo(allocSite).setStates(nextStatesTrue);
-							}
-						}
-					});
+					handleBooleanCondition(local, constant);
 				}
+			}
+
+			/**
+			 * Handles a boolean condition of the form 
+			 * <code>local == true/false</code>.
+			 * 
+			 * Checks if there is a live definition of the local as the returned
+			 * value from our class' method call. If so change the state of the
+			 * fall and branch output lattice accordingly.
+			 * 
+			 * @param local The boolean local.
+			 * @param constant The constant it is being compared with.
+			 */
+			private void handleBooleanCondition(Local local,
+					final IntConstant constant) {
+				AssignStmt defStmt = in.getConditional(local);
+				if (defStmt == null)
+					return;
+				if (!(defStmt.getInvokeExpr() instanceof InstanceInvokeExpr))
+					return;
+				InstanceInvokeExpr invokeExpr = (InstanceInvokeExpr) defStmt.getInvokeExpr();
+				AllocationSiteSet allocSite = allocationSiteHandler.getUseAllocationSites(defStmt, (Local)invokeExpr.getBase());
+				
+				final SootMethod method = invokeExpr.getMethod();
+
+				in.forEachAllocationSite(allocSite, new ASInfoVisitor() {
+					@Override
+					public void visit(AllocationSiteSet allocSite, ASInfo asInfo) {
+						final BoundedFlowSet nextStatesTrue  = automaton.getDelta(method, 
+								constant.value != 0, asInfo.getStates());
+						final BoundedFlowSet nextStatesFalse = automaton.getDelta(method, 
+								constant.value == 0, asInfo.getStates());
+						if (asInfo.isUnique() && allocSite.size() == 1) {
+							// Strong update
+							differentFallAndBranch.set(0, true);
+							out.getASInfo(allocSite).setStates(nextStatesFalse);
+							outBranch.getASInfo(allocSite).setStates(nextStatesTrue);
+						}
+					}
+				});
 			}
 		});
 		
+		// Copy the output lattice node to the fallOut and branchOut lists.
 		for (LatticeNode latticeNode : fallOut) {
 			out.copy(latticeNode);
 		}
