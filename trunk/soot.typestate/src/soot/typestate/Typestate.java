@@ -7,8 +7,6 @@ import soot.typestate.automata.ClassAutomaton;
 /**
  * The Typestate class wraps the TypestateAnalysis class for running
  * the analysis and printing the results.
- * 
- * @author fshaked
  */
 public class Typestate {
 	TypestateAnalysis analysis;
@@ -33,6 +31,7 @@ public class Typestate {
 	 */
 	public void printResults()
 	{
+		boolean hasErrors = false;
 		for (Unit unit : graph) {
 			// An error is printed if the current node didn't contain an error state in the lattice element
 			// before it, but does in its output lattice node.
@@ -40,8 +39,10 @@ public class Typestate {
 			LatticeNode afterNode = analysis.getFallFlowAfter(unit);
 			if (!beforeNode.hasState( automaton.getErrorState() ) && afterNode.hasState( automaton.getErrorState() )) {
 				System.out.println(" ** found error in line " + unit.getTag("LineNumberTag").toString());
+				hasErrors = true;
 			}
 		}
-		System.out.flush();
+		if (!hasErrors)
+			System.out.println(" ** No errors.");
 	}
 }

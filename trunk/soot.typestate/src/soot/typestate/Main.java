@@ -1,6 +1,3 @@
-/**
- * 
- */
 package soot.typestate;
 
 import java.util.HashMap;
@@ -11,16 +8,11 @@ import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.jimple.spark.SparkTransformer;
-import soot.options.Options;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.typestate.automata.AutomataStandaloneSetup;
 import soot.typestate.automata.ClassAutomaton;
 
-/**
- * @author fshaked
- *
- */
 public class Main {
 
 	static {
@@ -29,10 +21,7 @@ public class Main {
 //		soot.options.Options.v().setPhaseOption("cg","verbose:true");
 	}
 	
-	/**
-	 * @param args
-	 * @throws Exception 
-	 */
+
 	public static void main(String[] args) throws Exception {
 		if (args.length != 2)
 		{
@@ -57,15 +46,12 @@ public class Main {
 		System.out.println("Running Spark points-to analysis. This can take a while ...");
 		runSpark();
 		
+		// Iterate on the class methods and analyze each one. 
 		for (SootMethod method : klass.getMethods()) {
-			if (Options.v().verbose())
-				System.out.println(method);
+			System.out.println("Analysing method: " + method);
 			Body body = method.retrieveActiveBody();
 			UnitGraph graph = new BriefUnitGraph(body);
 			Typestate typestate = new Typestate(graph, automaton);
-			
-			System.out.println("Analysing method: " + method);
-			System.out.flush();
 			typestate.printResults();
 		}
 	}
@@ -81,7 +67,6 @@ public class Main {
 		opt.put("double-set-old", "hybrid");
 		opt.put("double-set-new", "hybrid");
 		opt.put("propagator", "worklist");
-//		opt.put("on-fly-cg", "true");
 		SparkTransformer.v().transform("", opt);
 	}
 	

@@ -79,11 +79,6 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="FileInputStreamTest">
-        <java classname="FileInputStreamTest" failonerror="true" fork="yes">
-            <classpath refid="soot.typestate.classpath"/>
-        </java>
-    </target>
     <target name="Main - FileInputStream">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
             <jvmarg line="-Xmx512m"/>
@@ -104,21 +99,5 @@
             <arg line="StackTest examples/java.util.Stack.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
-    </target>
-    <target name="StackTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="StackTest" todir="${junit.output.dir}"/>
-            <classpath refid="soot.typestate.classpath"/>
-        </junit>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
     </target>
 </project>

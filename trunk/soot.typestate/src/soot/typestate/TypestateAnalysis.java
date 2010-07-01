@@ -33,9 +33,6 @@ import soot.typestate.automata.ClassAutomaton;
  * The TypestateAnalysis class implements the typestate analysis itself.
  * Given an automaton and a method, it performs dataflow analysis using 
  * its base class ForwardBranchedFlowAnalysis.
- * 
- * @author Haggai Eran
- * @author Shaked Flur
  */
 public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> {
 	/// Our automaton.
@@ -316,7 +313,7 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 							@Override
 							public void visit(AllocationSiteSet allocSite,
 									ASInfo asInfo) {
-								asInfo.setTop(true);
+								asInfo.setTop();
 							}
 						}); 
 				return true;
