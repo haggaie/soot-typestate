@@ -7,10 +7,7 @@ import soot.jimple.spark.sets.P2SetVisitor;
 import soot.jimple.spark.sets.PointsToSetInternal;
 
 /**
- * An allocation sites that is an Integer. For use with points-to analysis
- * numbered allocation sites.
- * 
- * @author Haggai Eran
+ * Represents a set of allocation sites. For use with Spark points-to analysis.
  */
 public class AllocationSiteSet {
 	public final EqualsSupportingPointsToSet allocSite;

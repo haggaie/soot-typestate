@@ -1,27 +1,20 @@
-/**
- * 
- */
 package soot.typestate;
 
-import soot.toolkits.scalar.ArrayPackedSet;
 import soot.toolkits.scalar.BoundedFlowSet;
-import soot.toolkits.scalar.FlowUniverse;
 
 /**
- * @author fshaked
- *
+ * ASInfo is the information in the lattice for specific AS.
  */
 public class ASInfo {
+	/** Contains the set of possible states of the AS. */
 	private final BoundedFlowSet states;
-	private boolean unique = true, isTop = false;
+	/** Determines if there is only a single object of this AS. */
+	private boolean unique = true;
+	/** When true, the AS information is the top node. */
+	private boolean isTop = false;
 	
 	ASInfo(BoundedFlowSet states) {
 		this.states = states;
-	}
-	
-	ASInfo(FlowUniverse<Integer> statesUniverse)
-	{
-		states = new ArrayPackedSet(statesUniverse);
 	}
 	
 	ASInfo(ASInfo other)
@@ -36,7 +29,7 @@ public class ASInfo {
 		return new ASInfo(this);
 	}
 
-	// Merge the other node into this one.
+	/** Merge the other node into this one. */
 	public void merge(ASInfo other) {
 		if (isTop || other.isTop)
 			isTop = true;
@@ -46,22 +39,22 @@ public class ASInfo {
 		}
 	}
 	
-	// Add the new states to the current ones.
+	/** Add the new states to the current ones. */
 	public void merge(BoundedFlowSet newStates) {
 		states.union(newStates);
 	}
 	
-	// Return the set of states.
+	/** Return the set of states. */
 	public BoundedFlowSet getStates() {
 		return states;
 	}
 	
-	// Update the set of states.
+	/** Update the set of states. */
 	public void setStates(BoundedFlowSet  states) {
 		states.copy(this.states);
 	}
 	
-	// Copy our data into another node.
+	/** Copy our data into another node. */
 	public void copy(ASInfo outInfo) {
 		outInfo.setStates(states);
 		outInfo.unique = unique;
@@ -84,6 +77,7 @@ public class ASInfo {
 		return "ASInfo(" + states.toString() + ")";
 	}
 	
+	/** Check whether the given set of states intersects the AS' states. */ 
 	public boolean hasState(BoundedFlowSet state) {
 		if (isTop)
 			return true;
@@ -91,20 +85,19 @@ public class ASInfo {
 		result.intersection(state);
 		return !result.isEmpty();
 	}
-	
+
+	/** Returns whether the AS should be treated as unique. */
 	public boolean isUnique() {
 		return !isTop && unique;
 	}
 	
+	/** Sets the unique flag. */
 	public void setUnique(boolean unique) {
 		this.unique = unique;
 	}
 
-	public void setTop(boolean isTop) {
-		this.isTop = isTop;
-	}
-
-	public boolean isTop() {
-		return isTop;
+	/** Set the node to be top. */
+	public void setTop() {
+		this.isTop = true;
 	}
 }

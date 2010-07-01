@@ -1,6 +1,3 @@
-/**
- * 
- */
 package soot.typestate.automata.tests;
 
 import static org.junit.Assert.*;
@@ -12,10 +9,6 @@ import soot.SootMethod;
 import soot.typestate.automata.AutomataStandaloneSetup;
 import soot.typestate.automata.ClassAutomaton;
 
-/**
- * @author haggai
- *
- */
 public class Automaton {
 
 	/**

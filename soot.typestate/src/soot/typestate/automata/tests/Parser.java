@@ -1,6 +1,3 @@
-/**
- * 
- */
 package soot.typestate.automata.tests;
 
 import static org.junit.Assert.*;
@@ -21,11 +18,6 @@ import soot.typestate.automata.AutomataStandaloneSetup;
 import soot.typestate.automata.automata.Automata;
 import soot.typestate.automata.automata.Automaton;
 
-
-/**
- * @author haggaie
- *
- */
 public class Parser {
 
 	/**

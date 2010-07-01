@@ -1,6 +1,3 @@
-/**
- * 
- */
 package soot.typestate.automata;
 
 import java.util.ArrayList;
@@ -37,23 +34,57 @@ import soot.typestate.automata.automata.Transition;
 import soot.typestate.automata.automata.Type;
 
 /**
- * @author haggai
- *
+ * Holds an automaton, linked with the soot objects representing the class and its methods.
  */
 public class ClassAutomaton {
-	@SuppressWarnings("unchecked")
-	private final java.lang.Class javaClass;
+	/** The java Class this automaton describes. */
+	private final java.lang.Class<?> javaClass;
+	/** The soot object related to this class. */
 	private final SootClass sootClass;
-	// Maps from objects which are either SootMethod, or BranchedTransitionKey
+	/** 
+	 * Maps from objects which are either SootMethod, or BranchedTransitionKey, 
+	 * to the transition table.
+	 */
 	private final Map<Object, List<Integer>> map = new HashMap<Object, List<Integer>>();
+	/** The names of the automaton's states. */
 	private final ArrayList<String> stateNames = new ArrayList<String>();
+	/** Maps the state names to their number. */
 	private final Map<String, Integer> nameToState = new HashMap<String, Integer>();
 	
+	/** An identity delta function, used when building the automaton. */
 	private final List<Integer> trivialDelta;
 	// Holds the sets of states containing the initial, error and all states respectively.
 	private final BoundedFlowSet initialState, errorState, allStates;
 	
-	ClassAutomaton(Automaton automaton, Package pkg) throws ClassNotFoundException, SecurityException, NoSuchMethodException
+	/** Load an automaton from a file. */
+	public static ClassAutomaton load(String filename) throws Exception
+	{
+		// create resource set and resource 
+		ResourceSet resourceSet = new ResourceSetImpl();
+
+		Resource resource = resourceSet.createResource(URI.createFileURI(filename));
+		resource.load(null);
+		EList<Diagnostic> errors = resource.getErrors();
+		for (Diagnostic error : errors) {
+			System.err.println("Errors:");
+			System.err.println(error);
+		}
+		if (errors.size() > 0)
+			throw new Exception("Errors loading the automata file."); 
+		
+		Automata root = (Automata) resource.getContents().get(0);
+		
+		// TODO Currently only loading the first automaton 
+		return new ClassAutomaton(root.getAutomata().get(0), root.getPackage());
+	}
+	
+	/**
+	 * Construct a new automaton.
+	 * 
+	 * @param automaton the automaton object from the automaton textual description.
+	 * @param pkg the package name from the textual description.
+	 */
+	private ClassAutomaton(Automaton automaton, Package pkg) throws ClassNotFoundException, SecurityException, NoSuchMethodException
 	{
 		sootClass = resolveClass(automaton.getKlass(), pkg);
 		javaClass = java.lang.Class.forName(sootClass.getName());
@@ -75,27 +106,7 @@ public class ClassAutomaton {
 		allStates = new ArrayPackedSet(getFlowUniverse());
 		allStates.complement();
 	}
-	
-	public static ClassAutomaton load(String filename) throws Exception
-	{
-		// create resource set and resource 
-		ResourceSet resourceSet = new ResourceSetImpl();
 
-		Resource resource = resourceSet.createResource(URI.createFileURI(filename));
-		resource.load(null);
-		EList<Diagnostic> errors = resource.getErrors();
-		for (Diagnostic error : errors) {
-			System.err.println("Errors:");
-			System.err.println(error);
-		}
-		if (errors.size() > 0)
-			throw new Exception("Errors loading the automata file."); 
-		
-		Automata root = (Automata) resource.getContents().get(0);
-		
-		// TODO Currently only loading the first automaton 
-		return new ClassAutomaton(root.getAutomata().get(0), root.getPackage());
-	}
 
 	private void buildStates(EList<State> states) throws SecurityException, ClassNotFoundException, NoSuchMethodException {
 		int numStates = states.size();
@@ -136,6 +147,7 @@ public class ClassAutomaton {
 		return sootClass;
 	}
 
+	/** Return the transition table for a given method or branched transition key. */
 	public List<Integer> getDelta(Object key) {
 		if (!map.containsKey(key))
 			map.put(key, new ArrayList<Integer>(trivialDelta));
@@ -143,16 +155,25 @@ public class ClassAutomaton {
 		return map.get(key);
 	}
 	
+	/** 
+	 * Return the transition table for a given a branched transition.
+	 * 
+	 * @param method the method of the transition.
+	 * @param returnValue the return value.
+	 * @return a transition table.
+	 */
 	public List<Integer> getDelta(SootMethod method, boolean returnValue) {
 		BranchedTransitionKey key = new BranchedTransitionKey(method, returnValue);
 		return getDelta(key);
 	}
 	
+	/** Return the next state after a method transition. */
 	public int getDelta(SootMethod method, int state)
 	{
 		return getDelta(method).get(state);
 	}
 
+	/** Return the next state after a branched transition. */
 	public int getDelta(SootMethod method, boolean returnValue, int state)
 	{
 		return getDelta(method, returnValue).get(state);
@@ -170,6 +191,7 @@ public class ClassAutomaton {
 		return stateNames.get(getDelta(method, returnValue, getStateIndex(state)));
 	}
 	
+	/** Return the set of possible next states after a transition. */
 	@SuppressWarnings("unchecked")
 	public BoundedFlowSet  getDelta(Object key, FlowSet states)
 	{
@@ -182,11 +204,12 @@ public class ClassAutomaton {
 		return result;
 	}
 	
+	/** Return the set of possible next states after a branched transition. */
 	public BoundedFlowSet  getDelta(SootMethod method, boolean returnValue, FlowSet states) {
 		return getDelta(new BranchedTransitionKey(method, returnValue), states);
 	}
 	
-	// Returns a FlowUniverse containing all the state numbers.
+	/** Returns a FlowUniverse containing all the state numbers. */
 	public FlowUniverse<Integer> getFlowUniverse()
 	{
 		return new CollectionFlowUniverse<Integer>(nameToState.values());
@@ -233,9 +256,6 @@ public class ClassAutomaton {
 		else {
 			assert invocation instanceof Constructor;
 			
-//			for (java.lang.reflect.Constructor c : javaClass.getConstructors())
-//				System.out.println(c);
-			
 			java.lang.reflect.Constructor constructor = javaClass.getConstructor(args);
 			
 			// Declaring class name
@@ -263,10 +283,6 @@ public class ClassAutomaton {
 			}
 		}
 		buffer.append(")>");
-		
-//		for (SootMethod m : klass.getMethods()) {
-//			System.out.println(m);
-//		}
 		
 		return Scene.v().getMethod(buffer.toString().intern());
 	}

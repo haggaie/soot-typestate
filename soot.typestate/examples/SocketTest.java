@@ -1,27 +1,15 @@
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import org.junit.Test;
-
-/**
- * 
- */
-
-/**
- * @author haggai
- *
- */
 public class SocketTest {
 
 	/**
 	 * Test method for {@link java.net.Socket#Socket()}.
 	 * @throws IOException 
 	 */
-	@Test(expected = SocketException.class)
-	public void testSocket() throws IOException {
+	public void testSocketFail() throws IOException {
 		Socket s = new Socket();
 		s.getInputStream(); // ERROR
 	}
@@ -31,8 +19,7 @@ public class SocketTest {
 	 * @throws IOException 
 	 * @throws UnknownHostException 
 	 */
-	@Test
-	public void testSocketStringInt() throws UnknownHostException, IOException {
+	public void testSocketStringIntPass() throws UnknownHostException, IOException {
 		Socket s = new Socket("www.google.com", 80);
 		s.getInputStream();
 	}
@@ -41,15 +28,13 @@ public class SocketTest {
 	 * Test method for {@link java.net.Socket#connect(java.net.SocketAddress)}.
 	 * @throws IOException 
 	 */
-	@Test
-	public void testConnectSocketAddress() throws IOException {
+	public void testConnectSocketAddressPass() throws IOException {
 		Socket s = new Socket();
 		s.connect(new InetSocketAddress("www.google.com", 80));
 		s.getInputStream();
 	}
 	
-	@Test(expected = SocketException.class)
-	public void testClose() throws UnknownHostException, IOException	{
+	public void testCloseFail() throws UnknownHostException, IOException	{
 		Socket s = new Socket("www.google.com", 80);
 		s.close();
 		s.getInputStream(); // ERROR
@@ -58,9 +43,9 @@ public class SocketTest {
 	public static void main(String args[]) throws Exception
 	{
 		SocketTest t = new SocketTest();
-		t.testClose();
-		t.testConnectSocketAddress();
-		t.testSocket();
-		t.testSocketStringInt();
+		t.testCloseFail();
+		t.testConnectSocketAddressPass();
+		t.testSocketFail();
+		t.testSocketStringIntPass();
 	}
 }

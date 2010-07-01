@@ -1,25 +1,23 @@
 import java.io.FileInputStream;
 import java.io.IOException;
 
-
-
 public class FileInputStreamTest {
 	
-	public void test1() throws IOException
+	public void test1pass() throws IOException
 	{
 		FileInputStream file = new FileInputStream("the_file_name");
 		file.read();
 		file.close();
 	}
 	
-	public void test2() throws IOException
+	public void test2fail() throws IOException
 	{
 		FileInputStream file = new FileInputStream("the_file_name");
 		file.close();
 		file.read(); // ERROR
 	}
 	
-	public void test3() throws IOException
+	public void test3pass() throws IOException
 	{
 		FileInputStream file1 = new FileInputStream("the_file_name");
 		file1.read();
@@ -30,7 +28,7 @@ public class FileInputStreamTest {
 		file2.close();
 	}
 	
-	public void test4() throws IOException
+	public void test4pass() throws IOException
 	{
 		FileInputStream file = new FileInputStream("the_file_name");
 		file.read();
@@ -43,7 +41,7 @@ public class FileInputStreamTest {
 		file.close();
 	}
 	
-	public void test5() throws IOException
+	public void test5pass() throws IOException
 	{
 		FileInputStream file = new FileInputStream("the_file_name");
 		for(int c=0; c < 100; ++c)
@@ -52,7 +50,7 @@ public class FileInputStreamTest {
 		file.close();
 	}
 	
-	public void test6() throws IOException
+	public void test6fail() throws IOException
 	{
 		for(int c=0; c < 100; ++c)
 		{
@@ -65,12 +63,12 @@ public class FileInputStreamTest {
 	public static void main(String[] args) throws Exception
 	{
 		FileInputStreamTest test = new FileInputStreamTest();
-		test.test1();
-		test.test2();
-		test.test3();
-		test.test4();
-		test.test5();
-		test.test6();
+		test.test1pass();
+		test.test2fail();
+		test.test3pass();
+		test.test4pass();
+		test.test5pass();
+		test.test6fail();
 	}
 }
 
