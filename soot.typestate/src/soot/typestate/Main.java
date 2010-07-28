@@ -19,6 +19,7 @@ public class Main {
 		// Set soot options before starting
 		soot.options.Options.v().set_whole_program(true);
 //		soot.options.Options.v().setPhaseOption("cg","verbose:true");
+		soot.options.Options.v().set_keep_line_number(true);
 	}
 	
 
@@ -34,15 +35,15 @@ public class Main {
 		AutomataStandaloneSetup.doSetup();
 		ClassAutomaton automaton = ClassAutomaton.load(args[1]);		
 		
-		soot.options.Options.v().set_keep_line_number(true);
-		
+		// Load the class for analysis.
 		SootClass klass = Scene.v().loadClassAndSupport(args[0]);
 		Scene.v().loadNecessaryClasses();
-	
-		// Set the this class as the main class for Soot's whole-program analysis.
+		// Set the class (klass) as the main class for Soot's whole-program analysis.
 		klass.setApplicationClass();
 		Scene.v().setMainClass(klass);
 		Scene.v().setEntryPoints(EntryPoints.v().all());
+		
+		// Run points-to analysis.
 		System.out.println("Running Spark points-to analysis. This can take a while ...");
 		runSpark();
 		
@@ -51,7 +52,10 @@ public class Main {
 			System.out.println("Analysing method: " + method);
 			Body body = method.retrieveActiveBody();
 			UnitGraph graph = new BriefUnitGraph(body);
+
+			// Analyze the method. 
 			Typestate typestate = new Typestate(graph, automaton);
+			// Print analysis results
 			typestate.printResults();
 		}
 	}
