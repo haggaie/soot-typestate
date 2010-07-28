@@ -102,16 +102,20 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 			@Override
 			public void caseAssignStmt(AssignStmt stmt) {
 				checkObjectEscaping(stmt);
+				
 				if (stmt.getRightOp() instanceof InvokeExpr) {
 					InvokeExpr invokeExpr = (InvokeExpr) stmt.getRightOp();
 					handleInvokeExpr(invokeExpr);
 				}
+				
 				if (!(stmt.getLeftOp() instanceof Local))
 					return;
 				Local local = (Local) stmt.getLeftOp();
+				
 				if (ourType(local)) {
 					AllocationSiteSet allocSite = 
 						allocationSiteHandler.getDefAllocationSite(stmt);
+					
 					if (allocSite != null)
 						handleAllocation(allocSite);
 				}
@@ -121,28 +125,29 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 			}
 
 			/**
-			 * Check whether the given statement causes an object of our class
-			 * to escape the local scope, and whether its member fields are
-			 * accessed.
+			 * Identify cases where we lose track of Type state and set the
+			 * (sub)lattice of the relevant allocation site to TOP to preserve
+			 * soundness (i.e. we will report error).
 			 * 
-			 * If one of these conditions occur, the allocation site info of 
-			 * this object is set to top, to preserve soundness.
+			 * For example, if a data member of the class is accessed outside of
+			 * the class it is possible that the automaton no longer reflect the
+			 * true state of the class.
 			 * 
 			 * @param stmt The current assignment statement.
 			 */
 			private void checkObjectEscaping(AssignStmt stmt) {
 				Value r = stmt.getRightOp();
-				// Treat statements like (not local) = ourclass;
+				// Treat statements like "(not local) = our_class";
 				if (!(stmt.getLeftOp() instanceof Local))
 					setOutTop(r);
 				
-				// Treat statements like ? = ourclass.b
+				// Treat statements like "? = our_class.b"
 				if (r instanceof InstanceFieldRef) {
 					InstanceFieldRef right = (InstanceFieldRef) r;
 					setOutTop(right.getBase());
 				}
 				
-				// Treat statements like ourclass.? = ?
+				// Treat statements like "our_class.b = ?"
 				if (stmt.getLeftOp() instanceof InstanceFieldRef) {
 					InstanceFieldRef left = (InstanceFieldRef) stmt.getLeftOp();
 					setOutTop(left.getBase());
@@ -394,8 +399,12 @@ public class TypestateAnalysis extends ForwardBranchedFlowAnalysis<LatticeNode> 
 		for (LatticeNode latticeNode : fallOut) {
 			out.copy(latticeNode);
 		}
+		
 		for (LatticeNode latticeNode : branchOuts) {
-			(differentFallAndBranch.get(0) ? outBranch : out).copy(latticeNode);
+			if(differentFallAndBranch.get(0))
+				outBranch.copy(latticeNode);
+			else
+				out.copy(latticeNode);
 		}
 
 		if (Options.v().verbose()) {

@@ -14,7 +14,7 @@ public class Typestate {
 	final ClassAutomaton automaton;
 	
 	/**
-	 * Constructs the Typestate object
+	 * Constructs the Typestate object and run the analysis
 	 * @param graph A flow-graph of the method to analyze.
 	 * @param automaton An automaton to use with the analysis.
 	 */
@@ -23,6 +23,7 @@ public class Typestate {
 		this.graph = graph;
 		this.automaton = automaton;
 		
+		// Run the analysis
 		analysis = new TypestateAnalysis(graph, automaton);
 	}
 	
@@ -32,9 +33,10 @@ public class Typestate {
 	public void printResults()
 	{
 		boolean hasErrors = false;
+		
+		// For each unit in the graph we compare the input node and output node,
+		// we report an error if the output has an error and the input does not.
 		for (Unit unit : graph) {
-			// An error is printed if the current node didn't contain an error state in the lattice element
-			// before it, but does in its output lattice node.
 			LatticeNode beforeNode = analysis.getFlowBefore(unit);
 			LatticeNode afterNode = analysis.getFallFlowAfter(unit);
 			if (!beforeNode.hasState( automaton.getErrorState() ) && afterNode.hasState( automaton.getErrorState() )) {
@@ -42,6 +44,7 @@ public class Typestate {
 				hasErrors = true;
 			}
 		}
+		
 		if (!hasErrors)
 			System.out.println(" ** No errors.");
 	}
