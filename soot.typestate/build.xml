@@ -81,21 +81,21 @@
     </target>
     <target name="Main - FileInputStream">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
-            <jvmarg line="-Xmx512m"/>
+            <jvmarg line="-Xmx784m"/>
             <arg line="FileInputStreamTest examples/java.io.FileInputStream.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
     </target>
     <target name="Main - Socket">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
-            <jvmarg line="-Xmx512m"/>
+            <jvmarg line="-Xmx784m"/>
             <arg line="SocketTest examples/java.net.Socket.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
     </target>
     <target name="Main - Stack">
         <java classname="soot.typestate.Main" failonerror="true" fork="yes">
-            <jvmarg line="-Xmx512m"/>
+            <jvmarg line="-Xmx784m"/>
             <arg line="StackTest examples/java.util.Stack.automata"/>
             <classpath refid="soot.typestate.classpath"/>
         </java>
